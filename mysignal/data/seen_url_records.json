@@ -1,0 +1,453 @@
+{
+  "https://openai.com": {
+    "url": "https://openai.com",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/research/index",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/research/index",
+      "https://openai.com"
+    ],
+    "first_seen_at": "2026-06-24T09:28:12.599181+00:00"
+  },
+  "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api": {
+    "url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/research/index",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/research/index",
+      "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api"
+    ],
+    "first_seen_at": "2026-06-24T09:28:12.599181+00:00"
+  },
+  "https://openai.com/index/chatgpt-memory-dreaming": {
+    "url": "https://openai.com/index/chatgpt-memory-dreaming",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/research/index",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/research/index",
+      "https://openai.com/index/chatgpt-memory-dreaming"
+    ],
+    "first_seen_at": "2026-06-24T09:28:12.599181+00:00"
+  },
+  "https://openai.com/index/gpt-5-5-instant": {
+    "url": "https://openai.com/index/gpt-5-5-instant",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/research/index",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/research/index",
+      "https://openai.com/index/gpt-5-5-instant"
+    ],
+    "first_seen_at": "2026-06-24T09:28:12.599181+00:00"
+  },
+  "https://openai.com/index/gpt-5-5-instant-system-card": {
+    "url": "https://openai.com/index/gpt-5-5-instant-system-card",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/research/index",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/research/index",
+      "https://openai.com/index/gpt-5-5-instant-system-card"
+    ],
+    "first_seen_at": "2026-06-24T09:28:12.599181+00:00"
+  },
+  "https://openai.com/index/introducing-life-sci-bench": {
+    "url": "https://openai.com/index/introducing-life-sci-bench",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/research/index",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/research/index",
+      "https://openai.com/index/introducing-life-sci-bench"
+    ],
+    "first_seen_at": "2026-06-24T09:28:12.599181+00:00"
+  },
+  "https://openai.com/index/introducing-new-capabilities-to-gpt-rosalind": {
+    "url": "https://openai.com/index/introducing-new-capabilities-to-gpt-rosalind",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/research/index",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/research/index",
+      "https://openai.com/index/introducing-new-capabilities-to-gpt-rosalind"
+    ],
+    "first_seen_at": "2026-06-24T09:28:12.599181+00:00"
+  },
+  "https://openai.com/index/model-disproves-discrete-geometry-conjecture": {
+    "url": "https://openai.com/index/model-disproves-discrete-geometry-conjecture",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/research/index",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/research/index",
+      "https://openai.com/index/model-disproves-discrete-geometry-conjecture"
+    ],
+    "first_seen_at": "2026-06-24T09:28:12.599181+00:00"
+  },
+  "https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense": {
+    "url": "https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/research/index",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/research/index",
+      "https://openai.com/index/strengthening-societal-resilience-with-rosalind-biodefense"
+    ],
+    "first_seen_at": "2026-06-24T09:28:12.599181+00:00"
+  },
+  "https://openai.com/policies/cookie-policy": {
+    "url": "https://openai.com/policies/cookie-policy",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/research/index",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/research/index",
+      "https://openai.com/policies/cookie-policy"
+    ],
+    "first_seen_at": "2026-06-24T09:28:12.599181+00:00"
+  },
+  "https://openai.com/index/built-to-benefit-everyone-our-plan": {
+    "url": "https://openai.com/index/built-to-benefit-everyone-our-plan",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/news/company-announcements",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/news/company-announcements",
+      "https://openai.com/index/built-to-benefit-everyone-our-plan"
+    ],
+    "first_seen_at": "2026-06-24T09:28:19.301941+00:00"
+  },
+  "https://openai.com/index/codex-for-every-role-tool-workflow": {
+    "url": "https://openai.com/index/codex-for-every-role-tool-workflow",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/news/company-announcements",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/news/company-announcements",
+      "https://openai.com/index/codex-for-every-role-tool-workflow"
+    ],
+    "first_seen_at": "2026-06-24T09:28:19.301941+00:00"
+  },
+  "https://openai.com/index/daybreak-securing-the-world": {
+    "url": "https://openai.com/index/daybreak-securing-the-world",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/news/company-announcements",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/news/company-announcements",
+      "https://openai.com/index/daybreak-securing-the-world"
+    ],
+    "first_seen_at": "2026-06-24T09:28:19.301941+00:00"
+  },
+  "https://openai.com/index/dell-codex-enterprise-partnership": {
+    "url": "https://openai.com/index/dell-codex-enterprise-partnership",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/news/company-announcements",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/news/company-announcements",
+      "https://openai.com/index/dell-codex-enterprise-partnership"
+    ],
+    "first_seen_at": "2026-06-24T09:28:19.301941+00:00"
+  },
+  "https://openai.com/index/economic-research-exchange": {
+    "url": "https://openai.com/index/economic-research-exchange",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/news/company-announcements",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/news/company-announcements",
+      "https://openai.com/index/economic-research-exchange"
+    ],
+    "first_seen_at": "2026-06-24T09:28:19.301941+00:00"
+  },
+  "https://openai.com/index/improving-health-intelligence-in-chatgpt": {
+    "url": "https://openai.com/index/improving-health-intelligence-in-chatgpt",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/news/company-announcements",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/news/company-announcements",
+      "https://openai.com/index/improving-health-intelligence-in-chatgpt"
+    ],
+    "first_seen_at": "2026-06-24T09:28:19.301941+00:00"
+  },
+  "https://openai.com/index/openai-campus-network-student-club-interest-form": {
+    "url": "https://openai.com/index/openai-campus-network-student-club-interest-form",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/news/company-announcements",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/news/company-announcements",
+      "https://openai.com/index/openai-campus-network-student-club-interest-form"
+    ],
+    "first_seen_at": "2026-06-24T09:28:19.301941+00:00"
+  },
+  "https://openai.com/index/openai-on-oracle-cloud": {
+    "url": "https://openai.com/index/openai-on-oracle-cloud",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/news/company-announcements",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/news/company-announcements",
+      "https://openai.com/index/openai-on-oracle-cloud"
+    ],
+    "first_seen_at": "2026-06-24T09:28:19.301941+00:00"
+  },
+  "https://openai.com/index/openai-submits-confidential-s-1": {
+    "url": "https://openai.com/index/openai-submits-confidential-s-1",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/news/company-announcements",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/news/company-announcements",
+      "https://openai.com/index/openai-submits-confidential-s-1"
+    ],
+    "first_seen_at": "2026-06-24T09:28:19.301941+00:00"
+  },
+  "https://openai.com/index/openai-to-acquire-ona": {
+    "url": "https://openai.com/index/openai-to-acquire-ona",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/news/company-announcements",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/news/company-announcements",
+      "https://openai.com/index/openai-to-acquire-ona"
+    ],
+    "first_seen_at": "2026-06-24T09:28:19.301941+00:00"
+  },
+  "https://openai.com/index/our-response-to-the-tanstack-npm-supply-chain-attack": {
+    "url": "https://openai.com/index/our-response-to-the-tanstack-npm-supply-chain-attack",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/news/company-announcements",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/news/company-announcements",
+      "https://openai.com/index/our-response-to-the-tanstack-npm-supply-chain-attack"
+    ],
+    "first_seen_at": "2026-06-24T09:28:19.301941+00:00"
+  },
+  "https://openai.com/index/samsung-electronics-chatgpt-codex-deployment": {
+    "url": "https://openai.com/index/samsung-electronics-chatgpt-codex-deployment",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/news/company-announcements",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/news/company-announcements",
+      "https://openai.com/index/samsung-electronics-chatgpt-codex-deployment"
+    ],
+    "first_seen_at": "2026-06-24T09:28:19.301941+00:00"
+  },
+  "https://www.tatamotors.com": {
+    "url": "https://www.tatamotors.com",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.736630+00:00"
+  },
+  "https://www.tatamotors.com/careers/early-careers": {
+    "url": "https://www.tatamotors.com/careers/early-careers",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/careers/early-careers"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.736630+00:00"
+  },
+  "https://www.tatamotors.com/careers/kaushalya-earn-learn-program": {
+    "url": "https://www.tatamotors.com/careers/kaushalya-earn-learn-program",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/careers/kaushalya-earn-learn-program"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.736630+00:00"
+  },
+  "https://www.tatamotors.com/careers/life-at-tml": {
+    "url": "https://www.tatamotors.com/careers/life-at-tml",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/careers/life-at-tml"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.736630+00:00"
+  },
+  "https://www.tatamotors.com/careers/openings": {
+    "url": "https://www.tatamotors.com/careers/openings",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/careers/openings"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.736630+00:00"
+  },
+  "https://www.tatamotors.com/contact-us": {
+    "url": "https://www.tatamotors.com/contact-us",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/contact-us"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.736630+00:00"
+  },
+  "https://www.tatamotors.com/corporate-responsibility": {
+    "url": "https://www.tatamotors.com/corporate-responsibility",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/corporate-responsibility"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.736630+00:00"
+  },
+  "https://www.tatamotors.com/corporate-responsibility/governance": {
+    "url": "https://www.tatamotors.com/corporate-responsibility/governance",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/corporate-responsibility/governance"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.737633+00:00"
+  },
+  "https://www.tatamotors.com/corporate-responsibility/planet-resilience": {
+    "url": "https://www.tatamotors.com/corporate-responsibility/planet-resilience",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/corporate-responsibility/planet-resilience"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.737633+00:00"
+  },
+  "https://www.tatamotors.com/corporate-responsibility/working-with-communities": {
+    "url": "https://www.tatamotors.com/corporate-responsibility/working-with-communities",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/corporate-responsibility/working-with-communities"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.737633+00:00"
+  },
+  "https://www.tatamotors.com/csr-archive": {
+    "url": "https://www.tatamotors.com/csr-archive",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/csr-archive"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.737633+00:00"
+  },
+  "https://www.tatamotors.com/future-of-mobility": {
+    "url": "https://www.tatamotors.com/future-of-mobility",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/future-of-mobility"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.737633+00:00"
+  },
+  "https://www.tatamotors.com/legal-disclaimer": {
+    "url": "https://www.tatamotors.com/legal-disclaimer",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/legal-disclaimer"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.737633+00:00"
+  },
+  "https://www.tatamotors.com/open-source-license-disclosure": {
+    "url": "https://www.tatamotors.com/open-source-license-disclosure",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/open-source-license-disclosure"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.737633+00:00"
+  },
+  "https://www.tatamotors.com/organisation": {
+    "url": "https://www.tatamotors.com/organisation",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/organisation"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.737633+00:00"
+  },
+  "https://www.tatamotors.com/organisation/our-history": {
+    "url": "https://www.tatamotors.com/organisation/our-history",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/organisation/our-history"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.737633+00:00"
+  },
+  "https://www.tatamotors.com/saksham-early-career-program-2026": {
+    "url": "https://www.tatamotors.com/saksham-early-career-program-2026",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/saksham-early-career-program-2026"
+    ],
+    "first_seen_at": "2026-06-24T09:28:25.737633+00:00"
+  },
+  "https://openai.com/index/ai-chemist-improves-reaction": {
+    "url": "https://openai.com/index/ai-chemist-improves-reaction",
+    "root_url": "https://openai.com",
+    "parent_url": "https://openai.com/research/index",
+    "trace": [
+      "https://openai.com",
+      "https://openai.com/research/index",
+      "https://openai.com/index/ai-chemist-improves-reaction"
+    ],
+    "first_seen_at": "2026-06-24T09:29:21.350972+00:00"
+  },
+  "https://www.tatamotors.com/careers/faqs": {
+    "url": "https://www.tatamotors.com/careers/faqs",
+    "root_url": "https://www.tatamotors.com",
+    "parent_url": "https://www.tatamotors.com/careers/early-careers",
+    "trace": [
+      "https://www.tatamotors.com",
+      "https://www.tatamotors.com/careers/early-careers",
+      "https://www.tatamotors.com/careers/faqs"
+    ],
+    "first_seen_at": "2026-06-24T09:29:34.665803+00:00"
+  }
+}

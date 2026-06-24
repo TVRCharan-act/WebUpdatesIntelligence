@@ -12,6 +12,10 @@ from mysignal.filters.content_filter import (
     is_content_candidate,
 )
 
+from mysignal.notifications.smtp_email import (
+    send_article_update_email,
+)
+
 from mysignal.workflows.inventory import (
     build_inventory_for_hubs,
     find_new_inventory_urls,
@@ -158,6 +162,24 @@ def main():
                 print(
                     article.summary
                 )
+
+                try:
+                    email_sent = send_article_update_email(
+                        article,
+                    )
+
+                    if email_sent:
+                        print(
+                            "EMAIL SENT"
+                        )
+
+                except Exception as email_error:
+                    print(
+                        f"FAILED TO EMAIL: {url}"
+                    )
+                    print(
+                        email_error
+                    )
 
             except Exception as e:
 

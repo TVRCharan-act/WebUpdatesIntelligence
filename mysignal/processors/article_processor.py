@@ -110,6 +110,7 @@ def summarize_url(
         summarize_article(
             article.title,
             article.markdown,
+            source_url=article.url,
         )
     )
 
