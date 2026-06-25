@@ -450,36 +450,31 @@ async def extract_page_links_async(
         same_company_only=same_company_only,
     )
 
-    if not links:
-        for link in (result.links or {}).get(
-            "internal",
-            [],
+    for link in (result.links or {}).get("internal", []):
+        normalized_url = normalize_discovered_href(
+            link.get("href", ""),
+            normalized_page_url,
+        )
+
+        if not normalized_url:
+            continue
+
+        if normalized_url in links:
+            continue
+
+        if same_company_only and not is_same_company_url(
+            normalized_url,
+            company_domain(normalized_page_url),
         ):
-            normalized_url = normalize_discovered_href(
-                link.get(
-                    "href",
-                    "",
-                ),
-                normalized_page_url,
-            )
+            continue
 
-            if not normalized_url:
-                continue
-
-            links[
-                normalized_url
-            ] = DiscoveredLink(
-                url=normalized_url,
-                source_page=normalized_page_url,
-                region="main",
-                label=link.get(
-                    "text",
-                )
-                or link.get(
-                    "title",
-                ),
-                source="link",
-            )
+        links[normalized_url] = DiscoveredLink(
+            url=normalized_url,
+            source_page=normalized_page_url,
+            region="main",
+            label=link.get("text") or link.get("title"),
+            source="crawl4ai",
+        )
 
     links.update(
         extract_markdown_links(

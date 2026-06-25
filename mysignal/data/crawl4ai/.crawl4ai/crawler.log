@@ -1625,3 +1625,19 @@ Code context:
 [2026-06-25 11:20:55.598] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 2.96s 
 [2026-06-25 11:20:55.716] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.11s 
 [2026-06-25 11:20:55.754] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 3.11s 
+[2026-06-25 11:36:05.934] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:36:10.719] [FETCH]... ↓ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.72s 
+[2026-06-25 11:36:10.841] [SCRAPE].. ◆ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 0.12s 
+[2026-06-25 11:36:10.890] [COMPLETE] ● https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.89s 
+[2026-06-25 11:36:12.972] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:36:15.627] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.59s 
+[2026-06-25 11:36:15.689] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.06s 
+[2026-06-25 11:36:15.732] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.70s 
+[2026-06-25 11:36:17.605] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:36:20.950] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 3.29s 
+[2026-06-25 11:36:21.085] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.13s 
+[2026-06-25 11:36:21.133] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 3.47s 
+[2026-06-25 12:01:55.276] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 12:01:57.706] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.38s 
+[2026-06-25 12:01:57.887] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.18s 
+[2026-06-25 12:01:57.922] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.59s 

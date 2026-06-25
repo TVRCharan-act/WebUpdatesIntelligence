@@ -164,17 +164,6 @@
     ],
     "first_seen_at": "2026-06-25T05:47:30.496840+00:00"
   },
-  "https://news.alcoa.com/press-releases/press-release-details/2026/Alcoa-Schedules-Second-Quarter-2026-Earnings-Release-and-Conference-Call/default.aspx": {
-    "url": "https://news.alcoa.com/press-releases/press-release-details/2026/Alcoa-Schedules-Second-Quarter-2026-Earnings-Release-and-Conference-Call/default.aspx",
-    "root_url": "https://news.alcoa.com",
-    "parent_url": "https://news.alcoa.com/press-releases/default.aspx",
-    "trace": [
-      "https://news.alcoa.com",
-      "https://news.alcoa.com/press-releases/default.aspx",
-      "https://news.alcoa.com/press-releases/press-release-details/2026/Alcoa-Schedules-Second-Quarter-2026-Earnings-Release-and-Conference-Call/default.aspx"
-    ],
-    "first_seen_at": "2026-06-25T05:47:30.496840+00:00"
-  },
   "https://news.alcoa.com/press-releases/press-release-details/2026/Alcoa-to-Participate-in-BMO-2026-Global-Metals-Mining--Critical-Minerals-Conference/default.aspx": {
     "url": "https://news.alcoa.com/press-releases/press-release-details/2026/Alcoa-to-Participate-in-BMO-2026-Global-Metals-Mining--Critical-Minerals-Conference/default.aspx",
     "root_url": "https://news.alcoa.com",
@@ -1769,5 +1758,16 @@
       "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api"
     ],
     "first_seen_at": "2026-06-25T05:50:51.257156+00:00"
+  },
+  "https://news.alcoa.com/press-releases/press-release-details/2026/Alcoa-Schedules-Second-Quarter-2026-Earnings-Release-and-Conference-Call/default.aspx": {
+    "url": "https://news.alcoa.com/press-releases/press-release-details/2026/Alcoa-Schedules-Second-Quarter-2026-Earnings-Release-and-Conference-Call/default.aspx",
+    "root_url": "https://news.alcoa.com",
+    "parent_url": "https://news.alcoa.com/press-releases/default.aspx",
+    "trace": [
+      "https://news.alcoa.com",
+      "https://news.alcoa.com/press-releases/default.aspx",
+      "https://news.alcoa.com/press-releases/press-release-details/2026/Alcoa-Schedules-Second-Quarter-2026-Earnings-Release-and-Conference-Call/default.aspx"
+    ],
+    "first_seen_at": "2026-06-25T06:06:11.628453+00:00"
   }
 }
