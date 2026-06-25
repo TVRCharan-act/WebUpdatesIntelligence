@@ -1,4 +1,5 @@
 import json
+from dataclasses import dataclass
 from pathlib import Path
 
 
@@ -37,6 +38,182 @@ SEEN_URL_RECORDS_FILE = (
     DATA_DIR
     / "seen_url_records.json"
 )
+
+
+@dataclass(frozen=True)
+class TrackedRecursiveRoot:
+    url: str
+    recipients: list[str]
+    strategy: str = "parent"
+
+
+def _split_recipients(
+    recipients,
+) -> list[str]:
+    if recipients is None:
+        return []
+
+    if isinstance(
+        recipients,
+        str,
+    ):
+        values = recipients.split(
+            ",",
+        )
+    else:
+        values = recipients
+
+    return [
+        str(
+            recipient,
+        ).strip()
+        for recipient in values
+        if str(
+            recipient,
+        ).strip()
+    ]
+
+
+def _target_from_entry(
+    entry,
+) -> TrackedRecursiveRoot | None:
+    if isinstance(
+        entry,
+        str,
+    ):
+        url = entry.strip()
+        recipients = []
+        strategy = "parent"
+    elif isinstance(
+        entry,
+        dict,
+    ):
+        url = str(
+            entry.get(
+                "url",
+            )
+            or entry.get(
+                "root",
+            )
+            or entry.get(
+                "parent_url",
+            )
+            or ""
+        ).strip()
+        recipients = _split_recipients(
+            entry.get(
+                "recipients",
+            )
+            or entry.get(
+                "emails",
+            )
+            or entry.get(
+                "email_recipients",
+            )
+        )
+        strategy = str(
+            entry.get(
+                "strategy",
+                "parent",
+            )
+        ).strip().lower()
+    else:
+        return None
+
+    if not url:
+        return None
+
+    return TrackedRecursiveRoot(
+        url=url,
+        recipients=recipients,
+        strategy=strategy or "parent",
+    )
+
+
+def _load_tracked_recursive_data():
+    if not TRACKED_RECURSIVE_ROOTS_FILE.exists():
+        return []
+
+    with open(
+        TRACKED_RECURSIVE_ROOTS_FILE,
+        "r",
+        encoding="utf-8",
+    ) as f:
+
+        return json.load(
+            f
+        )
+
+
+def load_tracked_recursive_targets() -> list[TrackedRecursiveRoot]:
+    data = _load_tracked_recursive_data()
+
+    if isinstance(
+        data,
+        dict,
+    ):
+        if "targets" in data:
+            entries = data[
+                "targets"
+            ]
+        else:
+            entries = [
+                {
+                    "url": url,
+                    "recipients": recipients,
+                }
+                for url, recipients in data.items()
+            ]
+    else:
+        entries = data
+
+    targets = []
+    seen_urls = set()
+
+    for entry in entries:
+        target = _target_from_entry(
+            entry,
+        )
+
+        if target is None:
+            continue
+
+        if target.url in seen_urls:
+            continue
+
+        targets.append(
+            target,
+        )
+        seen_urls.add(
+            target.url,
+        )
+
+    return targets
+
+
+def save_tracked_recursive_targets(
+    targets: list[TrackedRecursiveRoot],
+):
+    serialized_targets = [
+        {
+            "url": target.url,
+            "strategy": target.strategy,
+            "recipients": target.recipients,
+        }
+        for target in targets
+    ]
+
+    with open(
+        TRACKED_RECURSIVE_ROOTS_FILE,
+        "w",
+        encoding="utf-8",
+    ) as f:
+
+        json.dump(
+            serialized_targets,
+            f,
+            indent=2,
+        )
 
 def load_inventory():
 
@@ -97,35 +274,35 @@ def save_tracked_hubs(
 
 
 def load_tracked_recursive_roots():
-
-    if not TRACKED_RECURSIVE_ROOTS_FILE.exists():
-        return []
-
-    with open(
-        TRACKED_RECURSIVE_ROOTS_FILE,
-        "r",
-        encoding="utf-8",
-    ) as f:
-
-        return json.load(
-            f
-        )
+    return [
+        target.url
+        for target in load_tracked_recursive_targets()
+        if target.strategy == "parent"
+    ]
 
 
 def save_tracked_recursive_roots(
     roots,
 ):
-    with open(
-        TRACKED_RECURSIVE_ROOTS_FILE,
-        "w",
-        encoding="utf-8",
-    ) as f:
-
-        json.dump(
-            roots,
-            f,
-            indent=2,
+    targets = [
+        root
+        if isinstance(
+            root,
+            TrackedRecursiveRoot,
         )
+        else TrackedRecursiveRoot(
+            url=str(
+                root,
+            ),
+            recipients=[],
+            strategy="parent",
+        )
+        for root in roots
+    ]
+
+    save_tracked_recursive_targets(
+        targets,
+    )
 def load_global_urls():
 
     if not GLOBAL_URLS_FILE.exists():

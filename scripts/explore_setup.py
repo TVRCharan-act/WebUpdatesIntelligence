@@ -25,8 +25,14 @@ from mysignal.discovery.page_links import (
     normalize_page_url,
 )
 from mysignal.monitoring.inventory_store import (
-    load_tracked_recursive_roots,
-    save_tracked_recursive_roots,
+    TrackedRecursiveRoot,
+    load_tracked_recursive_targets,
+    save_tracked_recursive_targets,
+)
+from mysignal.workflows.feed_monitor import (
+    baseline_seen_urls_from_feeds,
+    detect_feed_url,
+    normalize_feed_url,
 )
 
 
@@ -198,10 +204,10 @@ def choose_link(
 
 
 def print_tracked_roots() -> None:
-    tracked_roots = load_tracked_recursive_roots()
+    tracked_roots = load_tracked_recursive_targets()
 
     print()
-    print("TRACKED Parent ROOTS")
+    print("TRACKED SOURCES")
     print("=" * 60)
 
     if not tracked_roots:
@@ -214,21 +220,53 @@ def print_tracked_roots() -> None:
         tracked_roots,
         start=1,
     ):
-        print(
-            f"{index}. {root}",
+        recipients = (
+            ", ".join(
+                root.recipients,
+            )
+            if root.recipients
+            else "default SMTP recipients"
         )
+        print(
+            f"{index}. [{root.strategy}] {root.url} -> {recipients}",
+        )
+
+
+def split_recipients(
+    value: str,
+) -> list[str]:
+    return [
+        recipient.strip()
+        for recipient in value.split(
+            ",",
+        )
+        if recipient.strip()
+    ]
 
 
 def track_root(
     selected_url: str,
 ) -> None:
-    tracked_roots = load_tracked_recursive_roots()
+    tracked_roots = load_tracked_recursive_targets()
+    existing_urls = [
+        root.url
+        for root in tracked_roots
+    ]
 
-    if selected_url not in tracked_roots:
-        tracked_roots.append(
-            selected_url,
+    if selected_url not in existing_urls:
+        recipients = split_recipients(
+            input(
+                "Alert recipients for this URL (comma separated, blank for default SMTP recipients): ",
+            )
         )
-        save_tracked_recursive_roots(
+        tracked_roots.append(
+            TrackedRecursiveRoot(
+                url=selected_url,
+                recipients=recipients,
+                strategy="parent",
+            )
+        )
+        save_tracked_recursive_targets(
             tracked_roots,
         )
         print(
@@ -241,12 +279,62 @@ def track_root(
     )
 
 
+def track_feed_source(
+    feed_url: str,
+    feed_kind: str,
+) -> None:
+    tracked_sources = load_tracked_recursive_targets()
+    existing_urls = [
+        root.url
+        for root in tracked_sources
+    ]
+
+    if feed_url in existing_urls:
+        print(
+            f"Already tracking feed: {feed_url}",
+        )
+        return
+
+    recipients = split_recipients(
+        input(
+            "Alert recipients for this feed (comma separated, blank for default SMTP recipients): ",
+        )
+    )
+    tracked_sources.append(
+        TrackedRecursiveRoot(
+            url=feed_url,
+            recipients=recipients,
+            strategy="feed",
+        )
+    )
+    save_tracked_recursive_targets(
+        tracked_sources,
+    )
+
+    added = baseline_seen_urls_from_feeds(
+        [
+            feed_url,
+        ]
+    )
+
+    print()
+    print(
+        f"Detected {feed_kind.upper()} feed.",
+    )
+    print(
+        f"Tracking feed: {feed_url}",
+    )
+    print(
+        f"Baseline entries marked as seen: {len(added)}",
+    )
+
+
 def remove_tracked_root() -> None:
-    tracked_roots = load_tracked_recursive_roots()
+    tracked_roots = load_tracked_recursive_targets()
 
     if not tracked_roots:
         print(
-            "No tracked roots to remove.",
+            "No tracked sources to remove.",
         )
         return
 
@@ -270,23 +358,51 @@ def remove_tracked_root() -> None:
         ):
             remove_url = tracked_roots[
                 index
-            ]
+            ].url
     else:
-        remove_url = normalize_page_url(
+        normalized_value = normalize_page_url(
+            value,
+        )
+        normalized_feed_value = normalize_feed_url(
             value,
         )
 
-    if not remove_url or remove_url not in tracked_roots:
+        for root in tracked_roots:
+            normalized_root = (
+                normalize_feed_url(
+                    root.url,
+                )
+                if root.strategy == "feed"
+                else normalize_page_url(
+                    root.url,
+                )
+            )
+
+            if normalized_root in {
+                normalized_value,
+                normalized_feed_value,
+            }:
+                remove_url = root.url
+                break
+
+    remaining_roots = [
+        root
+        for root in tracked_roots
+        if root.url != remove_url
+    ]
+
+    if not remove_url or len(
+        remaining_roots,
+    ) == len(
+        tracked_roots,
+    ):
         print(
             "Tracked root not found.",
         )
         return
 
-    tracked_roots.remove(
-        remove_url,
-    )
-    save_tracked_recursive_roots(
-        tracked_roots,
+    save_tracked_recursive_targets(
+        remaining_roots,
     )
     print(
         f"Removed: {remove_url}",
@@ -313,6 +429,24 @@ def selected_url_menu(
 
 def main() -> None:
     args = parse_args()
+    feed_kind = None
+
+    try:
+        feed_kind = detect_feed_url(
+            args.website,
+        )
+    except Exception:
+        feed_kind = None
+
+    if feed_kind:
+        track_feed_source(
+            normalize_feed_url(
+                args.website,
+            ),
+            feed_kind,
+        )
+        return
+
     current_url = normalize_page_url(
         args.website,
     )

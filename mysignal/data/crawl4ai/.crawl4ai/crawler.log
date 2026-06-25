@@ -1209,3 +1209,343 @@ Code context:
 [2026-06-24 14:59:34.233] [FETCH]... ↓ https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 3.03s 
 [2026-06-24 14:59:34.286] [SCRAPE].. ◆ https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 0.05s 
 [2026-06-24 14:59:34.312] [COMPLETE] ● https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 3.11s 
+[2026-06-24 15:19:12.554] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:19:14.901] [FETCH]... ↓ https://www.microsoft.com/en-in                                                                      | ✓ | ⏱: 2.30s 
+[2026-06-24 15:19:15.046] [SCRAPE].. ◆ https://www.microsoft.com/en-in                                                                      | ✓ | ⏱: 0.14s 
+[2026-06-24 15:19:15.082] [COMPLETE] ● https://www.microsoft.com/en-in                                                                      | ✓ | ⏱: 2.49s 
+[2026-06-24 15:19:48.599] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:19:52.394] [FETCH]... ↓ https://about.ads.microsoft.com/en                                                                   | ✓ | ⏱: 3.74s 
+[2026-06-24 15:19:52.538] [SCRAPE].. ◆ https://about.ads.microsoft.com/en                                                                   | ✓ | ⏱: 0.14s 
+[2026-06-24 15:19:52.564] [COMPLETE] ● https://about.ads.microsoft.com/en                                                                   | ✓ | ⏱: 3.92s 
+[2026-06-24 15:20:07.803] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:20:11.588] [FETCH]... ↓ https://about.ads.microsoft.com/en                                                                   | ✓ | ⏱: 3.74s 
+[2026-06-24 15:20:11.730] [SCRAPE].. ◆ https://about.ads.microsoft.com/en                                                                   | ✓ | ⏱: 0.14s 
+[2026-06-24 15:20:11.757] [COMPLETE] ● https://about.ads.microsoft.com/en                                                                   | ✓ | ⏱: 3.91s 
+[2026-06-24 15:39:14.530] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:39:18.111] [FETCH]... ↓ https://www.alcoa.com/global/en/home                                                                 | ✓ | ⏱: 3.52s 
+[2026-06-24 15:39:18.205] [SCRAPE].. ◆ https://www.alcoa.com/global/en/home                                                                 | ✓ | ⏱: 0.09s 
+[2026-06-24 15:39:18.246] [COMPLETE] ● https://www.alcoa.com/global/en/home                                                                 | ✓ | ⏱: 3.66s 
+[2026-06-24 15:40:03.462] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:40:06.336] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.81s 
+[2026-06-24 15:40:06.410] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.07s 
+[2026-06-24 15:40:06.452] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.93s 
+[2026-06-24 15:40:09.976] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:40:12.996] [FETCH]... ↓ https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 2.97s 
+[2026-06-24 15:40:13.094] [SCRAPE].. ◆ https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 0.10s 
+[2026-06-24 15:40:13.144] [COMPLETE] ● https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 3.12s 
+[2026-06-24 15:40:16.797] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:40:20.163] [FETCH]... ↓ https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 3.32s 
+[2026-06-24 15:40:20.214] [SCRAPE].. ◆ https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 0.05s 
+[2026-06-24 15:40:20.240] [COMPLETE] ● https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 3.40s 
+[2026-06-24 15:40:23.649] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:40:32.883] [FETCH]... ↓ https://news.alcoa.com                                                                               | ✓ | ⏱: 9.19s 
+[2026-06-24 15:40:32.974] [SCRAPE].. ◆ https://news.alcoa.com                                                                               | ✓ | ⏱: 0.09s 
+[2026-06-24 15:40:33.014] [COMPLETE] ● https://news.alcoa.com                                                                               | ✓ | ⏱: 9.32s 
+[2026-06-24 15:55:53.457] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:55:55.015] [FETCH]... ↓ https://www.jindalsteel.in                                                                           | ✓ | ⏱: 1.51s 
+[2026-06-24 15:55:55.063] [SCRAPE].. ◆ https://www.jindalsteel.in                                                                           | ✓ | ⏱: 0.04s 
+[2026-06-24 15:55:55.098] [COMPLETE] ● https://www.jindalsteel.in                                                                           | ✓ | ⏱: 1.59s 
+[2026-06-24 15:56:49.310] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:56:50.759] [FETCH]... ↓ https://www.jindalsteel.in/power                                                                     | ✓ | ⏱: 1.40s 
+[2026-06-24 15:56:50.809] [SCRAPE].. ◆ https://www.jindalsteel.in/power                                                                     | ✓ | ⏱: 0.04s 
+[2026-06-24 15:56:50.849] [COMPLETE] ● https://www.jindalsteel.in/power                                                                     | ✓ | ⏱: 1.49s 
+[2026-06-24 15:57:10.064] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:57:11.303] [FETCH]... ↓ https://www.jindalsteel.in                                                                           | ✓ | ⏱: 1.19s 
+[2026-06-24 15:57:11.351] [SCRAPE].. ◆ https://www.jindalsteel.in                                                                           | ✓ | ⏱: 0.04s 
+[2026-06-24 15:57:11.379] [COMPLETE] ● https://www.jindalsteel.in                                                                           | ✓ | ⏱: 1.27s 
+[2026-06-24 15:57:33.611] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:57:34.987] [FETCH]... ↓ https://www.jindalsteel.in/people                                                                    | ✓ | ⏱: 1.33s 
+[2026-06-24 15:57:35.042] [SCRAPE].. ◆ https://www.jindalsteel.in/people                                                                    | ✓ | ⏱: 0.05s 
+[2026-06-24 15:57:35.103] [COMPLETE] ● https://www.jindalsteel.in/people                                                                    | ✓ | ⏱: 1.45s 
+[2026-06-24 15:58:03.087] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:58:05.750] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.62s 
+[2026-06-24 15:58:05.816] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.06s 
+[2026-06-24 15:58:05.858] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.73s 
+[2026-06-24 15:58:09.462] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:58:12.693] [FETCH]... ↓ https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 3.14s 
+[2026-06-24 15:58:12.909] [SCRAPE].. ◆ https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 0.21s 
+[2026-06-24 15:58:13.024] [COMPLETE] ● https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 3.47s 
+[2026-06-24 15:58:17.173] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:58:20.046] [FETCH]... ↓ https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 2.83s 
+[2026-06-24 15:58:20.097] [SCRAPE].. ◆ https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 0.05s 
+[2026-06-24 15:58:20.122] [COMPLETE] ● https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 2.90s 
+[2026-06-24 15:58:23.565] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:58:32.649] [FETCH]... ↓ https://news.alcoa.com                                                                               | ✓ | ⏱: 9.03s 
+[2026-06-24 15:58:32.737] [SCRAPE].. ◆ https://news.alcoa.com                                                                               | ✓ | ⏱: 0.09s 
+[2026-06-24 15:58:32.776] [COMPLETE] ● https://news.alcoa.com                                                                               | ✓ | ⏱: 9.16s 
+[2026-06-24 15:58:36.311] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 15:58:37.831] [FETCH]... ↓ https://www.jindalsteel.in/career-opportunity                                                        | ✓ | ⏱: 1.47s 
+[2026-06-24 15:58:37.861] [SCRAPE].. ◆ https://www.jindalsteel.in/career-opportunity                                                        | ✓ | ⏱: 0.03s 
+[2026-06-24 15:58:37.884] [COMPLETE] ● https://www.jindalsteel.in/career-opportunity                                                        | ✓ | ⏱: 1.53s 
+[2026-06-24 16:02:59.561] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 16:03:01.021] [FETCH]... ↓ https://www.hydro.com/en/en                                                                          | ✓ | ⏱: 1.40s 
+[2026-06-24 16:03:01.285] [SCRAPE].. ◆ https://www.hydro.com/en/en                                                                          | ✓ | ⏱: 0.26s 
+[2026-06-24 16:03:01.318] [COMPLETE] ● https://www.hydro.com/en/en                                                                          | ✓ | ⏱: 1.70s 
+[2026-06-24 16:03:57.234] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 16:03:59.985] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.69s 
+[2026-06-24 16:04:00.050] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.06s 
+[2026-06-24 16:04:00.093] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.80s 
+[2026-06-24 16:04:03.585] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 16:04:06.394] [FETCH]... ↓ https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 2.76s 
+[2026-06-24 16:04:06.486] [SCRAPE].. ◆ https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 0.09s 
+[2026-06-24 16:04:06.536] [COMPLETE] ● https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 2.90s 
+[2026-06-24 16:04:10.218] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 16:04:13.241] [FETCH]... ↓ https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 2.97s 
+[2026-06-24 16:04:13.293] [SCRAPE].. ◆ https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 0.05s 
+[2026-06-24 16:04:13.319] [COMPLETE] ● https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 3.05s 
+[2026-06-24 16:04:16.696] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 16:04:24.229] [FETCH]... ↓ https://news.alcoa.com                                                                               | ✓ | ⏱: 7.48s 
+[2026-06-24 16:04:24.318] [SCRAPE].. ◆ https://news.alcoa.com                                                                               | ✓ | ⏱: 0.09s 
+[2026-06-24 16:04:24.357] [COMPLETE] ● https://news.alcoa.com                                                                               | ✓ | ⏱: 7.61s 
+[2026-06-24 16:04:27.896] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 16:04:29.210] [FETCH]... ↓ https://www.jindalsteel.in/career-opportunity                                                        | ✓ | ⏱: 1.26s 
+[2026-06-24 16:04:29.244] [SCRAPE].. ◆ https://www.jindalsteel.in/career-opportunity                                                        | ✓ | ⏱: 0.03s 
+[2026-06-24 16:04:29.265] [COMPLETE] ● https://www.jindalsteel.in/career-opportunity                                                        | ✓ | ⏱: 1.32s 
+[2026-06-24 16:04:32.587] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 16:04:35.043] [FETCH]... ↓ https://www.hydro.com/en/global/about-hydro/publications                                             | ✓ | ⏱: 2.41s 
+[2026-06-24 16:04:35.918] [SCRAPE].. ◆ https://www.hydro.com/en/global/about-hydro/publications                                             | ✓ | ⏱: 0.87s 
+[2026-06-24 16:04:35.961] [COMPLETE] ● https://www.hydro.com/en/global/about-hydro/publications                                             | ✓ | ⏱: 3.33s 
+[2026-06-24 16:05:12.398] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 16:05:14.991] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.54s 
+[2026-06-24 16:05:15.057] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.06s 
+[2026-06-24 16:05:15.102] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.65s 
+[2026-06-24 16:05:18.765] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 16:05:21.721] [FETCH]... ↓ https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 2.91s 
+[2026-06-24 16:05:21.816] [SCRAPE].. ◆ https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 0.09s 
+[2026-06-24 16:05:21.865] [COMPLETE] ● https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 3.06s 
+[2026-06-24 16:05:25.587] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 16:05:28.423] [FETCH]... ↓ https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 2.78s 
+[2026-06-24 16:05:28.473] [SCRAPE].. ◆ https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 0.05s 
+[2026-06-24 16:05:28.500] [COMPLETE] ● https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 2.86s 
+[2026-06-24 16:05:32.008] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 16:05:38.890] [FETCH]... ↓ https://news.alcoa.com                                                                               | ✓ | ⏱: 6.82s 
+[2026-06-24 16:05:38.976] [SCRAPE].. ◆ https://news.alcoa.com                                                                               | ✓ | ⏱: 0.08s 
+[2026-06-24 16:05:39.016] [COMPLETE] ● https://news.alcoa.com                                                                               | ✓ | ⏱: 6.95s 
+[2026-06-24 16:05:42.610] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 16:05:43.890] [FETCH]... ↓ https://www.jindalsteel.in/career-opportunity                                                        | ✓ | ⏱: 1.23s 
+[2026-06-24 16:05:43.924] [SCRAPE].. ◆ https://www.jindalsteel.in/career-opportunity                                                        | ✓ | ⏱: 0.03s 
+[2026-06-24 16:05:43.946] [COMPLETE] ● https://www.jindalsteel.in/career-opportunity                                                        | ✓ | ⏱: 1.28s 
+[2026-06-24 16:05:47.465] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 16:05:49.279] [FETCH]... ↓ https://www.hydro.com/en/global/about-hydro/publications                                             | ✓ | ⏱: 1.77s 
+[2026-06-24 16:05:50.146] [SCRAPE].. ◆ https://www.hydro.com/en/global/about-hydro/publications                                             | ✓ | ⏱: 0.86s 
+[2026-06-24 16:05:50.189] [COMPLETE] ● https://www.hydro.com/en/global/about-hydro/publications                                             | ✓ | ⏱: 2.68s 
+[2026-06-24 17:30:04.125] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:30:06.926] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.74s 
+[2026-06-24 17:30:07.034] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.10s 
+[2026-06-24 17:30:07.080] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.89s 
+[2026-06-24 17:30:10.767] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:30:13.715] [FETCH]... ↓ https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 2.89s 
+[2026-06-24 17:30:13.821] [SCRAPE].. ◆ https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 0.10s 
+[2026-06-24 17:30:13.872] [COMPLETE] ● https://openai.com/news/company-announcements                                                        | ✓ | ⏱: 3.04s 
+[2026-06-24 17:30:17.503] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:30:20.384] [FETCH]... ↓ https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 2.83s 
+[2026-06-24 17:30:20.434] [SCRAPE].. ◆ https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 0.05s 
+[2026-06-24 17:30:20.459] [COMPLETE] ● https://www.tatamotors.com/careers/early-careers                                                     | ✓ | ⏱: 2.90s 
+[2026-06-24 17:30:24.012] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:30:32.115] [FETCH]... ↓ https://news.alcoa.com                                                                               | ✓ | ⏱: 8.04s 
+[2026-06-24 17:30:32.206] [SCRAPE].. ◆ https://news.alcoa.com                                                                               | ✓ | ⏱: 0.09s 
+[2026-06-24 17:30:32.247] [COMPLETE] ● https://news.alcoa.com                                                                               | ✓ | ⏱: 8.18s 
+[2026-06-24 17:30:35.984] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:30:37.371] [FETCH]... ↓ https://www.jindalsteel.in/career-opportunity                                                        | ✓ | ⏱: 1.34s 
+[2026-06-24 17:30:37.401] [SCRAPE].. ◆ https://www.jindalsteel.in/career-opportunity                                                        | ✓ | ⏱: 0.03s 
+[2026-06-24 17:30:37.421] [COMPLETE] ● https://www.jindalsteel.in/career-opportunity                                                        | ✓ | ⏱: 1.39s 
+[2026-06-24 17:30:40.902] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:30:42.973] [FETCH]... ↓ https://www.hydro.com/en/global/about-hydro/publications                                             | ✓ | ⏱: 2.00s 
+[2026-06-24 17:30:43.821] [SCRAPE].. ◆ https://www.hydro.com/en/global/about-hydro/publications                                             | ✓ | ⏱: 0.84s 
+[2026-06-24 17:30:43.863] [COMPLETE] ● https://www.hydro.com/en/global/about-hydro/publications                                             | ✓ | ⏱: 2.90s 
+[2026-06-24 17:37:17.985] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:37:23.905] [FETCH]... ↓ https://edition.cnn.com                                                                              | ✓ | ⏱: 5.87s 
+[2026-06-24 17:37:24.951] [SCRAPE].. ◆ https://edition.cnn.com                                                                              | ✓ | ⏱: 1.04s 
+[2026-06-24 17:37:25.149] [COMPLETE] ● https://edition.cnn.com                                                                              | ✓ | ⏱: 7.12s 
+[2026-06-24 17:39:22.706] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:39:29.798] [FETCH]... ↓ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 7.05s 
+[2026-06-24 17:39:30.829] [SCRAPE].. ◆ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 1.03s 
+[2026-06-24 17:39:31.054] [COMPLETE] ● https://edition.cnn.com/world                                                                        | ✓ | ⏱: 8.30s 
+[2026-06-24 17:40:59.171] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:41:05.313] [FETCH]... ↓ https://edition.cnn.com                                                                              | ✓ | ⏱: 6.06s 
+[2026-06-24 17:41:06.218] [SCRAPE].. ◆ https://edition.cnn.com                                                                              | ✓ | ⏱: 0.90s 
+[2026-06-24 17:41:06.417] [COMPLETE] ● https://edition.cnn.com                                                                              | ✓ | ⏱: 7.16s 
+[2026-06-24 17:41:32.687] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:41:41.043] [FETCH]... ↓ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 8.30s 
+[2026-06-24 17:41:41.966] [SCRAPE].. ◆ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 0.92s 
+[2026-06-24 17:41:42.141] [COMPLETE] ● https://edition.cnn.com/world                                                                        | ✓ | ⏱: 9.40s 
+[2026-06-24 17:42:42.809] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:42:44.563] [FETCH]... ↓ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 1.70s 
+[2026-06-24 17:42:44.943] [SCRAPE].. ◆ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 0.38s 
+[2026-06-24 17:42:45.019] [COMPLETE] ● https://www.hindustantimes.com                                                                       | ✓ | ⏱: 2.16s 
+[2026-06-24 17:43:17.324] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:43:24.439] [FETCH]... ↓ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 7.06s 
+[2026-06-24 17:43:25.426] [SCRAPE].. ◆ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 0.98s 
+[2026-06-24 17:43:25.623] [COMPLETE] ● https://edition.cnn.com/world                                                                        | ✓ | ⏱: 8.25s 
+[2026-06-24 17:43:30.033] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:43:31.869] [FETCH]... ↓ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 1.79s 
+[2026-06-24 17:43:32.283] [SCRAPE].. ◆ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 0.41s 
+[2026-06-24 17:43:32.353] [COMPLETE] ● https://www.hindustantimes.com                                                                       | ✓ | ⏱: 2.27s 
+[2026-06-24 17:44:05.531] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:44:12.320] [FETCH]... ↓ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 6.74s 
+[2026-06-24 17:44:13.247] [SCRAPE].. ◆ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 0.92s 
+[2026-06-24 17:44:13.452] [COMPLETE] ● https://edition.cnn.com/world                                                                        | ✓ | ⏱: 7.87s 
+[2026-06-24 17:44:17.517] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:44:19.205] [FETCH]... ↓ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 1.64s 
+[2026-06-24 17:44:19.592] [SCRAPE].. ◆ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 0.38s 
+[2026-06-24 17:44:19.661] [COMPLETE] ● https://www.hindustantimes.com                                                                       | ✓ | ⏱: 2.10s 
+[2026-06-24 17:47:35.067] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:47:43.039] [FETCH]... ↓ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 7.92s 
+[2026-06-24 17:47:44.112] [SCRAPE].. ◆ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 1.07s 
+[2026-06-24 17:47:44.319] [COMPLETE] ● https://edition.cnn.com/world                                                                        | ✓ | ⏱: 9.20s 
+[2026-06-24 17:47:48.712] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:47:50.841] [FETCH]... ↓ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 2.08s 
+[2026-06-24 17:47:51.545] [SCRAPE].. ◆ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 0.70s 
+[2026-06-24 17:47:51.974] [COMPLETE] ● https://www.hindustantimes.com                                                                       | ✓ | ⏱: 3.21s 
+[2026-06-24 17:50:46.765] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:50:54.630] [FETCH]... ↓ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 7.80s 
+[2026-06-24 17:50:55.712] [SCRAPE].. ◆ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 1.08s 
+[2026-06-24 17:50:55.923] [COMPLETE] ● https://edition.cnn.com/world                                                                        | ✓ | ⏱: 9.10s 
+[2026-06-24 17:51:00.498] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:51:02.698] [FETCH]... ↓ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 2.14s 
+[2026-06-24 17:51:03.117] [SCRAPE].. ◆ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 0.41s 
+[2026-06-24 17:51:03.187] [COMPLETE] ● https://www.hindustantimes.com                                                                       | ✓ | ⏱: 2.63s 
+[2026-06-24 17:54:32.144] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:54:39.800] [FETCH]... ↓ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 7.60s 
+[2026-06-24 17:54:40.781] [SCRAPE].. ◆ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 0.98s 
+[2026-06-24 17:54:40.965] [COMPLETE] ● https://edition.cnn.com/world                                                                        | ✓ | ⏱: 8.77s 
+[2026-06-24 17:54:45.229] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:54:47.006] [FETCH]... ↓ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 1.73s 
+[2026-06-24 17:54:47.402] [SCRAPE].. ◆ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 0.39s 
+[2026-06-24 17:54:47.471] [COMPLETE] ● https://www.hindustantimes.com                                                                       | ✓ | ⏱: 2.20s 
+[2026-06-24 17:55:54.591] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:56:00.114] [FETCH]... ↓ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 5.48s 
+[2026-06-24 17:56:01.094] [SCRAPE].. ◆ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 0.98s 
+[2026-06-24 17:56:01.287] [COMPLETE] ● https://edition.cnn.com/world                                                                        | ✓ | ⏱: 6.65s 
+[2026-06-24 17:56:05.461] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:56:07.569] [FETCH]... ↓ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 2.05s 
+[2026-06-24 17:56:08.020] [SCRAPE].. ◆ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 0.45s 
+[2026-06-24 17:56:08.089] [COMPLETE] ● https://www.hindustantimes.com                                                                       | ✓ | ⏱: 2.58s 
+[2026-06-24 17:57:44.205] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:57:51.246] [FETCH]... ↓ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 6.99s 
+[2026-06-24 17:57:52.291] [SCRAPE].. ◆ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 1.04s 
+[2026-06-24 17:57:52.475] [COMPLETE] ● https://edition.cnn.com/world                                                                        | ✓ | ⏱: 8.22s 
+[2026-06-24 17:57:56.900] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 17:57:58.895] [FETCH]... ↓ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 1.93s 
+[2026-06-24 17:57:59.320] [SCRAPE].. ◆ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 0.42s 
+[2026-06-24 17:57:59.406] [COMPLETE] ● https://www.hindustantimes.com                                                                       | ✓ | ⏱: 2.45s 
+[2026-06-24 18:02:14.998] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:02:17.715] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.66s 
+[2026-06-24 18:02:17.782] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.06s 
+[2026-06-24 18:02:17.825] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.77s 
+[2026-06-24 18:03:26.847] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:03:29.360] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.47s 
+[2026-06-24 18:03:29.523] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.16s 
+[2026-06-24 18:03:29.556] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.66s 
+[2026-06-24 18:06:28.949] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:06:30.797] [FETCH]... ↓ https://news.microsoft.com/source/asia/category/company-news                                         | ✓ | ⏱: 1.80s 
+[2026-06-24 18:06:30.894] [SCRAPE].. ◆ https://news.microsoft.com/source/asia/category/company-news                                         | ✓ | ⏱: 0.09s 
+[2026-06-24 18:06:30.929] [COMPLETE] ● https://news.microsoft.com/source/asia/category/company-news                                         | ✓ | ⏱: 1.93s 
+[2026-06-24 18:06:50.740] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:06:52.600] [FETCH]... ↓ https://news.microsoft.com/source/asia/category/company-news                                         | ✓ | ⏱: 1.81s 
+[2026-06-24 18:06:52.695] [SCRAPE].. ◆ https://news.microsoft.com/source/asia/category/company-news                                         | ✓ | ⏱: 0.09s 
+[2026-06-24 18:06:52.722] [COMPLETE] ● https://news.microsoft.com/source/asia/category/company-news                                         | ✓ | ⏱: 1.93s 
+[2026-06-24 18:07:26.698] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:07:34.136] [FETCH]... ↓ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 7.38s 
+[2026-06-24 18:07:35.084] [SCRAPE].. ◆ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 0.94s 
+[2026-06-24 18:07:35.270] [COMPLETE] ● https://edition.cnn.com/world                                                                        | ✓ | ⏱: 8.52s 
+[2026-06-24 18:07:39.691] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:07:41.626] [FETCH]... ↓ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 1.89s 
+[2026-06-24 18:07:42.038] [SCRAPE].. ◆ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 0.41s 
+[2026-06-24 18:07:42.108] [COMPLETE] ● https://www.hindustantimes.com                                                                       | ✓ | ⏱: 2.37s 
+[2026-06-24 18:07:45.849] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:07:48.583] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.69s 
+[2026-06-24 18:07:48.651] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.06s 
+[2026-06-24 18:07:48.690] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.80s 
+[2026-06-24 18:07:52.297] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:07:54.906] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.55s 
+[2026-06-24 18:07:55.062] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.15s 
+[2026-06-24 18:07:55.090] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.74s 
+[2026-06-24 18:07:58.614] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:08:03.104] [FETCH]... ↓ https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 4.45s 
+[2026-06-24 18:08:03.201] [SCRAPE].. ◆ https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 0.09s 
+[2026-06-24 18:08:03.228] [COMPLETE] ● https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 4.57s 
+[2026-06-24 18:09:15.184] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:09:17.024] [FETCH]... ↓ https://news.microsoft.com/source/asia/tag/press-releases                                            | ✓ | ⏱: 1.78s 
+[2026-06-24 18:09:17.127] [SCRAPE].. ◆ https://news.microsoft.com/source/asia/tag/press-releases                                            | ✓ | ⏱: 0.10s 
+[2026-06-24 18:09:17.159] [COMPLETE] ● https://news.microsoft.com/source/asia/tag/press-releases                                            | ✓ | ⏱: 1.91s 
+[2026-06-24 18:10:09.646] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:10:15.156] [FETCH]... ↓ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 5.46s 
+[2026-06-24 18:10:16.114] [SCRAPE].. ◆ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 0.95s 
+[2026-06-24 18:10:16.321] [COMPLETE] ● https://edition.cnn.com/world                                                                        | ✓ | ⏱: 6.63s 
+[2026-06-24 18:10:20.411] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:10:22.492] [FETCH]... ↓ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 2.02s 
+[2026-06-24 18:10:22.899] [SCRAPE].. ◆ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 0.40s 
+[2026-06-24 18:10:22.970] [COMPLETE] ● https://www.hindustantimes.com                                                                       | ✓ | ⏱: 2.50s 
+[2026-06-24 18:10:26.924] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:10:29.582] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.61s 
+[2026-06-24 18:10:29.647] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.06s 
+[2026-06-24 18:10:29.686] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.72s 
+[2026-06-24 18:10:33.075] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:10:35.571] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.45s 
+[2026-06-24 18:10:35.729] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.15s 
+[2026-06-24 18:10:35.758] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.64s 
+[2026-06-24 18:10:39.260] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:10:46.929] [FETCH]... ↓ https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 7.62s 
+[2026-06-24 18:10:47.020] [SCRAPE].. ◆ https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 0.09s 
+[2026-06-24 18:10:47.047] [COMPLETE] ● https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 7.74s 
+[2026-06-24 18:10:51.057] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-24 18:10:53.721] [FETCH]... ↓ https://news.microsoft.com/source/asia/category/innovation                                           | ✓ | ⏱: 2.62s 
+[2026-06-24 18:10:53.811] [SCRAPE].. ◆ https://news.microsoft.com/source/asia/category/innovation                                           | ✓ | ⏱: 0.09s 
+[2026-06-24 18:10:53.841] [COMPLETE] ● https://news.microsoft.com/source/asia/category/innovation                                           | ✓ | ⏱: 2.74s 
+[2026-06-25 09:27:37.026] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 09:27:44.586] [FETCH]... ↓ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 7.48s 
+[2026-06-25 09:27:45.717] [SCRAPE].. ◆ https://edition.cnn.com/world                                                                        | ✓ | ⏱: 1.12s 
+[2026-06-25 09:27:45.911] [COMPLETE] ● https://edition.cnn.com/world                                                                        | ✓ | ⏱: 8.81s 
+[2026-06-25 09:27:50.381] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 09:27:52.318] [FETCH]... ↓ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 1.87s 
+[2026-06-25 09:27:52.736] [SCRAPE].. ◆ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 0.41s 
+[2026-06-25 09:27:52.834] [COMPLETE] ● https://www.hindustantimes.com                                                                       | ✓ | ⏱: 2.39s 
+[2026-06-25 09:27:56.813] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 09:27:59.119] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.23s 
+[2026-06-25 09:27:59.276] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.15s 
+[2026-06-25 09:27:59.307] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.42s 
+[2026-06-25 09:28:03.108] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 09:28:07.693] [FETCH]... ↓ https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 4.53s 
+[2026-06-25 09:28:07.789] [SCRAPE].. ◆ https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 0.09s 
+[2026-06-25 09:28:07.827] [COMPLETE] ● https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 4.66s 
+[2026-06-25 09:28:13.245] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 09:28:15.190] [FETCH]... ↓ https://news.microsoft.com/source/asia/category/innovation                                           | ✓ | ⏱: 1.88s 
+[2026-06-25 09:28:15.291] [SCRAPE].. ◆ https://news.microsoft.com/source/asia/category/innovation                                           | ✓ | ⏱: 0.10s 
+[2026-06-25 09:28:15.323] [COMPLETE] ● https://news.microsoft.com/source/asia/category/innovation                                           | ✓ | ⏱: 2.02s 
+[2026-06-25 09:28:19.078] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 09:28:21.864] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.74s 
+[2026-06-25 09:28:21.930] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.06s 
+[2026-06-25 09:28:21.969] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.84s 
+[2026-06-25 09:28:59.646] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 09:29:01.689] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 1.98s 
+[2026-06-25 09:29:01.849] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.16s 
+[2026-06-25 09:29:01.880] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.17s 
+[2026-06-25 09:29:05.479] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 09:29:13.033] [FETCH]... ↓ https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 7.49s 
+[2026-06-25 09:29:13.130] [SCRAPE].. ◆ https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 0.09s 
+[2026-06-25 09:29:13.158] [COMPLETE] ● https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 7.62s 
+[2026-06-25 09:29:16.933] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 09:29:18.856] [FETCH]... ↓ https://news.microsoft.com/source/asia/category/innovation                                           | ✓ | ⏱: 1.88s 
+[2026-06-25 09:29:18.959] [SCRAPE].. ◆ https://news.microsoft.com/source/asia/category/innovation                                           | ✓ | ⏱: 0.10s 
+[2026-06-25 09:29:18.986] [COMPLETE] ● https://news.microsoft.com/source/asia/category/innovation                                           | ✓ | ⏱: 2.01s 
+[2026-06-25 09:29:22.689] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 09:29:25.467] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.73s 
+[2026-06-25 09:29:25.529] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.06s 
+[2026-06-25 09:29:25.568] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.83s 
+[2026-06-25 09:51:53.624] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 09:51:56.262] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.58s 
+[2026-06-25 09:51:56.432] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.17s 
+[2026-06-25 09:51:56.465] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.78s 
+[2026-06-25 09:52:00.188] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 09:52:04.918] [FETCH]... ↓ https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 4.68s 
+[2026-06-25 09:52:05.053] [SCRAPE].. ◆ https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 0.13s 
+[2026-06-25 09:52:05.087] [COMPLETE] ● https://news.microsoft.com/source/asia/category/ai                                                   | ✓ | ⏱: 4.85s 
+[2026-06-25 09:52:09.723] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 09:52:11.533] [FETCH]... ↓ https://news.microsoft.com/source/asia/category/innovation                                           | ✓ | ⏱: 1.75s 
+[2026-06-25 09:52:11.633] [SCRAPE].. ◆ https://news.microsoft.com/source/asia/category/innovation                                           | ✓ | ⏱: 0.10s 
+[2026-06-25 09:52:11.660] [COMPLETE] ● https://news.microsoft.com/source/asia/category/innovation                                           | ✓ | ⏱: 1.88s 
+[2026-06-25 09:52:15.249] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 09:52:17.897] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.59s 
+[2026-06-25 09:52:17.969] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.07s 
+[2026-06-25 09:52:18.015] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.71s 

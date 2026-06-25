@@ -42,7 +42,32 @@ def _env_bool(name: str, default: bool) -> bool:
     }
 
 
-def load_smtp_config() -> SmtpConfig | None:
+def _split_recipients(
+    recipients: list[str] | str | None,
+) -> list[str]:
+    if recipients is None:
+        return []
+
+    if isinstance(
+        recipients,
+        str,
+    ):
+        values = recipients.split(
+            ",",
+        )
+    else:
+        values = recipients
+
+    return [
+        recipient.strip()
+        for recipient in values
+        if recipient.strip()
+    ]
+
+
+def load_smtp_config(
+    recipients: list[str] | str | None = None,
+) -> SmtpConfig | None:
     email_address = os.getenv("EMAIL_ADDRESS")
     email_app_password = os.getenv("EMAIL_APP_PASSWORD")
     email_recipient = os.getenv("EMAIL_RECIPIENT")
@@ -52,17 +77,18 @@ def load_smtp_config() -> SmtpConfig | None:
         if email_address and email_app_password
         else None
     )
-    recipients = [
-        recipient.strip()
-        for recipient in (
+    resolved_recipients = (
+        _split_recipients(
+            recipients,
+        )
+        or _split_recipients(
             os.getenv("SMTP_TO")
             or email_recipient
-            or ""
-        ).split(",")
-        if recipient.strip()
-    ]
+            or "",
+        )
+    )
 
-    if not host or not recipients:
+    if not host or not resolved_recipients:
         return None
 
     default_port = "465" if _env_bool("SMTP_USE_SSL", False) else "587"
@@ -85,7 +111,7 @@ def load_smtp_config() -> SmtpConfig | None:
         username=username,
         password=password,
         sender=sender,
-        recipients=recipients,
+        recipients=resolved_recipients,
         use_tls=_env_bool("SMTP_USE_TLS", True),
         use_ssl=_env_bool("SMTP_USE_SSL", False),
     )
@@ -136,12 +162,17 @@ def build_article_update_email(
     return message
 
 
-def send_article_update_email(article: Article) -> bool:
-    config = load_smtp_config()
+def send_article_update_email(
+    article: Article,
+    recipients: list[str] | str | None = None,
+) -> bool:
+    config = load_smtp_config(
+        recipients=recipients,
+    )
 
     if config is None:
         print(
-            "SMTP email skipped: set EMAIL_ADDRESS, EMAIL_APP_PASSWORD, and EMAIL_RECIPIENT to enable alerts.",
+            "SMTP email skipped: configure SMTP credentials and at least one alert recipient.",
         )
         return False
 

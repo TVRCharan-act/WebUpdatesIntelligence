@@ -16,123 +16,122 @@ if str(
         ),
     )
 
-from mysignal.monitoring.inventory_store import (
-    load_tracked_recursive_roots,
+from mysignal.discovery.page_links import normalize_page_url
+from mysignal.workflows.feed_monitor import (
+    discover_new_urls_from_feeds,
+    normalize_feed_url,
+)
+from mysignal.workflows.new_url_processor import (
+    process_new_url_record,
 )
 from mysignal.workflows.parent_monitor import (
     discover_new_urls_from_parents,
 )
 from mysignal.monitoring.inventory_store import (
-    load_tracked_recursive_roots,
-    load_seen_url_records,
-    save_seen_url_records,
+    load_tracked_recursive_targets,
 )
-from mysignal.notifications.smtp_email import (
-    send_article_update_email,
-)
-
-def summarize_new_url(
-    url: str,
-):
-    from mysignal.processors.article_processor import summarize_url
-
-    return summarize_url(
-        url,
-    )
 
 
 def main() -> None:
-    tracked_parents = load_tracked_recursive_roots()
+    tracked_targets = load_tracked_recursive_targets()
+    tracked_parents = [
+        normalize_page_url(
+            target.url,
+        )
+        for target in tracked_targets
+        if target.strategy == "parent"
+    ]
+    tracked_feeds = [
+        normalize_feed_url(
+            target.url,
+        )
+        for target in tracked_targets
+        if target.strategy == "feed"
+    ]
+    recipients_by_source = {
+        (
+            normalize_feed_url(
+                target.url,
+            )
+            if target.strategy == "feed"
+            else normalize_page_url(
+                target.url,
+            )
+        ): target.recipients
+        for target in tracked_targets
+    }
 
-    if not tracked_parents:
+    if not tracked_parents and not tracked_feeds:
         print(
-            "No tracked parent URLs found. Run scripts/explore_setup.py first.",
+            "No tracked sources found. Run scripts/explore_setup.py first.",
         )
         return
 
-    new_urls, new_records = discover_new_urls_from_parents(
-        tracked_parents,
-        store_new_urls=False,
-    )
+    parent_new_urls = []
+    parent_new_records = {}
+    feed_new_urls = []
+    feed_new_records = {}
+
+    if tracked_parents:
+        parent_new_urls, parent_new_records = discover_new_urls_from_parents(
+            tracked_parents,
+            store_new_urls=False,
+        )
+
+    if tracked_feeds:
+        feed_new_urls, feed_new_records = discover_new_urls_from_feeds(
+            tracked_feeds,
+            store_new_urls=False,
+        )
 
     print()
-    print("PARENT URL MONITORING COMPLETE")
+    print("SOURCE MONITORING COMPLETE")
     print("=" * 60)
     print(
         f"TRACKED PARENTS: {len(tracked_parents)}",
     )
     print(
-        f"NEW URLS FOUND: {len(new_urls)}",
+        f"TRACKED FEEDS: {len(tracked_feeds)}",
+    )
+    print(
+        f"NEW URLS FOUND: {len(parent_new_urls) + len(feed_new_urls)}",
     )
 
-    for url in new_urls:
-        record = new_records[
+    for url in parent_new_urls:
+        record = parent_new_records[
             url
         ]
-
-        print()
-        print("NEW URL")
-        print("-" * 40)
-        print(
-            url,
-        )
-        print("TRACE:")
-        print(
-            " -> ".join(
-                record[
-                    "trace"
-                ]
-            )
+        parent_url = record[
+            "parent_url"
+        ]
+        recipients = recipients_by_source.get(
+            parent_url,
+            [],
         )
 
-        try:
-            article = summarize_new_url(
-                url,
-            )
+        process_new_url_record(
+            url=url,
+            record=record,
+            recipients=recipients,
+        )
 
-            print()
-            print("=" * 60)
-            print(
-                article.title,
-            )
-            print("=" * 60)
-            print(
-                article.summary,
-            )
+    for url in feed_new_urls:
+        record = feed_new_records[
+            url
+        ]
+        feed_url = record[
+            "feed_url"
+        ]
+        recipients = recipients_by_source.get(
+            feed_url,
+            [],
+        )
 
-            try:
-                email_sent = send_article_update_email(
-                    article,
-                )
-
-                if email_sent:
-                    print(
-                        "EMAIL SENT",
-                    )
-
-            except Exception as email_error:
-                print(
-                    f"FAILED TO EMAIL: {url}",
-                )
-                print(
-                    email_error,
-                )
-
-            records = load_seen_url_records()
-            records[
-                url
-            ] = record
-            save_seen_url_records(
-                records,
-            )
-
-        except Exception as exc:
-            print(
-                f"FAILED TO PROCESS: {url}",
-            )
-            print(
-                exc,
-            )
+        process_new_url_record(
+            url=url,
+            record=record,
+            recipients=recipients,
+        )
 
 
 if __name__ == "__main__":
