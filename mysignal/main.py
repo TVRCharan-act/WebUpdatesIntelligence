@@ -1,7 +1,7 @@
 import argparse
 from functools import partial
 
-from mysignal.crawler.crawl4ai_collector import crawl_site
+from mysignal.crawler.scrapy_collector import crawl_site
 from mysignal.monitoring.inventory_monitor import fetch_inventory
 from mysignal.monitoring.inventory_store import save_inventory, save_tracked_hubs
 from mysignal.workflows.discovery import HubDiscovery, discover_content_hubs

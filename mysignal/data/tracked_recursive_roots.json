@@ -8,38 +8,8 @@
     ]
   },
   {
-    "url": "https://news.microsoft.com/source/asia/category/ai",
+    "url": "https://news.alcoa.com",
     "strategy": "parent",
-    "recipients": [
-      "aravind@actalyst.ai"
-    ]
-  },
-  {
-    "url": "https://news.microsoft.com/source/asia/category/innovation",
-    "strategy": "parent",
-    "recipients": [
-      "aravind@actalyst.ai"
-    ]
-  },
-  {
-    "url": "https://openai.com/research/index",
-    "strategy": "parent",
-    "recipients": [
-      "aravind@actalyst.ai",
-      "darthif4002@gmail.com"
-    ]
-  },
-  {
-    "url": "https://openai.com/news/rss.xml",
-    "strategy": "feed",
-    "recipients": [
-      "aravind@actalyst.ai",
-      "darthif4002@gmail.com"
-    ]
-  },
-  {
-    "url": "https://developer.apple.com/news/rss/news.rss",
-    "strategy": "feed",
     "recipients": [
       "aravind@actalyst.ai",
       "darthif4002@gmail.com"

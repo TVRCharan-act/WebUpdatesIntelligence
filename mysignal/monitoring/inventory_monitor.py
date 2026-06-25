@@ -1,7 +1,10 @@
-from crawl4ai import AsyncWebCrawler
 import asyncio
 import re
 from collections import Counter
+
+from bs4 import BeautifulSoup
+
+from mysignal.crawler.scrapy_fetcher import fetch_url
 from mysignal.discovery.filters import (
     normalize_url,
 )
@@ -74,6 +77,44 @@ def extract_urls_from_markdown(
         for url in matches
 
     }
+
+
+def extract_urls_from_html(
+    html: str,
+    page_url: str,
+):
+    from urllib.parse import urljoin
+
+    soup = BeautifulSoup(
+        html or "",
+        "html.parser",
+    )
+    urls = set()
+
+    for anchor in soup.find_all(
+        "a",
+        href=True,
+    ):
+        urls.add(
+            urljoin(
+                page_url,
+                anchor.get(
+                    "href",
+                    "",
+                ),
+            )
+        )
+
+    urls.update(
+        extract_urls_from_markdown(
+            soup.get_text(
+                " ",
+                strip=True,
+            )
+        )
+    )
+
+    return urls
     
 async def extract_links(
     hub_url,
@@ -83,45 +124,45 @@ async def extract_links(
 ):
     urls = set()
 
-    async with AsyncWebCrawler() as crawler:
+    result = await asyncio.to_thread(
+        fetch_url,
+        hub_url,
+    )
+    html = result.text or ""
 
-        result = await crawler.arun(
-            url=hub_url
+    if preview_chars:
+        print()
+        print("=" * 80)
+        print("HTML PREVIEW")
+        print("=" * 80)
+
+        print(
+            html[:preview_chars]
         )
-        markdown = result.markdown or ""
 
-        if preview_chars:
-            print()
-            print("=" * 80)
-            print("MARKDOWN PREVIEW")
-            print("=" * 80)
+        print()
 
-            print(
-                markdown[:preview_chars]
-            )
-
-            print()
-
-        urls = (
-            extract_urls_from_markdown(
-                markdown
-            )
+    urls = (
+        extract_urls_from_html(
+            html,
+            result.url,
         )
-        normalized_urls = set()
+    )
+    normalized_urls = set()
 
-        for url in urls:
-            normalized_url = normalize_url(
-                url,
-            )
+    for url in urls:
+        normalized_url = normalize_url(
+            url,
+        )
 
-            if normalized_url in known_hubs:
-                continue
+        if normalized_url in known_hubs:
+            continue
 
-            normalized_urls.add(
-                normalized_url,
-            )
+        normalized_urls.add(
+            normalized_url,
+        )
 
-        urls = normalized_urls
+    urls = normalized_urls
     return urls
 
 def fetch_inventory(

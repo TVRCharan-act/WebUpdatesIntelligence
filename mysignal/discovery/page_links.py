@@ -1,21 +1,11 @@
 import asyncio
 from dataclasses import dataclass
-import os
-from pathlib import Path
 import re
 from urllib.parse import urljoin, urlparse
 
-os.environ.setdefault(
-    "CRAWL4_AI_BASE_DIRECTORY",
-    str(
-        Path(
-            "mysignal/data/crawl4ai",
-        ).resolve()
-    ),
-)
-
 from bs4 import BeautifulSoup
-from crawl4ai import AsyncWebCrawler, CacheMode, CrawlerRunConfig
+
+from mysignal.crawler.scrapy_fetcher import fetch_url
 
 
 MARKDOWN_URL_PATTERN = r"https://[^\s\)\]\"<]+"
@@ -410,81 +400,31 @@ async def extract_page_links_async(
         page_url,
     )
 
-    async with AsyncWebCrawler() as crawler:
-        result = await crawler.arun(
-            url=normalized_page_url,
-            config=CrawlerRunConfig(
-                cache_mode=CacheMode.DISABLED,
-            ),
-        )
-
-    if getattr(
-        result,
-        "success",
-        True,
-    ) is False:
-        raise RuntimeError(
-            getattr(
-                result,
-                "error_message",
-                "Crawl4AI failed to fetch the page.",
-            )
-        )
-
-    html = (
-        getattr(
-            result,
-            "html",
-            None,
-        )
-        or getattr(
-            result,
-            "cleaned_html",
-            None,
-        )
-        or ""
+    result = await asyncio.to_thread(
+        fetch_url,
+        normalized_page_url,
     )
+    result_url = normalize_page_url(
+        result.url,
+    )
+    html = result.text or ""
     links = extract_html_links(
         html,
-        normalized_page_url,
+        result_url,
         same_company_only=same_company_only,
     )
 
-    if not links:
-        for link in (result.links or {}).get(
-            "internal",
-            [],
-        ):
-            normalized_url = normalize_discovered_href(
-                link.get(
-                    "href",
-                    "",
-                ),
-                normalized_page_url,
-            )
-
-            if not normalized_url:
-                continue
-
-            links[
-                normalized_url
-            ] = DiscoveredLink(
-                url=normalized_url,
-                source_page=normalized_page_url,
-                region="main",
-                label=link.get(
-                    "text",
-                )
-                or link.get(
-                    "title",
-                ),
-                source="link",
-            )
-
+    soup = BeautifulSoup(
+        html,
+        "html.parser",
+    )
     links.update(
         extract_markdown_links(
-            result.markdown or "",
-            normalized_page_url,
+            soup.get_text(
+                " ",
+                strip=True,
+            ),
+            result_url,
             set(
                 links.keys(),
             ),
@@ -493,7 +433,7 @@ async def extract_page_links_async(
     )
 
     return PageLinks(
-        page_url=normalized_page_url,
+        page_url=result_url,
         links=sort_links(
             list(
                 links.values(),
