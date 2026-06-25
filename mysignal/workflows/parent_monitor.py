@@ -2,7 +2,6 @@ from datetime import datetime, timezone
 from urllib.parse import urlparse
 
 from mysignal.discovery.page_links import (
-    GLOBAL_REGIONS,
     extract_page_links,
     normalize_page_url,
 )
@@ -39,9 +38,6 @@ def direct_content_links_for_parent(
     urls = []
 
     for link in page_links.links:
-        if link.region in GLOBAL_REGIONS:
-            continue
-
         if not is_content_candidate(
             link.url,
         ):
@@ -58,7 +54,6 @@ def direct_content_links_for_parent(
             urls,
         )
     )
-
 
 def build_trace_record(
     *,

@@ -1549,3 +1549,79 @@ Code context:
 [2026-06-25 09:52:17.897] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.59s 
 [2026-06-25 09:52:17.969] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.07s 
 [2026-06-25 09:52:18.015] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.71s 
+[2026-06-25 10:56:14.631] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 10:56:19.732] [FETCH]... ↓ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 5.05s 
+[2026-06-25 10:56:19.836] [SCRAPE].. ◆ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 0.10s 
+[2026-06-25 10:56:19.879] [COMPLETE] ● https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 5.19s 
+[2026-06-25 10:58:46.208] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 10:58:49.289] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 3.03s 
+[2026-06-25 10:58:49.447] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.15s 
+[2026-06-25 10:58:49.480] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 3.22s 
+[2026-06-25 11:00:06.926] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:00:08.746] [FETCH]... ↓ https://www.apple.com/newsroom/apple-services                                                        | ✓ | ⏱: 1.76s 
+[2026-06-25 11:00:08.907] [SCRAPE].. ◆ https://www.apple.com/newsroom/apple-services                                                        | ✓ | ⏱: 0.16s 
+[2026-06-25 11:00:08.936] [COMPLETE] ● https://www.apple.com/newsroom/apple-services                                                        | ✓ | ⏱: 1.95s 
+[2026-06-25 11:05:22.047] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:05:24.954] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.86s 
+[2026-06-25 11:05:25.025] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.07s 
+[2026-06-25 11:05:25.071] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.98s 
+[2026-06-25 11:06:58.543] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:07:01.766] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 3.17s 
+[2026-06-25 11:07:01.903] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.13s 
+[2026-06-25 11:07:01.944] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 3.35s 
+[2026-06-25 11:08:50.801] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:08:55.798] [FETCH]... ↓ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.95s 
+[2026-06-25 11:08:55.861] [SCRAPE].. ◆ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 0.06s 
+[2026-06-25 11:08:55.903] [COMPLETE] ● https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 5.05s 
+[2026-06-25 11:08:59.859] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:09:02.594] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.68s 
+[2026-06-25 11:09:02.660] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.06s 
+[2026-06-25 11:09:02.699] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.79s 
+[2026-06-25 11:09:06.328] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:09:08.572] [FETCH]... ↓ https://blogs.nvidia.com                                                                             | ✓ | ⏱: 2.18s 
+[2026-06-25 11:09:08.689] [SCRAPE].. ◆ https://blogs.nvidia.com                                                                             | ✓ | ⏱: 0.11s 
+[2026-06-25 11:09:08.731] [COMPLETE] ● https://blogs.nvidia.com                                                                             | ✓ | ⏱: 2.34s 
+[2026-06-25 11:10:45.261] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:10:49.988] [FETCH]... ↓ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.64s 
+[2026-06-25 11:10:50.083] [SCRAPE].. ◆ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 0.09s 
+[2026-06-25 11:10:50.125] [COMPLETE] ● https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.78s 
+[2026-06-25 11:16:46.443] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:16:50.619] [FETCH]... ↓ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.12s 
+[2026-06-25 11:16:50.709] [SCRAPE].. ◆ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 0.09s 
+[2026-06-25 11:16:50.756] [COMPLETE] ● https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.26s 
+[2026-06-25 11:17:25.883] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:17:29.969] [FETCH]... ↓ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.03s 
+[2026-06-25 11:17:30.059] [SCRAPE].. ◆ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 0.09s 
+[2026-06-25 11:17:30.101] [COMPLETE] ● https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.17s 
+[2026-06-25 11:17:57.669] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:18:00.274] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.55s 
+[2026-06-25 11:18:00.342] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.06s 
+[2026-06-25 11:18:00.386] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.67s 
+[2026-06-25 11:18:46.216] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:18:49.128] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 2.86s 
+[2026-06-25 11:18:49.266] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.13s 
+[2026-06-25 11:18:49.308] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 3.04s 
+[2026-06-25 11:19:26.137] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:19:30.300] [FETCH]... ↓ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.11s 
+[2026-06-25 11:19:30.389] [SCRAPE].. ◆ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 0.09s 
+[2026-06-25 11:19:30.437] [COMPLETE] ● https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.25s 
+[2026-06-25 11:19:32.253] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:19:35.127] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.82s 
+[2026-06-25 11:19:35.190] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.06s 
+[2026-06-25 11:19:35.229] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.93s 
+[2026-06-25 11:19:36.993] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:19:40.302] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 3.25s 
+[2026-06-25 11:19:40.428] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.12s 
+[2026-06-25 11:19:40.468] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 3.41s 
+[2026-06-25 11:20:41.967] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:20:46.208] [FETCH]... ↓ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.19s 
+[2026-06-25 11:20:46.294] [SCRAPE].. ◆ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 0.08s 
+[2026-06-25 11:20:46.337] [COMPLETE] ● https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.32s 
+[2026-06-25 11:20:48.176] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:20:50.794] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.57s 
+[2026-06-25 11:20:50.858] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.06s 
+[2026-06-25 11:20:50.898] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.67s 
+[2026-06-25 11:20:52.585] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 11:20:55.598] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 2.96s 
+[2026-06-25 11:20:55.716] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.11s 
+[2026-06-25 11:20:55.754] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 3.11s 

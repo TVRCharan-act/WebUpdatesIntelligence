@@ -1,24 +1,10 @@
 [
   {
-    "url": "https://www.apple.com/newsroom",
+    "url": "https://news.alcoa.com/press-releases/default.aspx",
     "strategy": "parent",
     "recipients": [
       "aravind@actalyst.ai",
       "darthif4002@gmail.com"
-    ]
-  },
-  {
-    "url": "https://news.microsoft.com/source/asia/category/ai",
-    "strategy": "parent",
-    "recipients": [
-      "aravind@actalyst.ai"
-    ]
-  },
-  {
-    "url": "https://news.microsoft.com/source/asia/category/innovation",
-    "strategy": "parent",
-    "recipients": [
-      "aravind@actalyst.ai"
     ]
   },
   {
@@ -30,16 +16,8 @@
     ]
   },
   {
-    "url": "https://openai.com/news/rss.xml",
-    "strategy": "feed",
-    "recipients": [
-      "aravind@actalyst.ai",
-      "darthif4002@gmail.com"
-    ]
-  },
-  {
-    "url": "https://developer.apple.com/news/rss/news.rss",
-    "strategy": "feed",
+    "url": "https://nvidianews.nvidia.com",
+    "strategy": "parent",
     "recipients": [
       "aravind@actalyst.ai",
       "darthif4002@gmail.com"
