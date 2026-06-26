@@ -17,6 +17,10 @@ if str(
     )
 
 from mysignal.discovery.page_links import normalize_page_url
+from mysignal.discovery.api_discovery import normalize_api_url
+from mysignal.workflows.api_monitor import (
+    discover_new_urls_from_apis,
+)
 from mysignal.workflows.feed_monitor import (
     discover_new_urls_from_feeds,
     normalize_feed_url,
@@ -35,9 +39,7 @@ from mysignal.monitoring.inventory_store import (
 def main() -> None:
     tracked_targets = load_tracked_recursive_targets()
     tracked_parents = [
-        normalize_page_url(
-            target.url,
-        )
+        target
         for target in tracked_targets
         if target.strategy == "parent"
     ]
@@ -48,12 +50,23 @@ def main() -> None:
         for target in tracked_targets
         if target.strategy == "feed"
     ]
+    tracked_apis = [
+        normalize_api_url(
+            target.url,
+        )
+        for target in tracked_targets
+        if target.strategy == "api"
+    ]
     recipients_by_source = {
         (
             normalize_feed_url(
                 target.url,
             )
             if target.strategy == "feed"
+            else normalize_api_url(
+                target.url,
+            )
+            if target.strategy == "api"
             else normalize_page_url(
                 target.url,
             )
@@ -61,7 +74,7 @@ def main() -> None:
         for target in tracked_targets
     }
 
-    if not tracked_parents and not tracked_feeds:
+    if not tracked_parents and not tracked_feeds and not tracked_apis:
         print(
             "No tracked sources found. Run scripts/explore_setup.py first.",
         )
@@ -71,6 +84,8 @@ def main() -> None:
     parent_new_records = {}
     feed_new_urls = []
     feed_new_records = {}
+    api_new_urls = []
+    api_new_records = {}
 
     if tracked_parents:
         parent_new_urls, parent_new_records = discover_new_urls_from_parents(
@@ -84,6 +99,12 @@ def main() -> None:
             store_new_urls=False,
         )
 
+    if tracked_apis:
+        api_new_urls, api_new_records = discover_new_urls_from_apis(
+            tracked_apis,
+            store_new_urls=False,
+        )
+
     print()
     print("SOURCE MONITORING COMPLETE")
     print("=" * 60)
@@ -94,7 +115,10 @@ def main() -> None:
         f"TRACKED FEEDS: {len(tracked_feeds)}",
     )
     print(
-        f"NEW URLS FOUND: {len(parent_new_urls) + len(feed_new_urls)}",
+        f"TRACKED APIS: {len(tracked_apis)}",
+    )
+    print(
+        f"NEW URLS FOUND: {len(parent_new_urls) + len(feed_new_urls) + len(api_new_urls)}",
     )
 
     for url in parent_new_urls:
@@ -106,6 +130,24 @@ def main() -> None:
         ]
         recipients = recipients_by_source.get(
             parent_url,
+            [],
+        )
+
+        process_new_url_record(
+            url=url,
+            record=record,
+            recipients=recipients,
+        )
+
+    for url in api_new_urls:
+        record = api_new_records[
+            url
+        ]
+        api_url = record[
+            "api_url"
+        ]
+        recipients = recipients_by_source.get(
+            api_url,
             [],
         )
 

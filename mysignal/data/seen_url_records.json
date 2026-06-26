@@ -1769,5 +1769,1941 @@
       "https://news.alcoa.com/press-releases/press-release-details/2026/Alcoa-Schedules-Second-Quarter-2026-Earnings-Release-and-Conference-Call/default.aspx"
     ],
     "first_seen_at": "2026-06-25T06:06:11.628453+00:00"
+  },
+  "https://account.apple.com": {
+    "url": "https://account.apple.com",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://account.apple.com"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://apps.apple.com/us/app/apple-store/id375380948": {
+    "url": "https://apps.apple.com/us/app/apple-store/id375380948",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://apps.apple.com/us/app/apple-store/id375380948"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://checkcoverage.apple.com/us/en": {
+    "url": "https://checkcoverage.apple.com/us/en",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://checkcoverage.apple.com/us/en"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://discussions.apple.com/welcome": {
+    "url": "https://discussions.apple.com/welcome",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://discussions.apple.com/welcome"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://investor.apple.com": {
+    "url": "https://investor.apple.com",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://investor.apple.com"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://locate.apple.com": {
+    "url": "https://locate.apple.com",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://locate.apple.com"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com": {
+    "url": "https://support.apple.com",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com/accessibility": {
+    "url": "https://support.apple.com/accessibility",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com/accessibility"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com/airpods": {
+    "url": "https://support.apple.com/airpods",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com/airpods"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com/apple-account": {
+    "url": "https://support.apple.com/apple-account",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com/apple-account"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com/apple-tv": {
+    "url": "https://support.apple.com/apple-tv",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com/apple-tv"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com/apple-vision-pro": {
+    "url": "https://support.apple.com/apple-vision-pro",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com/apple-vision-pro"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com/billing": {
+    "url": "https://support.apple.com/billing",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com/billing"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com/homepod": {
+    "url": "https://support.apple.com/homepod",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com/homepod"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com/ipad": {
+    "url": "https://support.apple.com/ipad",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com/ipad"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com/iphone": {
+    "url": "https://support.apple.com/iphone",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com/iphone"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com/mac": {
+    "url": "https://support.apple.com/mac",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com/mac"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com/music": {
+    "url": "https://support.apple.com/music",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com/music"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com/repair": {
+    "url": "https://support.apple.com/repair",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com/repair"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com/tv": {
+    "url": "https://support.apple.com/tv",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com/tv"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://support.apple.com/watch": {
+    "url": "https://support.apple.com/watch",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://support.apple.com/watch"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://www.apple.com": {
+    "url": "https://www.apple.com",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.386779+00:00"
+  },
+  "https://www.apple.com/accessibility": {
+    "url": "https://www.apple.com/accessibility",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/accessibility"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/accessibility/assistive-technologies": {
+    "url": "https://www.apple.com/accessibility/assistive-technologies",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/accessibility/assistive-technologies"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/airplay": {
+    "url": "https://www.apple.com/airplay",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/airplay"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/airpods": {
+    "url": "https://www.apple.com/airpods",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/airpods"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/airpods-4": {
+    "url": "https://www.apple.com/airpods-4",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/airpods-4"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/airpods-max": {
+    "url": "https://www.apple.com/airpods-max",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/airpods-max"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/airpods-pro": {
+    "url": "https://www.apple.com/airpods-pro",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/airpods-pro"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/airpods-pro/hearing-health": {
+    "url": "https://www.apple.com/airpods-pro/hearing-health",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/airpods-pro/hearing-health"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/airpods/compare": {
+    "url": "https://www.apple.com/airpods/compare",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/airpods/compare"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/airtag": {
+    "url": "https://www.apple.com/airtag",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/airtag"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/app-store": {
+    "url": "https://www.apple.com/app-store",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/app-store"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-arcade": {
+    "url": "https://www.apple.com/apple-arcade",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-arcade"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-books": {
+    "url": "https://www.apple.com/apple-books",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-books"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-card": {
+    "url": "https://www.apple.com/apple-card",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-card"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-cash": {
+    "url": "https://www.apple.com/apple-cash",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-cash"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-creator-studio": {
+    "url": "https://www.apple.com/apple-creator-studio",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-creator-studio"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-events": {
+    "url": "https://www.apple.com/apple-events",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-events"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-fitness-plus": {
+    "url": "https://www.apple.com/apple-fitness-plus",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-fitness-plus"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-intelligence": {
+    "url": "https://www.apple.com/apple-intelligence",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-intelligence"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-music": {
+    "url": "https://www.apple.com/apple-music",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-music"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-news": {
+    "url": "https://www.apple.com/apple-news",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-news"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-one": {
+    "url": "https://www.apple.com/apple-one",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-one"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-pay": {
+    "url": "https://www.apple.com/apple-pay",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-pay"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-pencil": {
+    "url": "https://www.apple.com/apple-pencil",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-pencil"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-podcasts": {
+    "url": "https://www.apple.com/apple-podcasts",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-podcasts"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-tv": {
+    "url": "https://www.apple.com/apple-tv",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-tv"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.387777+00:00"
+  },
+  "https://www.apple.com/apple-tv-4k": {
+    "url": "https://www.apple.com/apple-tv-4k",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-tv-4k"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/apple-tv-app": {
+    "url": "https://www.apple.com/apple-tv-app",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-tv-app"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/apple-vision-pro": {
+    "url": "https://www.apple.com/apple-vision-pro",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-vision-pro"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/apple-vision-pro/specs": {
+    "url": "https://www.apple.com/apple-vision-pro/specs",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-vision-pro/specs"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/apple-watch-for-your-kids": {
+    "url": "https://www.apple.com/apple-watch-for-your-kids",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-watch-for-your-kids"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/apple-watch-hermes": {
+    "url": "https://www.apple.com/apple-watch-hermes",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-watch-hermes"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/apple-watch-nike": {
+    "url": "https://www.apple.com/apple-watch-nike",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-watch-nike"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/apple-watch-se-3": {
+    "url": "https://www.apple.com/apple-watch-se-3",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-watch-se-3"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/apple-watch-series-11": {
+    "url": "https://www.apple.com/apple-watch-series-11",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-watch-series-11"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/apple-watch-ultra-3": {
+    "url": "https://www.apple.com/apple-watch-ultra-3",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apple-watch-ultra-3"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/applecare": {
+    "url": "https://www.apple.com/applecare",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/applecare"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/apps": {
+    "url": "https://www.apple.com/apps",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/apps"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/business": {
+    "url": "https://www.apple.com/business",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/business"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/business/enterprise/apple-vision-pro": {
+    "url": "https://www.apple.com/business/enterprise/apple-vision-pro",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/business/enterprise/apple-vision-pro"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/business/mac": {
+    "url": "https://www.apple.com/business/mac",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/business/mac"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/careers/us": {
+    "url": "https://www.apple.com/careers/us",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/careers/us"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/choose-country-region": {
+    "url": "https://www.apple.com/choose-country-region",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/choose-country-region"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/compliance": {
+    "url": "https://www.apple.com/compliance",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/compliance"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/contact": {
+    "url": "https://www.apple.com/contact",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/contact"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/displays": {
+    "url": "https://www.apple.com/displays",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/displays"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/diversity": {
+    "url": "https://www.apple.com/diversity",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/diversity"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/education": {
+    "url": "https://www.apple.com/education",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/education"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/education-initiative": {
+    "url": "https://www.apple.com/education-initiative",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/education-initiative"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/education/k12/how-to-buy": {
+    "url": "https://www.apple.com/education/k12/how-to-buy",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/education/k12/how-to-buy"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/entertainment": {
+    "url": "https://www.apple.com/entertainment",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/entertainment"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/environment": {
+    "url": "https://www.apple.com/environment",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/environment"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.388780+00:00"
+  },
+  "https://www.apple.com/government": {
+    "url": "https://www.apple.com/government",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/government"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/healthcare": {
+    "url": "https://www.apple.com/healthcare",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/healthcare"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/home-app": {
+    "url": "https://www.apple.com/home-app",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/home-app"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/homepod-2nd-generation": {
+    "url": "https://www.apple.com/homepod-2nd-generation",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/homepod-2nd-generation"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/homepod-mini": {
+    "url": "https://www.apple.com/homepod-mini",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/homepod-mini"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/icloud": {
+    "url": "https://www.apple.com/icloud",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/icloud"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/imac": {
+    "url": "https://www.apple.com/imac",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/imac"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/in/newsroom": {
+    "url": "https://www.apple.com/in/newsroom",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/in/newsroom"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/ipad": {
+    "url": "https://www.apple.com/ipad",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/ipad"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/ipad-11": {
+    "url": "https://www.apple.com/ipad-11",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/ipad-11"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/ipad-air": {
+    "url": "https://www.apple.com/ipad-air",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/ipad-air"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/ipad-keyboards": {
+    "url": "https://www.apple.com/ipad-keyboards",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/ipad-keyboards"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/ipad-mini": {
+    "url": "https://www.apple.com/ipad-mini",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/ipad-mini"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/ipad-pro": {
+    "url": "https://www.apple.com/ipad-pro",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/ipad-pro"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/ipad/compare": {
+    "url": "https://www.apple.com/ipad/compare",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/ipad/compare"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/iphone": {
+    "url": "https://www.apple.com/iphone",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/iphone"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/iphone-17": {
+    "url": "https://www.apple.com/iphone-17",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/iphone-17"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/iphone-17-pro": {
+    "url": "https://www.apple.com/iphone-17-pro",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/iphone-17-pro"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/iphone-17e": {
+    "url": "https://www.apple.com/iphone-17e",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/iphone-17e"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/iphone-air": {
+    "url": "https://www.apple.com/iphone-air",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/iphone-air"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/iphone/compare": {
+    "url": "https://www.apple.com/iphone/compare",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/iphone/compare"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/iphone/switch": {
+    "url": "https://www.apple.com/iphone/switch",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/iphone/switch"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/leadership": {
+    "url": "https://www.apple.com/leadership",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/leadership"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/legal": {
+    "url": "https://www.apple.com/legal",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/legal"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.389780+00:00"
+  },
+  "https://www.apple.com/legal/internet-services/terms/site.html": {
+    "url": "https://www.apple.com/legal/internet-services/terms/site.html",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/legal/internet-services/terms/site.html"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/legal/privacy": {
+    "url": "https://www.apple.com/legal/privacy",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/legal/privacy"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/mac": {
+    "url": "https://www.apple.com/mac",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/mac"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/mac-mini": {
+    "url": "https://www.apple.com/mac-mini",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/mac-mini"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/mac-studio": {
+    "url": "https://www.apple.com/mac-studio",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/mac-studio"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/mac/best-mac": {
+    "url": "https://www.apple.com/mac/best-mac",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/mac/best-mac"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/mac/compare": {
+    "url": "https://www.apple.com/mac/compare",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/mac/compare"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/mac/mac-does-that": {
+    "url": "https://www.apple.com/mac/mac-does-that",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/mac/mac-does-that"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/macbook-air": {
+    "url": "https://www.apple.com/macbook-air",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/macbook-air"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/macbook-neo": {
+    "url": "https://www.apple.com/macbook-neo",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/macbook-neo"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/macbook-pro": {
+    "url": "https://www.apple.com/macbook-pro",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/macbook-pro"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/macos/continuity": {
+    "url": "https://www.apple.com/macos/continuity",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/macos/continuity"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/newsroom": {
+    "url": "https://www.apple.com/newsroom",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/newsroom"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/newsroom/apple-services": {
+    "url": "https://www.apple.com/newsroom/apple-services",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/newsroom/apple-services"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/newsroom/apple-stories": {
+    "url": "https://www.apple.com/newsroom/apple-stories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/newsroom/apple-stories"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/os/ios": {
+    "url": "https://www.apple.com/os/ios",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/os/ios"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/os/ipados": {
+    "url": "https://www.apple.com/os/ipados",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/os/ipados"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/os/macos": {
+    "url": "https://www.apple.com/os/macos",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/os/macos"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/os/visionos": {
+    "url": "https://www.apple.com/os/visionos",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/os/visionos"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/os/watchos": {
+    "url": "https://www.apple.com/os/watchos",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/os/watchos"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/privacy": {
+    "url": "https://www.apple.com/privacy",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/privacy"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/r/store/government": {
+    "url": "https://www.apple.com/r/store/government",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/r/store/government"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/racial-equity-justice-initiative": {
+    "url": "https://www.apple.com/racial-equity-justice-initiative",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/racial-equity-justice-initiative"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/retail": {
+    "url": "https://www.apple.com/retail",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/retail"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.390781+00:00"
+  },
+  "https://www.apple.com/retail/business": {
+    "url": "https://www.apple.com/retail/business",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/retail/business"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/retail/geniusbar": {
+    "url": "https://www.apple.com/retail/geniusbar",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/retail/geniusbar"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/retail/instore-shopping-session/session-selection": {
+    "url": "https://www.apple.com/retail/instore-shopping-session/session-selection",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/retail/instore-shopping-session/session-selection"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/services": {
+    "url": "https://www.apple.com/services",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/services"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/sitemap": {
+    "url": "https://www.apple.com/sitemap",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/sitemap"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/supply-chain": {
+    "url": "https://www.apple.com/supply-chain",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/supply-chain"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/today": {
+    "url": "https://www.apple.com/today",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/today"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/today/camp": {
+    "url": "https://www.apple.com/today/camp",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/today/camp"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/today/groups": {
+    "url": "https://www.apple.com/today/groups",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/today/groups"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/tv-home": {
+    "url": "https://www.apple.com/tv-home",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/tv-home"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us-es/newsroom": {
+    "url": "https://www.apple.com/us-es/newsroom",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us-es/newsroom"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/search": {
+    "url": "https://www.apple.com/us/search",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/search"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/accessories/all_accessories/beats_featured": {
+    "url": "https://www.apple.com/us/shop/goto/accessories/all_accessories/beats_featured",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/accessories/all_accessories/beats_featured"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/accessories/all_accessories/headphones_speakers": {
+    "url": "https://www.apple.com/us/shop/goto/accessories/all_accessories/headphones_speakers",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/accessories/all_accessories/headphones_speakers"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/accessories/all_accessories/made_by_apple": {
+    "url": "https://www.apple.com/us/shop/goto/accessories/all_accessories/made_by_apple",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/accessories/all_accessories/made_by_apple"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/account": {
+    "url": "https://www.apple.com/us/shop/goto/account",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/account"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/airpods/accessories": {
+    "url": "https://www.apple.com/us/shop/goto/airpods/accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/airpods/accessories"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/bag": {
+    "url": "https://www.apple.com/us/shop/goto/bag",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/bag"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/buy_accessories": {
+    "url": "https://www.apple.com/us/shop/goto/buy_accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/buy_accessories"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/buy_homepod/homepod": {
+    "url": "https://www.apple.com/us/shop/goto/buy_homepod/homepod",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/buy_homepod/homepod"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/buy_homepod/homepod_mini": {
+    "url": "https://www.apple.com/us/shop/goto/buy_homepod/homepod_mini",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/buy_homepod/homepod_mini"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/buy_ipad": {
+    "url": "https://www.apple.com/us/shop/goto/buy_ipad",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/buy_ipad"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/buy_iphone": {
+    "url": "https://www.apple.com/us/shop/goto/buy_iphone",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/buy_iphone"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/buy_iphone/carrier_offers": {
+    "url": "https://www.apple.com/us/shop/goto/buy_iphone/carrier_offers",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/buy_iphone/carrier_offers"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/buy_iphone/iphone_16": {
+    "url": "https://www.apple.com/us/shop/goto/buy_iphone/iphone_16",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/buy_iphone/iphone_16"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.391780+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/buy_mac": {
+    "url": "https://www.apple.com/us/shop/goto/buy_mac",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/buy_mac"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/buy_tv/apple_tv_4k": {
+    "url": "https://www.apple.com/us/shop/goto/buy_tv/apple_tv_4k",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/buy_tv/apple_tv_4k"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/buy_vision": {
+    "url": "https://www.apple.com/us/shop/goto/buy_vision",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/buy_vision"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/buy_watch": {
+    "url": "https://www.apple.com/us/shop/goto/buy_watch",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/buy_watch"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/educationrouting": {
+    "url": "https://www.apple.com/us/shop/goto/educationrouting",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/educationrouting"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/eppstore/veteransandmilitary": {
+    "url": "https://www.apple.com/us/shop/goto/eppstore/veteransandmilitary",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/eppstore/veteransandmilitary"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/giftcards": {
+    "url": "https://www.apple.com/us/shop/goto/giftcards",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/giftcards"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/help": {
+    "url": "https://www.apple.com/us/shop/goto/help",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/help"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/help/sales_refunds": {
+    "url": "https://www.apple.com/us/shop/goto/help/sales_refunds",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/help/sales_refunds"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/ipad/accessories": {
+    "url": "https://www.apple.com/us/shop/goto/ipad/accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/ipad/accessories"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/iphone/accessories": {
+    "url": "https://www.apple.com/us/shop/goto/iphone/accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/iphone/accessories"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/mac/accessories": {
+    "url": "https://www.apple.com/us/shop/goto/mac/accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/mac/accessories"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/order/list": {
+    "url": "https://www.apple.com/us/shop/goto/order/list",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/order/list"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/payment_plan": {
+    "url": "https://www.apple.com/us/shop/goto/payment_plan",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/payment_plan"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/personal_setup": {
+    "url": "https://www.apple.com/us/shop/goto/personal_setup",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/personal_setup"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/product/MW5G3": {
+    "url": "https://www.apple.com/us/shop/goto/product/MW5G3",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/product/MW5G3"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/smart_home/accessories": {
+    "url": "https://www.apple.com/us/shop/goto/smart_home/accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/smart_home/accessories"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/special_deals": {
+    "url": "https://www.apple.com/us/shop/goto/special_deals",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/special_deals"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/store": {
+    "url": "https://www.apple.com/us/shop/goto/store",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/store"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/trade_in": {
+    "url": "https://www.apple.com/us/shop/goto/trade_in",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/trade_in"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/vision/accessories": {
+    "url": "https://www.apple.com/us/shop/goto/vision/accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/vision/accessories"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/watch/accessories": {
+    "url": "https://www.apple.com/us/shop/goto/watch/accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/watch/accessories"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us/shop/goto/watch/bands": {
+    "url": "https://www.apple.com/us/shop/goto/watch/bands",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us/shop/goto/watch/bands"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us_epp_55499/store": {
+    "url": "https://www.apple.com/us_epp_55499/store",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us_epp_55499/store"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/us_epp_67909/store": {
+    "url": "https://www.apple.com/us_epp_67909/store",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/us_epp_67909/store"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/wallet": {
+    "url": "https://www.apple.com/wallet",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/wallet"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.392773+00:00"
+  },
+  "https://www.apple.com/watch": {
+    "url": "https://www.apple.com/watch",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/watch"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.393775+00:00"
+  },
+  "https://www.apple.com/watch/compare": {
+    "url": "https://www.apple.com/watch/compare",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/watch/compare"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.393775+00:00"
+  },
+  "https://www.apple.com/watch/why-apple-watch": {
+    "url": "https://www.apple.com/watch/why-apple-watch",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/newsroom",
+      "https://www.apple.com/watch/why-apple-watch"
+    ],
+    "first_seen_at": "2026-06-25T09:41:22.393775+00:00"
   }
 }

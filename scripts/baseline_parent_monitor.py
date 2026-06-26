@@ -17,7 +17,10 @@ if str(
     )
 
 from mysignal.monitoring.inventory_store import (
-    load_tracked_recursive_roots,
+    load_tracked_recursive_targets,
+)
+from mysignal.workflows.api_monitor import (
+    baseline_seen_urls_from_apis,
 )
 from mysignal.workflows.parent_monitor import (
     baseline_seen_urls_from_parents,
@@ -25,23 +28,48 @@ from mysignal.workflows.parent_monitor import (
 
 
 def main() -> None:
-    tracked_parents = load_tracked_recursive_roots()
+    tracked_targets = load_tracked_recursive_targets()
+    tracked_parents = [
+        target
+        for target in tracked_targets
+        if target.strategy == "parent"
+    ]
+    tracked_apis = [
+        target.url
+        for target in tracked_targets
+        if target.strategy == "api"
+    ]
 
-    if not tracked_parents:
+    if not tracked_parents and not tracked_apis:
         print(
-            "No tracked parent URLs found. Run scripts/explore_setup.py first.",
+            "No tracked parent/API URLs found. Run scripts/explore_setup.py first.",
         )
         return
 
-    added = baseline_seen_urls_from_parents(
-        tracked_parents,
-    )
+    added = {}
+
+    if tracked_parents:
+        added.update(
+            baseline_seen_urls_from_parents(
+                tracked_parents,
+            )
+        )
+
+    if tracked_apis:
+        added.update(
+            baseline_seen_urls_from_apis(
+                tracked_apis,
+            )
+        )
 
     print()
     print("BASELINE COMPLETE")
     print("=" * 60)
     print(
         f"TRACKED PARENTS: {len(tracked_parents)}",
+    )
+    print(
+        f"TRACKED APIS: {len(tracked_apis)}",
     )
     print(
         f"URLS ADDED TO SEEN STORAGE: {len(added)}",

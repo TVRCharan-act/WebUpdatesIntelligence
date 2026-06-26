@@ -18,9 +18,15 @@ if str(
         ),
     )
 
+from mysignal.discovery.api_discovery import (
+    CandidateEndpoint,
+    discover_api_endpoints,
+    normalize_api_url,
+)
 from mysignal.discovery.page_links import (
     GLOBAL_REGIONS,
     DiscoveredLink,
+    PageLinks,
     extract_page_links,
     normalize_page_url,
 )
@@ -28,6 +34,10 @@ from mysignal.monitoring.inventory_store import (
     TrackedRecursiveRoot,
     load_tracked_recursive_targets,
     save_tracked_recursive_targets,
+)
+from mysignal.filters.content_filter import is_content_candidate
+from mysignal.workflows.api_monitor import (
+    baseline_seen_urls_from_apis,
 )
 from mysignal.workflows.feed_monitor import (
     baseline_seen_urls_from_feeds,
@@ -68,6 +78,8 @@ REGION_GROUPS = [
         },
     ),
 ]
+MIN_HTML_CONTENT_URLS = 2
+MIN_API_CONTENT_URLS = 2
 
 
 def parse_args() -> argparse.Namespace:
@@ -89,6 +101,21 @@ def parse_args() -> argparse.Namespace:
         action=argparse.BooleanOptionalAction,
         default=True,
         help="Keep only URLs on the same company/domain.",
+    )
+    parser.add_argument(
+        "--js-bundle-source",
+        action="append",
+        default=[],
+        help=(
+            "Optional same-origin JavaScript bundle URL/path to analyze. "
+            "Can be repeated. Relative paths are resolved from the explored page."
+        ),
+    )
+    parser.add_argument(
+        "--trace-js",
+        action="store_true",
+        default=False,
+        help="Opt in to JavaScript bundle/API endpoint discovery during exploration.",
     )
     return parser.parse_args()
 
@@ -227,8 +254,14 @@ def print_tracked_roots() -> None:
             if root.recipients
             else "default SMTP recipients"
         )
+        bundle_text = (
+            f" [{len(root.js_bundle_sources)} JS bundle(s)]"
+            if root.js_bundle_sources
+            else ""
+        )
+        trace_text = " [JS trace]" if root.trace_js else ""
         print(
-            f"{index}. [{root.strategy}] {root.url} -> {recipients}",
+            f"{index}. [{root.strategy}]{trace_text}{bundle_text} {root.url} -> {recipients}",
         )
 
 
@@ -246,7 +279,19 @@ def split_recipients(
 
 def track_root(
     selected_url: str,
+    *,
+    trace_js: bool = False,
+    js_bundle_sources: list[str] | None = None,
 ) -> None:
+    js_bundle_sources = (
+        [
+            source.strip()
+            for source in js_bundle_sources
+            if source.strip()
+        ]
+        if js_bundle_sources
+        else None
+    )
     tracked_roots = load_tracked_recursive_targets()
     existing_urls = [
         root.url
@@ -264,6 +309,8 @@ def track_root(
                 url=selected_url,
                 recipients=recipients,
                 strategy="parent",
+                trace_js=trace_js,
+                js_bundle_sources=js_bundle_sources,
             )
         )
         save_tracked_recursive_targets(
@@ -271,6 +318,31 @@ def track_root(
         )
         print(
             f"Tracking recursively: {selected_url}",
+        )
+        return
+
+    if trace_js or js_bundle_sources:
+        updated_roots = [
+            (
+                TrackedRecursiveRoot(
+                    url=root.url,
+                    recipients=root.recipients,
+                    strategy=root.strategy,
+                    trace_js=root.trace_js or trace_js,
+                    js_bundle_sources=js_bundle_sources
+                    if js_bundle_sources is not None
+                    else root.js_bundle_sources,
+                )
+                if root.url == selected_url
+                else root
+            )
+            for root in tracked_roots
+        ]
+        save_tracked_recursive_targets(
+            updated_roots,
+        )
+        print(
+            f"Updated tracking preferences for: {selected_url}",
         )
         return
 
@@ -329,6 +401,232 @@ def track_feed_source(
     )
 
 
+def track_api_source(
+    endpoint_url: str,
+) -> None:
+    tracked_sources = load_tracked_recursive_targets()
+    existing_urls = [
+        root.url
+        for root in tracked_sources
+    ]
+
+    if endpoint_url in existing_urls:
+        print(
+            f"Already tracking API: {endpoint_url}",
+        )
+        return
+
+    recipients = split_recipients(
+        input(
+            "Alert recipients for this API (comma separated, blank for default SMTP recipients): ",
+        )
+    )
+    tracked_sources.append(
+        TrackedRecursiveRoot(
+            url=endpoint_url,
+            recipients=recipients,
+            strategy="api",
+        )
+    )
+    save_tracked_recursive_targets(
+        tracked_sources,
+    )
+
+    added = baseline_seen_urls_from_apis(
+        [
+            endpoint_url,
+        ]
+    )
+
+    print()
+    print(
+        "Tracking API endpoint.",
+    )
+    print(
+        f"API: {endpoint_url}",
+    )
+    print(
+        f"Baseline entries marked as seen: {len(added)}",
+    )
+
+
+def content_links_from_discovered(
+    links: list[DiscoveredLink],
+) -> list[str]:
+    return sorted(
+        {
+            normalize_page_url(
+                link.url,
+            )
+            for link in links
+            if link.region not in GLOBAL_REGIONS
+            and link.source in {
+                "link",
+                "markdown",
+            }
+            and is_content_candidate(
+                link.url,
+            )
+        }
+    )
+
+
+def print_candidate_endpoints(
+    candidates: list[CandidateEndpoint],
+) -> None:
+    print()
+    print("JSON ENDPOINT CANDIDATES")
+    print("=" * 80)
+
+    for index, candidate in enumerate(
+        candidates[:5],
+        start=1,
+    ):
+        print()
+        print(
+            f"{index}. score={candidate.score} method={candidate.detection_method}",
+        )
+        print(
+            candidate.endpoint_url,
+        )
+
+        for url in candidate.discovered_urls[:5]:
+            print(
+                f"   - {url}",
+            )
+
+
+def prompt_for_api_tracking(
+    candidates: list[CandidateEndpoint],
+) -> bool:
+    if not candidates:
+        return False
+
+    print_candidate_endpoints(
+        candidates,
+    )
+    print()
+    value = input(
+        "Track a JSON endpoint directly? Enter number, y for top candidate, or press Enter to skip: ",
+    ).strip().lower()
+
+    if not value or value in {
+        "n",
+        "no",
+    }:
+        return False
+
+    if value == "y":
+        candidate_index = 0
+    elif value.isdigit():
+        candidate_index = int(
+            value,
+        ) - 1
+    else:
+        print(
+            f"Invalid API selection: {value}",
+        )
+        return False
+
+    if not 0 <= candidate_index < len(
+        candidates,
+    ):
+        print(
+            f"API selection out of range: {value}",
+        )
+        return False
+
+    best_candidate = candidates[
+        candidate_index
+    ]
+
+    if best_candidate.score < MIN_API_CONTENT_URLS:
+        print(
+            f"Warning: selected endpoint has a low content score ({best_candidate.score}).",
+        )
+
+    track_api_source(
+        best_candidate.endpoint_url,
+    )
+    return True
+
+
+def discover_dynamic_content_sources(
+    page_url: str,
+    *,
+    js_bundle_sources: list[str] | None = None,
+) -> list[CandidateEndpoint]:
+    candidates = discover_api_endpoints(
+        page_url,
+        script_sources=js_bundle_sources,
+    )
+
+    if candidates:
+        return candidates
+
+    return []
+
+
+def links_from_candidate_endpoints(
+    candidates: list[CandidateEndpoint],
+    *,
+    source_page: str,
+) -> list[DiscoveredLink]:
+    links = []
+    seen_urls = set()
+
+    for candidate in candidates:
+        for url in candidate.discovered_urls:
+            normalized_url = normalize_page_url(
+                url,
+            )
+
+            if normalized_url in seen_urls:
+                continue
+
+            links.append(
+                DiscoveredLink(
+                    url=normalized_url,
+                    source_page=source_page,
+                    region="main",
+                    label=f"API: {candidate.endpoint_url}",
+                    source="api-discovery",
+                )
+            )
+            seen_urls.add(
+                normalized_url,
+            )
+
+    return links
+
+
+def merge_discovered_links(
+    page_links: PageLinks,
+    extra_links: list[DiscoveredLink],
+) -> PageLinks:
+    links_by_url = {
+        link.url: link
+        for link in page_links.links
+    }
+
+    for link in extra_links:
+        links_by_url.setdefault(
+            link.url,
+            link,
+        )
+
+    return PageLinks(
+        page_url=page_links.page_url,
+        links=sorted(
+            links_by_url.values(),
+            key=lambda link: (
+                link.region,
+                link.url,
+            ),
+        ),
+    )
+
+
 def remove_tracked_root() -> None:
     tracked_roots = load_tracked_recursive_targets()
 
@@ -366,6 +664,9 @@ def remove_tracked_root() -> None:
         normalized_feed_value = normalize_feed_url(
             value,
         )
+        normalized_api_value = normalize_api_url(
+            value,
+        )
 
         for root in tracked_roots:
             normalized_root = (
@@ -373,6 +674,10 @@ def remove_tracked_root() -> None:
                     root.url,
                 )
                 if root.strategy == "feed"
+                else normalize_api_url(
+                    root.url,
+                )
+                if root.strategy == "api"
                 else normalize_page_url(
                     root.url,
                 )
@@ -381,6 +686,7 @@ def remove_tracked_root() -> None:
             if normalized_root in {
                 normalized_value,
                 normalized_feed_value,
+                normalized_api_value,
             }:
                 remove_url = root.url
                 break
@@ -429,6 +735,11 @@ def selected_url_menu(
 
 def main() -> None:
     args = parse_args()
+    js_bundle_sources = [
+        source.strip()
+        for source in args.js_bundle_source
+        if source.strip()
+    ]
     feed_kind = None
 
     try:
@@ -454,6 +765,7 @@ def main() -> None:
     path: list[str] = [
         current_url,
     ]
+    api_checked_urls: set[str] = set()
 
     while True:
         try:
@@ -475,6 +787,34 @@ def main() -> None:
                 continue
 
             return
+
+        if args.trace_js and current_url not in api_checked_urls:
+            api_checked_urls.add(
+                current_url,
+            )
+            print()
+            print(
+                "JS/API tracing enabled. Analyzing JavaScript bundles...",
+            )
+            candidates = discover_dynamic_content_sources(
+                current_url,
+                js_bundle_sources=js_bundle_sources,
+            )
+            api_links = links_from_candidate_endpoints(
+                candidates,
+                source_page=current_url,
+            )
+
+            if api_links:
+                page_links = merge_discovered_links(
+                    page_links,
+                    api_links,
+                )
+
+            if prompt_for_api_tracking(
+                candidates,
+            ):
+                return
 
         include_global_regions = len(
             path,
@@ -543,6 +883,10 @@ def main() -> None:
         if option == "t":
             track_root(
                 selected_url,
+                trace_js=args.trace_js,
+                js_bundle_sources=js_bundle_sources
+                if args.trace_js and js_bundle_sources
+                else None,
             )
             next_step = input(
                 "Continue exploring? [y/N]: ",

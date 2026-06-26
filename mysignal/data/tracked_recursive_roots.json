@@ -22,5 +22,14 @@
       "aravind@actalyst.ai",
       "darthif4002@gmail.com"
     ]
+  },
+  {
+    "url": "https://www.apple.com/newsroom",
+    "strategy": "parent",
+    "recipients": [],
+    "js_bundle_sources": [
+      "/newsroom/scripts/everyday-feed.bundle.js",
+      "/newsroom/scripts/more-from-apple-newsroom.bundle.js"
+    ]
   }
 ]

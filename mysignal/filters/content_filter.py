@@ -19,6 +19,9 @@ BLOCKED_EXTENSIONS = {
     ".ico",
 
     ".pdf",
+    ".json",
+    ".xml",
+    ".ics",
 
 }
 

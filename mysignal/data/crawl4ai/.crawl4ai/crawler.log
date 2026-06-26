@@ -1641,3 +1641,51 @@ Code context:
 [2026-06-25 12:01:57.706] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.38s 
 [2026-06-25 12:01:57.887] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.18s 
 [2026-06-25 12:01:57.922] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.59s 
+[2026-06-25 15:03:20.297] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 15:03:22.585] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.22s 
+[2026-06-25 15:03:22.756] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.17s 
+[2026-06-25 15:03:22.790] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.43s 
+[2026-06-25 15:06:59.692] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 15:07:01.847] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.07s 
+[2026-06-25 15:07:02.042] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.19s 
+[2026-06-25 15:07:02.084] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.31s 
+[2026-06-25 15:11:01.544] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 15:11:06.235] [FETCH]... ↓ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.62s 
+[2026-06-25 15:11:06.333] [SCRAPE].. ◆ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 0.09s 
+[2026-06-25 15:11:06.380] [COMPLETE] ● https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.77s 
+[2026-06-25 15:11:08.098] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 15:11:10.889] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.72s 
+[2026-06-25 15:11:10.964] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.07s 
+[2026-06-25 15:11:11.009] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.84s 
+[2026-06-25 15:11:12.940] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 15:11:15.781] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 2.77s 
+[2026-06-25 15:11:15.930] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.14s 
+[2026-06-25 15:11:15.971] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 2.97s 
+[2026-06-25 15:11:18.012] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 15:11:21.652] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 3.57s 
+[2026-06-25 15:11:21.819] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.16s 
+[2026-06-25 15:11:21.849] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 3.77s 
+[2026-06-25 15:11:48.374] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 15:11:53.393] [FETCH]... ↓ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 4.97s 
+[2026-06-25 15:11:53.492] [SCRAPE].. ◆ https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 0.10s 
+[2026-06-25 15:11:53.539] [COMPLETE] ● https://news.alcoa.com/press-releases/default.aspx                                                   | ✓ | ⏱: 5.12s 
+[2026-06-25 15:11:55.198] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 15:11:57.664] [FETCH]... ↓ https://openai.com/research/index                                                                    | ✓ | ⏱: 2.39s 
+[2026-06-25 15:11:57.740] [SCRAPE].. ◆ https://openai.com/research/index                                                                    | ✓ | ⏱: 0.07s 
+[2026-06-25 15:11:57.786] [COMPLETE] ● https://openai.com/research/index                                                                    | ✓ | ⏱: 2.51s 
+[2026-06-25 15:11:59.575] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 15:12:02.838] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 3.20s 
+[2026-06-25 15:12:02.988] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.15s 
+[2026-06-25 15:12:03.033] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 3.39s 
+[2026-06-25 15:12:04.942] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-25 15:12:07.464] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.45s 
+[2026-06-25 15:12:07.653] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.18s 
+[2026-06-25 15:12:07.682] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.67s 
+[2026-06-26 12:01:49.614] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-26 12:01:53.252] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 3.57s 
+[2026-06-26 12:01:53.531] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.27s 
+[2026-06-26 12:01:53.571] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 3.89s 
+[2026-06-26 12:03:17.374] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-26 12:03:19.929] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.46s 
+[2026-06-26 12:03:20.377] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.44s 
+[2026-06-26 12:03:20.413] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.95s 

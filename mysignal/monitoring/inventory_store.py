@@ -45,6 +45,8 @@ class TrackedRecursiveRoot:
     url: str
     recipients: list[str]
     strategy: str = "parent"
+    trace_js: bool = False
+    js_bundle_sources: list[str] | None = None
 
 
 def _split_recipients(
@@ -77,6 +79,9 @@ def _split_recipients(
 def _target_from_entry(
     entry,
 ) -> TrackedRecursiveRoot | None:
+    js_bundle_sources = None
+    trace_js = False
+
     if isinstance(
         entry,
         str,
@@ -117,6 +122,15 @@ def _target_from_entry(
                 "parent",
             )
         ).strip().lower()
+        trace_js = bool(
+            entry.get(
+                "trace_js",
+                False,
+            )
+        )
+        js_bundle_sources = entry.get(
+            "js_bundle_sources",
+        )
     else:
         return None
 
@@ -127,6 +141,23 @@ def _target_from_entry(
         url=url,
         recipients=recipients,
         strategy=strategy or "parent",
+        trace_js=trace_js,
+        js_bundle_sources=(
+            [
+                str(
+                    source,
+                ).strip()
+                for source in js_bundle_sources
+                if str(
+                    source,
+                ).strip()
+            ]
+            if isinstance(
+                js_bundle_sources,
+                list,
+            )
+            else None
+        ),
     )
 
 
@@ -194,14 +225,24 @@ def load_tracked_recursive_targets() -> list[TrackedRecursiveRoot]:
 def save_tracked_recursive_targets(
     targets: list[TrackedRecursiveRoot],
 ):
-    serialized_targets = [
-        {
+    serialized_targets = []
+
+    for target in targets:
+        serialized_target = {
             "url": target.url,
             "strategy": target.strategy,
             "recipients": target.recipients,
+            "trace_js": target.trace_js,
         }
-        for target in targets
-    ]
+
+        if target.js_bundle_sources:
+            serialized_target[
+                "js_bundle_sources"
+            ] = target.js_bundle_sources
+
+        serialized_targets.append(
+            serialized_target,
+        )
 
     with open(
         TRACKED_RECURSIVE_ROOTS_FILE,

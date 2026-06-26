@@ -1,6 +1,7 @@
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
+from mysignal.discovery.api_discovery import discover_api_endpoints
 from mysignal.discovery.page_links import (
     extract_page_links,
     normalize_page_url,
@@ -28,24 +29,115 @@ def utc_now_iso() -> str:
     ).isoformat()
 
 
+def parent_url(
+    parent,
+) -> str:
+    url = getattr(
+        parent,
+        "url",
+        parent,
+    )
+
+    return str(
+        url,
+    )
+
+
+def parent_js_bundle_sources(
+    parent,
+) -> list[str]:
+    sources = getattr(
+        parent,
+        "js_bundle_sources",
+        None,
+    )
+
+    if not isinstance(
+        sources,
+        list,
+    ):
+        return []
+
+    return [
+        str(
+            source,
+        ).strip()
+        for source in sources
+        if str(
+            source,
+        ).strip()
+    ]
+
+
+def parent_trace_js(
+    parent,
+) -> bool:
+    return bool(
+        getattr(
+            parent,
+            "trace_js",
+            False,
+        )
+    )
+
+
+def all_content_links(
+    page_links,
+) -> list[str]:
+    return sorted(
+        {
+            normalize_page_url(
+                link.url,
+            )
+            for link in page_links.links
+            if is_content_candidate(
+                link.url,
+            )
+        }
+    )
+
+
+def api_content_links_for_parent(
+    parent_url: str,
+    *,
+    js_bundle_sources: list[str] | None = None,
+) -> list[str]:
+    urls = []
+
+    for candidate in discover_api_endpoints(
+        parent_url,
+        script_sources=js_bundle_sources,
+    ):
+        urls.extend(
+            candidate.discovered_urls,
+        )
+
+    return sorted(
+        set(
+            urls,
+        )
+    )
+
+
 def direct_content_links_for_parent(
     parent_url: str,
+    *,
+    trace_js: bool = False,
+    js_bundle_sources: list[str] | None = None,
 ) -> list[str]:
     page_links = extract_page_links(
         parent_url,
     )
 
-    urls = []
+    urls = all_content_links(
+        page_links,
+    )
 
-    for link in page_links.links:
-        if not is_content_candidate(
-            link.url,
-        ):
-            continue
-
-        urls.append(
-            normalize_page_url(
-                link.url,
+    if trace_js:
+        urls.extend(
+            api_content_links_for_parent(
+                parent_url,
+                js_bundle_sources=js_bundle_sources,
             )
         )
 
@@ -85,7 +177,7 @@ def build_trace_record(
 
 
 def discover_new_urls_from_parents(
-    parent_urls: list[str],
+    parent_urls: list,
     *,
     store_new_urls: bool = True,
 ) -> tuple[list[str], dict]:
@@ -94,14 +186,25 @@ def discover_new_urls_from_parents(
     new_urls = []
     new_records = {}
 
-    for parent_url in parent_urls:
+    for parent in parent_urls:
+        raw_parent_url = parent_url(
+            parent,
+        )
+        trace_js = parent_trace_js(
+            parent,
+        )
+        js_bundle_sources = parent_js_bundle_sources(
+            parent,
+        )
         normalized_parent = normalize_page_url(
-            parent_url,
+            raw_parent_url,
         )
 
         try:
             child_urls = direct_content_links_for_parent(
                 normalized_parent,
+                trace_js=trace_js,
+                js_bundle_sources=js_bundle_sources,
             )
         except Exception as exc:
             print(
@@ -115,6 +218,9 @@ def discover_new_urls_from_parents(
         print()
         print(
             f"PARENT: {normalized_parent}",
+        )
+        print(
+            f"JS TRACE: {'enabled' if trace_js else 'disabled'}",
         )
         print(
             f"FOUND DIRECT CHILD URLS: {len(child_urls)}",
@@ -161,19 +267,30 @@ def discover_new_urls_from_parents(
 
 
 def baseline_seen_urls_from_parents(
-    parent_urls: list[str],
+    parent_urls: list,
 ) -> dict:
     records = load_seen_url_records()
     added = {}
 
-    for parent_url in parent_urls:
+    for parent in parent_urls:
+        raw_parent_url = parent_url(
+            parent,
+        )
+        trace_js = parent_trace_js(
+            parent,
+        )
+        js_bundle_sources = parent_js_bundle_sources(
+            parent,
+        )
         normalized_parent = normalize_page_url(
-            parent_url,
+            raw_parent_url,
         )
 
         try:
             child_urls = direct_content_links_for_parent(
                 normalized_parent,
+                trace_js=trace_js,
+                js_bundle_sources=js_bundle_sources,
             )
         except Exception as exc:
             print(
