@@ -11,9 +11,8 @@ from dotenv import (
 load_dotenv()
 
 app = FirecrawlApp(
-    api_key=os.getenv(
-        "fire_crawler_api"
-    )
+    api_key=os.getenv("FIRECRAWL_API_KEY")
+    or os.getenv("fire_crawler_api")
 )
 
 

@@ -25,3 +25,7 @@ Thumbs.db
 
 #data
 data/
+
+# Runtime health and performance logs
+logs/
+.pip-cache/

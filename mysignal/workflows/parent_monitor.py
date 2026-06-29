@@ -11,6 +11,7 @@ from mysignal.monitoring.inventory_store import (
     load_seen_url_records,
     save_seen_url_records,
 )
+from backend.app.observability import log_health_event
 
 
 def website_root_for_url(
@@ -141,11 +142,26 @@ def direct_content_links_for_parent(
             )
         )
 
-    return sorted(
+    deduped_urls = sorted(
         set(
             urls,
         )
     )
+
+    log_health_event(
+        event_type="discovery",
+        service="celery-worker",
+        action="parent_direct_content_links",
+        status="ok",
+        metadata={
+            "parent_url": parent_url,
+            "raw_url_count": len(page_links.links),
+            "content_url_count": len(deduped_urls),
+            "trace_js": trace_js,
+        },
+    )
+
+    return deduped_urls
 
 def build_trace_record(
     *,
@@ -186,6 +202,8 @@ def discover_new_urls_from_parents(
     new_urls = []
     new_records = {}
 
+    crawl_errors = []
+
     for parent in parent_urls:
         raw_parent_url = parent_url(
             parent,
@@ -207,6 +225,9 @@ def discover_new_urls_from_parents(
                 js_bundle_sources=js_bundle_sources,
             )
         except Exception as exc:
+            crawl_errors.append(
+                f"{normalized_parent}: {exc}",
+            )
             print(
                 f"FAILED TO CRAWL PARENT: {normalized_parent}",
             )
@@ -258,6 +279,14 @@ def discover_new_urls_from_parents(
             records,
         )
 
+    if crawl_errors and not new_urls:
+        raise RuntimeError(
+            "Parent crawl failed for all sources: "
+            + "; ".join(
+                crawl_errors,
+            )
+        )
+
     return (
         sorted(
             new_urls,
@@ -271,6 +300,7 @@ def baseline_seen_urls_from_parents(
 ) -> dict:
     records = load_seen_url_records()
     added = {}
+    crawl_errors = []
 
     for parent in parent_urls:
         raw_parent_url = parent_url(
@@ -293,6 +323,9 @@ def baseline_seen_urls_from_parents(
                 js_bundle_sources=js_bundle_sources,
             )
         except Exception as exc:
+            crawl_errors.append(
+                f"{normalized_parent}: {exc}",
+            )
             print(
                 f"FAILED TO BASELINE PARENT: {normalized_parent}",
             )
@@ -324,5 +357,13 @@ def baseline_seen_urls_from_parents(
     save_seen_url_records(
         records,
     )
+
+    if crawl_errors and not added:
+        raise RuntimeError(
+            "Parent baseline failed for all sources: "
+            + "; ".join(
+                crawl_errors,
+            )
+        )
 
     return added
