@@ -1965,3 +1965,23 @@ Code context:
 [2026-06-29 05:45:51.097] [FETCH]... ↓ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 4.14s 
 [2026-06-29 05:45:51.793] [SCRAPE].. ◆ https://www.hindustantimes.com                                                                       | ✓ | ⏱: 0.67s 
 [2026-06-29 05:45:51.973] [COMPLETE] ● https://www.hindustantimes.com                                                                       | ✓ | ⏱: 5.02s 
+[2026-06-29 05:48:21.286] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-29 05:48:23.959] [FETCH]... ↓ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 2.59s 
+[2026-06-29 05:48:24.209] [SCRAPE].. ◆ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 0.23s 
+[2026-06-29 05:48:24.261] [COMPLETE] ● https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 2.89s 
+[2026-06-29 05:52:05.944] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-29 05:52:16.395] [FETCH]... ↓ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 10.36s 
+[2026-06-29 05:52:16.627] [SCRAPE].. ◆ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 0.22s 
+[2026-06-29 05:52:16.697] [COMPLETE] ● https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 10.67s 
+[2026-06-29 05:54:13.500] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-29 05:54:24.895] [FETCH]... ↓ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 11.31s 
+[2026-06-29 05:54:25.145] [SCRAPE].. ◆ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 0.23s 
+[2026-06-29 05:54:25.215] [COMPLETE] ● https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 11.63s 
+[2026-06-29 05:55:24.511] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-29 05:55:27.452] [FETCH]... ↓ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 2.85s 
+[2026-06-29 05:55:27.644] [SCRAPE].. ◆ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 0.17s 
+[2026-06-29 05:55:27.692] [COMPLETE] ● https://news.microsoft.com/source                                                                    | ✓ | ⏱: 3.09s 
+[2026-06-29 05:56:13.376] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-29 05:56:16.951] [FETCH]... ↓ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 3.49s 
+[2026-06-29 05:56:17.123] [SCRAPE].. ◆ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 0.15s 
+[2026-06-29 05:56:17.171] [COMPLETE] ● https://news.microsoft.com/source                                                                    | ✓ | ⏱: 3.71s 

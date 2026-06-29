@@ -38476,5 +38476,1809 @@
       "https://www.hindustantimes.com/cricket/inside-india-s-dressing-room-after-ireland-shock-disbelief-acceptance-and-lessons-for-england-101782710410297.html"
     ],
     "first_seen_at": "2026-06-29T05:45:53.572571+00:00"
+  },
+  "https://about.netflix.com/en": {
+    "url": "https://about.netflix.com/en",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.533403+00:00"
+  },
+  "https://about.netflix.com/en/company-assets": {
+    "url": "https://about.netflix.com/en/company-assets",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/company-assets"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.533500+00:00"
+  },
+  "https://about.netflix.com/en/leadership": {
+    "url": "https://about.netflix.com/en/leadership",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/leadership"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.533578+00:00"
+  },
+  "https://about.netflix.com/en/new-to-watch": {
+    "url": "https://about.netflix.com/en/new-to-watch",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/new-to-watch"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.533634+00:00"
+  },
+  "https://about.netflix.com/en/news/1670-mm-longer-than-the-longest-panorama-in-polish-history-enormous-painting-matching-jan-pawel-adamczewskis-ambitions-will-be-displayed-in-wroclaw": {
+    "url": "https://about.netflix.com/en/news/1670-mm-longer-than-the-longest-panorama-in-polish-history-enormous-painting-matching-jan-pawel-adamczewskis-ambitions-will-be-displayed-in-wroclaw",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/1670-mm-longer-than-the-longest-panorama-in-polish-history-enormous-painting-matching-jan-pawel-adamczewskis-ambitions-will-be-displayed-in-wroclaw"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.533683+00:00"
+  },
+  "https://about.netflix.com/en/news/better-late-than-single-maintrailer-ka": {
+    "url": "https://about.netflix.com/en/news/better-late-than-single-maintrailer-ka",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/better-late-than-single-maintrailer-ka"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.533727+00:00"
+  },
+  "https://about.netflix.com/en/news/celebrating-a-major-construction-milestone-at-netflix-studios-fort-monmouth": {
+    "url": "https://about.netflix.com/en/news/celebrating-a-major-construction-milestone-at-netflix-studios-fort-monmouth",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/celebrating-a-major-construction-milestone-at-netflix-studios-fort-monmouth"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.533771+00:00"
+  },
+  "https://about.netflix.com/en/news/f1-and-tf1-live-channel-now-available-on-netflix-in-france": {
+    "url": "https://about.netflix.com/en/news/f1-and-tf1-live-channel-now-available-on-netflix-in-france",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/f1-and-tf1-live-channel-now-available-on-netflix-in-france"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.533810+00:00"
+  },
+  "https://about.netflix.com/en/news/first-doctor-wt-production-announcement": {
+    "url": "https://about.netflix.com/en/news/first-doctor-wt-production-announcement",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/first-doctor-wt-production-announcement"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.533849+00:00"
+  },
+  "https://about.netflix.com/en/news/from-pipeline-to-premiere-how-netflixs-artist-support-programs-helped-david-fortune-bring-color-book-to-life": {
+    "url": "https://about.netflix.com/en/news/from-pipeline-to-premiere-how-netflixs-artist-support-programs-helped-david-fortune-bring-color-book-to-life",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/from-pipeline-to-premiere-how-netflixs-artist-support-programs-helped-david-fortune-bring-color-book-to-life"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.533890+00:00"
+  },
+  "https://about.netflix.com/en/news/latino-film-institute-fellows-screen-their-short-films-at-the-egyptian-theatre": {
+    "url": "https://about.netflix.com/en/news/latino-film-institute-fellows-screen-their-short-films-at-the-egyptian-theatre",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/latino-film-institute-fellows-screen-their-short-films-at-the-egyptian-theatre"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.533929+00:00"
+  },
+  "https://about.netflix.com/en/news/netflix-anime-titles-revealed-mappa-15th-anniversary": {
+    "url": "https://about.netflix.com/en/news/netflix-anime-titles-revealed-mappa-15th-anniversary",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/netflix-anime-titles-revealed-mappa-15th-anniversary"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.533969+00:00"
+  },
+  "https://about.netflix.com/en/news/netflix-announces-a-new-chapter-in-the-story-of-the-the-monster-of-florence-directed-by-stefano-sollima": {
+    "url": "https://about.netflix.com/en/news/netflix-announces-a-new-chapter-in-the-story-of-the-the-monster-of-florence-directed-by-stefano-sollima",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/netflix-announces-a-new-chapter-in-the-story-of-the-the-monster-of-florence-directed-by-stefano-sollima"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534008+00:00"
+  },
+  "https://about.netflix.com/en/news/netflix-announces-third-and-final-season-of-roosters": {
+    "url": "https://about.netflix.com/en/news/netflix-announces-third-and-final-season-of-roosters",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/netflix-announces-third-and-final-season-of-roosters"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534049+00:00"
+  },
+  "https://about.netflix.com/en/news/netflix-announces-two-new-samay-raina-titles-indias-got-latent-s2-and-an-all-new-comedy-special-in-the-works": {
+    "url": "https://about.netflix.com/en/news/netflix-announces-two-new-samay-raina-titles-indias-got-latent-s2-and-an-all-new-comedy-special-in-the-works",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/netflix-announces-two-new-samay-raina-titles-indias-got-latent-s2-and-an-all-new-comedy-special-in-the-works"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534088+00:00"
+  },
+  "https://about.netflix.com/en/news/netflix-is-your-ultimate-summer-sidekick": {
+    "url": "https://about.netflix.com/en/news/netflix-is-your-ultimate-summer-sidekick",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/netflix-is-your-ultimate-summer-sidekick"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534128+00:00"
+  },
+  "https://about.netflix.com/en/news/netflix-previews-its-animation-slate-for-2026-and-beyond": {
+    "url": "https://about.netflix.com/en/news/netflix-previews-its-animation-slate-for-2026-and-beyond",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/netflix-previews-its-animation-slate-for-2026-and-beyond"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534166+00:00"
+  },
+  "https://about.netflix.com/en/news/netflix-unveils-date-announcement-and-first-look-images-for-swedish-crime-thriller-blood-sacrifice": {
+    "url": "https://about.netflix.com/en/news/netflix-unveils-date-announcement-and-first-look-images-for-swedish-crime-thriller-blood-sacrifice",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/netflix-unveils-date-announcement-and-first-look-images-for-swedish-crime-thriller-blood-sacrifice"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534205+00:00"
+  },
+  "https://about.netflix.com/en/news/netflix-unveils-first-look-at-new-danish-thriller-the-secret-woman-premiering-on-august-28": {
+    "url": "https://about.netflix.com/en/news/netflix-unveils-first-look-at-new-danish-thriller-the-secret-woman-premiering-on-august-28",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/netflix-unveils-first-look-at-new-danish-thriller-the-secret-woman-premiering-on-august-28"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534245+00:00"
+  },
+  "https://about.netflix.com/en/news/netflix-unveils-trailer-for-its-first-telugu-original-series-super-subbu-premieres-2-july": {
+    "url": "https://about.netflix.com/en/news/netflix-unveils-trailer-for-its-first-telugu-original-series-super-subbu-premieres-2-july",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/netflix-unveils-trailer-for-its-first-telugu-original-series-super-subbu-premieres-2-july"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534321+00:00"
+  },
+  "https://about.netflix.com/en/news/netflix-unveils-upcoming-anime-slate-out-of-annecy-festival": {
+    "url": "https://about.netflix.com/en/news/netflix-unveils-upcoming-anime-slate-out-of-annecy-festival",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/netflix-unveils-upcoming-anime-slate-out-of-annecy-festival"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534376+00:00"
+  },
+  "https://about.netflix.com/en/news/sakamoto-days-season-2-returns-january-2027": {
+    "url": "https://about.netflix.com/en/news/sakamoto-days-season-2-returns-january-2027",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/sakamoto-days-season-2-returns-january-2027"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534420+00:00"
+  },
+  "https://about.netflix.com/en/news/tasveer-film-fund-opens-applications-for-its-seventh-edition": {
+    "url": "https://about.netflix.com/en/news/tasveer-film-fund-opens-applications-for-its-seventh-edition",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/tasveer-film-fund-opens-applications-for-its-seventh-edition"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534460+00:00"
+  },
+  "https://about.netflix.com/en/news/the-debt-collector-main-trailer": {
+    "url": "https://about.netflix.com/en/news/the-debt-collector-main-trailer",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/the-debt-collector-main-trailer"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534546+00:00"
+  },
+  "https://about.netflix.com/en/news/why-not-me-the-new-comedy-series-starring-diana-del-bufalo-coming-soon-only-on-netflix": {
+    "url": "https://about.netflix.com/en/news/why-not-me-the-new-comedy-series-starring-diana-del-bufalo-coming-soon-only-on-netflix",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/why-not-me-the-new-comedy-series-starring-diana-del-bufalo-coming-soon-only-on-netflix"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534600+00:00"
+  },
+  "https://about.netflix.com/en/newsroom": {
+    "url": "https://about.netflix.com/en/newsroom",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/newsroom"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534630+00:00"
+  },
+  "https://help.netflix.com": {
+    "url": "https://help.netflix.com",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://help.netflix.com"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534675+00:00"
+  },
+  "https://help.netflix.com/en": {
+    "url": "https://help.netflix.com/en",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://help.netflix.com/en"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534718+00:00"
+  },
+  "https://help.netflix.com/en/legal/privacy": {
+    "url": "https://help.netflix.com/en/legal/privacy",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://help.netflix.com/en/legal/privacy"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534760+00:00"
+  },
+  "https://help.netflix.com/legal/privacy": {
+    "url": "https://help.netflix.com/legal/privacy",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://help.netflix.com/legal/privacy"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534799+00:00"
+  },
+  "https://help.netflix.com/legal/termsofuse": {
+    "url": "https://help.netflix.com/legal/termsofuse",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://help.netflix.com/legal/termsofuse"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534837+00:00"
+  },
+  "https://jobs.netflix.com": {
+    "url": "https://jobs.netflix.com",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://jobs.netflix.com"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534874+00:00"
+  },
+  "https://media.netflix.com/en": {
+    "url": "https://media.netflix.com/en",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://media.netflix.com/en"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534913+00:00"
+  },
+  "https://media.netflix.com/en/terms-and-conditions": {
+    "url": "https://media.netflix.com/en/terms-and-conditions",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://media.netflix.com/en/terms-and-conditions"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534953+00:00"
+  },
+  "https://netflix.com": {
+    "url": "https://netflix.com",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://netflix.com"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.534990+00:00"
+  },
+  "https://www.netflix.com/tudum/top10": {
+    "url": "https://www.netflix.com/tudum/top10",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://www.netflix.com/tudum/top10"
+    ],
+    "first_seen_at": "2026-06-29T05:53:13.535031+00:00"
+  },
+  "http://www.microsoft.com/investor/default.aspx": {
+    "url": "http://www.microsoft.com/investor/default.aspx",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "http://www.microsoft.com/investor/default.aspx"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.261351+00:00"
+  },
+  "https://account.microsoft.com": {
+    "url": "https://account.microsoft.com",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://account.microsoft.com"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.261442+00:00"
+  },
+  "https://apps.microsoft.com/games": {
+    "url": "https://apps.microsoft.com/games",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://apps.microsoft.com/games"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.261490+00:00"
+  },
+  "https://apps.microsoft.com/home": {
+    "url": "https://apps.microsoft.com/home",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://apps.microsoft.com/home"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.261582+00:00"
+  },
+  "https://azure.microsoft.com/en-us": {
+    "url": "https://azure.microsoft.com/en-us",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://azure.microsoft.com/en-us"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.261638+00:00"
+  },
+  "https://blogs.microsoft.com": {
+    "url": "https://blogs.microsoft.com",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://blogs.microsoft.com"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.261685+00:00"
+  },
+  "https://blogs.microsoft.com/conexiones": {
+    "url": "https://blogs.microsoft.com/conexiones",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://blogs.microsoft.com/conexiones"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.261730+00:00"
+  },
+  "https://blogs.microsoft.com/on-the-issues": {
+    "url": "https://blogs.microsoft.com/on-the-issues",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://blogs.microsoft.com/on-the-issues"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.261772+00:00"
+  },
+  "https://blogs.microsoft.com/on-the-issues/2026/06/24/scaling-cybercrime-disruption-through-innovation-and-ai": {
+    "url": "https://blogs.microsoft.com/on-the-issues/2026/06/24/scaling-cybercrime-disruption-through-innovation-and-ai",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://blogs.microsoft.com/on-the-issues/2026/06/24/scaling-cybercrime-disruption-through-innovation-and-ai"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.261804+00:00"
+  },
+  "https://careers.microsoft.com": {
+    "url": "https://careers.microsoft.com",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://careers.microsoft.com"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.261844+00:00"
+  },
+  "https://choice.microsoft.com": {
+    "url": "https://choice.microsoft.com",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://choice.microsoft.com"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.261884+00:00"
+  },
+  "https://copilot.microsoft.com": {
+    "url": "https://copilot.microsoft.com",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://copilot.microsoft.com"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.261924+00:00"
+  },
+  "https://developer.microsoft.com/en-us": {
+    "url": "https://developer.microsoft.com/en-us",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://developer.microsoft.com/en-us"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.261965+00:00"
+  },
+  "https://education.microsoft.com": {
+    "url": "https://education.microsoft.com",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://education.microsoft.com"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262021+00:00"
+  },
+  "https://go.microsoft.com/fwlink": {
+    "url": "https://go.microsoft.com/fwlink",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://go.microsoft.com/fwlink"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262061+00:00"
+  },
+  "https://learn.microsoft.com": {
+    "url": "https://learn.microsoft.com",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://learn.microsoft.com"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262100+00:00"
+  },
+  "https://marketplace.microsoft.com": {
+    "url": "https://marketplace.microsoft.com",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://marketplace.microsoft.com"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262139+00:00"
+  },
+  "https://microsoft.com": {
+    "url": "https://microsoft.com",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://microsoft.com"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262170+00:00"
+  },
+  "https://news.microsoft.com/apac": {
+    "url": "https://news.microsoft.com/apac",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/apac"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262211+00:00"
+  },
+  "https://news.microsoft.com/codeofus": {
+    "url": "https://news.microsoft.com/codeofus",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/codeofus"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262261+00:00"
+  },
+  "https://news.microsoft.com/es-xl": {
+    "url": "https://news.microsoft.com/es-xl",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/es-xl"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262300+00:00"
+  },
+  "https://news.microsoft.com/europe": {
+    "url": "https://news.microsoft.com/europe",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/europe"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262343+00:00"
+  },
+  "https://news.microsoft.com/facts-about-microsoft": {
+    "url": "https://news.microsoft.com/facts-about-microsoft",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/facts-about-microsoft"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262376+00:00"
+  },
+  "https://news.microsoft.com/signal": {
+    "url": "https://news.microsoft.com/signal",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/signal"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262415+00:00"
+  },
+  "https://news.microsoft.com/signal/articles/dave-dame-things-disability-can-teach-us-about-leadership": {
+    "url": "https://news.microsoft.com/signal/articles/dave-dame-things-disability-can-teach-us-about-leadership",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/signal/articles/dave-dame-things-disability-can-teach-us-about-leadership"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262445+00:00"
+  },
+  "https://news.microsoft.com/signal/articles/microsoft-discovery-bhp-copper": {
+    "url": "https://news.microsoft.com/signal/articles/microsoft-discovery-bhp-copper",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/signal/articles/microsoft-discovery-bhp-copper"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262475+00:00"
+  },
+  "https://news.microsoft.com/signal/articles/why-dont-cancer-medicines-work-the-same-for-everyone-ex-vivo": {
+    "url": "https://news.microsoft.com/signal/articles/why-dont-cancer-medicines-work-the-same-for-everyone-ex-vivo",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/signal/articles/why-dont-cancer-medicines-work-the-same-for-everyone-ex-vivo"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262505+00:00"
+  },
+  "https://news.microsoft.com/signal/articles/work-smarter-in-90-days-a-real-world-guide-to-using-ai": {
+    "url": "https://news.microsoft.com/signal/articles/work-smarter-in-90-days-a-real-world-guide-to-using-ai",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/signal/articles/work-smarter-in-90-days-a-real-world-guide-to-using-ai"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262536+00:00"
+  },
+  "https://news.microsoft.com/source": {
+    "url": "https://news.microsoft.com/source",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262565+00:00"
+  },
+  "https://news.microsoft.com/source/canada": {
+    "url": "https://news.microsoft.com/source/canada",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/canada"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262605+00:00"
+  },
+  "https://news.microsoft.com/source/emea/features/building-the-future-how-datacenters-are-innovating-with-sustainability-in-mind": {
+    "url": "https://news.microsoft.com/source/emea/features/building-the-future-how-datacenters-are-innovating-with-sustainability-in-mind",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/emea/features/building-the-future-how-datacenters-are-innovating-with-sustainability-in-mind"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262671+00:00"
+  },
+  "https://news.microsoft.com/source/emea/features/farming-is-risky-business-this-app-helps-turkish-growers-succeed": {
+    "url": "https://news.microsoft.com/source/emea/features/farming-is-risky-business-this-app-helps-turkish-growers-succeed",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/emea/features/farming-is-risky-business-this-app-helps-turkish-growers-succeed"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262706+00:00"
+  },
+  "https://news.microsoft.com/source/exec/satya-nadella": {
+    "url": "https://news.microsoft.com/source/exec/satya-nadella",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/exec/satya-nadella"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262736+00:00"
+  },
+  "https://news.microsoft.com/source/features/ai/building-ai-that-works-for-everyone-starts-with-language": {
+    "url": "https://news.microsoft.com/source/features/ai/building-ai-that-works-for-everyone-starts-with-language",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/features/ai/building-ai-that-works-for-everyone-starts-with-language"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262767+00:00"
+  },
+  "https://news.microsoft.com/source/features/ai/why-better-ai-starts-with-the-people-it-often-misses": {
+    "url": "https://news.microsoft.com/source/features/ai/why-better-ai-starts-with-the-people-it-often-misses",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/features/ai/why-better-ai-starts-with-the-people-it-often-misses"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262799+00:00"
+  },
+  "https://news.microsoft.com/source/features/digital-transformation/accenture-is-rolling-out-copilot-to-a-workforce-the-size-of-denver": {
+    "url": "https://news.microsoft.com/source/features/digital-transformation/accenture-is-rolling-out-copilot-to-a-workforce-the-size-of-denver",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/features/digital-transformation/accenture-is-rolling-out-copilot-to-a-workforce-the-size-of-denver"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262829+00:00"
+  },
+  "https://news.microsoft.com/source/features/digital-transformation/australian-nonprofit-esuarve-turns-around-troubled-young-lives-with-lots-of-heart-and-a-little-help-from-technology": {
+    "url": "https://news.microsoft.com/source/features/digital-transformation/australian-nonprofit-esuarve-turns-around-troubled-young-lives-with-lots-of-heart-and-a-little-help-from-technology",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/features/digital-transformation/australian-nonprofit-esuarve-turns-around-troubled-young-lives-with-lots-of-heart-and-a-little-help-from-technology"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262859+00:00"
+  },
+  "https://news.microsoft.com/source/features/digital-transformation/every-child-applies-data-digital-marketing-and-most-of-all-empathy-to-recruit-and-support-foster-families": {
+    "url": "https://news.microsoft.com/source/features/digital-transformation/every-child-applies-data-digital-marketing-and-most-of-all-empathy-to-recruit-and-support-foster-families",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/features/digital-transformation/every-child-applies-data-digital-marketing-and-most-of-all-empathy-to-recruit-and-support-foster-families"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262929+00:00"
+  },
+  "https://news.microsoft.com/source/features/innovation/how-6-people-behind-well-known-technologies-are-shaping-ai-at-microsoft": {
+    "url": "https://news.microsoft.com/source/features/innovation/how-6-people-behind-well-known-technologies-are-shaping-ai-at-microsoft",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/features/innovation/how-6-people-behind-well-known-technologies-are-shaping-ai-at-microsoft"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.262969+00:00"
+  },
+  "https://news.microsoft.com/source/features/innovation/majorana-2-microsoft-discovery-agentic-ai": {
+    "url": "https://news.microsoft.com/source/features/innovation/majorana-2-microsoft-discovery-agentic-ai",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/features/innovation/majorana-2-microsoft-discovery-agentic-ai"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263003+00:00"
+  },
+  "https://news.microsoft.com/source/features/innovation/quantum-computing-10-terms-to-know": {
+    "url": "https://news.microsoft.com/source/features/innovation/quantum-computing-10-terms-to-know",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/features/innovation/quantum-computing-10-terms-to-know"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263033+00:00"
+  },
+  "https://news.microsoft.com/source/features/innovation/using-inexpensive-microleds-microsoft-networking-innovation-aims-to-make-datacenters-more-efficient": {
+    "url": "https://news.microsoft.com/source/features/innovation/using-inexpensive-microleds-microsoft-networking-innovation-aims-to-make-datacenters-more-efficient",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/features/innovation/using-inexpensive-microleds-microsoft-networking-innovation-aims-to-make-datacenters-more-efficient"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263063+00:00"
+  },
+  "https://news.microsoft.com/source/features/sustainability/from-farms-to-oceans-how-microsoft-is-working-to-scale-carbon-dioxide-removal": {
+    "url": "https://news.microsoft.com/source/features/sustainability/from-farms-to-oceans-how-microsoft-is-working-to-scale-carbon-dioxide-removal",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/features/sustainability/from-farms-to-oceans-how-microsoft-is-working-to-scale-carbon-dioxide-removal"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263093+00:00"
+  },
+  "https://news.microsoft.com/source/features/sustainability/how-ai-can-help-save-hidden-biological-hotspots-the-planet-needs": {
+    "url": "https://news.microsoft.com/source/features/sustainability/how-ai-can-help-save-hidden-biological-hotspots-the-planet-needs",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/features/sustainability/how-ai-can-help-save-hidden-biological-hotspots-the-planet-needs"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263126+00:00"
+  },
+  "https://news.microsoft.com/source/feed": {
+    "url": "https://news.microsoft.com/source/feed",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/feed"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263156+00:00"
+  },
+  "https://news.microsoft.com/source/leadership": {
+    "url": "https://news.microsoft.com/source/leadership",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/leadership"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263185+00:00"
+  },
+  "https://news.microsoft.com/source/resources": {
+    "url": "https://news.microsoft.com/source/resources",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/resources"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263214+00:00"
+  },
+  "https://news.microsoft.com/source/tag/press-releases": {
+    "url": "https://news.microsoft.com/source/tag/press-releases",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/tag/press-releases"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263243+00:00"
+  },
+  "https://news.microsoft.com/source/topics/ai": {
+    "url": "https://news.microsoft.com/source/topics/ai",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/topics/ai"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263330+00:00"
+  },
+  "https://news.microsoft.com/source/topics/company-news": {
+    "url": "https://news.microsoft.com/source/topics/company-news",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/topics/company-news"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263366+00:00"
+  },
+  "https://news.microsoft.com/source/topics/digital-transformation": {
+    "url": "https://news.microsoft.com/source/topics/digital-transformation",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/topics/digital-transformation"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263504+00:00"
+  },
+  "https://news.microsoft.com/source/topics/diversity-inclusion": {
+    "url": "https://news.microsoft.com/source/topics/diversity-inclusion",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/topics/diversity-inclusion"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263552+00:00"
+  },
+  "https://news.microsoft.com/source/topics/innovation": {
+    "url": "https://news.microsoft.com/source/topics/innovation",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/topics/innovation"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263595+00:00"
+  },
+  "https://news.microsoft.com/source/topics/security": {
+    "url": "https://news.microsoft.com/source/topics/security",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/topics/security"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263634+00:00"
+  },
+  "https://news.microsoft.com/source/topics/sustainability": {
+    "url": "https://news.microsoft.com/source/topics/sustainability",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/topics/sustainability"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263715+00:00"
+  },
+  "https://news.microsoft.com/source/topics/work-life": {
+    "url": "https://news.microsoft.com/source/topics/work-life",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/topics/work-life"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263769+00:00"
+  },
+  "https://news.microsoft.com/source/view-all": {
+    "url": "https://news.microsoft.com/source/view-all",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/source/view-all"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263802+00:00"
+  },
+  "https://support.microsoft.com/contactus": {
+    "url": "https://support.microsoft.com/contactus",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://support.microsoft.com/contactus"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263847+00:00"
+  },
+  "https://support.microsoft.com/en-us": {
+    "url": "https://support.microsoft.com/en-us",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://support.microsoft.com/en-us"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263888+00:00"
+  },
+  "https://support.microsoft.com/en-us/office/moving-from-skype-to-microsoft-teams-free-3c0caa26-d9db-4179-bcb3-930ae2c87570": {
+    "url": "https://support.microsoft.com/en-us/office/moving-from-skype-to-microsoft-teams-free-3c0caa26-d9db-4179-bcb3-930ae2c87570",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://support.microsoft.com/en-us/office/moving-from-skype-to-microsoft-teams-free-3c0caa26-d9db-4179-bcb3-930ae2c87570"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263932+00:00"
+  },
+  "https://techcommunity.microsoft.com": {
+    "url": "https://techcommunity.microsoft.com",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://techcommunity.microsoft.com"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.263973+00:00"
+  },
+  "https://unlocked.microsoft.com": {
+    "url": "https://unlocked.microsoft.com",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://unlocked.microsoft.com"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264012+00:00"
+  },
+  "https://visualstudio.microsoft.com": {
+    "url": "https://visualstudio.microsoft.com",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://visualstudio.microsoft.com"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264049+00:00"
+  },
+  "https://www.microsoft.com": {
+    "url": "https://www.microsoft.com",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264088+00:00"
+  },
+  "https://www.microsoft.com/about": {
+    "url": "https://www.microsoft.com/about",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/about"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264127+00:00"
+  },
+  "https://www.microsoft.com/edge": {
+    "url": "https://www.microsoft.com/edge",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/edge"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264168+00:00"
+  },
+  "https://www.microsoft.com/education/how-to-buy": {
+    "url": "https://www.microsoft.com/education/how-to-buy",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/education/how-to-buy"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264207+00:00"
+  },
+  "https://www.microsoft.com/en-us/accessibility": {
+    "url": "https://www.microsoft.com/en-us/accessibility",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/accessibility"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264246+00:00"
+  },
+  "https://www.microsoft.com/en-us/ai": {
+    "url": "https://www.microsoft.com/en-us/ai",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/ai"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264286+00:00"
+  },
+  "https://www.microsoft.com/en-us/corporate-responsibility/sustainability": {
+    "url": "https://www.microsoft.com/en-us/corporate-responsibility/sustainability",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/corporate-responsibility/sustainability"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264328+00:00"
+  },
+  "https://www.microsoft.com/en-us/diversity/default": {
+    "url": "https://www.microsoft.com/en-us/diversity/default",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/diversity/default"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264367+00:00"
+  },
+  "https://www.microsoft.com/en-us/download": {
+    "url": "https://www.microsoft.com/en-us/download",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/download"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264407+00:00"
+  },
+  "https://www.microsoft.com/en-us/dynamics-365": {
+    "url": "https://www.microsoft.com/en-us/dynamics-365",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/dynamics-365"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264447+00:00"
+  },
+  "https://www.microsoft.com/en-us/education": {
+    "url": "https://www.microsoft.com/en-us/education",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/education"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264486+00:00"
+  },
+  "https://www.microsoft.com/en-us/education/ai-in-education": {
+    "url": "https://www.microsoft.com/en-us/education/ai-in-education",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/education/ai-in-education"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264525+00:00"
+  },
+  "https://www.microsoft.com/en-us/education/devices/overview": {
+    "url": "https://www.microsoft.com/en-us/education/devices/overview",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/education/devices/overview"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264565+00:00"
+  },
+  "https://www.microsoft.com/en-us/education/products/microsoft-365": {
+    "url": "https://www.microsoft.com/en-us/education/products/microsoft-365",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/education/products/microsoft-365"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264606+00:00"
+  },
+  "https://www.microsoft.com/en-us/education/products/teams": {
+    "url": "https://www.microsoft.com/en-us/education/products/teams",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/education/products/teams"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264644+00:00"
+  },
+  "https://www.microsoft.com/en-us/legal/compliance/recycling": {
+    "url": "https://www.microsoft.com/en-us/legal/compliance/recycling",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/legal/compliance/recycling"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264682+00:00"
+  },
+  "https://www.microsoft.com/en-us/locale": {
+    "url": "https://www.microsoft.com/en-us/locale",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/locale"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264711+00:00"
+  },
+  "https://www.microsoft.com/en-us/microsoft-365-copilot": {
+    "url": "https://www.microsoft.com/en-us/microsoft-365-copilot",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/microsoft-365-copilot"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264749+00:00"
+  },
+  "https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/25/copilot-in-excel-built-for-the-era-of-frontier-finance": {
+    "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/25/copilot-in-excel-built-for-the-era-of-frontier-finance",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/microsoft-365/blog/2026/06/25/copilot-in-excel-built-for-the-era-of-frontier-finance"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264781+00:00"
+  },
+  "https://www.microsoft.com/en-us/microsoft-365/business": {
+    "url": "https://www.microsoft.com/en-us/microsoft-365/business",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/microsoft-365/business"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264818+00:00"
+  },
+  "https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage": {
+    "url": "https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264857+00:00"
+  },
+  "https://www.microsoft.com/en-us/microsoft-365/onenote/digital-note-taking-app": {
+    "url": "https://www.microsoft.com/en-us/microsoft-365/onenote/digital-note-taking-app",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/microsoft-365/onenote/digital-note-taking-app"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264896+00:00"
+  },
+  "https://www.microsoft.com/en-us/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook": {
+    "url": "https://www.microsoft.com/en-us/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.264993+00:00"
+  },
+  "https://www.microsoft.com/en-us/microsoft-copilot/for-individuals": {
+    "url": "https://www.microsoft.com/en-us/microsoft-copilot/for-individuals",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/microsoft-copilot/for-individuals"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265049+00:00"
+  },
+  "https://www.microsoft.com/en-us/microsoft-copilot/for-individuals/termsofuse": {
+    "url": "https://www.microsoft.com/en-us/microsoft-copilot/for-individuals/termsofuse",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/microsoft-copilot/for-individuals/termsofuse"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265083+00:00"
+  },
+  "https://www.microsoft.com/en-us/microsoft-copilot/organizations": {
+    "url": "https://www.microsoft.com/en-us/microsoft-copilot/organizations",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/microsoft-copilot/organizations"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265123+00:00"
+  },
+  "https://www.microsoft.com/en-us/microsoft-products-and-apps": {
+    "url": "https://www.microsoft.com/en-us/microsoft-products-and-apps",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/microsoft-products-and-apps"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265163+00:00"
+  },
+  "https://www.microsoft.com/en-us/microsoft-teams/group-chat-software": {
+    "url": "https://www.microsoft.com/en-us/microsoft-teams/group-chat-software",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/microsoft-teams/group-chat-software"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265202+00:00"
+  },
+  "https://www.microsoft.com/en-us/power-platform": {
+    "url": "https://www.microsoft.com/en-us/power-platform",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/power-platform"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265242+00:00"
+  },
+  "https://www.microsoft.com/en-us/privacy": {
+    "url": "https://www.microsoft.com/en-us/privacy",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/privacy"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265282+00:00"
+  },
+  "https://www.microsoft.com/en-us/research/blog/talos-scaling-rare-disease-diagnosis-with-automated-iterative-genomic-reanalysis": {
+    "url": "https://www.microsoft.com/en-us/research/blog/talos-scaling-rare-disease-diagnosis-with-automated-iterative-genomic-reanalysis",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/research/blog/talos-scaling-rare-disease-diagnosis-with-automated-iterative-genomic-reanalysis"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265314+00:00"
+  },
+  "https://www.microsoft.com/en-us/research/blog/understanding-the-brain-with-ai-driven-explanations-and-experiments": {
+    "url": "https://www.microsoft.com/en-us/research/blog/understanding-the-brain-with-ai-driven-explanations-and-experiments",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/research/blog/understanding-the-brain-with-ai-driven-explanations-and-experiments"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265344+00:00"
+  },
+  "https://www.microsoft.com/en-us/security": {
+    "url": "https://www.microsoft.com/en-us/security",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/security"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265384+00:00"
+  },
+  "https://www.microsoft.com/en-us/sitemap": {
+    "url": "https://www.microsoft.com/en-us/sitemap",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/sitemap"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265426+00:00"
+  },
+  "https://www.microsoft.com/en-us/sitemap1.aspx": {
+    "url": "https://www.microsoft.com/en-us/sitemap1.aspx",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/sitemap1.aspx"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265468+00:00"
+  },
+  "https://www.microsoft.com/en-us/sovereignty": {
+    "url": "https://www.microsoft.com/en-us/sovereignty",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/sovereignty"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265505+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/accessories": {
+    "url": "https://www.microsoft.com/en-us/store/b/accessories",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/accessories"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265544+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/business": {
+    "url": "https://www.microsoft.com/en-us/store/b/business",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/business"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265582+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/certified-refurbished-products": {
+    "url": "https://www.microsoft.com/en-us/store/b/certified-refurbished-products",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/certified-refurbished-products"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265621+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/education": {
+    "url": "https://www.microsoft.com/en-us/store/b/education",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/education"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265659+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/gift-cards": {
+    "url": "https://www.microsoft.com/en-us/store/b/gift-cards",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/gift-cards"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265697+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/microsoft-trade-in": {
+    "url": "https://www.microsoft.com/en-us/store/b/microsoft-trade-in",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/microsoft-trade-in"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265736+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/order-tracking": {
+    "url": "https://www.microsoft.com/en-us/store/b/order-tracking",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/order-tracking"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265775+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/payment-financing-options": {
+    "url": "https://www.microsoft.com/en-us/store/b/payment-financing-options",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/payment-financing-options"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265814+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/pc": {
+    "url": "https://www.microsoft.com/en-us/store/b/pc",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/pc"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265852+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/returns": {
+    "url": "https://www.microsoft.com/en-us/store/b/returns",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/returns"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265891+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/sale": {
+    "url": "https://www.microsoft.com/en-us/store/b/sale",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/sale"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265930+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/virtualreality": {
+    "url": "https://www.microsoft.com/en-us/store/b/virtualreality",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/virtualreality"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.265968+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/why-microsoft-store": {
+    "url": "https://www.microsoft.com/en-us/store/b/why-microsoft-store",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/why-microsoft-store"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266006+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/xbox": {
+    "url": "https://www.microsoft.com/en-us/store/b/xbox",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/xbox"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266044+00:00"
+  },
+  "https://www.microsoft.com/en-us/store/b/xboxgames": {
+    "url": "https://www.microsoft.com/en-us/store/b/xboxgames",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/store/b/xboxgames"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266082+00:00"
+  },
+  "https://www.microsoft.com/en-us/surface/devices/surface-laptop-ultra": {
+    "url": "https://www.microsoft.com/en-us/surface/devices/surface-laptop-ultra",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/surface/devices/surface-laptop-ultra"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266122+00:00"
+  },
+  "https://www.microsoft.com/en-us/surface/devices/surface-rtx-spark-dev-box": {
+    "url": "https://www.microsoft.com/en-us/surface/devices/surface-rtx-spark-dev-box",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/surface/devices/surface-rtx-spark-dev-box"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266164+00:00"
+  },
+  "https://www.microsoft.com/en-us/windows": {
+    "url": "https://www.microsoft.com/en-us/windows",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/windows"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266204+00:00"
+  },
+  "https://www.microsoft.com/en-us/windows-365": {
+    "url": "https://www.microsoft.com/en-us/windows-365",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/windows-365"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266244+00:00"
+  },
+  "https://www.microsoft.com/en-us/windows/apps-for-windows": {
+    "url": "https://www.microsoft.com/en-us/windows/apps-for-windows",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/windows/apps-for-windows"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266283+00:00"
+  },
+  "https://www.microsoft.com/investor/default.aspx": {
+    "url": "https://www.microsoft.com/investor/default.aspx",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/investor/default.aspx"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266322+00:00"
+  },
+  "https://www.microsoft.com/licensing": {
+    "url": "https://www.microsoft.com/licensing",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/licensing"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266360+00:00"
+  },
+  "https://www.microsoft.com/microsoft-365": {
+    "url": "https://www.microsoft.com/microsoft-365",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/microsoft-365"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266400+00:00"
+  },
+  "https://www.microsoft.com/rewards": {
+    "url": "https://www.microsoft.com/rewards",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/rewards"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266440+00:00"
+  },
+  "https://www.microsoft.com/software-development-companies": {
+    "url": "https://www.microsoft.com/software-development-companies",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/software-development-companies"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266480+00:00"
+  },
+  "https://www.microsoft.com/software-development-companies/offers-benefits/isv-success": {
+    "url": "https://www.microsoft.com/software-development-companies/offers-benefits/isv-success",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/software-development-companies/offers-benefits/isv-success"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266519+00:00"
+  },
+  "https://www.microsoft.com/surface": {
+    "url": "https://www.microsoft.com/surface",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/surface"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266558+00:00"
+  },
+  "https://www.microsoft.com/surface/devices/surface-laptop": {
+    "url": "https://www.microsoft.com/surface/devices/surface-laptop",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/surface/devices/surface-laptop"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266597+00:00"
+  },
+  "https://www.microsoft.com/surface/devices/surface-pro": {
+    "url": "https://www.microsoft.com/surface/devices/surface-pro",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/surface/devices/surface-pro"
+    ],
+    "first_seen_at": "2026-06-29T05:55:28.266636+00:00"
   }
 }
