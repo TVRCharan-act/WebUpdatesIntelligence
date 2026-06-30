@@ -2,11 +2,11 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { DatabaseZap, Eye, Pencil, Play, Plus, RotateCcw, Trash2 } from "lucide-react";
-import Link from "next/link";
 import * as React from "react";
 import { toast } from "sonner";
 
 import { EmptyState } from "@/components/empty-state";
+import { Link } from "@/components/router";
 import { SourceFormDialog } from "@/components/source-form-dialog";
 import { StatusBadge } from "@/components/status-badge";
 import {

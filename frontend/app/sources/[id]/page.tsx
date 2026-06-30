@@ -2,11 +2,10 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { ArrowLeft, ExternalLink, Play, RotateCcw, Search, Trash2 } from "lucide-react";
-import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
 import * as React from "react";
 import { toast } from "sonner";
 
+import { Link, useParams, useRouter } from "@/components/router";
 import { StatusBadge } from "@/components/status-badge";
 import {
   type ActiveTask,

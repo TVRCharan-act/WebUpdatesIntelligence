@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import {
   Activity,
   Building2,
@@ -16,6 +14,7 @@ import {
 } from "lucide-react";
 import * as React from "react";
 
+import { Link, usePathname } from "@/components/router";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 

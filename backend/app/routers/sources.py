@@ -7,7 +7,10 @@ from sqlalchemy.orm import Session
 from backend.app import crud, schemas
 from backend.app.database import get_db
 from backend.app.workers.monitor_worker import baseline_source_task, monitor_source_task
-from mysignal.discovery.api_discovery import normalize_api_url
+from mysignal.discovery.api_discovery import (
+    discover_js_bundle_sources,
+    normalize_api_url,
+)
 from mysignal.discovery.page_links import extract_page_links, normalize_page_url
 from mysignal.filters.content_filter import is_content_candidate
 from mysignal.monitoring.inventory_store import load_seen_url_records
@@ -143,6 +146,22 @@ def preview_source_discovery(
             ]
         else:
             source_url = normalize_page_url(source.url)
+            js_bundle_sources = parent_js_bundle_sources(source)
+
+            if parent_trace_js(source):
+                detected_js_bundle_sources = discover_js_bundle_sources(
+                    source_url,
+                    script_sources=js_bundle_sources,
+                )
+
+                if detected_js_bundle_sources != js_bundle_sources:
+                    source = crud.update_source_js_bundle_sources(
+                        db,
+                        source,
+                        detected_js_bundle_sources,
+                    )
+                    js_bundle_sources = detected_js_bundle_sources
+
             page_links = extract_page_links(source_url)
             preview_urls = [
                 schemas.DiscoveryPreviewUrl(
@@ -159,7 +178,7 @@ def preview_source_discovery(
             if parent_trace_js(source):
                 for url in api_content_links_for_parent(
                     source_url,
-                    js_bundle_sources=parent_js_bundle_sources(source),
+                    js_bundle_sources=js_bundle_sources,
                 ):
                     normalized_url = normalize_page_url(url)
                     preview_urls.append(

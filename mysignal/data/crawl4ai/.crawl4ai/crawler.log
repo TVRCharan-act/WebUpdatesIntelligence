@@ -1985,3 +1985,371 @@ Code context:
 [2026-06-29 05:56:16.951] [FETCH]... ↓ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 3.49s 
 [2026-06-29 05:56:17.123] [SCRAPE].. ◆ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 0.15s 
 [2026-06-29 05:56:17.171] [COMPLETE] ● https://news.microsoft.com/source                                                                    | ✓ | ⏱: 3.71s 
+[2026-06-29 11:00:28.510] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-29 11:00:28.510] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-29 11:00:28.546] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-29 11:00:28.526] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-29 11:00:28.625] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-29 11:00:28.726] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-29 11:00:28.734] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-29 11:00:28.893] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-29 11:00:32.177] [FETCH]... ↓ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 3.34s 
+[2026-06-29 11:00:32.388] [SCRAPE].. ◆ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 0.07s 
+[2026-06-29 11:00:32.518] [COMPLETE] ● https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 3.69s 
+[2026-06-29 11:00:33.366] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 4.45s 
+[2026-06-29 11:00:33.823] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.30s 
+[2026-06-29 11:00:34.060] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 5.15s 
+[2026-06-29 11:00:34.723] [FETCH]... ↓ https://openai.com/news                                                                              | ✓ | ⏱: 5.72s 
+[2026-06-29 11:00:34.901] [SCRAPE].. ◆ https://openai.com/news                                                                              | ✓ | ⏱: 0.16s 
+[2026-06-29 11:00:35.069] [COMPLETE] ● https://openai.com/news                                                                              | ✓ | ⏱: 6.08s 
+[2026-06-29 11:00:35.469] [FETCH]... ↓ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 6.65s 
+[2026-06-29 11:00:35.804] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 7.00s 
+[2026-06-29 11:00:35.817] [SCRAPE].. ◆ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 0.31s 
+[2026-06-29 11:00:35.912] [COMPLETE] ● https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 7.10s 
+[2026-06-29 11:00:36.203] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.38s 
+[2026-06-29 11:00:36.267] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 7.47s 
+[2026-06-29 11:00:36.431] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 7.30s 
+[2026-06-29 11:00:36.634] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.15s 
+[2026-06-29 11:00:36.714] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 7.59s 
+[2026-06-29 11:00:37.882] [FETCH]... ↓ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 8.98s 
+[2026-06-29 11:00:38.084] [SCRAPE].. ◆ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 0.19s 
+[2026-06-29 11:00:38.137] [COMPLETE] ● https://news.microsoft.com/source                                                                    | ✓ | ⏱: 9.24s 
+[2026-06-29 11:00:41.977] [FETCH]... ↓ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 13.19s 
+[2026-06-29 11:00:42.267] [SCRAPE].. ◆ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 0.27s 
+[2026-06-29 11:00:42.360] [COMPLETE] ● https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 13.58s 
+[2026-06-30 04:08:59.374] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:02.855] [FETCH]... ↓ https://www.mahindra.com/newsroom/press-release                                                      | ✓ | ⏱: 3.40s 
+[2026-06-30 04:09:03.077] [SCRAPE].. ◆ https://www.mahindra.com/newsroom/press-release                                                      | ✓ | ⏱: 0.20s 
+[2026-06-30 04:09:03.143] [COMPLETE] ● https://www.mahindra.com/newsroom/press-release                                                      | ✓ | ⏱: 3.69s 
+[2026-06-30 04:09:15.223] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:18.051] [FETCH]... ↓ https://openai.com/news                                                                              | ✓ | ⏱: 2.74s 
+[2026-06-30 04:09:18.152] [SCRAPE].. ◆ https://openai.com/news                                                                              | ✓ | ⏱: 0.08s 
+[2026-06-30 04:09:18.214] [COMPLETE] ● https://openai.com/news                                                                              | ✓ | ⏱: 2.91s 
+[2026-06-30 04:09:20.522] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:25.470] [FETCH]... ↓ https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 4.87s 
+[2026-06-30 04:09:29.548] [SCRAPE].. ◆ https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 4.06s 
+[2026-06-30 04:09:29.653] [COMPLETE] ● https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 9.05s 
+[2026-06-30 04:09:35.688] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:37.309] [FETCH]... ↓ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 1.53s 
+[2026-06-30 04:09:37.526] [SCRAPE].. ◆ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 0.20s 
+[2026-06-30 04:09:37.566] [COMPLETE] ● https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 1.79s 
+[2026-06-30 04:09:40.531] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:41.234] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:41.319] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:41.482] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:41.577] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:41.858] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:42.277] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:42.319] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:42.582] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:43.513] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:44.260] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:09:49.507] [FETCH]... ↓ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 4.86s 
+[2026-06-30 04:09:50.974] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 10.30s 
+[2026-06-30 04:09:51.300] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.26s 
+[2026-06-30 04:09:51.560] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 10.89s 
+[2026-06-30 04:09:51.951] [SCRAPE].. ◆ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 2.40s 
+[2026-06-30 04:09:52.773] [FETCH]... ↓ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 8.94s 
+[2026-06-30 04:09:53.928] [COMPLETE] ● https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 9.35s 
+[2026-06-30 04:09:56.427] [FETCH]... ↓ https://www.mahindra.com/newsroom/press-release                                                      | ✓ | ⏱: 14.98s 
+[2026-06-30 04:09:56.526] [FETCH]... ↓ https://openai.com/news                                                                              | ✓ | ⏱: 14.66s 
+[2026-06-30 04:09:56.732] [SCRAPE].. ◆ https://www.mahindra.com/newsroom/press-release                                                      | ✓ | ⏱: 0.28s 
+[2026-06-30 04:09:56.808] [COMPLETE] ● https://www.mahindra.com/newsroom/press-release                                                      | ✓ | ⏱: 15.37s 
+[2026-06-30 04:09:58.064] [SCRAPE].. ◆ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 5.28s 
+[2026-06-30 04:09:58.729] [COMPLETE] ● https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 14.99s 
+[2026-06-30 04:09:58.975] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 17.47s 
+[2026-06-30 04:09:59.193] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.20s 
+[2026-06-30 04:09:59.271] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 17.77s 
+[2026-06-30 04:09:59.292] [SCRAPE].. ◆ https://openai.com/news                                                                              | ✓ | ⏱: 2.75s 
+[2026-06-30 04:09:59.668] [COMPLETE] ● https://openai.com/news                                                                              | ✓ | ⏱: 17.89s 
+[2026-06-30 04:10:00.857] [FETCH]... ↓ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 18.29s 
+[2026-06-30 04:10:01.027] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 18.20s 
+[2026-06-30 04:10:01.337] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.26s 
+[2026-06-30 04:10:01.420] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 18.60s 
+[2026-06-30 04:10:01.425] [SCRAPE].. ◆ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 0.53s 
+[2026-06-30 04:10:01.546] [FETCH]... ↓ https://news.alcoa.com/home/default.aspx                                                             | ✓ | ⏱: 19.00s 
+[2026-06-30 04:10:01.556] [COMPLETE] ● https://news.microsoft.com/source                                                                    | ✓ | ⏱: 19.00s 
+[2026-06-30 04:10:01.983] [SCRAPE].. ◆ https://news.alcoa.com/home/default.aspx                                                             | ✓ | ⏱: 0.42s 
+[2026-06-30 04:10:01.988] [FETCH]... ↓ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 19.90s 
+[2026-06-30 04:10:02.156] [COMPLETE] ● https://news.alcoa.com/home/default.aspx                                                             | ✓ | ⏱: 19.63s 
+[2026-06-30 04:10:02.606] [SCRAPE].. ◆ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 0.60s 
+[2026-06-30 04:10:02.839] [COMPLETE] ● https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 20.76s 
+[2026-06-30 04:10:03.773] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:10:06.721] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.81s 
+[2026-06-30 04:10:07.123] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.38s 
+[2026-06-30 04:10:07.184] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 3.28s 
+[2026-06-30 04:10:07.368] [FETCH]... ↓ https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 25.63s 
+[2026-06-30 04:10:11.992] [SCRAPE].. ◆ https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 4.60s 
+[2026-06-30 04:10:12.173] [COMPLETE] ● https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 30.45s 
+[2026-06-30 04:10:39.407] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:10:40.862] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.36s 
+[2026-06-30 04:10:41.005] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.12s 
+[2026-06-30 04:10:41.090] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.59s 
+[2026-06-30 04:11:07.989] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:11:09.271] [FETCH]... ↓ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 1.20s 
+[2026-06-30 04:11:09.300] [SCRAPE].. ◆ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 0.01s 
+[2026-06-30 04:11:09.331] [COMPLETE] ● https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 1.26s 
+[2026-06-30 04:11:11.315] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:11:15.580] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 4.18s 
+[2026-06-30 04:11:15.745] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.15s 
+[2026-06-30 04:11:15.801] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 4.41s 
+[2026-06-30 04:11:25.667] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:11:34.930] [FETCH]... ↓ https://news.alcoa.com/home/default.aspx                                                             | ✓ | ⏱: 9.18s 
+[2026-06-30 04:11:35.062] [SCRAPE].. ◆ https://news.alcoa.com/home/default.aspx                                                             | ✓ | ⏱: 0.12s 
+[2026-06-30 04:11:35.113] [COMPLETE] ● https://news.alcoa.com/home/default.aspx                                                             | ✓ | ⏱: 9.36s 
+[2026-06-30 04:11:37.619] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:11:41.840] [FETCH]... ↓ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 4.13s 
+[2026-06-30 04:11:42.066] [SCRAPE].. ◆ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 0.21s 
+[2026-06-30 04:11:42.129] [COMPLETE] ● https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 4.42s 
+[2026-06-30 04:12:48.600] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:12:52.042] [FETCH]... ↓ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 3.35s 
+[2026-06-30 04:12:52.228] [SCRAPE].. ◆ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 0.17s 
+[2026-06-30 04:12:52.317] [COMPLETE] ● https://news.microsoft.com/source                                                                    | ✓ | ⏱: 3.63s 
+[2026-06-30 04:37:33.185] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:37:36.572] [FETCH]... ↓ https://www.mahindra.com/newsroom/press-release                                                      | ✓ | ⏱: 3.30s 
+[2026-06-30 04:37:36.783] [SCRAPE].. ◆ https://www.mahindra.com/newsroom/press-release                                                      | ✓ | ⏱: 0.20s 
+[2026-06-30 04:37:36.840] [COMPLETE] ● https://www.mahindra.com/newsroom/press-release                                                      | ✓ | ⏱: 3.57s 
+[2026-06-30 04:37:41.780] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:37:45.236] [FETCH]... ↓ https://openai.com/news                                                                              | ✓ | ⏱: 3.37s 
+[2026-06-30 04:37:45.359] [SCRAPE].. ◆ https://openai.com/news                                                                              | ✓ | ⏱: 0.11s 
+[2026-06-30 04:37:45.424] [COMPLETE] ● https://openai.com/news                                                                              | ✓ | ⏱: 3.56s 
+[2026-06-30 04:37:48.195] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:37:53.213] [FETCH]... ↓ https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 4.93s 
+[2026-06-30 04:37:57.751] [SCRAPE].. ◆ https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 4.52s 
+[2026-06-30 04:37:57.860] [COMPLETE] ● https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 9.58s 
+[2026-06-30 04:38:03.729] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:38:05.620] [FETCH]... ↓ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 1.80s 
+[2026-06-30 04:38:05.809] [SCRAPE].. ◆ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 0.17s 
+[2026-06-30 04:38:05.848] [COMPLETE] ● https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 2.03s 
+[2026-06-30 04:38:08.000] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:38:09.817] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.72s 
+[2026-06-30 04:38:09.947] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.11s 
+[2026-06-30 04:38:10.038] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.95s 
+[2026-06-30 04:38:12.127] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:38:15.936] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 3.72s 
+[2026-06-30 04:38:16.163] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.21s 
+[2026-06-30 04:38:16.216] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 4.00s 
+[2026-06-30 04:39:27.141] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:39:28.297] [FETCH]... ↓ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 1.07s 
+[2026-06-30 04:39:28.324] [SCRAPE].. ◆ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 0.01s 
+[2026-06-30 04:39:28.346] [COMPLETE] ● https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 1.12s 
+[2026-06-30 04:39:30.300] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:39:34.162] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 3.78s 
+[2026-06-30 04:39:34.327] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.15s 
+[2026-06-30 04:39:34.384] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 4.00s 
+[2026-06-30 04:39:44.830] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:39:53.455] [FETCH]... ↓ https://news.alcoa.com/home/default.aspx                                                             | ✓ | ⏱: 8.54s 
+[2026-06-30 04:39:53.589] [SCRAPE].. ◆ https://news.alcoa.com/home/default.aspx                                                             | ✓ | ⏱: 0.11s 
+[2026-06-30 04:39:53.641] [COMPLETE] ● https://news.alcoa.com/home/default.aspx                                                             | ✓ | ⏱: 8.72s 
+[2026-06-30 04:39:56.122] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:40:06.794] [FETCH]... ↓ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 10.59s 
+[2026-06-30 04:40:07.008] [SCRAPE].. ◆ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 0.20s 
+[2026-06-30 04:40:07.078] [COMPLETE] ● https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 10.87s 
+[2026-06-30 04:41:07.132] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:41:10.430] [FETCH]... ↓ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 3.22s 
+[2026-06-30 04:41:10.583] [SCRAPE].. ◆ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 0.14s 
+[2026-06-30 04:41:10.625] [COMPLETE] ● https://news.microsoft.com/source                                                                    | ✓ | ⏱: 3.41s 
+[2026-06-30 04:43:51.432] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:43:54.233] [FETCH]... ↓ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 2.71s 
+[2026-06-30 04:43:54.431] [SCRAPE].. ◆ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 0.18s 
+[2026-06-30 04:43:54.484] [COMPLETE] ● https://news.microsoft.com/source                                                                    | ✓ | ⏱: 2.96s 
+[2026-06-30 04:48:08.093] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:48:14.710] [FETCH]... ↓ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 6.54s 
+[2026-06-30 04:48:14.949] [SCRAPE].. ◆ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 0.22s 
+[2026-06-30 04:48:15.013] [COMPLETE] ● https://news.microsoft.com/source                                                                    | ✓ | ⏱: 6.85s 
+[2026-06-30 04:49:41.797] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:49:44.046] [FETCH]... ↓ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 2.17s 
+[2026-06-30 04:49:44.249] [SCRAPE].. ◆ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 0.19s 
+[2026-06-30 04:49:44.292] [COMPLETE] ● https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 2.42s 
+[2026-06-30 04:56:23.382] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:56:26.488] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 3.02s 
+[2026-06-30 04:56:26.732] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.23s 
+[2026-06-30 04:56:26.797] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 3.33s 
+[2026-06-30 04:57:42.586] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 04:57:46.864] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 4.20s 
+[2026-06-30 04:57:47.034] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.16s 
+[2026-06-30 04:57:47.099] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 4.44s 
+[2026-06-30 05:02:21.918] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:02:23.535] [FETCH]... ↓ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 1.53s 
+[2026-06-30 05:02:23.568] [SCRAPE].. ◆ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 0.02s 
+[2026-06-30 05:02:23.596] [COMPLETE] ● https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 1.60s 
+[2026-06-30 05:02:33.913] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:02:36.621] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 2.62s 
+[2026-06-30 05:02:36.861] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.20s 
+[2026-06-30 05:02:36.942] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 2.94s 
+[2026-06-30 05:06:08.437] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:06:09.915] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.38s 
+[2026-06-30 05:06:10.042] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.11s 
+[2026-06-30 05:06:10.127] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.60s 
+[2026-06-30 05:06:25.940] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:06:27.811] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.78s 
+[2026-06-30 05:06:28.003] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.17s 
+[2026-06-30 05:06:28.091] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 2.07s 
+[2026-06-30 05:07:31.776] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:07:33.435] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.56s 
+[2026-06-30 05:07:33.697] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.24s 
+[2026-06-30 05:07:33.823] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.95s 
+[2026-06-30 05:09:24.127] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:09:25.763] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.54s 
+[2026-06-30 05:09:25.896] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.12s 
+[2026-06-30 05:09:25.989] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.77s 
+[2026-06-30 05:09:42.736] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:09:43.047] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:09:43.115] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:09:43.229] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:09:43.237] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:09:43.263] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:09:43.283] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:09:45.032] [FETCH]... ↓ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 1.66s 
+[2026-06-30 05:09:45.156] [SCRAPE].. ◆ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 0.09s 
+[2026-06-30 05:09:45.306] [COMPLETE] ● https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 1.94s 
+[2026-06-30 05:09:45.783] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 2.52s 
+[2026-06-30 05:09:46.212] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.34s 
+[2026-06-30 05:09:46.450] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 3.19s 
+[2026-06-30 05:09:46.602] [FETCH]... ↓ https://openai.com/news                                                                              | ✓ | ⏱: 3.68s 
+[2026-06-30 05:09:47.073] [SCRAPE].. ◆ https://openai.com/news                                                                              | ✓ | ⏱: 0.43s 
+[2026-06-30 05:09:47.321] [COMPLETE] ● https://openai.com/news                                                                              | ✓ | ⏱: 4.41s 
+[2026-06-30 05:09:48.467] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 5.25s 
+[2026-06-30 05:09:48.822] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.34s 
+[2026-06-30 05:09:48.903] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 5.69s 
+[2026-06-30 05:09:48.907] [FETCH]... ↓ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 5.54s 
+[2026-06-30 05:09:49.219] [SCRAPE].. ◆ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 0.29s 
+[2026-06-30 05:09:49.296] [COMPLETE] ● https://news.microsoft.com/source                                                                    | ✓ | ⏱: 5.94s 
+[2026-06-30 05:09:50.076] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 6.67s 
+[2026-06-30 05:09:50.257] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.16s 
+[2026-06-30 05:09:50.336] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 6.93s 
+[2026-06-30 05:09:57.224] [FETCH]... ↓ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 13.79s 
+[2026-06-30 05:09:57.505] [SCRAPE].. ◆ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 0.26s 
+[2026-06-30 05:09:57.591] [COMPLETE] ● https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 14.17s 
+[2026-06-30 05:10:14.933] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:10:16.404] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.39s 
+[2026-06-30 05:10:16.543] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.12s 
+[2026-06-30 05:10:16.625] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.61s 
+[2026-06-30 05:19:59.376] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:20:01.208] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.74s 
+[2026-06-30 05:20:01.403] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.18s 
+[2026-06-30 05:20:01.490] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 2.03s 
+[2026-06-30 05:20:33.407] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:20:35.167] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.67s 
+[2026-06-30 05:20:35.356] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.17s 
+[2026-06-30 05:20:35.433] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.94s 
+[2026-06-30 05:22:27.954] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:22:30.037] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 2.00s 
+[2026-06-30 05:22:30.170] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.12s 
+[2026-06-30 05:22:30.259] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 2.22s 
+[2026-06-30 05:22:50.034] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:22:51.645] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.52s 
+[2026-06-30 05:22:51.819] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.11s 
+[2026-06-30 05:22:51.994] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.87s 
+[2026-06-30 05:23:11.924] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:23:13.380] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.38s 
+[2026-06-30 05:23:13.519] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.12s 
+[2026-06-30 05:23:13.606] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.60s 
+[2026-06-30 05:23:18.280] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:23:19.934] [FETCH]... ↓ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.57s 
+[2026-06-30 05:23:20.109] [SCRAPE].. ◆ https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 0.16s 
+[2026-06-30 05:23:20.183] [COMPLETE] ● https://www.maaden.com/news-insights                                                                 | ✓ | ⏱: 1.82s 
+[2026-06-30 05:33:08.446] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:33:11.378] [FETCH]... ↓ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 2.85s 
+[2026-06-30 05:33:11.652] [SCRAPE].. ◆ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 0.25s 
+[2026-06-30 05:33:11.698] [COMPLETE] ● https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 3.17s 
+[2026-06-30 05:36:39.832] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:36:42.614] [FETCH]... ↓ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 2.70s 
+[2026-06-30 05:36:42.783] [SCRAPE].. ◆ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 0.15s 
+[2026-06-30 05:36:42.837] [COMPLETE] ● https://news.microsoft.com/source                                                                    | ✓ | ⏱: 2.92s 
+[2026-06-30 05:38:58.551] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 05:39:02.751] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 4.11s 
+[2026-06-30 05:39:02.937] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.17s 
+[2026-06-30 05:39:03.000] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 4.36s 
+[2026-06-30 08:27:16.677] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 08:27:16.717] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 08:27:16.691] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 08:27:16.681] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 08:27:16.684] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 08:27:16.751] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 08:27:19.951] [FETCH]... ↓ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 3.07s 
+[2026-06-30 08:27:20.162] [SCRAPE].. ◆ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 0.14s 
+[2026-06-30 08:27:20.336] [COMPLETE] ● https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 3.46s 
+[2026-06-30 08:27:22.444] [FETCH]... ↓ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 5.57s 
+[2026-06-30 08:27:22.531] [FETCH]... ↓ https://openai.com/news                                                                              | ✓ | ⏱: 5.58s 
+[2026-06-30 08:27:22.879] [SCRAPE].. ◆ https://openai.com/news                                                                              | ✓ | ⏱: 0.27s 
+[2026-06-30 08:27:23.032] [SCRAPE].. ◆ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 0.51s 
+[2026-06-30 08:27:23.060] [COMPLETE] ● https://openai.com/news                                                                              | ✓ | ⏱: 6.11s 
+[2026-06-30 08:27:23.191] [COMPLETE] ● https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 6.32s 
+[2026-06-30 08:27:25.052] [FETCH]... ↓ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 8.17s 
+[2026-06-30 08:27:25.431] [SCRAPE].. ◆ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 0.33s 
+[2026-06-30 08:27:25.432] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 08:27:25.555] [COMPLETE] ● https://news.microsoft.com/source                                                                    | ✓ | ⏱: 8.68s 
+[2026-06-30 08:27:26.046] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 9.17s 
+[2026-06-30 08:27:26.310] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.22s 
+[2026-06-30 08:27:26.385] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 9.52s 
+[2026-06-30 08:27:29.519] [FETCH]... ↓ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 3.89s 
+[2026-06-30 08:27:29.787] [SCRAPE].. ◆ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 0.25s 
+[2026-06-30 08:27:29.867] [COMPLETE] ● https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 4.24s 
+[2026-06-30 08:27:30.836] [FETCH]... ↓ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 13.94s 
+[2026-06-30 08:27:31.097] [SCRAPE].. ◆ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 0.24s 
+[2026-06-30 08:27:31.188] [COMPLETE] ● https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 14.30s 
+[2026-06-30 08:29:11.755] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 08:29:13.855] [FETCH]... ↓ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 1.99s 
+[2026-06-30 08:29:14.029] [SCRAPE].. ◆ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 0.16s 
+[2026-06-30 08:29:14.073] [COMPLETE] ● https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 2.21s 
+[2026-06-30 09:32:51.324] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 09:32:51.316] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 09:32:51.315] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 09:32:51.324] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 09:32:51.315] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 09:32:53.623] [FETCH]... ↓ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 2.11s 
+[2026-06-30 09:32:53.691] [SCRAPE].. ◆ https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 0.02s 
+[2026-06-30 09:32:53.741] [COMPLETE] ● https://www.swiggy.com/corporate/feed                                                                | ✓ | ⏱: 2.23s 
+[2026-06-30 09:32:56.068] [FETCH]... ↓ https://openai.com/news                                                                              | ✓ | ⏱: 4.54s 
+[2026-06-30 09:32:56.226] [SCRAPE].. ◆ https://openai.com/news                                                                              | ✓ | ⏱: 0.14s 
+[2026-06-30 09:32:56.321] [COMPLETE] ● https://openai.com/news                                                                              | ✓ | ⏱: 4.79s 
+[2026-06-30 09:32:56.618] [FETCH]... ↓ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 5.07s 
+[2026-06-30 09:32:56.848] [FETCH]... ↓ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 5.32s 
+[2026-06-30 09:32:56.858] [SCRAPE].. ◆ https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 0.23s 
+[2026-06-30 09:32:56.976] [COMPLETE] ● https://nvidianews.nvidia.com                                                                        | ✓ | ⏱: 5.43s 
+[2026-06-30 09:32:57.164] [SCRAPE].. ◆ https://news.microsoft.com/source                                                                    | ✓ | ⏱: 0.29s 
+[2026-06-30 09:32:57.260] [COMPLETE] ● https://news.microsoft.com/source                                                                    | ✓ | ⏱: 5.73s 
+[2026-06-30 09:32:57.368] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 09:33:01.789] [FETCH]... ↓ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 4.27s 
+[2026-06-30 09:33:02.019] [SCRAPE].. ◆ https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 0.22s 
+[2026-06-30 09:33:02.091] [COMPLETE] ● https://about.netflix.com/en/newsroom                                                                | ✓ | ⏱: 4.57s 
+[2026-06-30 09:33:13.559] [FETCH]... ↓ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 22.03s 
+[2026-06-30 09:33:13.822] [SCRAPE].. ◆ https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 0.24s 
+[2026-06-30 09:33:13.879] [COMPLETE] ● https://www.hindalco.com/media/press-releases                                                        | ✓ | ⏱: 22.36s 
+[2026-06-30 09:36:07.527] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 09:36:09.986] [FETCH]... ↓ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 2.36s 
+[2026-06-30 09:36:10.308] [SCRAPE].. ◆ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 0.26s 
+[2026-06-30 09:36:10.375] [COMPLETE] ● https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 2.76s 
+[2026-06-30 09:37:49.363] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 09:37:52.030] [FETCH]... ↓ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 2.57s 
+[2026-06-30 09:37:52.280] [SCRAPE].. ◆ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 0.23s 
+[2026-06-30 09:37:52.326] [COMPLETE] ● https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 2.87s 
+[2026-06-30 09:38:31.409] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 09:38:34.530] [FETCH]... ↓ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 3.04s 
+[2026-06-30 09:38:34.724] [SCRAPE].. ◆ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 0.17s 
+[2026-06-30 09:38:34.764] [COMPLETE] ● https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 3.27s 
+[2026-06-30 09:39:58.043] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 09:40:01.312] [FETCH]... ↓ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 3.18s 
+[2026-06-30 09:40:01.506] [SCRAPE].. ◆ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 0.18s 
+[2026-06-30 09:40:01.547] [COMPLETE] ● https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 3.41s 
+[2026-06-30 09:41:23.251] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 09:41:37.104] [FETCH]... ↓ https://edition.cnn.com                                                                              | ✓ | ⏱: 13.76s 
+[2026-06-30 09:41:38.540] [SCRAPE].. ◆ https://edition.cnn.com                                                                              | ✓ | ⏱: 1.37s 
+[2026-06-30 09:41:39.304] [COMPLETE] ● https://edition.cnn.com                                                                              | ✓ | ⏱: 15.96s 
+[2026-06-30 09:48:57.388] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 09:49:01.435] [FETCH]... ↓ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 3.93s 
+[2026-06-30 09:49:01.635] [SCRAPE].. ◆ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 0.18s 
+[2026-06-30 09:49:01.678] [COMPLETE] ● https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 4.17s 
+[2026-06-30 09:50:41.754] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 09:50:43.870] [FETCH]... ↓ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 2.03s 
+[2026-06-30 09:50:44.070] [SCRAPE].. ◆ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 0.18s 
+[2026-06-30 09:50:44.115] [COMPLETE] ● https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 2.28s 
+[2026-06-30 09:51:50.149] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 09:51:52.306] [FETCH]... ↓ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 2.07s 
+[2026-06-30 09:51:52.512] [SCRAPE].. ◆ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 0.19s 
+[2026-06-30 09:51:52.574] [COMPLETE] ● https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 2.34s 
+[2026-06-30 09:59:58.569] [INIT].... → Crawl4AI 0.9.0 
+[2026-06-30 10:00:01.608] [FETCH]... ↓ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 2.95s 
+[2026-06-30 10:00:01.814] [SCRAPE].. ◆ https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 0.19s 
+[2026-06-30 10:00:01.867] [COMPLETE] ● https://www.apple.com/in/newsroom                                                                    | ✓ | ⏱: 3.22s 

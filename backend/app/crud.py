@@ -182,6 +182,17 @@ def update_source(
     return db_source
 
 
+def update_source_js_bundle_sources(
+    db: Session,
+    db_source: models.Source,
+    js_bundle_sources: list[str],
+) -> models.Source:
+    db_source.js_bundle_sources = js_bundle_sources
+    db.commit()
+    db.refresh(db_source)
+    return db_source
+
+
 def delete_source(db: Session, db_source: models.Source) -> None:
     db.delete(db_source)
     db.commit()

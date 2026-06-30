@@ -10,7 +10,10 @@ from sqlalchemy.orm import Session, selectinload
 
 from backend.app import crud, models, schemas
 from backend.app.database import SessionLocal
-from mysignal.discovery.api_discovery import normalize_api_url
+from mysignal.discovery.api_discovery import (
+    discover_js_bundle_sources,
+    normalize_api_url,
+)
 from mysignal.discovery.page_links import normalize_page_url
 from mysignal.monitoring.inventory_store import (
     load_seen_url_records,
@@ -249,7 +252,16 @@ def _processing_log_messages(
     return messages
 
 
-def _baseline_source(source: models.Source) -> dict:
+def _baseline_source(
+    db: Session,
+    source: models.Source,
+) -> dict:
+    if source.strategy == "parent":
+        _refresh_js_bundle_sources(
+            db,
+            source,
+        )
+
     if source.strategy == "parent":
         return baseline_seen_urls_from_parents([source])
 
@@ -262,7 +274,16 @@ def _baseline_source(source: models.Source) -> dict:
     raise ValueError(f"Unsupported source strategy: {source.strategy}")
 
 
-def _discover_source(source: models.Source) -> tuple[list[str], dict]:
+def _discover_source(
+    db: Session,
+    source: models.Source,
+) -> tuple[list[str], dict]:
+    if source.strategy == "parent":
+        _refresh_js_bundle_sources(
+            db,
+            source,
+        )
+
     if source.strategy == "parent":
         return discover_new_urls_from_parents([source], store_new_urls=False)
 
@@ -283,6 +304,31 @@ def _normalized_source_url(source: models.Source) -> str:
         return normalize_api_url(source.url)
 
     return normalize_page_url(source.url)
+
+
+def _refresh_js_bundle_sources(
+    db: Session,
+    source: models.Source,
+) -> None:
+    if not source.trace_js:
+        return
+
+    source_url = normalize_page_url(
+        source.url,
+    )
+    detected_sources = discover_js_bundle_sources(
+        source_url,
+        script_sources=source.js_bundle_sources,
+    )
+
+    if detected_sources == source.js_bundle_sources:
+        return
+
+    crud.update_source_js_bundle_sources(
+        db,
+        source,
+        detected_sources,
+    )
 
 
 def _recipients_for_source(source: models.Source) -> list[str]:
@@ -345,7 +391,10 @@ def run_baseline(source_id: int) -> schemas.MonitorResult:
         monitor_run = _create_run(db, source)
 
         try:
-            added_records = _baseline_source(source)
+            added_records = _baseline_source(
+                db,
+                source,
+            )
             new_urls = sorted(added_records)
 
             for url in new_urls:
@@ -396,7 +445,10 @@ def run_monitor(source_id: int) -> schemas.MonitorResult:
 
         try:
             if needs_baseline_seed:
-                added_records = _baseline_source(source)
+                added_records = _baseline_source(
+                    db,
+                    source,
+                )
                 seeded_urls = sorted(added_records)
 
                 for url in seeded_urls:
@@ -427,7 +479,10 @@ def run_monitor(source_id: int) -> schemas.MonitorResult:
                     ],
                 )
 
-            new_urls, new_records = _discover_source(source)
+            new_urls, new_records = _discover_source(
+                db,
+                source,
+            )
             processed_urls = []
             failed_urls = []
             processing_errors = []

@@ -1,8 +1,8 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import * as React from "react";
 
+import { usePathname } from "@/components/router";
 import { recordHealthEvent } from "@/lib/health-events";
 
 export function RouteLogger() {

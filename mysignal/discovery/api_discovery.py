@@ -1,6 +1,7 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import json
 import re
+from typing import Any
 from urllib.parse import urljoin, urlparse
 
 from bs4 import BeautifulSoup
@@ -16,15 +17,18 @@ from mysignal.filters.content_filter import is_content_candidate
 
 API_HINT_PATTERN = re.compile(
     r"fetch\s*\(|axios\s*\(|XMLHttpRequest|graphql|/api/|/graphql|"
-    r"/news|/stories|/press|application/json",
+    r"/news|/stories|/press|application/json|ApolloClient|urql|Relay|"
+    r"persistedQuery|sha256Hash",
     re.IGNORECASE,
 )
 MAX_ENDPOINT_VALIDATIONS = 50
+MAX_SOURCE_MAP_BYTES = 2_000_000
 QUOTED_STRING_PATTERN = re.compile(
     r"""["']([^"'\\]*(?:\\.[^"'\\]*)*)["']""",
 )
 PATH_HINT_PATTERN = re.compile(
-    r"(/api/|/graphql|/news|/stories|/press|graphql|news|stories|press|"
+    r"(/api/|/graphql|/news|/stories|/press|/blog|/posts|/articles|"
+    r"graphql|news|stories|press|blog|posts|articles|content|"
     r"\.json(?:\?|$))",
     re.IGNORECASE,
 )
@@ -37,11 +41,87 @@ XHR_ENDPOINT_PATTERN = re.compile(
     re.IGNORECASE,
 )
 GRAPHQL_OPERATION_PATTERN = re.compile(
-    r"\bquery\s+[A-Za-z0-9_]+|\bmutation\s+[A-Za-z0-9_]+",
+    r"\bquery\s+[A-Za-z0-9_]+|\bmutation\s+[A-Za-z0-9_]+|"
+    r"\bfragment\s+[A-Za-z0-9_]+|persistedQuery|sha256Hash",
+    re.IGNORECASE,
 )
 SCRIPT_PATH_PATTERN = re.compile(
     r"\.js(?:\?|$)",
     re.IGNORECASE,
+)
+SCRIPT_LIKE_REL_VALUES = {
+    "modulepreload",
+    "preload",
+    "prefetch",
+}
+SOURCE_MAPPING_URL_PATTERN = re.compile(
+    r"sourceMappingURL=([^\s*]+)",
+    re.IGNORECASE,
+)
+WINDOW_STATE_PATTERN = re.compile(
+    r"(?:window\.)?(__INITIAL_STATE__|__APOLLO_STATE__|__NUXT__)\s*=",
+    re.IGNORECASE,
+)
+ARTICLE_METADATA_KEYS = {
+    "article",
+    "articles",
+    "author",
+    "date",
+    "headline",
+    "id",
+    "published",
+    "published_at",
+    "publishedat",
+    "pubdate",
+    "slug",
+    "title",
+    "updated",
+    "updated_at",
+    "updatedat",
+}
+CONTENT_ENDPOINT_TOKENS = (
+    "article",
+    "articles",
+    "blog",
+    "content",
+    "news",
+    "post",
+    "posts",
+    "press",
+    "story",
+    "stories",
+)
+LOW_VALUE_ENDPOINT_TOKENS = (
+    "account",
+    "admin",
+    "asset",
+    "auth",
+    "cart",
+    "config",
+    "login",
+    "logout",
+    "menu",
+    "nav",
+    "navigation",
+    "password",
+    "preview",
+    "search",
+    "session",
+    "settings",
+    "static",
+    "user",
+)
+FRAMEWORK_PRIORITY = (
+    "next.js",
+    "nuxt",
+    "gatsby",
+    "astro",
+    "remix",
+    "wordpress",
+    "ghost",
+    "contentful",
+    "strapi",
+    "sanity",
 )
 
 
@@ -52,6 +132,33 @@ class CandidateEndpoint:
     score: int
     detection_method: str
     content_type: str
+    framework: str | None = None
+    validation_result: str = "accepted"
+    source_javascript_bundle: str | None = None
+    source_map: str | None = None
+    embedded_json_source: str | None = None
+    metadata: dict[str, Any] = field(
+        default_factory=dict,
+    )
+
+
+@dataclass
+class EndpointDiscoveryMetadata:
+    detection_methods: set[str] = field(
+        default_factory=set,
+    )
+    source_javascript_bundles: set[str] = field(
+        default_factory=set,
+    )
+    source_maps: set[str] = field(
+        default_factory=set,
+    )
+    embedded_json_sources: set[str] = field(
+        default_factory=set,
+    )
+    frameworks: set[str] = field(
+        default_factory=set,
+    )
 
 
 def same_origin_url(
@@ -63,6 +170,20 @@ def same_origin_url(
     ).netloc.lower() == urlparse(
         page_url,
     ).netloc.lower()
+
+
+def allowed_script_url(
+    url: str,
+    page_url: str,
+) -> bool:
+    return same_origin_url(
+        url,
+        page_url,
+    ) or company_domain(
+        url,
+    ) == company_domain(
+        page_url,
+    )
 
 
 def normalize_api_url(
@@ -121,6 +242,57 @@ def normalize_endpoint_href(
     )
 
 
+def append_script_url(
+    script_urls: list[str],
+    seen: set[str],
+    *,
+    raw_url: str,
+    page_url: str,
+    base_url: str,
+) -> None:
+    raw_url = raw_url.strip()
+
+    if not raw_url:
+        return
+
+    if raw_url.startswith(
+        (
+            "data:",
+            "blob:",
+            "mailto:",
+            "tel:",
+            "#",
+        )
+    ):
+        return
+
+    if not SCRIPT_PATH_PATTERN.search(
+        raw_url,
+    ):
+        return
+
+    script_url = urljoin(
+        base_url,
+        raw_url,
+    )
+
+    if not allowed_script_url(
+        script_url,
+        page_url,
+    ):
+        return
+
+    if script_url in seen:
+        return
+
+    script_urls.append(
+        script_url,
+    )
+    seen.add(
+        script_url,
+    )
+
+
 def fetch_text(
     url: str,
     *,
@@ -148,6 +320,515 @@ def fetch_text(
     )
 
 
+def primary_framework(
+    frameworks: set[str],
+) -> str | None:
+    for framework in FRAMEWORK_PRIORITY:
+        if framework in frameworks:
+            return framework
+
+    return sorted(
+        frameworks,
+    )[0] if frameworks else None
+
+
+def register_endpoint_candidate(
+    endpoint_metadata: dict[str, EndpointDiscoveryMetadata],
+    endpoint_url: str,
+    *,
+    detection_method: str,
+    framework: str | None = None,
+    source_javascript_bundle: str | None = None,
+    source_map: str | None = None,
+    embedded_json_source: str | None = None,
+) -> None:
+    metadata = endpoint_metadata.setdefault(
+        endpoint_url,
+        EndpointDiscoveryMetadata(),
+    )
+    metadata.detection_methods.add(
+        detection_method,
+    )
+
+    if framework:
+        metadata.frameworks.add(
+            framework,
+        )
+
+    if source_javascript_bundle:
+        metadata.source_javascript_bundles.add(
+            source_javascript_bundle,
+        )
+
+    if source_map:
+        metadata.source_maps.add(
+            source_map,
+        )
+
+    if embedded_json_source:
+        metadata.embedded_json_sources.add(
+            embedded_json_source,
+        )
+
+
+def script_text(
+    script,
+) -> str:
+    return script.string or script.get_text(
+        "",
+        strip=False,
+    )
+
+
+def decode_json_candidate(
+    value: str,
+) -> Any | None:
+    value = value.strip()
+
+    if not value:
+        return None
+
+    try:
+        return json.loads(
+            value,
+        )
+    except json.JSONDecodeError:
+        return None
+
+
+def balanced_json_text(
+    text: str,
+    start_index: int,
+) -> str | None:
+    while start_index < len(
+        text,
+    ) and text[
+        start_index
+    ].isspace():
+        start_index += 1
+
+    if start_index >= len(
+        text,
+    ) or text[
+        start_index
+    ] not in {
+        "{",
+        "[",
+    }:
+        return None
+
+    opening = text[
+        start_index
+    ]
+    closing = "}" if opening == "{" else "]"
+    depth = 0
+    in_string = False
+    escaped = False
+
+    for index in range(
+        start_index,
+        len(
+            text,
+        ),
+    ):
+        char = text[
+            index
+        ]
+
+        if in_string:
+            if escaped:
+                escaped = False
+            elif char == "\\":
+                escaped = True
+            elif char == '"':
+                in_string = False
+            continue
+
+        if char == '"':
+            in_string = True
+            continue
+
+        if char == opening:
+            depth += 1
+        elif char == closing:
+            depth -= 1
+
+            if depth == 0:
+                return text[
+                    start_index : index + 1
+                ]
+
+    return None
+
+
+def extract_embedded_json_state(
+    html: str,
+) -> list[tuple[str, Any]]:
+    soup = BeautifulSoup(
+        html or "",
+        "html.parser",
+    )
+    states: list[tuple[str, Any]] = []
+
+    for script in soup.find_all(
+        "script",
+    ):
+        source_name = None
+        script_id = str(
+            script.get(
+                "id",
+                "",
+            )
+        ).strip()
+        script_type = str(
+            script.get(
+                "type",
+                "",
+            )
+        ).strip().lower()
+        text = script_text(
+            script,
+        )
+
+        if script_id == "__NEXT_DATA__":
+            source_name = "__NEXT_DATA__"
+        elif script_type == "application/ld+json":
+            source_name = "application/ld+json"
+        elif script_type == "application/json":
+            source_name = (
+                script_id
+                or "application/json"
+            )
+
+        if source_name:
+            data = decode_json_candidate(
+                text,
+            )
+
+            if data is not None:
+                states.append(
+                    (
+                        source_name,
+                        data,
+                    )
+                )
+
+        if not text:
+            continue
+
+        for match in WINDOW_STATE_PATTERN.finditer(
+            text,
+        ):
+            json_text = balanced_json_text(
+                text,
+                match.end(),
+            )
+
+            if not json_text:
+                continue
+
+            data = decode_json_candidate(
+                json_text,
+            )
+
+            if data is not None:
+                states.append(
+                    (
+                        match.group(
+                            1,
+                        ),
+                        data,
+                    )
+                )
+
+    return states
+
+
+def detect_frameworks_from_html(
+    html: str,
+) -> set[str]:
+    soup = BeautifulSoup(
+        html or "",
+        "html.parser",
+    )
+    lowered = (
+        html or ""
+    ).lower()
+    frameworks: set[str] = set()
+
+    if "__next_data__" in lowered or "/_next/" in lowered:
+        frameworks.add(
+            "next.js",
+        )
+
+    if "__nuxt__" in lowered or "/_nuxt/" in lowered:
+        frameworks.add(
+            "nuxt",
+        )
+
+    if "gatsby" in lowered or "/page-data/" in lowered:
+        frameworks.add(
+            "gatsby",
+        )
+
+    if "astro-island" in lowered or "/_astro/" in lowered:
+        frameworks.add(
+            "astro",
+        )
+
+    if "__remixcontext" in lowered or "/build/_assets/" in lowered:
+        frameworks.add(
+            "remix",
+        )
+
+    if "/wp-content/" in lowered or "/wp-json/" in lowered:
+        frameworks.add(
+            "wordpress",
+        )
+
+    if "ghost/api" in lowered or "ghost.org" in lowered:
+        frameworks.add(
+            "ghost",
+        )
+
+    if "cdn.contentful.com" in lowered or "contentful" in lowered:
+        frameworks.add(
+            "contentful",
+        )
+
+    if "strapi" in lowered or "/api/articles" in lowered:
+        frameworks.add(
+            "strapi",
+        )
+
+    if "cdn.sanity.io" in lowered or "sanity" in lowered:
+        frameworks.add(
+            "sanity",
+        )
+
+    for meta in soup.find_all(
+        "meta",
+    ):
+        if str(
+            meta.get(
+                "name",
+                "",
+            )
+        ).lower() != "generator":
+            continue
+
+        content = str(
+            meta.get(
+                "content",
+                "",
+            )
+        ).lower()
+
+        if "wordpress" in content:
+            frameworks.add(
+                "wordpress",
+            )
+        elif "ghost" in content:
+            frameworks.add(
+                "ghost",
+            )
+        elif "gatsby" in content:
+            frameworks.add(
+                "gatsby",
+            )
+
+    return frameworks
+
+
+def detect_frameworks_from_javascript(
+    javascript: str,
+) -> set[str]:
+    lowered = (
+        javascript or ""
+    ).lower()
+    frameworks: set[str] = set()
+
+    if "__next_data__" in lowered or "/_next/" in lowered:
+        frameworks.add(
+            "next.js",
+        )
+
+    if "__nuxt__" in lowered or "/_nuxt/" in lowered:
+        frameworks.add(
+            "nuxt",
+        )
+
+    if "gatsby" in lowered or "/page-data/" in lowered:
+        frameworks.add(
+            "gatsby",
+        )
+
+    if "astro" in lowered or "/_astro/" in lowered:
+        frameworks.add(
+            "astro",
+        )
+
+    if "remix" in lowered or "__remixcontext" in lowered:
+        frameworks.add(
+            "remix",
+        )
+
+    if "wp-json" in lowered or "wp-content" in lowered:
+        frameworks.add(
+            "wordpress",
+        )
+
+    if "ghost/api" in lowered or "@tryghost/content-api" in lowered:
+        frameworks.add(
+            "ghost",
+        )
+
+    if "contentful" in lowered:
+        frameworks.add(
+            "contentful",
+        )
+
+    if "strapi" in lowered:
+        frameworks.add(
+            "strapi",
+        )
+
+    if "sanity" in lowered:
+        frameworks.add(
+            "sanity",
+        )
+
+    return frameworks
+
+
+def next_data_probe_urls(
+    page_url: str,
+    embedded_states: list[tuple[str, Any]],
+) -> list[str]:
+    build_ids = []
+
+    for source, data in embedded_states:
+        if source != "__NEXT_DATA__" or not isinstance(
+            data,
+            dict,
+        ):
+            continue
+
+        build_id = data.get(
+            "buildId",
+        )
+
+        if build_id:
+            build_ids.append(
+                str(
+                    build_id,
+                )
+            )
+
+    if not build_ids:
+        return []
+
+    parsed = urlparse(
+        page_url,
+    )
+    route_path = parsed.path.strip(
+        "/",
+    ) or "index"
+
+    if route_path.endswith(
+        ".json",
+    ):
+        route_path = route_path[
+            :-5
+        ]
+
+    return [
+        normalize_api_url(
+            urljoin(
+                page_url,
+                f"/_next/data/{build_id}/{route_path}.json",
+            )
+        )
+        for build_id in sorted(
+            set(
+                build_ids,
+            )
+        )
+    ]
+
+
+def framework_probe_urls(
+    page_url: str,
+    frameworks: set[str],
+    embedded_states: list[tuple[str, Any]],
+) -> list[tuple[str, str]]:
+    probes: list[tuple[str, str]] = []
+    common_paths = (
+        "/api/posts",
+        "/api/news",
+        "/api/articles",
+        "/api/blog",
+        "/api/content",
+    )
+
+    for path in common_paths:
+        probes.append(
+            (
+                normalize_api_url(
+                    urljoin(
+                        page_url,
+                        path,
+                    )
+                ),
+                "common-api-probe",
+            )
+        )
+
+    if "next.js" in frameworks:
+        for probe in next_data_probe_urls(
+            page_url,
+            embedded_states,
+        ):
+            probes.append(
+                (
+                    probe,
+                    "next-data-probe",
+                )
+            )
+
+    if "wordpress" in frameworks:
+        for path in (
+            "/wp-json/wp/v2/posts",
+            "/wp-json/wp/v2/pages",
+        ):
+            probes.append(
+                (
+                    normalize_api_url(
+                        urljoin(
+                            page_url,
+                            path,
+                        )
+                    ),
+                    "wordpress-rest-probe",
+                )
+            )
+
+    if "ghost" in frameworks:
+        probes.append(
+            (
+                normalize_api_url(
+                    urljoin(
+                        page_url,
+                        "/ghost/api/content/posts/",
+                    )
+                ),
+                "ghost-content-probe",
+            )
+        )
+
+    return probes
+
+
 def same_origin_script_urls(
     html: str,
     page_url: str,
@@ -165,33 +846,55 @@ def same_origin_script_urls(
         "script",
         src=True,
     ):
-        src = script.get(
-            "src",
-            "",
-        ).strip()
-
-        if not src:
-            continue
-
-        script_url = urljoin(
-            f"{page_url}/",
-            src,
+        append_script_url(
+            script_urls,
+            seen,
+            raw_url=script.get(
+                "src",
+                "",
+            ),
+            page_url=page_url,
+            base_url=f"{page_url}/",
         )
 
-        if not same_origin_url(
-            script_url,
-            page_url,
+    for link in soup.find_all(
+        "link",
+        href=True,
+    ):
+        rel_values = {
+            str(
+                rel,
+            ).lower()
+            for rel in link.get(
+                "rel",
+                [],
+            )
+        }
+        as_value = str(
+            link.get(
+                "as",
+                "",
+            )
+        ).lower()
+
+        if not (
+            rel_values & SCRIPT_LIKE_REL_VALUES
+            or as_value in {
+                "script",
+                "worker",
+            }
         ):
             continue
 
-        if script_url in seen:
-            continue
-
-        script_urls.append(
-            script_url,
-        )
-        seen.add(
-            script_url,
+        append_script_url(
+            script_urls,
+            seen,
+            raw_url=link.get(
+                "href",
+                "",
+            ),
+            page_url=page_url,
+            base_url=f"{page_url}/",
         )
 
     for script in soup.find_all(
@@ -223,60 +926,44 @@ def same_origin_script_urls(
                 errors="ignore",
             )
 
-            if not SCRIPT_PATH_PATTERN.search(
-                src,
-            ):
-                continue
-
-            script_url = urljoin(
-                f"{page_url}/",
-                src,
+            append_script_url(
+                script_urls,
+                seen,
+                raw_url=src,
+                page_url=page_url,
+                base_url=f"{page_url}/",
             )
-
-            if not same_origin_url(
-                script_url,
-                page_url,
-            ):
-                continue
-
-            if script_url in seen:
-                continue
-
-            script_urls.append(
-                script_url,
-            )
-        seen.add(
-            script_url,
-        )
 
     for src in script_sources or []:
-        src = src.strip()
-
-        if not src:
-            continue
-
-        script_url = urljoin(
-            f"{page_url}/",
-            src,
-        )
-
-        if not same_origin_url(
-            script_url,
-            page_url,
-        ):
-            continue
-
-        if script_url in seen:
-            continue
-
-        script_urls.append(
-            script_url,
-        )
-        seen.add(
-            script_url,
+        append_script_url(
+            script_urls,
+            seen,
+            raw_url=src,
+            page_url=page_url,
+            base_url=f"{page_url}/",
         )
 
     return script_urls
+
+
+def discover_js_bundle_sources(
+    page_url: str,
+    *,
+    script_sources: list[str] | None = None,
+) -> list[str]:
+    normalized_page_url = normalize_page_url(
+        page_url,
+    )
+    html, _content_type = fetch_text(
+        normalized_page_url,
+        accept="text/html",
+    )
+
+    return same_origin_script_urls(
+        html,
+        normalized_page_url,
+        script_sources=script_sources,
+    )
 
 
 def candidate_endpoint_strings(
@@ -338,11 +1025,168 @@ def candidate_endpoint_strings(
         candidates.append(
             (
                 "/graphql",
-                "graphql-hint",
+                "graphql-client-hint",
             )
         )
 
     return candidates
+
+
+def discover_source_map_urls(
+    javascript: str,
+    script_url: str,
+) -> list[str]:
+    urls = []
+
+    for match in SOURCE_MAPPING_URL_PATTERN.finditer(
+        javascript or "",
+    ):
+        value = match.group(
+            1,
+        ).strip()
+
+        if value.startswith(
+            "data:",
+        ):
+            continue
+
+        normalized = normalize_endpoint_href(
+            value,
+            script_url,
+        )
+
+        if normalized:
+            urls.append(
+                normalized,
+            )
+
+    parsed = urlparse(
+        script_url,
+    )
+
+    if parsed.path.endswith(
+        ".js",
+    ):
+        default_map_url = normalize_endpoint_href(
+            f"{parsed.path}.map",
+            f"{parsed.scheme}://{parsed.netloc}",
+        )
+
+        if default_map_url:
+            urls.append(
+                default_map_url,
+            )
+
+    return sorted(
+        set(
+            urls,
+        )
+    )
+
+
+def fetch_source_map(
+    map_url: str,
+) -> dict[str, Any] | None:
+    try:
+        text, content_type = fetch_text(
+            map_url,
+            accept="application/json,*/*",
+            timeout=8,
+        )
+    except Exception:
+        return None
+
+    if len(
+        text,
+    ) > MAX_SOURCE_MAP_BYTES:
+        return None
+
+    if "json" not in content_type.lower() and not map_url.lower().endswith(
+        ".map",
+    ):
+        return None
+
+    try:
+        data = json.loads(
+            text,
+        )
+    except json.JSONDecodeError:
+        return None
+
+    if not isinstance(
+        data,
+        dict,
+    ):
+        return None
+
+    return data
+
+
+def source_map_sources(
+    source_map: dict[str, Any],
+) -> list[str]:
+    values = source_map.get(
+        "sourcesContent",
+    )
+
+    if not isinstance(
+        values,
+        list,
+    ):
+        return []
+
+    return [
+        value
+        for value in values
+        if isinstance(
+            value,
+            str,
+        )
+    ]
+
+
+def graphql_operation_names(
+    javascript: str,
+) -> list[str]:
+    names = []
+
+    for match in re.finditer(
+        r"\b(?:query|mutation|subscription)\s+([A-Za-z0-9_]+)",
+        javascript or "",
+    ):
+        names.append(
+            match.group(
+                1,
+            )
+        )
+
+    return sorted(
+        set(
+            names,
+        )
+    )
+
+
+def persisted_query_hashes(
+    javascript: str,
+) -> list[str]:
+    hashes = []
+
+    for match in re.finditer(
+        r"sha256Hash[\"']?\s*[:=]\s*[\"']([A-Fa-f0-9]{32,64})[\"']",
+        javascript or "",
+    ):
+        hashes.append(
+            match.group(
+                1,
+            )
+        )
+
+    return sorted(
+        set(
+            hashes,
+        )
+    )
 
 
 def normalize_endpoint_candidate(
@@ -529,11 +1373,282 @@ def extract_json_urls(
     return urls
 
 
+def json_stats(
+    value: Any,
+) -> dict[str, int]:
+    stats = {
+        "objects": 0,
+        "lists": 0,
+        "strings": 0,
+        "article_metadata_keys": 0,
+        "date_like_values": 0,
+    }
+
+    def visit(
+        item: Any,
+    ) -> None:
+        if isinstance(
+            item,
+            dict,
+        ):
+            stats[
+                "objects"
+            ] += 1
+
+            for key, child in item.items():
+                normalized_key = str(
+                    key,
+                ).lower().replace(
+                    "-",
+                    "_",
+                )
+
+                if normalized_key in ARTICLE_METADATA_KEYS:
+                    stats[
+                        "article_metadata_keys"
+                    ] += 1
+
+                visit(
+                    child,
+                )
+        elif isinstance(
+            item,
+            list,
+        ):
+            stats[
+                "lists"
+            ] += 1
+
+            for child in item:
+                visit(
+                    child,
+                )
+        elif isinstance(
+            item,
+            str,
+        ):
+            stats[
+                "strings"
+            ] += 1
+
+            if re.search(
+                r"\b20\d{2}-\d{2}-\d{2}\b|\b20\d{2}/\d{2}/\d{2}\b",
+                item,
+            ):
+                stats[
+                    "date_like_values"
+                ] += 1
+
+    visit(
+        value,
+    )
+
+    return stats
+
+
+def response_size_score(
+    response_size: int,
+) -> int:
+    if response_size <= 2:
+        return -20
+
+    if response_size < 200:
+        return -10
+
+    if response_size < 2_000:
+        return 5
+
+    if response_size < 200_000:
+        return 10
+
+    return 4
+
+
+def endpoint_name_score(
+    endpoint_url: str,
+) -> int:
+    lowered = endpoint_url.lower()
+    score = 0
+
+    for token in CONTENT_ENDPOINT_TOKENS:
+        if token in lowered:
+            score += 8
+
+    if ".json" in lowered:
+        score += 5
+
+    if "/api/" in lowered:
+        score += 4
+
+    if "/graphql" in lowered:
+        score += 3
+
+    for token in LOW_VALUE_ENDPOINT_TOKENS:
+        if token in lowered:
+            score -= 12
+
+    return score
+
+
+def weighted_endpoint_score(
+    *,
+    endpoint_url: str,
+    discovered_urls: list[str],
+    page_url: str,
+    data: Any,
+    response_text: str,
+    detection_method: str,
+) -> tuple[int, dict[str, Any]]:
+    stats = json_stats(
+        data,
+    )
+    root_company = company_domain(
+        page_url,
+    )
+    same_domain_urls = [
+        url
+        for url in discovered_urls
+        if company_domain(
+            url,
+        )
+        == root_company
+    ]
+    score = 0
+    score += min(
+        len(
+            discovered_urls,
+        )
+        * 12,
+        48,
+    )
+    score += min(
+        len(
+            same_domain_urls,
+        )
+        * 4,
+        16,
+    )
+    score += min(
+        stats[
+            "article_metadata_keys"
+        ]
+        * 3,
+        24,
+    )
+    score += endpoint_name_score(
+        endpoint_url,
+    )
+    score += min(
+        stats[
+            "objects"
+        ]
+        + stats[
+            "lists"
+        ],
+        12,
+    )
+    score += response_size_score(
+        len(
+            response_text,
+        )
+    )
+    score += min(
+        stats[
+            "date_like_values"
+        ]
+        * 2,
+        10,
+    )
+
+    if "probe" in detection_method:
+        score -= 2
+
+    if not discovered_urls:
+        score -= 25
+
+    if stats[
+        "objects"
+    ] == 0 and stats[
+        "lists"
+    ] == 0:
+        score -= 25
+
+    confidence = max(
+        0,
+        min(
+            100,
+            score,
+        ),
+    )
+
+    return (
+        confidence,
+        {
+            "discovered_url_count": len(
+                discovered_urls,
+            ),
+            "same_domain_url_count": len(
+                same_domain_urls,
+            ),
+            "article_metadata_key_count": stats[
+                "article_metadata_keys"
+            ],
+            "date_like_value_count": stats[
+                "date_like_values"
+            ],
+            "json_object_count": stats[
+                "objects"
+            ],
+            "json_list_count": stats[
+                "lists"
+            ],
+            "response_size_bytes": len(
+                response_text,
+            ),
+        },
+    )
+
+
+def metadata_dict(
+    *,
+    validation_result: str,
+    framework: str | None,
+    methods: list[str],
+    source_javascript_bundle: str | None,
+    source_map: str | None,
+    embedded_json_source: str | None,
+    score_details: dict[str, Any] | None = None,
+    extra: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    data: dict[str, Any] = {
+        "detection_method": ",".join(
+            methods,
+        ),
+        "framework": framework,
+        "confidence_score": score_details,
+        "validation_result": validation_result,
+        "source_javascript_bundle": source_javascript_bundle,
+        "source_map": source_map,
+        "embedded_json_source": embedded_json_source,
+    }
+
+    if extra:
+        data.update(
+            extra,
+        )
+
+    return data
+
+
 def validate_json_endpoint(
     endpoint_url: str,
     *,
     page_url: str,
     detection_method: str,
+    framework: str | None = None,
+    source_javascript_bundle: str | None = None,
+    source_map: str | None = None,
+    embedded_json_source: str | None = None,
 ) -> CandidateEndpoint | None:
     try:
         text, content_type = fetch_text(
@@ -566,14 +1681,326 @@ def validate_json_endpoint(
         )
     )
 
+    score, score_details = weighted_endpoint_score(
+        endpoint_url=endpoint_url,
+        discovered_urls=discovered_urls,
+        page_url=page_url,
+        data=data,
+        response_text=text,
+        detection_method=detection_method,
+    )
+    validation_result = "accepted" if score else "low-confidence"
+    methods = sorted(
+        {
+            method
+            for method in detection_method.split(
+                ",",
+            )
+            if method
+        }
+    )
+
     return CandidateEndpoint(
         endpoint_url=endpoint_url,
         discovered_urls=discovered_urls,
-        score=len(
-            discovered_urls,
-        ),
+        score=score,
         detection_method=detection_method,
         content_type=content_type,
+        framework=framework,
+        validation_result=validation_result,
+        source_javascript_bundle=source_javascript_bundle,
+        source_map=source_map,
+        embedded_json_source=embedded_json_source,
+        metadata=metadata_dict(
+            validation_result=validation_result,
+            framework=framework,
+            methods=methods,
+            source_javascript_bundle=source_javascript_bundle,
+            source_map=source_map,
+            embedded_json_source=embedded_json_source,
+            score_details=score_details,
+        ),
+    )
+
+
+def embedded_json_candidate(
+    page_url: str,
+    embedded_states: list[tuple[str, Any]],
+    *,
+    frameworks: set[str],
+) -> CandidateEndpoint | None:
+    urls = []
+    sources = []
+    combined_data = []
+
+    for source, data in embedded_states:
+        extracted_urls = extract_json_urls(
+            data,
+            page_url=page_url,
+            root_company=company_domain(
+                page_url,
+            ),
+        )
+
+        if extracted_urls:
+            urls.extend(
+                extracted_urls,
+            )
+            sources.append(
+                source,
+            )
+            combined_data.append(
+                data,
+            )
+
+    discovered_urls = sorted(
+        set(
+            urls,
+        )
+    )
+
+    if not discovered_urls:
+        return None
+
+    response_text = json.dumps(
+        combined_data,
+        separators=(
+            ",",
+            ":",
+        ),
+    )
+    score, score_details = weighted_endpoint_score(
+        endpoint_url=page_url,
+        discovered_urls=discovered_urls,
+        page_url=page_url,
+        data=combined_data,
+        response_text=response_text,
+        detection_method="embedded-json-state",
+    )
+    source_name = ",".join(
+        sorted(
+            set(
+                sources,
+            )
+        )
+    )
+    framework = primary_framework(
+        frameworks,
+    )
+
+    return CandidateEndpoint(
+        endpoint_url=page_url,
+        discovered_urls=discovered_urls,
+        score=score,
+        detection_method="embedded-json-state",
+        content_type="text/html",
+        framework=framework,
+        validation_result="accepted",
+        embedded_json_source=source_name,
+        metadata=metadata_dict(
+            validation_result="accepted",
+            framework=framework,
+            methods=[
+                "embedded-json-state",
+            ],
+            source_javascript_bundle=None,
+            source_map=None,
+            embedded_json_source=source_name,
+            score_details=score_details,
+        ),
+    )
+
+
+def validate_graphql_endpoint(
+    endpoint_url: str,
+    *,
+    page_url: str,
+    detection_method: str,
+    framework: str | None = None,
+    source_javascript_bundle: str | None = None,
+    source_map: str | None = None,
+    operation_names: list[str] | None = None,
+    persisted_hashes: list[str] | None = None,
+) -> CandidateEndpoint | None:
+    introspection_query = (
+        "query IntrospectionQuery { __schema { queryType { name } "
+        "mutationType { name } types { name kind } } }"
+    )
+
+    try:
+        response = requests.post(
+            endpoint_url,
+            timeout=8,
+            headers={
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "User-Agent": (
+                    "Mozilla/5.0 (compatible; MySignalMonitor/1.0)"
+                ),
+            },
+            json={
+                "query": introspection_query,
+            },
+        )
+    except Exception:
+        return None
+
+    content_type = response.headers.get(
+        "content-type",
+        "",
+    )
+
+    if "json" not in content_type.lower():
+        return None
+
+    try:
+        data = response.json()
+    except ValueError:
+        return None
+
+    if not isinstance(
+        data,
+        dict,
+    ):
+        return None
+
+    schema = data.get(
+        "data",
+        {},
+    ).get(
+        "__schema",
+    )
+    introspection_enabled = isinstance(
+        schema,
+        dict,
+    )
+    schema_type_names = []
+
+    if introspection_enabled:
+        schema_type_names = [
+            str(
+                item.get(
+                    "name",
+                    "",
+                )
+            )
+            for item in schema.get(
+                "types",
+                [],
+            )
+            if isinstance(
+                item,
+                dict,
+            )
+        ]
+
+    content_operation_names = [
+        name
+        for name in operation_names or []
+        if any(
+            token in name.lower()
+            for token in CONTENT_ENDPOINT_TOKENS
+        )
+    ]
+    content_schema_types = [
+        name
+        for name in schema_type_names
+        if any(
+            token in name.lower()
+            for token in CONTENT_ENDPOINT_TOKENS
+        )
+    ]
+
+    if (
+        not introspection_enabled
+        and not content_operation_names
+        and not persisted_hashes
+    ):
+        return None
+
+    score = 0
+
+    if introspection_enabled:
+        score += 20
+
+    score += min(
+        len(
+            content_operation_names,
+        )
+        * 8,
+        24,
+    )
+    score += min(
+        len(
+            content_schema_types,
+        )
+        * 3,
+        24,
+    )
+
+    if persisted_hashes:
+        score += 8
+
+    score += endpoint_name_score(
+        endpoint_url,
+    )
+    score = max(
+        0,
+        min(
+            100,
+            score,
+        ),
+    )
+    validation_result = (
+        "accepted-introspection"
+        if introspection_enabled
+        else "accepted-graphql-json"
+    )
+    methods = sorted(
+        {
+            method
+            for method in detection_method.split(
+                ",",
+            )
+            if method
+        }
+    )
+
+    return CandidateEndpoint(
+        endpoint_url=endpoint_url,
+        discovered_urls=[],
+        score=score,
+        detection_method=detection_method,
+        content_type=content_type,
+        framework=framework,
+        validation_result=validation_result,
+        source_javascript_bundle=source_javascript_bundle,
+        source_map=source_map,
+        metadata=metadata_dict(
+            validation_result=validation_result,
+            framework=framework,
+            methods=methods,
+            source_javascript_bundle=source_javascript_bundle,
+            source_map=source_map,
+            embedded_json_source=None,
+            score_details={
+                "introspection_enabled": introspection_enabled,
+                "content_operation_count": len(
+                    content_operation_names,
+                ),
+                "content_schema_type_count": len(
+                    content_schema_types,
+                ),
+                "persisted_query_hash_count": len(
+                    persisted_hashes or [],
+                ),
+            },
+            extra={
+                "graphql_operation_names": operation_names or [],
+                "graphql_content_operations": content_operation_names,
+                "persisted_query_hashes": persisted_hashes or [],
+            },
+        ),
     )
 
 
@@ -594,12 +2021,38 @@ def discover_api_endpoints(
     except Exception:
         return []
 
+    embedded_states = extract_embedded_json_state(
+        html,
+    )
+    frameworks = detect_frameworks_from_html(
+        html,
+    )
     script_urls = same_origin_script_urls(
         html,
         normalized_page_url,
         script_sources=script_sources,
     )
-    endpoint_methods: dict[str, set[str]] = {}
+    endpoint_metadata: dict[str, EndpointDiscoveryMetadata] = {}
+    graphql_operation_names_by_endpoint: dict[str, set[str]] = {}
+    persisted_hashes_by_endpoint: dict[str, set[str]] = {}
+
+    for endpoint_url, method in framework_probe_urls(
+        normalized_page_url,
+        frameworks,
+        embedded_states,
+    ):
+        if same_origin_url(
+            endpoint_url,
+            normalized_page_url,
+        ):
+            register_endpoint_candidate(
+                endpoint_metadata,
+                endpoint_url,
+                detection_method=method,
+                framework=primary_framework(
+                    frameworks,
+                ),
+            )
 
     for script_url in script_urls:
         try:
@@ -609,36 +2062,168 @@ def discover_api_endpoints(
         except Exception:
             continue
 
-        if not API_HINT_PATTERN.search(
+        script_frameworks = detect_frameworks_from_javascript(
             javascript,
-        ):
-            continue
+        )
+        frameworks.update(
+            script_frameworks,
+        )
+        script_graphql_operations = graphql_operation_names(
+            javascript,
+        )
+        script_persisted_hashes = persisted_query_hashes(
+            javascript,
+        )
 
-        for candidate, method in candidate_endpoint_strings(
+        if API_HINT_PATTERN.search(
             javascript,
         ):
-            for endpoint_url in normalize_endpoint_candidate(
-                candidate,
-                page_url=normalized_page_url,
-                script_url=script_url,
+            for candidate, method in candidate_endpoint_strings(
+                javascript,
             ):
-                if not same_origin_url(
-                    endpoint_url,
-                    normalized_page_url,
+                for endpoint_url in normalize_endpoint_candidate(
+                    candidate,
+                    page_url=normalized_page_url,
+                    script_url=script_url,
+                ):
+                    if not same_origin_url(
+                        endpoint_url,
+                        normalized_page_url,
+                    ):
+                        continue
+
+                    register_endpoint_candidate(
+                        endpoint_metadata,
+                        endpoint_url,
+                        detection_method=method,
+                        framework=primary_framework(
+                            script_frameworks or frameworks,
+                        ),
+                        source_javascript_bundle=script_url,
+                    )
+
+                    if "graphql" in endpoint_url.lower():
+                        graphql_operation_names_by_endpoint.setdefault(
+                            endpoint_url,
+                            set(),
+                        ).update(
+                            script_graphql_operations,
+                        )
+                        persisted_hashes_by_endpoint.setdefault(
+                            endpoint_url,
+                            set(),
+                        ).update(
+                            script_persisted_hashes,
+                        )
+
+        for source_map_url in discover_source_map_urls(
+            javascript,
+            script_url,
+        ):
+            if not same_origin_url(
+                source_map_url,
+                normalized_page_url,
+            ):
+                continue
+
+            source_map = fetch_source_map(
+                source_map_url,
+            )
+
+            if not source_map:
+                continue
+
+            for source_text in source_map_sources(
+                source_map,
+            ):
+                frameworks.update(
+                    detect_frameworks_from_javascript(
+                        source_text,
+                    )
+                )
+                map_graphql_operations = graphql_operation_names(
+                    source_text,
+                )
+                map_persisted_hashes = persisted_query_hashes(
+                    source_text,
+                )
+
+                if not API_HINT_PATTERN.search(
+                    source_text,
                 ):
                     continue
 
-                endpoint_methods.setdefault(
-                    endpoint_url,
-                    set(),
-                ).add(
-                    method,
-                )
+                for candidate, method in candidate_endpoint_strings(
+                    source_text,
+                ):
+                    for endpoint_url in normalize_endpoint_candidate(
+                        candidate,
+                        page_url=normalized_page_url,
+                        script_url=script_url,
+                    ):
+                        if not same_origin_url(
+                            endpoint_url,
+                            normalized_page_url,
+                        ):
+                            continue
+
+                        register_endpoint_candidate(
+                            endpoint_metadata,
+                            endpoint_url,
+                            detection_method=f"source-map:{method}",
+                            framework=primary_framework(
+                                frameworks,
+                            ),
+                            source_javascript_bundle=script_url,
+                            source_map=source_map_url,
+                        )
+
+                        if "graphql" in endpoint_url.lower():
+                            graphql_operation_names_by_endpoint.setdefault(
+                                endpoint_url,
+                                set(),
+                            ).update(
+                                map_graphql_operations,
+                            )
+                            persisted_hashes_by_endpoint.setdefault(
+                                endpoint_url,
+                                set(),
+                            ).update(
+                                map_persisted_hashes,
+                            )
+
+    for endpoint_url, method in framework_probe_urls(
+        normalized_page_url,
+        frameworks,
+        embedded_states,
+    ):
+        if same_origin_url(
+            endpoint_url,
+            normalized_page_url,
+        ):
+            register_endpoint_candidate(
+                endpoint_metadata,
+                endpoint_url,
+                detection_method=method,
+                framework=primary_framework(
+                    frameworks,
+                ),
+            )
 
     validated = []
+    embedded_candidate = embedded_json_candidate(
+        normalized_page_url,
+        embedded_states,
+        frameworks=frameworks,
+    )
 
-    prioritized_endpoint_methods = sorted(
-        endpoint_methods.items(),
+    if embedded_candidate:
+        validated.append(
+            embedded_candidate,
+        )
+
+    prioritized_endpoint_metadata = sorted(
+        endpoint_metadata.items(),
         key=lambda item: endpoint_priority(
             item[0],
         ),
@@ -647,16 +2232,69 @@ def discover_api_endpoints(
         :MAX_ENDPOINT_VALIDATIONS
     ]
 
-    for endpoint_url, methods in prioritized_endpoint_methods:
-        candidate = validate_json_endpoint(
-            endpoint_url,
-            page_url=normalized_page_url,
-            detection_method=",".join(
-                sorted(
-                    methods,
-                )
-            ),
+    for endpoint_url, discovery_metadata in prioritized_endpoint_metadata:
+        methods = sorted(
+            discovery_metadata.detection_methods,
         )
+        detection_method = ",".join(
+            methods,
+        )
+        framework = primary_framework(
+            discovery_metadata.frameworks or frameworks,
+        )
+        source_javascript_bundle = (
+            sorted(
+                discovery_metadata.source_javascript_bundles,
+            )[0]
+            if discovery_metadata.source_javascript_bundles
+            else None
+        )
+        source_map = (
+            sorted(
+                discovery_metadata.source_maps,
+            )[0]
+            if discovery_metadata.source_maps
+            else None
+        )
+        embedded_json_source = (
+            sorted(
+                discovery_metadata.embedded_json_sources,
+            )[0]
+            if discovery_metadata.embedded_json_sources
+            else None
+        )
+
+        if "graphql" in endpoint_url.lower():
+            candidate = validate_graphql_endpoint(
+                endpoint_url,
+                page_url=normalized_page_url,
+                detection_method=detection_method,
+                framework=framework,
+                source_javascript_bundle=source_javascript_bundle,
+                source_map=source_map,
+                operation_names=sorted(
+                    graphql_operation_names_by_endpoint.get(
+                        endpoint_url,
+                        set(),
+                    )
+                ),
+                persisted_hashes=sorted(
+                    persisted_hashes_by_endpoint.get(
+                        endpoint_url,
+                        set(),
+                    )
+                ),
+            )
+        else:
+            candidate = validate_json_endpoint(
+                endpoint_url,
+                page_url=normalized_page_url,
+                detection_method=detection_method,
+                framework=framework,
+                source_javascript_bundle=source_javascript_bundle,
+                source_map=source_map,
+                embedded_json_source=embedded_json_source,
+            )
 
         if candidate and candidate.score:
             validated.append(

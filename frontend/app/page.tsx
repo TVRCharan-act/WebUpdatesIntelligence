@@ -2,10 +2,10 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Activity, CheckCircle2, Clock3, Play, XCircle } from "lucide-react";
-import Link from "next/link";
 import * as React from "react";
 import { toast } from "sonner";
 
+import { Link } from "@/components/router";
 import { StatusBadge } from "@/components/status-badge";
 import {
   type ActiveTask,

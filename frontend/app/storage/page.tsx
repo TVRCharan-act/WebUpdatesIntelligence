@@ -2,9 +2,9 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { AlertTriangle, Database, ExternalLink, Rows3 } from "lucide-react";
-import Link from "next/link";
 
 import { EmptyState } from "@/components/empty-state";
+import { Link } from "@/components/router";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

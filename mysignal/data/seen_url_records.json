@@ -40280,5 +40280,3987 @@
       "https://www.microsoft.com/surface/devices/surface-pro"
     ],
     "first_seen_at": "2026-06-29T05:55:28.266636+00:00"
+  },
+  "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/small-and-medium-businesses-arent-waiting-for-an-ai-invitation-theyre-already-leading": {
+    "url": "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/small-and-medium-businesses-arent-waiting-for-an-ai-invitation-theyre-already-leading",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/small-and-medium-businesses-arent-waiting-for-an-ai-invitation-theyre-already-leading"
+    ],
+    "first_seen_at": "2026-06-30T05:36:43.408616+00:00"
+  },
+  "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/the-2026-agent-confidence-index-where-300-builders-see-real-momentum": {
+    "url": "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/the-2026-agent-confidence-index-where-300-builders-see-real-momentum",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/microsoft-cloud/blog/2026/06/29/the-2026-agent-confidence-index-where-300-builders-see-real-momentum"
+    ],
+    "first_seen_at": "2026-06-30T05:36:43.408697+00:00"
+  },
+  "https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure": {
+    "url": "https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure",
+    "root_url": "https://nvidianews.nvidia.com",
+    "parent_url": "https://nvidianews.nvidia.com",
+    "trace": [
+      "https://nvidianews.nvidia.com",
+      "https://nvidianews.nvidia.com",
+      "https://blogs.nvidia.com/blog/anthropic-nvidia-gb300-blackwell-ultra-microsoft-azure"
+    ],
+    "first_seen_at": "2026-06-30T05:39:03.492592+00:00"
+  },
+  "https://blogs.nvidia.com/blog/firefly-aerospace-nvidia-jetson-lunar-orbit": {
+    "url": "https://blogs.nvidia.com/blog/firefly-aerospace-nvidia-jetson-lunar-orbit",
+    "root_url": "https://nvidianews.nvidia.com",
+    "parent_url": "https://nvidianews.nvidia.com",
+    "trace": [
+      "https://nvidianews.nvidia.com",
+      "https://nvidianews.nvidia.com",
+      "https://blogs.nvidia.com/blog/firefly-aerospace-nvidia-jetson-lunar-orbit"
+    ],
+    "first_seen_at": "2026-06-30T05:39:03.492666+00:00"
+  },
+  "https://blogs.nvidia.com/blog/palantir-secure-ai-us-agencies-nemotron-open-models": {
+    "url": "https://blogs.nvidia.com/blog/palantir-secure-ai-us-agencies-nemotron-open-models",
+    "root_url": "https://nvidianews.nvidia.com",
+    "parent_url": "https://nvidianews.nvidia.com",
+    "trace": [
+      "https://nvidianews.nvidia.com",
+      "https://nvidianews.nvidia.com",
+      "https://blogs.nvidia.com/blog/palantir-secure-ai-us-agencies-nemotron-open-models"
+    ],
+    "first_seen_at": "2026-06-30T05:39:03.492781+00:00"
+  },
+  "https://www.nvidia.com/en-us/products/rtx-spark": {
+    "url": "https://www.nvidia.com/en-us/products/rtx-spark",
+    "root_url": "https://nvidianews.nvidia.com",
+    "parent_url": "https://nvidianews.nvidia.com",
+    "trace": [
+      "https://nvidianews.nvidia.com",
+      "https://nvidianews.nvidia.com",
+      "https://www.nvidia.com/en-us/products/rtx-spark"
+    ],
+    "first_seen_at": "2026-06-30T05:39:03.493503+00:00"
+  },
+  "https://account.apple.com/in": {
+    "url": "https://account.apple.com/in",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://account.apple.com/in"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.831122+00:00"
+  },
+  "https://checkcoverage.apple.com/in/en": {
+    "url": "https://checkcoverage.apple.com/in/en",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://checkcoverage.apple.com/in/en"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.831387+00:00"
+  },
+  "https://locate.apple.com/in/en": {
+    "url": "https://locate.apple.com/in/en",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://locate.apple.com/in/en"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.831590+00:00"
+  },
+  "https://support.apple.com/en-in": {
+    "url": "https://support.apple.com/en-in",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://support.apple.com/en-in"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.831643+00:00"
+  },
+  "https://support.apple.com/en-in/accessibility": {
+    "url": "https://support.apple.com/en-in/accessibility",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://support.apple.com/en-in/accessibility"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.831699+00:00"
+  },
+  "https://support.apple.com/en-in/airpods": {
+    "url": "https://support.apple.com/en-in/airpods",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://support.apple.com/en-in/airpods"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.831745+00:00"
+  },
+  "https://support.apple.com/en-in/apple-account": {
+    "url": "https://support.apple.com/en-in/apple-account",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://support.apple.com/en-in/apple-account"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.831789+00:00"
+  },
+  "https://support.apple.com/en-in/apple-tv": {
+    "url": "https://support.apple.com/en-in/apple-tv",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://support.apple.com/en-in/apple-tv"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.831833+00:00"
+  },
+  "https://support.apple.com/en-in/billing": {
+    "url": "https://support.apple.com/en-in/billing",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://support.apple.com/en-in/billing"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.831876+00:00"
+  },
+  "https://support.apple.com/en-in/homepod": {
+    "url": "https://support.apple.com/en-in/homepod",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://support.apple.com/en-in/homepod"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.831917+00:00"
+  },
+  "https://support.apple.com/en-in/ipad": {
+    "url": "https://support.apple.com/en-in/ipad",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://support.apple.com/en-in/ipad"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.831960+00:00"
+  },
+  "https://support.apple.com/en-in/iphone": {
+    "url": "https://support.apple.com/en-in/iphone",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://support.apple.com/en-in/iphone"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.832006+00:00"
+  },
+  "https://support.apple.com/en-in/mac": {
+    "url": "https://support.apple.com/en-in/mac",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://support.apple.com/en-in/mac"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.832050+00:00"
+  },
+  "https://support.apple.com/en-in/music": {
+    "url": "https://support.apple.com/en-in/music",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://support.apple.com/en-in/music"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.832135+00:00"
+  },
+  "https://support.apple.com/en-in/repair": {
+    "url": "https://support.apple.com/en-in/repair",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://support.apple.com/en-in/repair"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.832206+00:00"
+  },
+  "https://support.apple.com/en-in/tv": {
+    "url": "https://support.apple.com/en-in/tv",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://support.apple.com/en-in/tv"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.832259+00:00"
+  },
+  "https://support.apple.com/en-in/watch": {
+    "url": "https://support.apple.com/en-in/watch",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://support.apple.com/en-in/watch"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.832306+00:00"
+  },
+  "https://www.apple.com/[storefront]/shop/bag/status": {
+    "url": "https://www.apple.com/[storefront]/shop/bag/status",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/[storefront]/shop/bag/status"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.832371+00:00"
+  },
+  "https://www.apple.com/api-www/global-elements/global-header/v1/flyouts": {
+    "url": "https://www.apple.com/api-www/global-elements/global-header/v1/flyouts",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/api-www/global-elements/global-header/v1/flyouts"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.832466+00:00"
+  },
+  "https://www.apple.com/careers/in": {
+    "url": "https://www.apple.com/careers/in",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/careers/in"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.832565+00:00"
+  },
+  "https://www.apple.com/in": {
+    "url": "https://www.apple.com/in",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.832676+00:00"
+  },
+  "https://www.apple.com/in/accessibility": {
+    "url": "https://www.apple.com/in/accessibility",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/accessibility"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.832720+00:00"
+  },
+  "https://www.apple.com/in/airplay": {
+    "url": "https://www.apple.com/in/airplay",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/airplay"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.832813+00:00"
+  },
+  "https://www.apple.com/in/airpods": {
+    "url": "https://www.apple.com/in/airpods",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/airpods"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.832903+00:00"
+  },
+  "https://www.apple.com/in/airpods-4": {
+    "url": "https://www.apple.com/in/airpods-4",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/airpods-4"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.832965+00:00"
+  },
+  "https://www.apple.com/in/airpods-max": {
+    "url": "https://www.apple.com/in/airpods-max",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/airpods-max"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833014+00:00"
+  },
+  "https://www.apple.com/in/airpods-pro": {
+    "url": "https://www.apple.com/in/airpods-pro",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/airpods-pro"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833057+00:00"
+  },
+  "https://www.apple.com/in/airpods/compare": {
+    "url": "https://www.apple.com/in/airpods/compare",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/airpods/compare"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833103+00:00"
+  },
+  "https://www.apple.com/in/airtag": {
+    "url": "https://www.apple.com/in/airtag",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/airtag"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833143+00:00"
+  },
+  "https://www.apple.com/in/app-store": {
+    "url": "https://www.apple.com/in/app-store",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/app-store"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833186+00:00"
+  },
+  "https://www.apple.com/in/apple-arcade": {
+    "url": "https://www.apple.com/in/apple-arcade",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-arcade"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833227+00:00"
+  },
+  "https://www.apple.com/in/apple-books": {
+    "url": "https://www.apple.com/in/apple-books",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-books"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833267+00:00"
+  },
+  "https://www.apple.com/in/apple-creator-studio": {
+    "url": "https://www.apple.com/in/apple-creator-studio",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-creator-studio"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833310+00:00"
+  },
+  "https://www.apple.com/in/apple-events": {
+    "url": "https://www.apple.com/in/apple-events",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-events"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833351+00:00"
+  },
+  "https://www.apple.com/in/apple-fitness-plus": {
+    "url": "https://www.apple.com/in/apple-fitness-plus",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-fitness-plus"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833395+00:00"
+  },
+  "https://www.apple.com/in/apple-intelligence": {
+    "url": "https://www.apple.com/in/apple-intelligence",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-intelligence"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833477+00:00"
+  },
+  "https://www.apple.com/in/apple-music": {
+    "url": "https://www.apple.com/in/apple-music",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-music"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833535+00:00"
+  },
+  "https://www.apple.com/in/apple-one": {
+    "url": "https://www.apple.com/in/apple-one",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-one"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833578+00:00"
+  },
+  "https://www.apple.com/in/apple-pencil": {
+    "url": "https://www.apple.com/in/apple-pencil",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-pencil"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833620+00:00"
+  },
+  "https://www.apple.com/in/apple-podcasts": {
+    "url": "https://www.apple.com/in/apple-podcasts",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-podcasts"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833662+00:00"
+  },
+  "https://www.apple.com/in/apple-tv": {
+    "url": "https://www.apple.com/in/apple-tv",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-tv"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833704+00:00"
+  },
+  "https://www.apple.com/in/apple-tv-4k": {
+    "url": "https://www.apple.com/in/apple-tv-4k",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-tv-4k"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833758+00:00"
+  },
+  "https://www.apple.com/in/apple-tv-app": {
+    "url": "https://www.apple.com/in/apple-tv-app",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-tv-app"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833816+00:00"
+  },
+  "https://www.apple.com/in/apple-watch-for-your-kids": {
+    "url": "https://www.apple.com/in/apple-watch-for-your-kids",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-watch-for-your-kids"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833865+00:00"
+  },
+  "https://www.apple.com/in/apple-watch-nike": {
+    "url": "https://www.apple.com/in/apple-watch-nike",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-watch-nike"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833909+00:00"
+  },
+  "https://www.apple.com/in/apple-watch-se-3": {
+    "url": "https://www.apple.com/in/apple-watch-se-3",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-watch-se-3"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833955+00:00"
+  },
+  "https://www.apple.com/in/apple-watch-series-11": {
+    "url": "https://www.apple.com/in/apple-watch-series-11",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-watch-series-11"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.833998+00:00"
+  },
+  "https://www.apple.com/in/apple-watch-ultra-3": {
+    "url": "https://www.apple.com/in/apple-watch-ultra-3",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apple-watch-ultra-3"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.834040+00:00"
+  },
+  "https://www.apple.com/in/applecare": {
+    "url": "https://www.apple.com/in/applecare",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/applecare"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.834083+00:00"
+  },
+  "https://www.apple.com/in/apps": {
+    "url": "https://www.apple.com/in/apps",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/apps"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.834125+00:00"
+  },
+  "https://www.apple.com/in/business": {
+    "url": "https://www.apple.com/in/business",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/business"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.834167+00:00"
+  },
+  "https://www.apple.com/in/business/mac": {
+    "url": "https://www.apple.com/in/business/mac",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/business/mac"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.834268+00:00"
+  },
+  "https://www.apple.com/in/contact": {
+    "url": "https://www.apple.com/in/contact",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/contact"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.834365+00:00"
+  },
+  "https://www.apple.com/in/displays": {
+    "url": "https://www.apple.com/in/displays",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/displays"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.834546+00:00"
+  },
+  "https://www.apple.com/in/education": {
+    "url": "https://www.apple.com/in/education",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/education"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.834646+00:00"
+  },
+  "https://www.apple.com/in/education-initiative": {
+    "url": "https://www.apple.com/in/education-initiative",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/education-initiative"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.834698+00:00"
+  },
+  "https://www.apple.com/in/education/k12/how-to-buy": {
+    "url": "https://www.apple.com/in/education/k12/how-to-buy",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/education/k12/how-to-buy"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.834741+00:00"
+  },
+  "https://www.apple.com/in/entertainment": {
+    "url": "https://www.apple.com/in/entertainment",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/entertainment"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.834784+00:00"
+  },
+  "https://www.apple.com/in/environment": {
+    "url": "https://www.apple.com/in/environment",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/environment"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.834828+00:00"
+  },
+  "https://www.apple.com/in/government": {
+    "url": "https://www.apple.com/in/government",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/government"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.834872+00:00"
+  },
+  "https://www.apple.com/in/healthcare": {
+    "url": "https://www.apple.com/in/healthcare",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/healthcare"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.834917+00:00"
+  },
+  "https://www.apple.com/in/home-app": {
+    "url": "https://www.apple.com/in/home-app",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/home-app"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835022+00:00"
+  },
+  "https://www.apple.com/in/homepod-2nd-generation": {
+    "url": "https://www.apple.com/in/homepod-2nd-generation",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/homepod-2nd-generation"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835136+00:00"
+  },
+  "https://www.apple.com/in/homepod-mini": {
+    "url": "https://www.apple.com/in/homepod-mini",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/homepod-mini"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835198+00:00"
+  },
+  "https://www.apple.com/in/icloud": {
+    "url": "https://www.apple.com/in/icloud",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/icloud"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835247+00:00"
+  },
+  "https://www.apple.com/in/imac": {
+    "url": "https://www.apple.com/in/imac",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/imac"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835296+00:00"
+  },
+  "https://www.apple.com/in/ipad": {
+    "url": "https://www.apple.com/in/ipad",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/ipad"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835340+00:00"
+  },
+  "https://www.apple.com/in/ipad-11": {
+    "url": "https://www.apple.com/in/ipad-11",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/ipad-11"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835384+00:00"
+  },
+  "https://www.apple.com/in/ipad-air": {
+    "url": "https://www.apple.com/in/ipad-air",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/ipad-air"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835428+00:00"
+  },
+  "https://www.apple.com/in/ipad-keyboards": {
+    "url": "https://www.apple.com/in/ipad-keyboards",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/ipad-keyboards"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835474+00:00"
+  },
+  "https://www.apple.com/in/ipad-mini": {
+    "url": "https://www.apple.com/in/ipad-mini",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/ipad-mini"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835520+00:00"
+  },
+  "https://www.apple.com/in/ipad-pro": {
+    "url": "https://www.apple.com/in/ipad-pro",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/ipad-pro"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835564+00:00"
+  },
+  "https://www.apple.com/in/ipad/compare": {
+    "url": "https://www.apple.com/in/ipad/compare",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/ipad/compare"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835666+00:00"
+  },
+  "https://www.apple.com/in/iphone": {
+    "url": "https://www.apple.com/in/iphone",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/iphone"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835727+00:00"
+  },
+  "https://www.apple.com/in/iphone-17": {
+    "url": "https://www.apple.com/in/iphone-17",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/iphone-17"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835773+00:00"
+  },
+  "https://www.apple.com/in/iphone-17-pro": {
+    "url": "https://www.apple.com/in/iphone-17-pro",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/iphone-17-pro"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835852+00:00"
+  },
+  "https://www.apple.com/in/iphone-17e": {
+    "url": "https://www.apple.com/in/iphone-17e",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/iphone-17e"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835908+00:00"
+  },
+  "https://www.apple.com/in/iphone-air": {
+    "url": "https://www.apple.com/in/iphone-air",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/iphone-air"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835953+00:00"
+  },
+  "https://www.apple.com/in/iphone/compare": {
+    "url": "https://www.apple.com/in/iphone/compare",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/iphone/compare"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.835995+00:00"
+  },
+  "https://www.apple.com/in/iphone/switch": {
+    "url": "https://www.apple.com/in/iphone/switch",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/iphone/switch"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836038+00:00"
+  },
+  "https://www.apple.com/in/leadership": {
+    "url": "https://www.apple.com/in/leadership",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/leadership"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836080+00:00"
+  },
+  "https://www.apple.com/in/legal": {
+    "url": "https://www.apple.com/in/legal",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/legal"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836123+00:00"
+  },
+  "https://www.apple.com/in/legal/privacy": {
+    "url": "https://www.apple.com/in/legal/privacy",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/legal/privacy"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836166+00:00"
+  },
+  "https://www.apple.com/in/legal/terms/site.html": {
+    "url": "https://www.apple.com/in/legal/terms/site.html",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/legal/terms/site.html"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836209+00:00"
+  },
+  "https://www.apple.com/in/mac": {
+    "url": "https://www.apple.com/in/mac",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/mac"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836255+00:00"
+  },
+  "https://www.apple.com/in/mac-mini": {
+    "url": "https://www.apple.com/in/mac-mini",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/mac-mini"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836339+00:00"
+  },
+  "https://www.apple.com/in/mac-studio": {
+    "url": "https://www.apple.com/in/mac-studio",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/mac-studio"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836453+00:00"
+  },
+  "https://www.apple.com/in/mac/compare": {
+    "url": "https://www.apple.com/in/mac/compare",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/mac/compare"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836601+00:00"
+  },
+  "https://www.apple.com/in/mac/mac-does-that": {
+    "url": "https://www.apple.com/in/mac/mac-does-that",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/mac/mac-does-that"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836658+00:00"
+  },
+  "https://www.apple.com/in/macbook-air": {
+    "url": "https://www.apple.com/in/macbook-air",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/macbook-air"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836702+00:00"
+  },
+  "https://www.apple.com/in/macbook-neo": {
+    "url": "https://www.apple.com/in/macbook-neo",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/macbook-neo"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836744+00:00"
+  },
+  "https://www.apple.com/in/macbook-pro": {
+    "url": "https://www.apple.com/in/macbook-pro",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/macbook-pro"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836784+00:00"
+  },
+  "https://www.apple.com/in/macos/continuity": {
+    "url": "https://www.apple.com/in/macos/continuity",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/macos/continuity"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836866+00:00"
+  },
+  "https://www.apple.com/in/newsroom/apple-services": {
+    "url": "https://www.apple.com/in/newsroom/apple-services",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/newsroom/apple-services"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.836986+00:00"
+  },
+  "https://www.apple.com/in/newsroom/apple-stories": {
+    "url": "https://www.apple.com/in/newsroom/apple-stories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/newsroom/apple-stories"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.837085+00:00"
+  },
+  "https://www.apple.com/in/os/ios": {
+    "url": "https://www.apple.com/in/os/ios",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/os/ios"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.837142+00:00"
+  },
+  "https://www.apple.com/in/os/ipados": {
+    "url": "https://www.apple.com/in/os/ipados",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/os/ipados"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.837188+00:00"
+  },
+  "https://www.apple.com/in/os/macos": {
+    "url": "https://www.apple.com/in/os/macos",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/os/macos"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.837233+00:00"
+  },
+  "https://www.apple.com/in/os/watchos": {
+    "url": "https://www.apple.com/in/os/watchos",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/os/watchos"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.837277+00:00"
+  },
+  "https://www.apple.com/in/privacy": {
+    "url": "https://www.apple.com/in/privacy",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/privacy"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.837323+00:00"
+  },
+  "https://www.apple.com/in/recycling": {
+    "url": "https://www.apple.com/in/recycling",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/recycling"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.837467+00:00"
+  },
+  "https://www.apple.com/in/retail": {
+    "url": "https://www.apple.com/in/retail",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/retail"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.837582+00:00"
+  },
+  "https://www.apple.com/in/retail/business": {
+    "url": "https://www.apple.com/in/retail/business",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/retail/business"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.837692+00:00"
+  },
+  "https://www.apple.com/in/retail/geniusbar": {
+    "url": "https://www.apple.com/in/retail/geniusbar",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/retail/geniusbar"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.837815+00:00"
+  },
+  "https://www.apple.com/in/search": {
+    "url": "https://www.apple.com/in/search",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/search"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.837865+00:00"
+  },
+  "https://www.apple.com/in/services": {
+    "url": "https://www.apple.com/in/services",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/services"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.837910+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/accessories/all_accessories/beats_featured": {
+    "url": "https://www.apple.com/in/shop/goto/accessories/all_accessories/beats_featured",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/accessories/all_accessories/beats_featured"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.837958+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/accessories/all_accessories/headphones_speakers": {
+    "url": "https://www.apple.com/in/shop/goto/accessories/all_accessories/headphones_speakers",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/accessories/all_accessories/headphones_speakers"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.838004+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/accessories/all_accessories/made_by_apple": {
+    "url": "https://www.apple.com/in/shop/goto/accessories/all_accessories/made_by_apple",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/accessories/all_accessories/made_by_apple"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.838048+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/accessories/apple_accessories": {
+    "url": "https://www.apple.com/in/shop/goto/accessories/apple_accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/accessories/apple_accessories"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.838091+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/account": {
+    "url": "https://www.apple.com/in/shop/goto/account",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/account"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.838135+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/airpods/accessories": {
+    "url": "https://www.apple.com/in/shop/goto/airpods/accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/airpods/accessories"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.838357+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/bag": {
+    "url": "https://www.apple.com/in/shop/goto/bag",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/bag"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.838421+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/buy_accessories": {
+    "url": "https://www.apple.com/in/shop/goto/buy_accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/buy_accessories"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.838473+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/buy_homepod/homepod": {
+    "url": "https://www.apple.com/in/shop/goto/buy_homepod/homepod",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/buy_homepod/homepod"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.838519+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/buy_homepod/homepod_mini": {
+    "url": "https://www.apple.com/in/shop/goto/buy_homepod/homepod_mini",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/buy_homepod/homepod_mini"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.838581+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/buy_ipad": {
+    "url": "https://www.apple.com/in/shop/goto/buy_ipad",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/buy_ipad"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.838625+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/buy_iphone": {
+    "url": "https://www.apple.com/in/shop/goto/buy_iphone",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/buy_iphone"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.838669+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/buy_iphone/iphone_16": {
+    "url": "https://www.apple.com/in/shop/goto/buy_iphone/iphone_16",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/buy_iphone/iphone_16"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.838712+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/buy_mac": {
+    "url": "https://www.apple.com/in/shop/goto/buy_mac",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/buy_mac"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.838850+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/buy_tv/apple_tv_4k": {
+    "url": "https://www.apple.com/in/shop/goto/buy_tv/apple_tv_4k",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/buy_tv/apple_tv_4k"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.838927+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/buy_watch": {
+    "url": "https://www.apple.com/in/shop/goto/buy_watch",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/buy_watch"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839032+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/educationrouting": {
+    "url": "https://www.apple.com/in/shop/goto/educationrouting",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/educationrouting"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839085+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/giftcards": {
+    "url": "https://www.apple.com/in/shop/goto/giftcards",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/giftcards"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839138+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/help": {
+    "url": "https://www.apple.com/in/shop/goto/help",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/help"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839185+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/help/sales_refunds": {
+    "url": "https://www.apple.com/in/shop/goto/help/sales_refunds",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/help/sales_refunds"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839230+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/ipad/accessories": {
+    "url": "https://www.apple.com/in/shop/goto/ipad/accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/ipad/accessories"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839275+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/iphone/accessories": {
+    "url": "https://www.apple.com/in/shop/goto/iphone/accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/iphone/accessories"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839320+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/mac/accessories": {
+    "url": "https://www.apple.com/in/shop/goto/mac/accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/mac/accessories"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839364+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/order/list": {
+    "url": "https://www.apple.com/in/shop/goto/order/list",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/order/list"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839411+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/personal_setup": {
+    "url": "https://www.apple.com/in/shop/goto/personal_setup",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/personal_setup"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839507+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/product/MW5G3": {
+    "url": "https://www.apple.com/in/shop/goto/product/MW5G3",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/product/MW5G3"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839612+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/smart_home/accessories": {
+    "url": "https://www.apple.com/in/shop/goto/smart_home/accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/smart_home/accessories"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839688+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/store": {
+    "url": "https://www.apple.com/in/shop/goto/store",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/store"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839740+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/trade_in": {
+    "url": "https://www.apple.com/in/shop/goto/trade_in",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/trade_in"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839788+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/watch/accessories": {
+    "url": "https://www.apple.com/in/shop/goto/watch/accessories",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/watch/accessories"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839833+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/watch/bands": {
+    "url": "https://www.apple.com/in/shop/goto/watch/bands",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/watch/bands"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839878+00:00"
+  },
+  "https://www.apple.com/in/shop/goto/ways_to_buy": {
+    "url": "https://www.apple.com/in/shop/goto/ways_to_buy",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/shop/goto/ways_to_buy"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839918+00:00"
+  },
+  "https://www.apple.com/in/siri": {
+    "url": "https://www.apple.com/in/siri",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/siri"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.839960+00:00"
+  },
+  "https://www.apple.com/in/sitemap": {
+    "url": "https://www.apple.com/in/sitemap",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/sitemap"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.840002+00:00"
+  },
+  "https://www.apple.com/in/supply-chain": {
+    "url": "https://www.apple.com/in/supply-chain",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/supply-chain"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.840043+00:00"
+  },
+  "https://www.apple.com/in/today": {
+    "url": "https://www.apple.com/in/today",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/today"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.840129+00:00"
+  },
+  "https://www.apple.com/in/today/camp": {
+    "url": "https://www.apple.com/in/today/camp",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/today/camp"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.840191+00:00"
+  },
+  "https://www.apple.com/in/today/groups": {
+    "url": "https://www.apple.com/in/today/groups",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/today/groups"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.840286+00:00"
+  },
+  "https://www.apple.com/in/tv-home": {
+    "url": "https://www.apple.com/in/tv-home",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/tv-home"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.840342+00:00"
+  },
+  "https://www.apple.com/in/wallet": {
+    "url": "https://www.apple.com/in/wallet",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/wallet"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.840386+00:00"
+  },
+  "https://www.apple.com/in/watch": {
+    "url": "https://www.apple.com/in/watch",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/watch"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.840433+00:00"
+  },
+  "https://www.apple.com/in/watch/compare": {
+    "url": "https://www.apple.com/in/watch/compare",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/watch/compare"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.840516+00:00"
+  },
+  "https://www.apple.com/in/watch/why-apple-watch": {
+    "url": "https://www.apple.com/in/watch/why-apple-watch",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/watch/why-apple-watch"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.840576+00:00"
+  },
+  "https://www.apple.com/search-services/suggestions": {
+    "url": "https://www.apple.com/search-services/suggestions",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/search-services/suggestions"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.840624+00:00"
+  },
+  "https://www.apple.com/search-services/suggestions/defaultlinks": {
+    "url": "https://www.apple.com/search-services/suggestions/defaultlinks",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/search-services/suggestions/defaultlinks"
+    ],
+    "first_seen_at": "2026-06-30T08:28:36.840667+00:00"
+  },
+  "https://about.netflix.com/en/image/jpeg": {
+    "url": "https://about.netflix.com/en/image/jpeg",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/image/jpeg"
+    ],
+    "first_seen_at": "2026-06-30T08:28:41.408670+00:00"
+  },
+  "https://about.netflix.com/en/news/sunny-deol-and-akshaye-khannas-first-netflix-collaboration-takes-them-into-a-high-stakes-courtroom-battle-as-the-trailer-of-ikka-is-unveiled": {
+    "url": "https://about.netflix.com/en/news/sunny-deol-and-akshaye-khannas-first-netflix-collaboration-takes-them-into-a-high-stakes-courtroom-battle-as-the-trailer-of-ikka-is-unveiled",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/sunny-deol-and-akshaye-khannas-first-netflix-collaboration-takes-them-into-a-high-stakes-courtroom-battle-as-the-trailer-of-ikka-is-unveiled"
+    ],
+    "first_seen_at": "2026-06-30T08:28:41.409366+00:00"
+  },
+  "https://about.netflix.com/newsroom": {
+    "url": "https://about.netflix.com/newsroom",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/newsroom"
+    ],
+    "first_seen_at": "2026-06-30T08:28:41.409465+00:00"
+  },
+  "https://www.apple.com/in/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools": {
+    "url": "https://www.apple.com/in/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/newsroom/2026/06/apple-aids-app-development-with-new-intelligence-frameworks-and-advanced-tools"
+    ],
+    "first_seen_at": "2026-06-30T09:37:23.196729+00:00"
+  },
+  "https://www.apple.com/in/newsroom/2026/06/apple-expands-app-store-capabilities-to-help-developers-grow-and-reach-new-users": {
+    "url": "https://www.apple.com/in/newsroom/2026/06/apple-expands-app-store-capabilities-to-help-developers-grow-and-reach-new-users",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/newsroom/2026/06/apple-expands-app-store-capabilities-to-help-developers-grow-and-reach-new-users"
+    ],
+    "first_seen_at": "2026-06-30T09:37:23.196816+00:00"
+  },
+  "https://www.apple.com/in/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences": {
+    "url": "https://www.apple.com/in/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/newsroom/2026/06/apple-intelligence-brings-powerful-ai-capabilities-into-everyday-experiences"
+    ],
+    "first_seen_at": "2026-06-30T09:37:23.196865+00:00"
+  },
+  "https://www.apple.com/in/newsroom/2026/06/apple-introduces-siri-ai-a-profoundly-more-capable-and-personal-assistant": {
+    "url": "https://www.apple.com/in/newsroom/2026/06/apple-introduces-siri-ai-a-profoundly-more-capable-and-personal-assistant",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/newsroom/2026/06/apple-introduces-siri-ai-a-profoundly-more-capable-and-personal-assistant"
+    ],
+    "first_seen_at": "2026-06-30T09:37:23.196907+00:00"
+  },
+  "https://www.apple.com/in/newsroom/2026/06/apple-unveils-innovative-features-and-intelligence-experiences-across-services": {
+    "url": "https://www.apple.com/in/newsroom/2026/06/apple-unveils-innovative-features-and-intelligence-experiences-across-services",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/newsroom/2026/06/apple-unveils-innovative-features-and-intelligence-experiences-across-services"
+    ],
+    "first_seen_at": "2026-06-30T09:37:23.196950+00:00"
+  },
+  "https://www.apple.com/in/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more": {
+    "url": "https://www.apple.com/in/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more",
+    "root_url": "https://www.apple.com",
+    "parent_url": "https://www.apple.com/in/newsroom",
+    "trace": [
+      "https://www.apple.com",
+      "https://www.apple.com/in/newsroom",
+      "https://www.apple.com/in/newsroom/2026/06/apple-unveils-next-generation-of-apple-intelligence-siri-ai-and-more"
+    ],
+    "first_seen_at": "2026-06-30T09:37:23.196990+00:00"
+  },
+  "https://arabic.cnn.com": {
+    "url": "https://arabic.cnn.com",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://arabic.cnn.com"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.911808+00:00"
+  },
+  "https://cnnespanol.cnn.com": {
+    "url": "https://cnnespanol.cnn.com",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://cnnespanol.cnn.com"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.911896+00:00"
+  },
+  "https://edition.cnn.com": {
+    "url": "https://edition.cnn.com",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.911934+00:00"
+  },
+  "https://edition.cnn.com/2026/05/27/world/why-countries-are-tearing-down-hundreds-of-dams-spc-c2e": {
+    "url": "https://edition.cnn.com/2026/05/27/world/why-countries-are-tearing-down-hundreds-of-dams-spc-c2e",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/05/27/world/why-countries-are-tearing-down-hundreds-of-dams-spc-c2e"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.911991+00:00"
+  },
+  "https://edition.cnn.com/2026/06/27/travel/american-places-older-than-the-united-states": {
+    "url": "https://edition.cnn.com/2026/06/27/travel/american-places-older-than-the-united-states",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/27/travel/american-places-older-than-the-united-states"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912039+00:00"
+  },
+  "https://edition.cnn.com/2026/06/27/us/dating-camp-nashville-masculinity-manosphere": {
+    "url": "https://edition.cnn.com/2026/06/27/us/dating-camp-nashville-masculinity-manosphere",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/27/us/dating-camp-nashville-masculinity-manosphere"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912088+00:00"
+  },
+  "https://edition.cnn.com/2026/06/28/business/saudi-aramco-helicopter-crash-intl": {
+    "url": "https://edition.cnn.com/2026/06/28/business/saudi-aramco-helicopter-crash-intl",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/28/business/saudi-aramco-helicopter-crash-intl"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912138+00:00"
+  },
+  "https://edition.cnn.com/2026/06/28/entertainment/video/taeyang-big-bang-k-pop-idols-just-human-spc-digvid-hnk": {
+    "url": "https://edition.cnn.com/2026/06/28/entertainment/video/taeyang-big-bang-k-pop-idols-just-human-spc-digvid-hnk",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/28/entertainment/video/taeyang-big-bang-k-pop-idols-just-human-spc-digvid-hnk"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912188+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/china/china-guo-wengui-fraud-us-sentence-intl-hnk": {
+    "url": "https://edition.cnn.com/2026/06/29/china/china-guo-wengui-fraud-us-sentence-intl-hnk",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/china/china-guo-wengui-fraud-us-sentence-intl-hnk"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912247+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/entertainment/lizzo-career-comeback-album-flop": {
+    "url": "https://edition.cnn.com/2026/06/29/entertainment/lizzo-career-comeback-album-flop",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/entertainment/lizzo-career-comeback-album-flop"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912299+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/europe/russia-ukraine-war-putin-intl-latam": {
+    "url": "https://edition.cnn.com/2026/06/29/europe/russia-ukraine-war-putin-intl-latam",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/europe/russia-ukraine-war-putin-intl-latam"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912349+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/health/fda-peptides-panel-experts": {
+    "url": "https://edition.cnn.com/2026/06/29/health/fda-peptides-panel-experts",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/health/fda-peptides-panel-experts"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912400+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/health/video/former-nfl-running-back-chris-johnson-als-diagnosis-riddell-vrtc-digvid": {
+    "url": "https://edition.cnn.com/2026/06/29/health/video/former-nfl-running-back-chris-johnson-als-diagnosis-riddell-vrtc-digvid",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/health/video/former-nfl-running-back-chris-johnson-als-diagnosis-riddell-vrtc-digvid"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912451+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/health/video/mexico-facility-fighting-screwworms-sterile-flies-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/health/video/mexico-facility-fighting-screwworms-sterile-flies-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/health/video/mexico-facility-fighting-screwworms-sterile-flies-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912500+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/politics/e-jean-carroll-trump-supreme-court": {
+    "url": "https://edition.cnn.com/2026/06/29/politics/e-jean-carroll-trump-supreme-court",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/politics/e-jean-carroll-trump-supreme-court"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912548+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/politics/john-roberts-1935-humphreys-executor-presidents-fire-anyone": {
+    "url": "https://edition.cnn.com/2026/06/29/politics/john-roberts-1935-humphreys-executor-presidents-fire-anyone",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/politics/john-roberts-1935-humphreys-executor-presidents-fire-anyone"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912597+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/politics/mail-in-ballots-trump-supreme-court-election": {
+    "url": "https://edition.cnn.com/2026/06/29/politics/mail-in-ballots-trump-supreme-court-election",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/politics/mail-in-ballots-trump-supreme-court-election"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912649+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/politics/mike-johnson-housing-bill-trump": {
+    "url": "https://edition.cnn.com/2026/06/29/politics/mike-johnson-housing-bill-trump",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/politics/mike-johnson-housing-bill-trump"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912701+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/politics/sotomayor-bad-bunny-supreme-court-financial-disclosures": {
+    "url": "https://edition.cnn.com/2026/06/29/politics/sotomayor-bad-bunny-supreme-court-financial-disclosures",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/politics/sotomayor-bad-bunny-supreme-court-financial-disclosures"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912750+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/politics/takeaways-supreme-court-cook-slaughter-carroll-ballots": {
+    "url": "https://edition.cnn.com/2026/06/29/politics/takeaways-supreme-court-cook-slaughter-carroll-ballots",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/politics/takeaways-supreme-court-cook-slaughter-carroll-ballots"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912799+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/politics/trump-ai-generated-eagle-truman-balcony": {
+    "url": "https://edition.cnn.com/2026/06/29/politics/trump-ai-generated-eagle-truman-balcony",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/politics/trump-ai-generated-eagle-truman-balcony"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912848+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/politics/video/corpus-christi-running-out-water-crisis-digvid-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/politics/video/corpus-christi-running-out-water-crisis-digvid-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/politics/video/corpus-christi-running-out-water-crisis-digvid-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912898+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/politics/video/natalie-harp-trump-aide-kaye-digvid": {
+    "url": "https://edition.cnn.com/2026/06/29/politics/video/natalie-harp-trump-aide-kaye-digvid",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/politics/video/natalie-harp-trump-aide-kaye-digvid"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912949+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/politics/video/supreme-court-expands-trumps-power-delivers-key-losses-digvid-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/politics/video/supreme-court-expands-trumps-power-delivers-key-losses-digvid-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/politics/video/supreme-court-expands-trumps-power-delivers-key-losses-digvid-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.912997+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/politics/video/trump-housing-affordability-yawn-digvid-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/politics/video/trump-housing-affordability-yawn-digvid-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/politics/video/trump-housing-affordability-yawn-digvid-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913044+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/politics/video/trump-must-pay-e-jean-carroll-after-scotus-denies-his-appeal-digvid-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/politics/video/trump-must-pay-e-jean-carroll-after-scotus-denies-his-appeal-digvid-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/politics/video/trump-must-pay-e-jean-carroll-after-scotus-denies-his-appeal-digvid-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913095+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/politics/video/trump-polls-disapproval-performance-tapper-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/politics/video/trump-polls-disapproval-performance-tapper-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/politics/video/trump-polls-disapproval-performance-tapper-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913206+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/science/israel-prehistoric-cave-scli-intl": {
+    "url": "https://edition.cnn.com/2026/06/29/science/israel-prehistoric-cave-scli-intl",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/science/israel-prehistoric-cave-scli-intl"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913271+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/science/june-full-strawberry-moon": {
+    "url": "https://edition.cnn.com/2026/06/29/science/june-full-strawberry-moon",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/science/june-full-strawberry-moon"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913322+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/sport/iga-swiatek-vonn-shiffrin-serena-wimbledon": {
+    "url": "https://edition.cnn.com/2026/06/29/sport/iga-swiatek-vonn-shiffrin-serena-wimbledon",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/sport/iga-swiatek-vonn-shiffrin-serena-wimbledon"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913367+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/sport/video/naomi-osaka-wimbledon-all-white-kimono-kill-bill-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/sport/video/naomi-osaka-wimbledon-all-white-kimono-kill-bill-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/sport/video/naomi-osaka-wimbledon-all-white-kimono-kill-bill-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913415+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/sport/world-cup-round-of-32-monday": {
+    "url": "https://edition.cnn.com/2026/06/29/sport/world-cup-round-of-32-monday",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/sport/world-cup-round-of-32-monday"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913472+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/style/pfw-ss27-menswear-extreme-heat-paris": {
+    "url": "https://edition.cnn.com/2026/06/29/style/pfw-ss27-menswear-extreme-heat-paris",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/style/pfw-ss27-menswear-extreme-heat-paris"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913530+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/tech/social-media-youth-safety-protections-evaluation-report": {
+    "url": "https://edition.cnn.com/2026/06/29/tech/social-media-youth-safety-protections-evaluation-report",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/tech/social-media-youth-safety-protections-evaluation-report"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913590+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/travel/video/jetblue-pilot-drone-jfk-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/travel/video/jetblue-pilot-drone-jfk-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/travel/video/jetblue-pilot-drone-jfk-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913641+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/travel/video/quests-world-of-wonder-tallinn-estonia-hidden-hotel-floor-kgb-soviet-spc": {
+    "url": "https://edition.cnn.com/2026/06/29/travel/video/quests-world-of-wonder-tallinn-estonia-hidden-hotel-floor-kgb-soviet-spc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/travel/video/quests-world-of-wonder-tallinn-estonia-hidden-hotel-floor-kgb-soviet-spc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913687+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/uk/catherine-princess-of-wales-three-peaks-intl-scli": {
+    "url": "https://edition.cnn.com/2026/06/29/uk/catherine-princess-of-wales-three-peaks-intl-scli",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/uk/catherine-princess-of-wales-three-peaks-intl-scli"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913731+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/us/alligator-attacks-florida-woman-death": {
+    "url": "https://edition.cnn.com/2026/06/29/us/alligator-attacks-florida-woman-death",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/us/alligator-attacks-florida-woman-death"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913776+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/us/jfk-jetblue-drone-collision-reported": {
+    "url": "https://edition.cnn.com/2026/06/29/us/jfk-jetblue-drone-collision-reported",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/us/jfk-jetblue-drone-collision-reported"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913820+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/us/mississippi-manhunt-triple-homicide": {
+    "url": "https://edition.cnn.com/2026/06/29/us/mississippi-manhunt-triple-homicide",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/us/mississippi-manhunt-triple-homicide"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913868+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/us/north-carolina-inmate-uprising": {
+    "url": "https://edition.cnn.com/2026/06/29/us/north-carolina-inmate-uprising",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/us/north-carolina-inmate-uprising"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913914+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/us/san-francisco-archdiocese-abuse-settlement": {
+    "url": "https://edition.cnn.com/2026/06/29/us/san-francisco-archdiocese-abuse-settlement",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/us/san-francisco-archdiocese-abuse-settlement"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.913959+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/us/video/alex-murdaughs-second-murder-trial-set-for-april-2027": {
+    "url": "https://edition.cnn.com/2026/06/29/us/video/alex-murdaughs-second-murder-trial-set-for-april-2027",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/us/video/alex-murdaughs-second-murder-trial-set-for-april-2027"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914003+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/us/video/driver-rescue-sinking-car-virginia-vrtc-digvid": {
+    "url": "https://edition.cnn.com/2026/06/29/us/video/driver-rescue-sinking-car-virginia-vrtc-digvid",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/us/video/driver-rescue-sinking-car-virginia-vrtc-digvid"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914054+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/us/video/supreme-court-ruling-birthright-citizenship-trump-the-lead-jake-tapper": {
+    "url": "https://edition.cnn.com/2026/06/29/us/video/supreme-court-ruling-birthright-citizenship-trump-the-lead-jake-tapper",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/us/video/supreme-court-ruling-birthright-citizenship-trump-the-lead-jake-tapper"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914099+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/us/video/supreme-court-tps-ruling-puts-haitian-residents-on-edge-digvid-vrtc-hnk": {
+    "url": "https://edition.cnn.com/2026/06/29/us/video/supreme-court-tps-ruling-puts-haitian-residents-on-edge-digvid-vrtc-hnk",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/us/video/supreme-court-tps-ruling-puts-haitian-residents-on-edge-digvid-vrtc-hnk"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914144+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/us/video/viral-video-trans-march-scott-wiener": {
+    "url": "https://edition.cnn.com/2026/06/29/us/video/viral-video-trans-march-scott-wiener",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/us/video/viral-video-trans-march-scott-wiener"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914191+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/weather/video/extreme-winds-rip-apart-south-dakota-town-weather-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/weather/video/extreme-winds-rip-apart-south-dakota-town-weather-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/weather/video/extreme-winds-rip-apart-south-dakota-town-weather-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914232+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/world/video/18-day-old-baby-venezuela-earthquake-digvid-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/world/video/18-day-old-baby-venezuela-earthquake-digvid-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/world/video/18-day-old-baby-venezuela-earthquake-digvid-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914272+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/world/video/anti-migrant-protests-south-africa-digvid-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/world/video/anti-migrant-protests-south-africa-digvid-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/world/video/anti-migrant-protests-south-africa-digvid-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914309+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/world/video/day-5-venezueladron-footage-digvid-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/world/video/day-5-venezueladron-footage-digvid-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/world/video/day-5-venezueladron-footage-digvid-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914347+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/world/video/iranian-school-strike-pentagon-investigation-lead-jake-tapper": {
+    "url": "https://edition.cnn.com/2026/06/29/world/video/iranian-school-strike-pentagon-investigation-lead-jake-tapper",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/world/video/iranian-school-strike-pentagon-investigation-lead-jake-tapper"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914386+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/world/video/lucas-trejo-family-killed-venezuela-earthquake-digvid-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/world/video/lucas-trejo-family-killed-venezuela-earthquake-digvid-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/world/video/lucas-trejo-family-killed-venezuela-earthquake-digvid-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914426+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/world/video/neil-the-seal-takes-over-tasmanian-towns-digvid-vrtc-lnd": {
+    "url": "https://edition.cnn.com/2026/06/29/world/video/neil-the-seal-takes-over-tasmanian-towns-digvid-vrtc-lnd",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/world/video/neil-the-seal-takes-over-tasmanian-towns-digvid-vrtc-lnd"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914464+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/world/video/thai-teen-girl-found-dead-in-a-suitcase-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/world/video/thai-teen-girl-found-dead-in-a-suitcase-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/world/video/thai-teen-girl-found-dead-in-a-suitcase-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914506+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/world/video/ukrainian-tennis-player-oleksandra-oliynykova": {
+    "url": "https://edition.cnn.com/2026/06/29/world/video/ukrainian-tennis-player-oleksandra-oliynykova",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/world/video/ukrainian-tennis-player-oleksandra-oliynykova"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914555+00:00"
+  },
+  "https://edition.cnn.com/2026/06/29/world/video/who-is-benjamin-netanyahus-emerging-challenger-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/29/world/video/who-is-benjamin-netanyahus-emerging-challenger-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/29/world/video/who-is-benjamin-netanyahus-emerging-challenger-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914604+00:00"
+  },
+  "https://edition.cnn.com/2026/06/30/americas/venezuela-earthquakes-hospital-latam-intl": {
+    "url": "https://edition.cnn.com/2026/06/30/americas/venezuela-earthquakes-hospital-latam-intl",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/30/americas/venezuela-earthquakes-hospital-latam-intl"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914654+00:00"
+  },
+  "https://edition.cnn.com/2026/06/30/economy/trump-losing-fight-with-the-fed": {
+    "url": "https://edition.cnn.com/2026/06/30/economy/trump-losing-fight-with-the-fed",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/30/economy/trump-losing-fight-with-the-fed"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914702+00:00"
+  },
+  "https://edition.cnn.com/2026/06/30/entertainment/video/star-studded-funeral-for-music-legend-clive-davis-digvid-vrtc": {
+    "url": "https://edition.cnn.com/2026/06/30/entertainment/video/star-studded-funeral-for-music-legend-clive-davis-digvid-vrtc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/30/entertainment/video/star-studded-funeral-for-music-legend-clive-davis-digvid-vrtc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914765+00:00"
+  },
+  "https://edition.cnn.com/2026/06/30/investing/inside-the-spacex-trading-frenzy": {
+    "url": "https://edition.cnn.com/2026/06/30/investing/inside-the-spacex-trading-frenzy",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/30/investing/inside-the-spacex-trading-frenzy"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914814+00:00"
+  },
+  "https://edition.cnn.com/2026/06/30/politics/trump-supreme-court-scotus-decisions-analysis": {
+    "url": "https://edition.cnn.com/2026/06/30/politics/trump-supreme-court-scotus-decisions-analysis",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/30/politics/trump-supreme-court-scotus-decisions-analysis"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914863+00:00"
+  },
+  "https://edition.cnn.com/2026/06/30/sport/video/why-the-internet-loves-football-star-erling-haaland-world-cup-digvid-vrtc-hnk": {
+    "url": "https://edition.cnn.com/2026/06/30/sport/video/why-the-internet-loves-football-star-erling-haaland-world-cup-digvid-vrtc-hnk",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/30/sport/video/why-the-internet-loves-football-star-erling-haaland-world-cup-digvid-vrtc-hnk"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914911+00:00"
+  },
+  "https://edition.cnn.com/2026/06/30/sport/video/world-cup-tea-dim-sum-hong-kong-hnk-vrtc-digvid": {
+    "url": "https://edition.cnn.com/2026/06/30/sport/video/world-cup-tea-dim-sum-hong-kong-hnk-vrtc-digvid",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/30/sport/video/world-cup-tea-dim-sum-hong-kong-hnk-vrtc-digvid"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.914959+00:00"
+  },
+  "https://edition.cnn.com/2026/06/30/style/erling-haaland-hermes-bags-masculinity": {
+    "url": "https://edition.cnn.com/2026/06/30/style/erling-haaland-hermes-bags-masculinity",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/30/style/erling-haaland-hermes-bags-masculinity"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915009+00:00"
+  },
+  "https://edition.cnn.com/2026/06/30/tech/china-humanoid-robot-ai-rental-intl-hnk-dst": {
+    "url": "https://edition.cnn.com/2026/06/30/tech/china-humanoid-robot-ai-rental-intl-hnk-dst",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/30/tech/china-humanoid-robot-ai-rental-intl-hnk-dst"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915060+00:00"
+  },
+  "https://edition.cnn.com/2026/06/30/weather/video/aspen-acres-fire-colorado-vrtc-ldn-digvid": {
+    "url": "https://edition.cnn.com/2026/06/30/weather/video/aspen-acres-fire-colorado-vrtc-ldn-digvid",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/30/weather/video/aspen-acres-fire-colorado-vrtc-ldn-digvid"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915111+00:00"
+  },
+  "https://edition.cnn.com/2026/06/30/world/live-news/iran-war-trump": {
+    "url": "https://edition.cnn.com/2026/06/30/world/live-news/iran-war-trump",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/30/world/live-news/iran-war-trump"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915236+00:00"
+  },
+  "https://edition.cnn.com/2026/06/30/world/monaco-manhunt-explosion-intl-hnk": {
+    "url": "https://edition.cnn.com/2026/06/30/world/monaco-manhunt-explosion-intl-hnk",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/30/world/monaco-manhunt-explosion-intl-hnk"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915333+00:00"
+  },
+  "https://edition.cnn.com/2026/06/30/world/venezuela-earthquakes-deportations-ice-intl-hnk": {
+    "url": "https://edition.cnn.com/2026/06/30/world/venezuela-earthquakes-deportations-ice-intl-hnk",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/30/world/venezuela-earthquakes-deportations-ice-intl-hnk"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915390+00:00"
+  },
+  "https://edition.cnn.com/2026/06/30/world/video/12-year-old-boy-pulled-from-rubble-in-venezuela-hnk-digvid": {
+    "url": "https://edition.cnn.com/2026/06/30/world/video/12-year-old-boy-pulled-from-rubble-in-venezuela-hnk-digvid",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/2026/06/30/world/video/12-year-old-boy-pulled-from-rubble-in-venezuela-hnk-digvid"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915441+00:00"
+  },
+  "https://edition.cnn.com/about": {
+    "url": "https://edition.cnn.com/about",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/about"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915495+00:00"
+  },
+  "https://edition.cnn.com/accessibility": {
+    "url": "https://edition.cnn.com/accessibility",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/accessibility"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915549+00:00"
+  },
+  "https://edition.cnn.com/account/log-in": {
+    "url": "https://edition.cnn.com/account/log-in",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/account/log-in"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915598+00:00"
+  },
+  "https://edition.cnn.com/account/settings": {
+    "url": "https://edition.cnn.com/account/settings",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/account/settings"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915649+00:00"
+  },
+  "https://edition.cnn.com/ad-choices": {
+    "url": "https://edition.cnn.com/ad-choices",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/ad-choices"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915702+00:00"
+  },
+  "https://edition.cnn.com/audio": {
+    "url": "https://edition.cnn.com/audio",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/audio"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915755+00:00"
+  },
+  "https://edition.cnn.com/audio/podcasts/5-things": {
+    "url": "https://edition.cnn.com/audio/podcasts/5-things",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/audio/podcasts/5-things"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915807+00:00"
+  },
+  "https://edition.cnn.com/audio/podcasts/all-there-is-with-anderson-cooper": {
+    "url": "https://edition.cnn.com/audio/podcasts/all-there-is-with-anderson-cooper",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/audio/podcasts/all-there-is-with-anderson-cooper"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915860+00:00"
+  },
+  "https://edition.cnn.com/audio/podcasts/chasing-life": {
+    "url": "https://edition.cnn.com/audio/podcasts/chasing-life",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/audio/podcasts/chasing-life"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915907+00:00"
+  },
+  "https://edition.cnn.com/audio/podcasts/terms-of-service-with-clare-duffy": {
+    "url": "https://edition.cnn.com/audio/podcasts/terms-of-service-with-clare-duffy",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/audio/podcasts/terms-of-service-with-clare-duffy"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915950+00:00"
+  },
+  "https://edition.cnn.com/audio/podcasts/the-assignment": {
+    "url": "https://edition.cnn.com/audio/podcasts/the-assignment",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/audio/podcasts/the-assignment"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.915990+00:00"
+  },
+  "https://edition.cnn.com/business": {
+    "url": "https://edition.cnn.com/business",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/business"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916029+00:00"
+  },
+  "https://edition.cnn.com/business/financial-calculators": {
+    "url": "https://edition.cnn.com/business/financial-calculators",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/business/financial-calculators"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916071+00:00"
+  },
+  "https://edition.cnn.com/business/investing": {
+    "url": "https://edition.cnn.com/business/investing",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/business/investing"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916111+00:00"
+  },
+  "https://edition.cnn.com/business/media": {
+    "url": "https://edition.cnn.com/business/media",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/business/media"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916152+00:00"
+  },
+  "https://edition.cnn.com/business/tech": {
+    "url": "https://edition.cnn.com/business/tech",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/business/tech"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916208+00:00"
+  },
+  "https://edition.cnn.com/business/tech/innovate": {
+    "url": "https://edition.cnn.com/business/tech/innovate",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/business/tech/innovate"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916248+00:00"
+  },
+  "https://edition.cnn.com/business/videos": {
+    "url": "https://edition.cnn.com/business/videos",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/business/videos"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916286+00:00"
+  },
+  "https://edition.cnn.com/climate": {
+    "url": "https://edition.cnn.com/climate",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/climate"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916326+00:00"
+  },
+  "https://edition.cnn.com/climate/solutions": {
+    "url": "https://edition.cnn.com/climate/solutions",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/climate/solutions"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916365+00:00"
+  },
+  "https://edition.cnn.com/cnn10": {
+    "url": "https://edition.cnn.com/cnn10",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/cnn10"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916406+00:00"
+  },
+  "https://edition.cnn.com/election/2026": {
+    "url": "https://edition.cnn.com/election/2026",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/election/2026"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916446+00:00"
+  },
+  "https://edition.cnn.com/entertainment": {
+    "url": "https://edition.cnn.com/entertainment",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/entertainment"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916484+00:00"
+  },
+  "https://edition.cnn.com/entertainment/celebrities": {
+    "url": "https://edition.cnn.com/entertainment/celebrities",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/entertainment/celebrities"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916523+00:00"
+  },
+  "https://edition.cnn.com/entertainment/colombia-kpop-dance-bts-latam-intl-spc": {
+    "url": "https://edition.cnn.com/entertainment/colombia-kpop-dance-bts-latam-intl-spc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/entertainment/colombia-kpop-dance-bts-latam-intl-spc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916562+00:00"
+  },
+  "https://edition.cnn.com/entertainment/movies": {
+    "url": "https://edition.cnn.com/entertainment/movies",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/entertainment/movies"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916601+00:00"
+  },
+  "https://edition.cnn.com/entertainment/tv-shows": {
+    "url": "https://edition.cnn.com/entertainment/tv-shows",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/entertainment/tv-shows"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916640+00:00"
+  },
+  "https://edition.cnn.com/follow": {
+    "url": "https://edition.cnn.com/follow",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/follow"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916679+00:00"
+  },
+  "https://edition.cnn.com/games": {
+    "url": "https://edition.cnn.com/games",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/games"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916721+00:00"
+  },
+  "https://edition.cnn.com/games/play/cnn-crossword": {
+    "url": "https://edition.cnn.com/games/play/cnn-crossword",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/games/play/cnn-crossword"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916762+00:00"
+  },
+  "https://edition.cnn.com/games/play/daily-sudoku": {
+    "url": "https://edition.cnn.com/games/play/daily-sudoku",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/games/play/daily-sudoku"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916801+00:00"
+  },
+  "https://edition.cnn.com/games/play/jumble-crossword-daily": {
+    "url": "https://edition.cnn.com/games/play/jumble-crossword-daily",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/games/play/jumble-crossword-daily"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916840+00:00"
+  },
+  "https://edition.cnn.com/games/play/photo-shuffle": {
+    "url": "https://edition.cnn.com/games/play/photo-shuffle",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/games/play/photo-shuffle"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916880+00:00"
+  },
+  "https://edition.cnn.com/games/play/sudoblock": {
+    "url": "https://edition.cnn.com/games/play/sudoblock",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/games/play/sudoblock"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916919+00:00"
+  },
+  "https://edition.cnn.com/health": {
+    "url": "https://edition.cnn.com/health",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/health"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916957+00:00"
+  },
+  "https://edition.cnn.com/health/life-but-better/fitness": {
+    "url": "https://edition.cnn.com/health/life-but-better/fitness",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/health/life-but-better/fitness"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.916995+00:00"
+  },
+  "https://edition.cnn.com/health/life-but-better/food": {
+    "url": "https://edition.cnn.com/health/life-but-better/food",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/health/life-but-better/food"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917036+00:00"
+  },
+  "https://edition.cnn.com/health/life-but-better/mindfulness": {
+    "url": "https://edition.cnn.com/health/life-but-better/mindfulness",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/health/life-but-better/mindfulness"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917074+00:00"
+  },
+  "https://edition.cnn.com/health/life-but-better/relationships": {
+    "url": "https://edition.cnn.com/health/life-but-better/relationships",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/health/life-but-better/relationships"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917111+00:00"
+  },
+  "https://edition.cnn.com/health/life-but-better/sleep": {
+    "url": "https://edition.cnn.com/health/life-but-better/sleep",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/health/life-but-better/sleep"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917149+00:00"
+  },
+  "https://edition.cnn.com/interactive/2026/06/politics/declaration-independence-annotated-250-vis": {
+    "url": "https://edition.cnn.com/interactive/2026/06/politics/declaration-independence-annotated-250-vis",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/interactive/2026/06/politics/declaration-independence-annotated-250-vis"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917188+00:00"
+  },
+  "https://edition.cnn.com/interactive/2026/06/sports/world-cup-penalty-kick-vis/index.html": {
+    "url": "https://edition.cnn.com/interactive/2026/06/sports/world-cup-penalty-kick-vis/index.html",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/interactive/2026/06/sports/world-cup-penalty-kick-vis/index.html"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917290+00:00"
+  },
+  "https://edition.cnn.com/interactive/asequals": {
+    "url": "https://edition.cnn.com/interactive/asequals",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/interactive/asequals"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917336+00:00"
+  },
+  "https://edition.cnn.com/interactive/call-to-earth": {
+    "url": "https://edition.cnn.com/interactive/call-to-earth",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/interactive/call-to-earth"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917378+00:00"
+  },
+  "https://edition.cnn.com/interactive/life-but-better": {
+    "url": "https://edition.cnn.com/interactive/life-but-better",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/interactive/life-but-better"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917417+00:00"
+  },
+  "https://edition.cnn.com/live-tv": {
+    "url": "https://edition.cnn.com/live-tv",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/live-tv"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917456+00:00"
+  },
+  "https://edition.cnn.com/markets": {
+    "url": "https://edition.cnn.com/markets",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/markets"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917495+00:00"
+  },
+  "https://edition.cnn.com/markets/after-hours": {
+    "url": "https://edition.cnn.com/markets/after-hours",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/markets/after-hours"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917534+00:00"
+  },
+  "https://edition.cnn.com/markets/fear-and-greed": {
+    "url": "https://edition.cnn.com/markets/fear-and-greed",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/markets/fear-and-greed"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917574+00:00"
+  },
+  "https://edition.cnn.com/markets/premarkets": {
+    "url": "https://edition.cnn.com/markets/premarkets",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/markets/premarkets"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917614+00:00"
+  },
+  "https://edition.cnn.com/newsletters": {
+    "url": "https://edition.cnn.com/newsletters",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/newsletters"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917655+00:00"
+  },
+  "https://edition.cnn.com/politics": {
+    "url": "https://edition.cnn.com/politics",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/politics"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917694+00:00"
+  },
+  "https://edition.cnn.com/politics/epstein-files": {
+    "url": "https://edition.cnn.com/politics/epstein-files",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/politics/epstein-files"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917733+00:00"
+  },
+  "https://edition.cnn.com/politics/president-donald-trump-47": {
+    "url": "https://edition.cnn.com/politics/president-donald-trump-47",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/politics/president-donald-trump-47"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917771+00:00"
+  },
+  "https://edition.cnn.com/politics/state-redistricting-maps-vis/index.html": {
+    "url": "https://edition.cnn.com/politics/state-redistricting-maps-vis/index.html",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/politics/state-redistricting-maps-vis/index.html"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917811+00:00"
+  },
+  "https://edition.cnn.com/polling": {
+    "url": "https://edition.cnn.com/polling",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/polling"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917849+00:00"
+  },
+  "https://edition.cnn.com/privacy": {
+    "url": "https://edition.cnn.com/privacy",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/privacy"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917924+00:00"
+  },
+  "https://edition.cnn.com/profiles": {
+    "url": "https://edition.cnn.com/profiles",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/profiles"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.917979+00:00"
+  },
+  "https://edition.cnn.com/profiles/cnn-leadership": {
+    "url": "https://edition.cnn.com/profiles/cnn-leadership",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/profiles/cnn-leadership"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918026+00:00"
+  },
+  "https://edition.cnn.com/science": {
+    "url": "https://edition.cnn.com/science",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/science"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918068+00:00"
+  },
+  "https://edition.cnn.com/science/guitarfish-living-fossil-threatened-with-extinction-demand-for-fins-scientist-fishers-c2e-spc": {
+    "url": "https://edition.cnn.com/science/guitarfish-living-fossil-threatened-with-extinction-demand-for-fins-scientist-fishers-c2e-spc",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/science/guitarfish-living-fossil-threatened-with-extinction-demand-for-fins-scientist-fishers-c2e-spc"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918108+00:00"
+  },
+  "https://edition.cnn.com/science/life": {
+    "url": "https://edition.cnn.com/science/life",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/science/life"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918147+00:00"
+  },
+  "https://edition.cnn.com/science/new-species-angola-the-wilderness-project-spc-c2e-intl": {
+    "url": "https://edition.cnn.com/science/new-species-angola-the-wilderness-project-spc-c2e-intl",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/science/new-species-angola-the-wilderness-project-spc-c2e-intl"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918187+00:00"
+  },
+  "https://edition.cnn.com/science/space": {
+    "url": "https://edition.cnn.com/science/space",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/science/space"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918226+00:00"
+  },
+  "https://edition.cnn.com/science/unearthed": {
+    "url": "https://edition.cnn.com/science/unearthed",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/science/unearthed"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918265+00:00"
+  },
+  "https://edition.cnn.com/sitemap": {
+    "url": "https://edition.cnn.com/sitemap",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/sitemap"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918368+00:00"
+  },
+  "https://edition.cnn.com/specials/live-cnni-uk": {
+    "url": "https://edition.cnn.com/specials/live-cnni-uk",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/specials/live-cnni-uk"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918419+00:00"
+  },
+  "https://edition.cnn.com/sport": {
+    "url": "https://edition.cnn.com/sport",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/sport"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918478+00:00"
+  },
+  "https://edition.cnn.com/sport/fifa-world-cup": {
+    "url": "https://edition.cnn.com/sport/fifa-world-cup",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/sport/fifa-world-cup"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918527+00:00"
+  },
+  "https://edition.cnn.com/sport/golf": {
+    "url": "https://edition.cnn.com/sport/golf",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/sport/golf"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918572+00:00"
+  },
+  "https://edition.cnn.com/sport/milan-cortina-winter-olympics-2026": {
+    "url": "https://edition.cnn.com/sport/milan-cortina-winter-olympics-2026",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/sport/milan-cortina-winter-olympics-2026"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918618+00:00"
+  },
+  "https://edition.cnn.com/sport/motorsport": {
+    "url": "https://edition.cnn.com/sport/motorsport",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/sport/motorsport"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918721+00:00"
+  },
+  "https://edition.cnn.com/sport/soccer": {
+    "url": "https://edition.cnn.com/sport/soccer",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/sport/soccer"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918787+00:00"
+  },
+  "https://edition.cnn.com/sport/tennis": {
+    "url": "https://edition.cnn.com/sport/tennis",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/sport/tennis"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918836+00:00"
+  },
+  "https://edition.cnn.com/sport/us-sports": {
+    "url": "https://edition.cnn.com/sport/us-sports",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/sport/us-sports"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918884+00:00"
+  },
+  "https://edition.cnn.com/sports": {
+    "url": "https://edition.cnn.com/sports",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/sports"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918931+00:00"
+  },
+  "https://edition.cnn.com/style": {
+    "url": "https://edition.cnn.com/style",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/style"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.918977+00:00"
+  },
+  "https://edition.cnn.com/style/architecture": {
+    "url": "https://edition.cnn.com/style/architecture",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/style/architecture"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919022+00:00"
+  },
+  "https://edition.cnn.com/style/arts": {
+    "url": "https://edition.cnn.com/style/arts",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/style/arts"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919067+00:00"
+  },
+  "https://edition.cnn.com/style/beauty": {
+    "url": "https://edition.cnn.com/style/beauty",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/style/beauty"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919112+00:00"
+  },
+  "https://edition.cnn.com/style/design": {
+    "url": "https://edition.cnn.com/style/design",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/style/design"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919156+00:00"
+  },
+  "https://edition.cnn.com/style/fashion": {
+    "url": "https://edition.cnn.com/style/fashion",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/style/fashion"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919200+00:00"
+  },
+  "https://edition.cnn.com/style/luxury": {
+    "url": "https://edition.cnn.com/style/luxury",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/style/luxury"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919292+00:00"
+  },
+  "https://edition.cnn.com/style/videos": {
+    "url": "https://edition.cnn.com/style/videos",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/style/videos"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919348+00:00"
+  },
+  "https://edition.cnn.com/terms": {
+    "url": "https://edition.cnn.com/terms",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/terms"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919398+00:00"
+  },
+  "https://edition.cnn.com/transcripts": {
+    "url": "https://edition.cnn.com/transcripts",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/transcripts"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919446+00:00"
+  },
+  "https://edition.cnn.com/travel": {
+    "url": "https://edition.cnn.com/travel",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/travel"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919491+00:00"
+  },
+  "https://edition.cnn.com/travel/destinations": {
+    "url": "https://edition.cnn.com/travel/destinations",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/travel/destinations"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919537+00:00"
+  },
+  "https://edition.cnn.com/travel/food-and-drink": {
+    "url": "https://edition.cnn.com/travel/food-and-drink",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/travel/food-and-drink"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919582+00:00"
+  },
+  "https://edition.cnn.com/travel/news": {
+    "url": "https://edition.cnn.com/travel/news",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/travel/news"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919627+00:00"
+  },
+  "https://edition.cnn.com/travel/stay": {
+    "url": "https://edition.cnn.com/travel/stay",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/travel/stay"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919670+00:00"
+  },
+  "https://edition.cnn.com/travel/videos": {
+    "url": "https://edition.cnn.com/travel/videos",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/travel/videos"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919714+00:00"
+  },
+  "https://edition.cnn.com/tv/all-shows": {
+    "url": "https://edition.cnn.com/tv/all-shows",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/tv/all-shows"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919759+00:00"
+  },
+  "https://edition.cnn.com/tv/schedule/cnn": {
+    "url": "https://edition.cnn.com/tv/schedule/cnn",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/tv/schedule/cnn"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919804+00:00"
+  },
+  "https://edition.cnn.com/us": {
+    "url": "https://edition.cnn.com/us",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/us"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919849+00:00"
+  },
+  "https://edition.cnn.com/us/cnn-investigates": {
+    "url": "https://edition.cnn.com/us/cnn-investigates",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/us/cnn-investigates"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919893+00:00"
+  },
+  "https://edition.cnn.com/videos/fast/cnn-headlines": {
+    "url": "https://edition.cnn.com/videos/fast/cnn-headlines",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/videos/fast/cnn-headlines"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919939+00:00"
+  },
+  "https://edition.cnn.com/videos/fast/cnni-fast": {
+    "url": "https://edition.cnn.com/videos/fast/cnni-fast",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/videos/fast/cnni-fast"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.919985+00:00"
+  },
+  "https://edition.cnn.com/watch": {
+    "url": "https://edition.cnn.com/watch",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/watch"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920030+00:00"
+  },
+  "https://edition.cnn.com/weather": {
+    "url": "https://edition.cnn.com/weather",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/weather"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920076+00:00"
+  },
+  "https://edition.cnn.com/weather/video": {
+    "url": "https://edition.cnn.com/weather/video",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/weather/video"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920138+00:00"
+  },
+  "https://edition.cnn.com/world": {
+    "url": "https://edition.cnn.com/world",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920183+00:00"
+  },
+  "https://edition.cnn.com/world/africa": {
+    "url": "https://edition.cnn.com/world/africa",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/africa"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920228+00:00"
+  },
+  "https://edition.cnn.com/world/africa/inside-africa": {
+    "url": "https://edition.cnn.com/world/africa/inside-africa",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/africa/inside-africa"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920277+00:00"
+  },
+  "https://edition.cnn.com/world/americas": {
+    "url": "https://edition.cnn.com/world/americas",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/americas"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920322+00:00"
+  },
+  "https://edition.cnn.com/world/americas/spirit-bear-great-bear-rainforest-canada-jack-plant-spc-c2e": {
+    "url": "https://edition.cnn.com/world/americas/spirit-bear-great-bear-rainforest-canada-jack-plant-spc-c2e",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/americas/spirit-bear-great-bear-rainforest-canada-jack-plant-spc-c2e"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920368+00:00"
+  },
+  "https://edition.cnn.com/world/asia": {
+    "url": "https://edition.cnn.com/world/asia",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/asia"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920414+00:00"
+  },
+  "https://edition.cnn.com/world/australia": {
+    "url": "https://edition.cnn.com/world/australia",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/australia"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920459+00:00"
+  },
+  "https://edition.cnn.com/world/call-to-earth": {
+    "url": "https://edition.cnn.com/world/call-to-earth",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/call-to-earth"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920502+00:00"
+  },
+  "https://edition.cnn.com/world/china": {
+    "url": "https://edition.cnn.com/world/china",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/china"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920548+00:00"
+  },
+  "https://edition.cnn.com/world/europe": {
+    "url": "https://edition.cnn.com/world/europe",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/europe"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920594+00:00"
+  },
+  "https://edition.cnn.com/world/europe/ukraine": {
+    "url": "https://edition.cnn.com/world/europe/ukraine",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/europe/ukraine"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920639+00:00"
+  },
+  "https://edition.cnn.com/world/freedom-project": {
+    "url": "https://edition.cnn.com/world/freedom-project",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/freedom-project"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920682+00:00"
+  },
+  "https://edition.cnn.com/world/heroes": {
+    "url": "https://edition.cnn.com/world/heroes",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/heroes"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920726+00:00"
+  },
+  "https://edition.cnn.com/world/impact-your-world": {
+    "url": "https://edition.cnn.com/world/impact-your-world",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/impact-your-world"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920771+00:00"
+  },
+  "https://edition.cnn.com/world/india": {
+    "url": "https://edition.cnn.com/world/india",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/india"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920816+00:00"
+  },
+  "https://edition.cnn.com/world/middle-east": {
+    "url": "https://edition.cnn.com/world/middle-east",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/middle-east"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920860+00:00"
+  },
+  "https://edition.cnn.com/world/middleeast/israel": {
+    "url": "https://edition.cnn.com/world/middleeast/israel",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/middleeast/israel"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920903+00:00"
+  },
+  "https://edition.cnn.com/world/photos": {
+    "url": "https://edition.cnn.com/world/photos",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/photos"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920947+00:00"
+  },
+  "https://edition.cnn.com/world/united-kingdom": {
+    "url": "https://edition.cnn.com/world/united-kingdom",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://edition.cnn.com/world/united-kingdom"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.920991+00:00"
+  },
+  "https://us.cnn.com": {
+    "url": "https://us.cnn.com",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://us.cnn.com"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.921037+00:00"
+  },
+  "https://www.cnn.com": {
+    "url": "https://www.cnn.com",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://www.cnn.com"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.921081+00:00"
+  },
+  "https://www.cnn.com/politics/fact-check": {
+    "url": "https://www.cnn.com/politics/fact-check",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://www.cnn.com/politics/fact-check"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.921124+00:00"
+  },
+  "https://www.cnn.com/privacy": {
+    "url": "https://www.cnn.com/privacy",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://www.cnn.com/privacy"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.921168+00:00"
+  },
+  "https://www.cnn.com/privacy>": {
+    "url": "https://www.cnn.com/privacy>",
+    "root_url": "https://edition.cnn.com",
+    "parent_url": "https://edition.cnn.com",
+    "trace": [
+      "https://edition.cnn.com",
+      "https://edition.cnn.com",
+      "https://www.cnn.com/privacy>"
+    ],
+    "first_seen_at": "2026-06-30T09:41:43.921212+00:00"
   }
 }
