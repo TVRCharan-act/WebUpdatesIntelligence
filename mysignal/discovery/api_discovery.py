@@ -1,8 +1,9 @@
+from collections.abc import Callable
 from dataclasses import dataclass, field
 import json
 import re
 from typing import Any
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urldefrag, urljoin, urlparse
 
 from bs4 import BeautifulSoup
 import requests
@@ -40,14 +41,25 @@ XHR_ENDPOINT_PATTERN = re.compile(
     r"\.open\s*\(\s*[\"'][A-Z]+[\"']\s*,\s*[\"']([^\"']+)",
     re.IGNORECASE,
 )
+ENDPOINT_CAPTURE_PATTERNS = (
+    (
+        FETCH_ENDPOINT_PATTERN,
+        "fetch-call",
+    ),
+    (
+        XHR_ENDPOINT_PATTERN,
+        "xhr-open",
+    ),
+)
 GRAPHQL_OPERATION_PATTERN = re.compile(
     r"\bquery\s+[A-Za-z0-9_]+|\bmutation\s+[A-Za-z0-9_]+|"
     r"\bfragment\s+[A-Za-z0-9_]+|persistedQuery|sha256Hash",
     re.IGNORECASE,
 )
-SCRIPT_PATH_PATTERN = re.compile(
-    r"\.js(?:\?|$)",
-    re.IGNORECASE,
+SCRIPT_EXTENSIONS = (
+    ".js",
+    ".mjs",
+    ".cjs",
 )
 SCRIPT_LIKE_REL_VALUES = {
     "modulepreload",
@@ -111,17 +123,87 @@ LOW_VALUE_ENDPOINT_TOKENS = (
     "static",
     "user",
 )
-FRAMEWORK_PRIORITY = (
-    "next.js",
-    "nuxt",
-    "gatsby",
-    "astro",
-    "remix",
-    "wordpress",
-    "ghost",
-    "contentful",
-    "strapi",
-    "sanity",
+COMMON_API_PROBE_PATHS = (
+    "/api/posts",
+    "/api/news",
+    "/api/articles",
+    "/api/blog",
+    "/api/content",
+)
+
+
+@dataclass(frozen=True)
+class FrameworkSignature:
+    name: str
+    html_markers: tuple[str, ...] = ()
+    javascript_markers: tuple[str, ...] = ()
+    generator_markers: tuple[str, ...] = ()
+    probe_paths: tuple[tuple[str, str], ...] = ()
+
+
+FRAMEWORK_SIGNATURES = (
+    FrameworkSignature(
+        name="next.js",
+        html_markers=("__next_data__", "/_next/"),
+        javascript_markers=("__next_data__", "/_next/"),
+    ),
+    FrameworkSignature(
+        name="nuxt",
+        html_markers=("__nuxt__", "/_nuxt/"),
+        javascript_markers=("__nuxt__", "/_nuxt/"),
+    ),
+    FrameworkSignature(
+        name="gatsby",
+        html_markers=("gatsby", "/page-data/"),
+        javascript_markers=("gatsby", "/page-data/"),
+        generator_markers=("gatsby",),
+    ),
+    FrameworkSignature(
+        name="astro",
+        html_markers=("astro-island", "/_astro/"),
+        javascript_markers=("astro", "/_astro/"),
+    ),
+    FrameworkSignature(
+        name="remix",
+        html_markers=("__remixcontext", "/build/_assets/"),
+        javascript_markers=("remix", "__remixcontext"),
+    ),
+    FrameworkSignature(
+        name="wordpress",
+        html_markers=("/wp-content/", "/wp-json/"),
+        javascript_markers=("wp-json", "wp-content"),
+        generator_markers=("wordpress",),
+        probe_paths=(
+            ("/wp-json/wp/v2/posts", "wordpress-rest-probe"),
+            ("/wp-json/wp/v2/pages", "wordpress-rest-probe"),
+        ),
+    ),
+    FrameworkSignature(
+        name="ghost",
+        html_markers=("ghost/api", "ghost.org"),
+        javascript_markers=("ghost/api", "@tryghost/content-api"),
+        generator_markers=("ghost",),
+        probe_paths=(("/ghost/api/content/posts/", "ghost-content-probe"),),
+    ),
+    FrameworkSignature(
+        name="contentful",
+        html_markers=("cdn.contentful.com", "contentful"),
+        javascript_markers=("contentful",),
+    ),
+    FrameworkSignature(
+        name="strapi",
+        html_markers=("strapi", "/api/articles"),
+        javascript_markers=("strapi",),
+    ),
+    FrameworkSignature(
+        name="sanity",
+        html_markers=("cdn.sanity.io", "sanity"),
+        javascript_markers=("sanity",),
+    ),
+)
+FRAMEWORK_PRIORITY = tuple(
+    signature.name
+    for signature in FRAMEWORK_SIGNATURES
 )
 
 
@@ -266,15 +348,20 @@ def append_script_url(
     ):
         return
 
-    if not SCRIPT_PATH_PATTERN.search(
+    parsed_raw_url = urlparse(
         raw_url,
+    )
+    if not parsed_raw_url.path.lower().endswith(
+        SCRIPT_EXTENSIONS,
     ):
         return
 
-    script_url = urljoin(
-        base_url,
-        raw_url,
-    )
+    script_url = urldefrag(
+        urljoin(
+            base_url,
+            raw_url,
+        )
+    )[0]
 
     if not allowed_script_url(
         script_url,
@@ -299,6 +386,24 @@ def fetch_text(
     accept: str = "*/*",
     timeout: int = 15,
 ) -> tuple[str, str]:
+    text, content_type, _final_url = fetch_text_with_url(
+        url,
+        accept=accept,
+        timeout=timeout,
+    )
+
+    return (
+        text,
+        content_type,
+    )
+
+
+def fetch_text_with_url(
+    url: str,
+    *,
+    accept: str = "*/*",
+    timeout: int = 15,
+) -> tuple[str, str, str]:
     response = requests.get(
         url,
         timeout=timeout,
@@ -317,6 +422,7 @@ def fetch_text(
             "content-type",
             "",
         ),
+        response.url,
     )
 
 
@@ -544,67 +650,35 @@ def extract_embedded_json_state(
     return states
 
 
-def detect_frameworks_from_html(
-    html: str,
+def detect_frameworks_from_markers(
+    text: str,
+    marker_field: str,
 ) -> set[str]:
-    soup = BeautifulSoup(
-        html or "",
-        "html.parser",
-    )
     lowered = (
-        html or ""
+        text or ""
     ).lower()
     frameworks: set[str] = set()
 
-    if "__next_data__" in lowered or "/_next/" in lowered:
-        frameworks.add(
-            "next.js",
+    for signature in FRAMEWORK_SIGNATURES:
+        markers = getattr(
+            signature,
+            marker_field,
         )
+        if any(
+            marker in lowered
+            for marker in markers
+        ):
+            frameworks.add(
+                signature.name,
+            )
 
-    if "__nuxt__" in lowered or "/_nuxt/" in lowered:
-        frameworks.add(
-            "nuxt",
-        )
+    return frameworks
 
-    if "gatsby" in lowered or "/page-data/" in lowered:
-        frameworks.add(
-            "gatsby",
-        )
 
-    if "astro-island" in lowered or "/_astro/" in lowered:
-        frameworks.add(
-            "astro",
-        )
-
-    if "__remixcontext" in lowered or "/build/_assets/" in lowered:
-        frameworks.add(
-            "remix",
-        )
-
-    if "/wp-content/" in lowered or "/wp-json/" in lowered:
-        frameworks.add(
-            "wordpress",
-        )
-
-    if "ghost/api" in lowered or "ghost.org" in lowered:
-        frameworks.add(
-            "ghost",
-        )
-
-    if "cdn.contentful.com" in lowered or "contentful" in lowered:
-        frameworks.add(
-            "contentful",
-        )
-
-    if "strapi" in lowered or "/api/articles" in lowered:
-        frameworks.add(
-            "strapi",
-        )
-
-    if "cdn.sanity.io" in lowered or "sanity" in lowered:
-        frameworks.add(
-            "sanity",
-        )
+def detect_frameworks_from_generator_meta(
+    soup: BeautifulSoup,
+) -> set[str]:
+    frameworks: set[str] = set()
 
     for meta in soup.find_all(
         "meta",
@@ -624,18 +698,34 @@ def detect_frameworks_from_html(
             )
         ).lower()
 
-        if "wordpress" in content:
-            frameworks.add(
-                "wordpress",
-            )
-        elif "ghost" in content:
-            frameworks.add(
-                "ghost",
-            )
-        elif "gatsby" in content:
-            frameworks.add(
-                "gatsby",
-            )
+        for signature in FRAMEWORK_SIGNATURES:
+            if any(
+                marker in content
+                for marker in signature.generator_markers
+            ):
+                frameworks.add(
+                    signature.name,
+                )
+
+    return frameworks
+
+
+def detect_frameworks_from_html(
+    html: str,
+) -> set[str]:
+    soup = BeautifulSoup(
+        html or "",
+        "html.parser",
+    )
+    frameworks = detect_frameworks_from_markers(
+        html,
+        "html_markers",
+    )
+    frameworks.update(
+        detect_frameworks_from_generator_meta(
+            soup,
+        )
+    )
 
     return frameworks
 
@@ -643,62 +733,10 @@ def detect_frameworks_from_html(
 def detect_frameworks_from_javascript(
     javascript: str,
 ) -> set[str]:
-    lowered = (
-        javascript or ""
-    ).lower()
-    frameworks: set[str] = set()
-
-    if "__next_data__" in lowered or "/_next/" in lowered:
-        frameworks.add(
-            "next.js",
-        )
-
-    if "__nuxt__" in lowered or "/_nuxt/" in lowered:
-        frameworks.add(
-            "nuxt",
-        )
-
-    if "gatsby" in lowered or "/page-data/" in lowered:
-        frameworks.add(
-            "gatsby",
-        )
-
-    if "astro" in lowered or "/_astro/" in lowered:
-        frameworks.add(
-            "astro",
-        )
-
-    if "remix" in lowered or "__remixcontext" in lowered:
-        frameworks.add(
-            "remix",
-        )
-
-    if "wp-json" in lowered or "wp-content" in lowered:
-        frameworks.add(
-            "wordpress",
-        )
-
-    if "ghost/api" in lowered or "@tryghost/content-api" in lowered:
-        frameworks.add(
-            "ghost",
-        )
-
-    if "contentful" in lowered:
-        frameworks.add(
-            "contentful",
-        )
-
-    if "strapi" in lowered:
-        frameworks.add(
-            "strapi",
-        )
-
-    if "sanity" in lowered:
-        frameworks.add(
-            "sanity",
-        )
-
-    return frameworks
+    return detect_frameworks_from_markers(
+        javascript,
+        "javascript_markers",
+    )
 
 
 def next_data_probe_urls(
@@ -757,21 +795,25 @@ def next_data_probe_urls(
     ]
 
 
+DYNAMIC_FRAMEWORK_PROBES: dict[
+    str,
+    tuple[str, Callable[[str, list[tuple[str, Any]]], list[str]]],
+] = {
+    "next.js": (
+        "next-data-probe",
+        next_data_probe_urls,
+    ),
+}
+
+
 def framework_probe_urls(
     page_url: str,
     frameworks: set[str],
     embedded_states: list[tuple[str, Any]],
 ) -> list[tuple[str, str]]:
     probes: list[tuple[str, str]] = []
-    common_paths = (
-        "/api/posts",
-        "/api/news",
-        "/api/articles",
-        "/api/blog",
-        "/api/content",
-    )
 
-    for path in common_paths:
+    for path in COMMON_API_PROBE_PATHS:
         probes.append(
             (
                 normalize_api_url(
@@ -784,23 +826,33 @@ def framework_probe_urls(
             )
         )
 
-    if "next.js" in frameworks:
-        for probe in next_data_probe_urls(
+    for framework in sorted(
+        frameworks,
+    ):
+        dynamic_probe = DYNAMIC_FRAMEWORK_PROBES.get(
+            framework,
+        )
+
+        if not dynamic_probe:
+            continue
+
+        method, probe_builder = dynamic_probe
+        for probe in probe_builder(
             page_url,
             embedded_states,
         ):
             probes.append(
                 (
                     probe,
-                    "next-data-probe",
+                    method,
                 )
             )
 
-    if "wordpress" in frameworks:
-        for path in (
-            "/wp-json/wp/v2/posts",
-            "/wp-json/wp/v2/pages",
-        ):
+    for signature in FRAMEWORK_SIGNATURES:
+        if signature.name not in frameworks:
+            continue
+
+        for path, method in signature.probe_paths:
             probes.append(
                 (
                     normalize_api_url(
@@ -809,22 +861,9 @@ def framework_probe_urls(
                             path,
                         )
                     ),
-                    "wordpress-rest-probe",
+                    method,
                 )
             )
-
-    if "ghost" in frameworks:
-        probes.append(
-            (
-                normalize_api_url(
-                    urljoin(
-                        page_url,
-                        "/ghost/api/content/posts/",
-                    )
-                ),
-                "ghost-content-probe",
-            )
-        )
 
     return probes
 
@@ -833,6 +872,7 @@ def same_origin_script_urls(
     html: str,
     page_url: str,
     *,
+    base_url: str | None = None,
     script_sources: list[str] | None = None,
 ) -> list[str]:
     soup = BeautifulSoup(
@@ -841,6 +881,7 @@ def same_origin_script_urls(
     )
     script_urls = []
     seen = set()
+    resolution_base_url = base_url or page_url
 
     for script in soup.find_all(
         "script",
@@ -854,7 +895,7 @@ def same_origin_script_urls(
                 "",
             ),
             page_url=page_url,
-            base_url=f"{page_url}/",
+            base_url=resolution_base_url,
         )
 
     for link in soup.find_all(
@@ -894,7 +935,7 @@ def same_origin_script_urls(
                 "",
             ),
             page_url=page_url,
-            base_url=f"{page_url}/",
+            base_url=resolution_base_url,
         )
 
     for script in soup.find_all(
@@ -931,7 +972,7 @@ def same_origin_script_urls(
                 seen,
                 raw_url=src,
                 page_url=page_url,
-                base_url=f"{page_url}/",
+                base_url=resolution_base_url,
             )
 
     for src in script_sources or []:
@@ -940,7 +981,7 @@ def same_origin_script_urls(
             seen,
             raw_url=src,
             page_url=page_url,
-            base_url=f"{page_url}/",
+            base_url=resolution_base_url,
         )
 
     return script_urls
@@ -954,7 +995,7 @@ def discover_js_bundle_sources(
     normalized_page_url = normalize_page_url(
         page_url,
     )
-    html, _content_type = fetch_text(
+    html, _content_type, final_url = fetch_text_with_url(
         normalized_page_url,
         accept="text/html",
     )
@@ -962,6 +1003,7 @@ def discover_js_bundle_sources(
     return same_origin_script_urls(
         html,
         normalized_page_url,
+        base_url=final_url,
         script_sources=script_sources,
     )
 
@@ -971,16 +1013,7 @@ def candidate_endpoint_strings(
 ) -> list[tuple[str, str]]:
     candidates = []
 
-    for pattern, method in (
-        (
-            FETCH_ENDPOINT_PATTERN,
-            "fetch-call",
-        ),
-        (
-            XHR_ENDPOINT_PATTERN,
-            "xhr-open",
-        ),
-    ):
+    for pattern, method in ENDPOINT_CAPTURE_PATTERNS:
         for match in pattern.finditer(
             javascript,
         ):
@@ -1194,6 +1227,7 @@ def normalize_endpoint_candidate(
     *,
     page_url: str,
     script_url: str,
+    page_base_url: str | None = None,
 ) -> list[str]:
     candidate = candidate.strip()
 
@@ -1242,7 +1276,7 @@ def normalize_endpoint_candidate(
     urls = []
 
     for base_url in (
-        f"{page_url}/",
+        page_base_url or page_url,
         script_url,
     ):
         normalized = normalize_endpoint_href(
@@ -2014,7 +2048,7 @@ def discover_api_endpoints(
     )
 
     try:
-        html, _content_type = fetch_text(
+        html, _content_type, final_url = fetch_text_with_url(
             normalized_page_url,
             accept="text/html",
         )
@@ -2030,6 +2064,7 @@ def discover_api_endpoints(
     script_urls = same_origin_script_urls(
         html,
         normalized_page_url,
+        base_url=final_url,
         script_sources=script_sources,
     )
     endpoint_metadata: dict[str, EndpointDiscoveryMetadata] = {}
@@ -2085,6 +2120,7 @@ def discover_api_endpoints(
                     candidate,
                     page_url=normalized_page_url,
                     script_url=script_url,
+                    page_base_url=final_url,
                 ):
                     if not same_origin_url(
                         endpoint_url,
@@ -2160,6 +2196,7 @@ def discover_api_endpoints(
                         candidate,
                         page_url=normalized_page_url,
                         script_url=script_url,
+                        page_base_url=final_url,
                     ):
                         if not same_origin_url(
                             endpoint_url,
