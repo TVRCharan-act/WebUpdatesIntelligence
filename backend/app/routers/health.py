@@ -4,7 +4,8 @@ from fastapi import APIRouter
 from fastapi import Request, Response, status
 
 from backend.app.observability import log_health_event
-from backend.app.schemas import HealthCheck
+from mysignal.discovery.advanced_discovery import discovery_health_summary
+from backend.app.schemas import DiscoveryHealthRead, HealthCheck
 
 
 router = APIRouter()
@@ -16,6 +17,17 @@ router = APIRouter()
 )
 def health_check() -> HealthCheck:
     return HealthCheck(status="ok")
+
+
+
+@router.get(
+    "/health/discovery",
+    response_model=DiscoveryHealthRead,
+)
+def discovery_health_check() -> DiscoveryHealthRead:
+    return DiscoveryHealthRead(
+        **discovery_health_summary(),
+    )
 
 
 @router.post(

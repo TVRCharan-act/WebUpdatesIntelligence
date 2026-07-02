@@ -3,15 +3,15 @@ import { Badge } from "@/components/ui/badge";
 export function StatusBadge({ status }: { status: string }) {
   const normalized = status.toLowerCase();
 
-  if (["success", "completed", "finished"].includes(normalized)) {
+  if (["success", "completed", "finished", "ok", "configured", "available", "idle"].includes(normalized)) {
     return <Badge variant="success">{status}</Badge>;
   }
 
-  if (["failure", "failed", "error"].includes(normalized)) {
+  if (["failure", "failed", "error", "unavailable", "missing key"].includes(normalized)) {
     return <Badge variant="destructive">{status}</Badge>;
   }
 
-  if (["running", "pending", "queued", "started"].includes(normalized)) {
+  if (["running", "pending", "queued", "started", "locked"].includes(normalized)) {
     return <Badge variant="warning">{status}</Badge>;
   }
 

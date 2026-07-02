@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
-from mysignal.discovery.api_discovery import discover_api_endpoints
+from mysignal.discovery.advanced_discovery import advanced_discover_content_links
 from mysignal.discovery.page_links import (
     extract_page_links,
     normalize_page_url,
@@ -103,21 +103,17 @@ def api_content_links_for_parent(
     *,
     js_bundle_sources: list[str] | None = None,
 ) -> list[str]:
-    urls = []
-
-    for candidate in discover_api_endpoints(
+    result = advanced_discover_content_links(
         parent_url,
         script_sources=js_bundle_sources,
-    ):
-        urls.extend(
-            candidate.discovered_urls,
+    )
+
+    for message in result.log_messages:
+        print(
+            message,
         )
 
-    return sorted(
-        set(
-            urls,
-        )
-    )
+    return result.urls
 
 
 def direct_content_links_for_parent(

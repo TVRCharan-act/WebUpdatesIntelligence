@@ -83,6 +83,20 @@ api.interceptors.response.use(
 
 export type Strategy = "parent" | "feed" | "api";
 
+
+export interface DiscoveryHealth {
+  status: string;
+  openai_configured: boolean;
+  openai_model: string;
+  browser_tracing_available: boolean;
+  adapter_cache_path: string;
+  adapter_cache_exists: boolean;
+  cached_adapter_count: number;
+  recent_discovery_event_count: number;
+  recent_discovery_error_count: number;
+  heavy_discovery_lock: Record<string, string | number | boolean | null>;
+  limits: Record<string, string | number | boolean | null>;
+}
 export interface MonitorStatus {
   enabled_sources: number;
   queued: number;
@@ -341,6 +355,11 @@ export function getApiErrorMessage(error: unknown) {
   return "Something went wrong.";
 }
 
+
+export async function getDiscoveryHealth() {
+  const response = await api.get<DiscoveryHealth>("/health/discovery");
+  return response.data;
+}
 export async function getMonitorStatus() {
   const response = await api.get<MonitorStatus>("/monitor/status");
   return response.data;

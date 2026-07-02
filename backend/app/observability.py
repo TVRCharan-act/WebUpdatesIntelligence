@@ -9,6 +9,7 @@ from typing import Any
 
 
 LOG_PATH = Path(os.getenv("APP_HEALTH_LOG_PATH", "logs/app-health.jsonl"))
+LOG_MAX_BYTES = int(os.getenv("APP_HEALTH_LOG_MAX_BYTES", "5242880"))
 _LOG_LOCK = Lock()
 
 
@@ -23,6 +24,19 @@ def _json_safe(value: Any) -> Any:
             return [_json_safe(item) for item in value]
         return repr(value)
 
+
+def _rotate_log_if_needed() -> None:
+    if LOG_MAX_BYTES <= 0 or not LOG_PATH.exists():
+        return
+
+    try:
+        if LOG_PATH.stat().st_size < LOG_MAX_BYTES:
+            return
+        archive_path = LOG_PATH.with_name(f"{LOG_PATH.name}.1")
+        archive_path.unlink(missing_ok=True)
+        LOG_PATH.replace(archive_path)
+    except Exception:
+        return
 
 def log_health_event(
     *,
@@ -46,6 +60,7 @@ def log_health_event(
     try:
         LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
         with _LOG_LOCK:
+            _rotate_log_if_needed()
             with LOG_PATH.open("a", encoding="utf-8") as handle:
                 handle.write(json.dumps(record, separators=(",", ":")) + "\n")
     except Exception:

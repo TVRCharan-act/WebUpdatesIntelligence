@@ -1,5 +1,6 @@
 export const queryKeys = {
   monitorStatus: ["monitor-status"] as const,
+  discoveryHealth: ["discovery-health"] as const,
   companies: ["companies"] as const,
   sources: ["sources"] as const,
   source: (id: number) => ["sources", id] as const,

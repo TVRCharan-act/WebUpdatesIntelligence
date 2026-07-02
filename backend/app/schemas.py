@@ -8,6 +8,20 @@ class HealthCheck(BaseModel):
     status: str
 
 
+class DiscoveryHealthRead(BaseModel):
+    status: str
+    openai_configured: bool
+    openai_model: str
+    browser_tracing_available: bool
+    adapter_cache_path: str
+    adapter_cache_exists: bool
+    cached_adapter_count: int
+    recent_discovery_event_count: int
+    recent_discovery_error_count: int
+    heavy_discovery_lock: dict[str, Any] = Field(default_factory=dict)
+    limits: dict[str, Any] = Field(default_factory=dict)
+
+
 class MonitorResult(BaseModel):
     status: str
     source_id: int

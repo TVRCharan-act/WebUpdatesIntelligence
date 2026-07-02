@@ -5,11 +5,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = OpenAI(
-    api_key=os.getenv(
-        "OPENAI_API_KEY"
-    )
+OPENAI_API_KEY = os.getenv(
+    "OPENAI_API_KEY"
 )
+client = OpenAI(
+    api_key=OPENAI_API_KEY or "missing-openai-api-key"
+)
+OPENAI_MODEL = "gpt-5.4"
 
 
 SYSTEM_PROMPT = """
@@ -85,7 +87,7 @@ ARTICLE:
 """
 
     response = client.chat.completions.create(
-        model="gpt-5.4",
+        model=OPENAI_MODEL,
         messages=[
             {
                 "role": "system",

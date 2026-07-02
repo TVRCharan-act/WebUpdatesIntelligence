@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Activity, CheckCircle2, Clock3, Play, XCircle } from "lucide-react";
+import { Activity, CheckCircle2, Clock3, Play, Radar, XCircle } from "lucide-react";
 import * as React from "react";
 import { toast } from "sonner";
 
@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/table";
 import {
   getApiErrorMessage,
+  getDiscoveryHealth,
   getMonitorStatus,
   listRuns,
   runAllSources,
@@ -44,6 +45,11 @@ export default function DashboardPage() {
   const runsQuery = useQuery({
     queryKey: queryKeys.runs,
     queryFn: listRuns,
+  });
+
+  const discoveryHealthQuery = useQuery({
+    queryKey: queryKeys.discoveryHealth,
+    queryFn: getDiscoveryHealth,
   });
 
   const runAllMutation = useMutation({
@@ -125,6 +131,73 @@ export default function DashboardPage() {
         })}
       </div>
 
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Radar className="size-4" />
+            Discovery health
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          {discoveryHealthQuery.data ? (
+            <div className="grid gap-3 text-sm sm:grid-cols-2 lg:grid-cols-6">
+              <div>
+                <div className="text-xs text-muted-foreground">OpenAI planner</div>
+                <StatusBadge
+                  status={discoveryHealthQuery.data.openai_configured ? "configured" : "missing key"}
+                />
+                <div className="mt-1 text-xs text-muted-foreground">
+                  {discoveryHealthQuery.data.openai_model}
+                </div>
+              </div>
+              <div>
+                <div className="text-xs text-muted-foreground">Browser tracing</div>
+                <StatusBadge
+                  status={
+                    discoveryHealthQuery.data.browser_tracing_available
+                      ? "available"
+                      : "unavailable"
+                  }
+                />
+              </div>
+              <div>
+                <div className="text-xs text-muted-foreground">Cached adapters</div>
+                <div className="text-2xl font-semibold">
+                  {discoveryHealthQuery.data.cached_adapter_count}
+                </div>
+              </div>
+              <div>
+                <div className="text-xs text-muted-foreground">Recent discovery errors</div>
+                <div className="text-2xl font-semibold">
+                  {discoveryHealthQuery.data.recent_discovery_error_count}
+                </div>
+              </div>
+              <div>
+                <div className="text-xs text-muted-foreground">Heavy trace lock</div>
+                <StatusBadge
+                  status={
+                    discoveryHealthQuery.data.heavy_discovery_lock.locked ? "locked" : "idle"
+                  }
+                />
+                <div className="mt-1 text-xs text-muted-foreground">
+                  TTL {String(discoveryHealthQuery.data.limits.heavy_lock_ttl_seconds ?? "-")}s
+                </div>
+              </div>
+              <div>
+                <div className="text-xs text-muted-foreground">Scrape budget</div>
+                <div className="text-2xl font-semibold">
+                  {String(discoveryHealthQuery.data.limits.max_discovered_urls ?? "-")}
+                </div>
+                <div className="mt-1 text-xs text-muted-foreground">
+                  {String(discoveryHealthQuery.data.limits.max_browser_responses ?? "-")} responses
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="text-sm text-muted-foreground">Loading discovery health.</div>
+          )}
+        </CardContent>
+      </Card>
       <Card>
         <CardHeader>
           <CardTitle>Recent runs</CardTitle>

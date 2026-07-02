@@ -30,10 +30,13 @@ services:
       context: .
       dockerfile: backend/Dockerfile
     command: ["sh", "-c", "alembic upgrade head && uvicorn backend.app.main:app --host 0.0.0.0 --port 8000"]
+    mem_limit: 1g
+    cpus: "1.0"
     environment:
       DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://monitor:monitor@postgres:5432/website_monitor}
       REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
       APP_HEALTH_LOG_PATH: ${APP_HEALTH_LOG_PATH:-/app/logs/app-health.jsonl}
+      APP_HEALTH_LOG_MAX_BYTES: ${APP_HEALTH_LOG_MAX_BYTES:-5242880}
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       FIRECRAWL_API_KEY: ${FIRECRAWL_API_KEY:-}
       fire_crawler_api: ${fire_crawler_api:-}
@@ -48,8 +51,33 @@ services:
       SMTP_TO: ${SMTP_TO:-}
       SMTP_USE_TLS: ${SMTP_USE_TLS:-true}
       SMTP_USE_SSL: ${SMTP_USE_SSL:-false}
+      DISCOVERY_ENABLE_BROWSER: ${DISCOVERY_ENABLE_BROWSER:-true}
+      DISCOVERY_ENABLE_LLM: ${DISCOVERY_ENABLE_LLM:-true}
+      DISCOVERY_BROWSER_MAX_RESPONSES: ${DISCOVERY_BROWSER_MAX_RESPONSES:-10}
+      DISCOVERY_BROWSER_RESPONSE_CHARS: ${DISCOVERY_BROWSER_RESPONSE_CHARS:-8000}
+      DISCOVERY_BROWSER_SCROLLS: ${DISCOVERY_BROWSER_SCROLLS:-2}
+      DISCOVERY_BROWSER_TIMEOUT_MS: ${DISCOVERY_BROWSER_TIMEOUT_MS:-20000}
+      DISCOVERY_BROWSER_SETTLE_MS: ${DISCOVERY_BROWSER_SETTLE_MS:-1000}
+      DISCOVERY_MAX_LLM_ENDPOINTS: ${DISCOVERY_MAX_LLM_ENDPOINTS:-12}
+      DISCOVERY_MAX_EXECUTED_ENDPOINTS: ${DISCOVERY_MAX_EXECUTED_ENDPOINTS:-20}
+      DISCOVERY_MAX_DISCOVERED_URLS: ${DISCOVERY_MAX_DISCOVERED_URLS:-300}
+      DISCOVERY_HEAVY_LOCK_TTL_SECONDS: ${DISCOVERY_HEAVY_LOCK_TTL_SECONDS:-900}
+      DISCOVERY_SKIP_HEAVY_WHEN_CACHED_SUCCESS: ${DISCOVERY_SKIP_HEAVY_WHEN_CACHED_SUCCESS:-true}
+      CELERY_WORKER_CONCURRENCY: ${CELERY_WORKER_CONCURRENCY:-2}
     ports:
       - "8000:8000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=5).read()",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
     volumes:
       - ./logs:/app/logs
       - ./mysignal/data:/app/mysignal/data
@@ -63,11 +91,14 @@ services:
     build:
       context: .
       dockerfile: backend/Dockerfile
-    command: ["sh", "-c", "alembic upgrade head && celery -A backend.app.workers.celery_app:celery_app worker --loglevel=info"]
+    command: ["sh", "-c", "alembic upgrade head && celery -A backend.app.workers.celery_app:celery_app worker --loglevel=info --concurrency=${CELERY_WORKER_CONCURRENCY:-2} --prefetch-multiplier=1 -Ofair"]
+    mem_limit: 3g
+    cpus: "2.0"
     environment:
       DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://monitor:monitor@postgres:5432/website_monitor}
       REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
       APP_HEALTH_LOG_PATH: ${APP_HEALTH_LOG_PATH:-/app/logs/app-health.jsonl}
+      APP_HEALTH_LOG_MAX_BYTES: ${APP_HEALTH_LOG_MAX_BYTES:-5242880}
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       FIRECRAWL_API_KEY: ${FIRECRAWL_API_KEY:-}
       fire_crawler_api: ${fire_crawler_api:-}
@@ -82,6 +113,19 @@ services:
       SMTP_TO: ${SMTP_TO:-}
       SMTP_USE_TLS: ${SMTP_USE_TLS:-true}
       SMTP_USE_SSL: ${SMTP_USE_SSL:-false}
+      DISCOVERY_ENABLE_BROWSER: ${DISCOVERY_ENABLE_BROWSER:-true}
+      DISCOVERY_ENABLE_LLM: ${DISCOVERY_ENABLE_LLM:-true}
+      DISCOVERY_BROWSER_MAX_RESPONSES: ${DISCOVERY_BROWSER_MAX_RESPONSES:-10}
+      DISCOVERY_BROWSER_RESPONSE_CHARS: ${DISCOVERY_BROWSER_RESPONSE_CHARS:-8000}
+      DISCOVERY_BROWSER_SCROLLS: ${DISCOVERY_BROWSER_SCROLLS:-2}
+      DISCOVERY_BROWSER_TIMEOUT_MS: ${DISCOVERY_BROWSER_TIMEOUT_MS:-20000}
+      DISCOVERY_BROWSER_SETTLE_MS: ${DISCOVERY_BROWSER_SETTLE_MS:-1000}
+      DISCOVERY_MAX_LLM_ENDPOINTS: ${DISCOVERY_MAX_LLM_ENDPOINTS:-12}
+      DISCOVERY_MAX_EXECUTED_ENDPOINTS: ${DISCOVERY_MAX_EXECUTED_ENDPOINTS:-20}
+      DISCOVERY_MAX_DISCOVERED_URLS: ${DISCOVERY_MAX_DISCOVERED_URLS:-300}
+      DISCOVERY_HEAVY_LOCK_TTL_SECONDS: ${DISCOVERY_HEAVY_LOCK_TTL_SECONDS:-900}
+      DISCOVERY_SKIP_HEAVY_WHEN_CACHED_SUCCESS: ${DISCOVERY_SKIP_HEAVY_WHEN_CACHED_SUCCESS:-true}
+      CELERY_WORKER_CONCURRENCY: ${CELERY_WORKER_CONCURRENCY:-2}
     volumes:
       - ./logs:/app/logs
       - ./mysignal/data:/app/mysignal/data
@@ -96,10 +140,13 @@ services:
       context: .
       dockerfile: backend/Dockerfile
     command: ["sh", "-c", "alembic upgrade head && celery -A backend.app.workers.celery_app:celery_app beat --loglevel=info"]
+    mem_limit: 512m
+    cpus: "0.5"
     environment:
       DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://monitor:monitor@postgres:5432/website_monitor}
       REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
       APP_HEALTH_LOG_PATH: ${APP_HEALTH_LOG_PATH:-/app/logs/app-health.jsonl}
+      APP_HEALTH_LOG_MAX_BYTES: ${APP_HEALTH_LOG_MAX_BYTES:-5242880}
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       FIRECRAWL_API_KEY: ${FIRECRAWL_API_KEY:-}
       fire_crawler_api: ${fire_crawler_api:-}
@@ -114,6 +161,19 @@ services:
       SMTP_TO: ${SMTP_TO:-}
       SMTP_USE_TLS: ${SMTP_USE_TLS:-true}
       SMTP_USE_SSL: ${SMTP_USE_SSL:-false}
+      DISCOVERY_ENABLE_BROWSER: ${DISCOVERY_ENABLE_BROWSER:-true}
+      DISCOVERY_ENABLE_LLM: ${DISCOVERY_ENABLE_LLM:-true}
+      DISCOVERY_BROWSER_MAX_RESPONSES: ${DISCOVERY_BROWSER_MAX_RESPONSES:-10}
+      DISCOVERY_BROWSER_RESPONSE_CHARS: ${DISCOVERY_BROWSER_RESPONSE_CHARS:-8000}
+      DISCOVERY_BROWSER_SCROLLS: ${DISCOVERY_BROWSER_SCROLLS:-2}
+      DISCOVERY_BROWSER_TIMEOUT_MS: ${DISCOVERY_BROWSER_TIMEOUT_MS:-20000}
+      DISCOVERY_BROWSER_SETTLE_MS: ${DISCOVERY_BROWSER_SETTLE_MS:-1000}
+      DISCOVERY_MAX_LLM_ENDPOINTS: ${DISCOVERY_MAX_LLM_ENDPOINTS:-12}
+      DISCOVERY_MAX_EXECUTED_ENDPOINTS: ${DISCOVERY_MAX_EXECUTED_ENDPOINTS:-20}
+      DISCOVERY_MAX_DISCOVERED_URLS: ${DISCOVERY_MAX_DISCOVERED_URLS:-300}
+      DISCOVERY_HEAVY_LOCK_TTL_SECONDS: ${DISCOVERY_HEAVY_LOCK_TTL_SECONDS:-900}
+      DISCOVERY_SKIP_HEAVY_WHEN_CACHED_SUCCESS: ${DISCOVERY_SKIP_HEAVY_WHEN_CACHED_SUCCESS:-true}
+      CELERY_WORKER_CONCURRENCY: ${CELERY_WORKER_CONCURRENCY:-2}
     volumes:
       - ./logs:/app/logs
       - ./mysignal/data:/app/mysignal/data
@@ -127,12 +187,27 @@ services:
     build:
       context: ./frontend
     command: ["npm", "run", "dev"]
+    mem_limit: 768m
+    cpus: "1.0"
     environment:
       VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000}
     ports:
       - "3000:3000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://localhost:3000').then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
 
 volumes:
   postgres_data:
