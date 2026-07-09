@@ -57418,5 +57418,1666 @@
       "https://press.aboutamazon.com/community/2026/7/amazon-launches-community-fund-now-accepting-applications-for-projects-in-frederick-county-maryland"
     ],
     "first_seen_at": "2026-07-02T04:03:02.841447+00:00"
+  },
+  "https://www.tatasteel.com/newsroom/press-releases/india/2026/119th-annual-general-meeting-agm-speech-by-natarajan-chandrasekaran-chairman-tata-steel": {
+    "url": "https://www.tatasteel.com/newsroom/press-releases/india/2026/119th-annual-general-meeting-agm-speech-by-natarajan-chandrasekaran-chairman-tata-steel",
+    "root_url": "https://www.tatasteel.com",
+    "parent_url": "https://www.tatasteel.com/newsroom/press-releases",
+    "trace": [
+      "https://www.tatasteel.com",
+      "https://www.tatasteel.com/newsroom/press-releases",
+      "https://www.tatasteel.com/newsroom/press-releases/india/2026/119th-annual-general-meeting-agm-speech-by-natarajan-chandrasekaran-chairman-tata-steel"
+    ],
+    "first_seen_at": "2026-07-03T10:34:04.547859+00:00"
+  },
+  "https://blogs.nvidia.com/blog/geforce-now-thursday-july-2026-games-list": {
+    "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-july-2026-games-list",
+    "root_url": "https://nvidianews.nvidia.com",
+    "parent_url": "https://nvidianews.nvidia.com",
+    "trace": [
+      "https://nvidianews.nvidia.com",
+      "https://nvidianews.nvidia.com",
+      "https://blogs.nvidia.com/blog/geforce-now-thursday-july-2026-games-list"
+    ],
+    "first_seen_at": "2026-07-03T10:34:13.582975+00:00"
+  },
+  "https://www.hydro.com/en/global/aluminium/aluminium-exhibition-2026": {
+    "url": "https://www.hydro.com/en/global/aluminium/aluminium-exhibition-2026",
+    "root_url": "https://www.hydro.com",
+    "parent_url": "https://www.hydro.com/en/global/media/news",
+    "trace": [
+      "https://www.hydro.com",
+      "https://www.hydro.com/en/global/media/news",
+      "https://www.hydro.com/en/global/aluminium/aluminium-exhibition-2026"
+    ],
+    "first_seen_at": "2026-07-03T10:34:50.154748+00:00"
+  },
+  "https://www.hydro.com/en/global/media/news/2026/norways-longest-aluminium-pedestrian-bridge-opens-in-bergen-built-with-recycled-metal-from-hydro": {
+    "url": "https://www.hydro.com/en/global/media/news/2026/norways-longest-aluminium-pedestrian-bridge-opens-in-bergen-built-with-recycled-metal-from-hydro",
+    "root_url": "https://www.hydro.com",
+    "parent_url": "https://www.hydro.com/en/global/media/news",
+    "trace": [
+      "https://www.hydro.com",
+      "https://www.hydro.com/en/global/media/news",
+      "https://www.hydro.com/en/global/media/news/2026/norways-longest-aluminium-pedestrian-bridge-opens-in-bergen-built-with-recycled-metal-from-hydro"
+    ],
+    "first_seen_at": "2026-07-03T10:34:50.162194+00:00"
+  },
+  "https://www.mahindra.com/news-room/press-release/en/mahindra-tractors-yuvotech-plus-585-di-v1-with-mbull-engine-goes-nation-wide": {
+    "url": "https://www.mahindra.com/news-room/press-release/en/mahindra-tractors-yuvotech-plus-585-di-v1-with-mbull-engine-goes-nation-wide",
+    "root_url": "https://www.mahindra.com",
+    "parent_url": "https://www.mahindra.com/newsroom/press-release",
+    "trace": [
+      "https://www.mahindra.com",
+      "https://www.mahindra.com/newsroom/press-release",
+      "https://www.mahindra.com/news-room/press-release/en/mahindra-tractors-yuvotech-plus-585-di-v1-with-mbull-engine-goes-nation-wide"
+    ],
+    "first_seen_at": "2026-07-08T14:19:41.871157+00:00"
+  },
+  "https://blogs.nvidia.com/blog/hugging-face-lerobot-models-frameworks-open-robotics": {
+    "url": "https://blogs.nvidia.com/blog/hugging-face-lerobot-models-frameworks-open-robotics",
+    "root_url": "https://nvidianews.nvidia.com",
+    "parent_url": "https://nvidianews.nvidia.com",
+    "trace": [
+      "https://nvidianews.nvidia.com",
+      "https://nvidianews.nvidia.com",
+      "https://blogs.nvidia.com/blog/hugging-face-lerobot-models-frameworks-open-robotics"
+    ],
+    "first_seen_at": "2026-07-08T14:20:21.563134+00:00"
+  },
+  "https://blogs.nvidia.com/blog/nations-deploy-ai-strategic-priorities": {
+    "url": "https://blogs.nvidia.com/blog/nations-deploy-ai-strategic-priorities",
+    "root_url": "https://nvidianews.nvidia.com",
+    "parent_url": "https://nvidianews.nvidia.com",
+    "trace": [
+      "https://nvidianews.nvidia.com",
+      "https://nvidianews.nvidia.com",
+      "https://blogs.nvidia.com/blog/nations-deploy-ai-strategic-priorities"
+    ],
+    "first_seen_at": "2026-07-08T14:20:21.563198+00:00"
+  },
+  "https://blogs.nvidia.com/blog/nvidia-vera-max-single-threaded-cpu-at-scale": {
+    "url": "https://blogs.nvidia.com/blog/nvidia-vera-max-single-threaded-cpu-at-scale",
+    "root_url": "https://nvidianews.nvidia.com",
+    "parent_url": "https://nvidianews.nvidia.com",
+    "trace": [
+      "https://nvidianews.nvidia.com",
+      "https://nvidianews.nvidia.com",
+      "https://blogs.nvidia.com/blog/nvidia-vera-max-single-threaded-cpu-at-scale"
+    ],
+    "first_seen_at": "2026-07-08T14:20:21.563247+00:00"
+  },
+  "https://blogs.nvidia.com/blog/open-models-icml-2026": {
+    "url": "https://blogs.nvidia.com/blog/open-models-icml-2026",
+    "root_url": "https://nvidianews.nvidia.com",
+    "parent_url": "https://nvidianews.nvidia.com",
+    "trace": [
+      "https://nvidianews.nvidia.com",
+      "https://nvidianews.nvidia.com",
+      "https://blogs.nvidia.com/blog/open-models-icml-2026"
+    ],
+    "first_seen_at": "2026-07-08T14:20:21.563279+00:00"
+  },
+  "https://www.tatasteel.com/newsroom/press-releases/india/2026/tata-steel-limited-becomes-world-s-largest-sa8000-certified-organisation-in-terms-of-workforce-coverage": {
+    "url": "https://www.tatasteel.com/newsroom/press-releases/india/2026/tata-steel-limited-becomes-world-s-largest-sa8000-certified-organisation-in-terms-of-workforce-coverage",
+    "root_url": "https://www.tatasteel.com",
+    "parent_url": "https://www.tatasteel.com/newsroom/press-releases",
+    "trace": [
+      "https://www.tatasteel.com",
+      "https://www.tatasteel.com/newsroom/press-releases",
+      "https://www.tatasteel.com/newsroom/press-releases/india/2026/tata-steel-limited-becomes-world-s-largest-sa8000-certified-organisation-in-terms-of-workforce-coverage"
+    ],
+    "first_seen_at": "2026-07-08T14:20:15.754068+00:00"
+  },
+  "https://press.aboutamazon.com/2026/7/amazon-supports-weekly-humanitarian-relief-flights-to-venezuela-in-first-of-its-kind-collaboration": {
+    "url": "https://press.aboutamazon.com/2026/7/amazon-supports-weekly-humanitarian-relief-flights-to-venezuela-in-first-of-its-kind-collaboration",
+    "root_url": "https://press.aboutamazon.com",
+    "parent_url": "https://press.aboutamazon.com",
+    "trace": [
+      "https://press.aboutamazon.com",
+      "https://press.aboutamazon.com",
+      "https://press.aboutamazon.com/2026/7/amazon-supports-weekly-humanitarian-relief-flights-to-venezuela-in-first-of-its-kind-collaboration"
+    ],
+    "first_seen_at": "2026-07-08T14:21:25.395523+00:00"
+  },
+  "https://www.hydro.com/en/global/media/news/2026/hydro-and-eviny-sign-long-term-power-contract": {
+    "url": "https://www.hydro.com/en/global/media/news/2026/hydro-and-eviny-sign-long-term-power-contract",
+    "root_url": "https://www.hydro.com",
+    "parent_url": "https://www.hydro.com/en/global/media/news",
+    "trace": [
+      "https://www.hydro.com",
+      "https://www.hydro.com/en/global/media/news",
+      "https://www.hydro.com/en/global/media/news/2026/hydro-and-eviny-sign-long-term-power-contract"
+    ],
+    "first_seen_at": "2026-07-08T14:21:32.246668+00:00"
+  },
+  "https://press.aboutamazon.com/aws/2026/7/how-aws-helps-power-fullpower-ai-sleep-intelligence-for-smart-beds-globally": {
+    "url": "https://press.aboutamazon.com/aws/2026/7/how-aws-helps-power-fullpower-ai-sleep-intelligence-for-smart-beds-globally",
+    "root_url": "https://press.aboutamazon.com",
+    "parent_url": "https://press.aboutamazon.com",
+    "trace": [
+      "https://press.aboutamazon.com",
+      "https://press.aboutamazon.com",
+      "https://press.aboutamazon.com/aws/2026/7/how-aws-helps-power-fullpower-ai-sleep-intelligence-for-smart-beds-globally"
+    ],
+    "first_seen_at": "2026-07-08T14:21:25.395617+00:00"
+  },
+  "https://www.hydro.com/en/global/media/news/2026/hydro-and-nexans-enter-longterm-supply-agreement-to-strengthen-europes-electricity-grid-with-lowcarbon-aluminium": {
+    "url": "https://www.hydro.com/en/global/media/news/2026/hydro-and-nexans-enter-longterm-supply-agreement-to-strengthen-europes-electricity-grid-with-lowcarbon-aluminium",
+    "root_url": "https://www.hydro.com",
+    "parent_url": "https://www.hydro.com/en/global/media/news",
+    "trace": [
+      "https://www.hydro.com",
+      "https://www.hydro.com/en/global/media/news",
+      "https://www.hydro.com/en/global/media/news/2026/hydro-and-nexans-enter-longterm-supply-agreement-to-strengthen-europes-electricity-grid-with-lowcarbon-aluminium"
+    ],
+    "first_seen_at": "2026-07-08T14:21:32.246789+00:00"
+  },
+  "https://www.hydro.com/en/global/media/news/2026/hydro-enables-norways-first-closed-loop-aluminium-facade-in-oslo-refurbishment": {
+    "url": "https://www.hydro.com/en/global/media/news/2026/hydro-enables-norways-first-closed-loop-aluminium-facade-in-oslo-refurbishment",
+    "root_url": "https://www.hydro.com",
+    "parent_url": "https://www.hydro.com/en/global/media/news",
+    "trace": [
+      "https://www.hydro.com",
+      "https://www.hydro.com/en/global/media/news",
+      "https://www.hydro.com/en/global/media/news/2026/hydro-enables-norways-first-closed-loop-aluminium-facade-in-oslo-refurbishment"
+    ],
+    "first_seen_at": "2026-07-08T14:21:32.246850+00:00"
+  },
+  "https://about.netflix.com/en/news/america-250-lineup": {
+    "url": "https://about.netflix.com/en/news/america-250-lineup",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/america-250-lineup"
+    ],
+    "first_seen_at": "2026-07-08T14:26:56.247125+00:00"
+  },
+  "https://about.netflix.com/en/news/anime-expo-2026": {
+    "url": "https://about.netflix.com/en/news/anime-expo-2026",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/anime-expo-2026"
+    ],
+    "first_seen_at": "2026-07-08T14:26:56.247232+00:00"
+  },
+  "https://about.netflix.com/en/news/beyond-society-created-by-j-a-bayona-arrives-on-netflix-in-2026": {
+    "url": "https://about.netflix.com/en/news/beyond-society-created-by-j-a-bayona-arrives-on-netflix-in-2026",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/beyond-society-created-by-j-a-bayona-arrives-on-netflix-in-2026"
+    ],
+    "first_seen_at": "2026-07-08T14:26:56.247302+00:00"
+  },
+  "https://about.netflix.com/en/news/nando-between-two-worlds-a-sintonia-film-netflix-unveils-official-poster-for-feature-length-spin-off-ahead-of-its-august-12-release": {
+    "url": "https://about.netflix.com/en/news/nando-between-two-worlds-a-sintonia-film-netflix-unveils-official-poster-for-feature-length-spin-off-ahead-of-its-august-12-release",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/nando-between-two-worlds-a-sintonia-film-netflix-unveils-official-poster-for-feature-length-spin-off-ahead-of-its-august-12-release"
+    ],
+    "first_seen_at": "2026-07-08T14:26:56.247367+00:00"
+  },
+  "https://about.netflix.com/en/news/netflix-anuncia-once-una-nueva-pelicula-chilena-dirigida-por-pablo-larrain": {
+    "url": "https://about.netflix.com/en/news/netflix-anuncia-once-una-nueva-pelicula-chilena-dirigida-por-pablo-larrain",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/netflix-anuncia-once-una-nueva-pelicula-chilena-dirigida-por-pablo-larrain"
+    ],
+    "first_seen_at": "2026-07-08T14:26:56.247450+00:00"
+  },
+  "https://about.netflix.com/en/news/netflix-invites-indias-next-generation-of-creative-writers-to-shape-the-future-of-storytelling": {
+    "url": "https://about.netflix.com/en/news/netflix-invites-indias-next-generation-of-creative-writers-to-shape-the-future-of-storytelling",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/netflix-invites-indias-next-generation-of-creative-writers-to-shape-the-future-of-storytelling"
+    ],
+    "first_seen_at": "2026-07-08T14:26:56.247692+00:00"
+  },
+  "https://about.netflix.com/en/news/netflix-releases-new-trailer-for-wrath-a-brazilian-series-set-in-the-world-of-mma": {
+    "url": "https://about.netflix.com/en/news/netflix-releases-new-trailer-for-wrath-a-brazilian-series-set-in-the-world-of-mma",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/netflix-releases-new-trailer-for-wrath-a-brazilian-series-set-in-the-world-of-mma"
+    ],
+    "first_seen_at": "2026-07-08T14:26:56.247823+00:00"
+  },
+  "https://about.netflix.com/en/news/official-trailer-for-love-in-slow-motion-starring-nour-al-ghandour-and-ali-kakooli": {
+    "url": "https://about.netflix.com/en/news/official-trailer-for-love-in-slow-motion-starring-nour-al-ghandour-and-ali-kakooli",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/official-trailer-for-love-in-slow-motion-starring-nour-al-ghandour-and-ali-kakooli"
+    ],
+    "first_seen_at": "2026-07-08T14:26:56.247909+00:00"
+  },
+  "https://about.netflix.com/en/news/survival-of-the-thickest-three-seasons-empowering-women-and-people-of-color": {
+    "url": "https://about.netflix.com/en/news/survival-of-the-thickest-three-seasons-empowering-women-and-people-of-color",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/survival-of-the-thickest-three-seasons-empowering-women-and-people-of-color"
+    ],
+    "first_seen_at": "2026-07-08T14:26:56.248011+00:00"
+  },
+  "https://about.netflix.com/en/news/the-final-problem-arrives-on-netflix-on-september-25": {
+    "url": "https://about.netflix.com/en/news/the-final-problem-arrives-on-netflix-on-september-25",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/the-final-problem-arrives-on-netflix-on-september-25"
+    ],
+    "first_seen_at": "2026-07-08T14:26:56.248134+00:00"
+  },
+  "https://about.netflix.com/en/news/this-monsoon-let-the-journey-that-leads-to-love-begin-with-musafir-cafe-premiering-july-24-on-netflix": {
+    "url": "https://about.netflix.com/en/news/this-monsoon-let-the-journey-that-leads-to-love-begin-with-musafir-cafe-premiering-july-24-on-netflix",
+    "root_url": "https://about.netflix.com",
+    "parent_url": "https://about.netflix.com/en/newsroom",
+    "trace": [
+      "https://about.netflix.com",
+      "https://about.netflix.com/en/newsroom",
+      "https://about.netflix.com/en/news/this-monsoon-let-the-journey-that-leads-to-love-begin-with-musafir-cafe-premiering-july-24-on-netflix"
+    ],
+    "first_seen_at": "2026-07-08T14:26:56.248257+00:00"
+  },
+  "https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence": {
+    "url": "https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://blogs.microsoft.com/blog/2026/07/02/microsoft-frontier-company-ai-engineering-that-amplifies-and-protects-your-intelligence"
+    ],
+    "first_seen_at": "2026-07-08T14:29:01.553010+00:00"
+  },
+  "https://blogs.microsoft.com/on-the-issues/2026/07/07/new-cohort-of-ai-economy-institute-fellows-to-examine-frontier-ai-firms-and-the-transformation-of-work": {
+    "url": "https://blogs.microsoft.com/on-the-issues/2026/07/07/new-cohort-of-ai-economy-institute-fellows-to-examine-frontier-ai-firms-and-the-transformation-of-work",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://blogs.microsoft.com/on-the-issues/2026/07/07/new-cohort-of-ai-economy-institute-fellows-to-examine-frontier-ai-firms-and-the-transformation-of-work"
+    ],
+    "first_seen_at": "2026-07-08T14:29:01.553097+00:00"
+  },
+  "https://news.microsoft.com/signal/articles/ai-theodore-roosevelt-presidential-library": {
+    "url": "https://news.microsoft.com/signal/articles/ai-theodore-roosevelt-presidential-library",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://news.microsoft.com/signal/articles/ai-theodore-roosevelt-presidential-library"
+    ],
+    "first_seen_at": "2026-07-08T14:29:01.553333+00:00"
+  },
+  "https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters": {
+    "url": "https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/research/blog/skillopt-agent-skills-as-trainable-parameters"
+    ],
+    "first_seen_at": "2026-07-08T14:29:01.554201+00:00"
+  },
+  "https://www.microsoft.com/en-us/security/blog/2026/06/30/microsoft-advances-quantum-safe-security-as-the-risk-timeline-shifts": {
+    "url": "https://www.microsoft.com/en-us/security/blog/2026/06/30/microsoft-advances-quantum-safe-security-as-the-risk-timeline-shifts",
+    "root_url": "https://news.microsoft.com",
+    "parent_url": "https://news.microsoft.com/source",
+    "trace": [
+      "https://news.microsoft.com",
+      "https://news.microsoft.com/source",
+      "https://www.microsoft.com/en-us/security/blog/2026/06/30/microsoft-advances-quantum-safe-security-as-the-risk-timeline-shifts"
+    ],
+    "first_seen_at": "2026-07-08T14:29:01.554258+00:00"
+  },
+  "https://www.animenewsnetwork.com/advertorial/2026-07-07/looking-for-anime-merch-get-it-all-in-one-place/.239108": {
+    "url": "https://www.animenewsnetwork.com/advertorial/2026-07-07/looking-for-anime-merch-get-it-all-in-one-place/.239108",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/advertorial/2026-07-07/looking-for-anime-merch-get-it-all-in-one-place/.239108"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.689056+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239026": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239026",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239026"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.689646+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239041": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239041",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239041"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.689717+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239108": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239108",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239108"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.689765+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239153": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239153",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239153"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.689806+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239248": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239248",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239248"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.689845+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239255": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239255",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239255"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.689891+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239286": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239286",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239286"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.689940+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239287": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239287",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239287"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.689989+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239288": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239288",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239288"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690028+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239289": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239289",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239289"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690068+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239293": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239293",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239293"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690107+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239295": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239295",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239295"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690145+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239296": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239296",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239296"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690189+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239297": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239297",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239297"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690237+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239298": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239298",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239298"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690284+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239299": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239299",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239299"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690323+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239305": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239305",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239305"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690366+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239306": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239306",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239306"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690417+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239307": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239307",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239307"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690472+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239309": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239309",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239309"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690523+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239313": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239313",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239313"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690574+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239316": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239316",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239316"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690630+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239317": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239317",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239317"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690686+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239318": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239318",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239318"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690741+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239319": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239319",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239319"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690796+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239321": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239321",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239321"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690846+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239322": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239322",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239322"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690896+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239324": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239324",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239324"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.690949+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239325": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239325",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239325"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691056+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239331": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239331",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239331"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691109+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239332": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239332",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239332"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691162+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239334": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239334",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239334"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691209+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239336": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239336",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239336"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691331+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239339": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239339",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239339"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691400+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239343": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239343",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239343"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691457+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239345": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239345",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239345"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691548+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239346": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239346",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239346"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691630+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239359": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239359",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239359"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691691+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239360": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239360",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239360"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691743+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239361": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239361",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239361"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691797+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239390": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239390",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239390"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691852+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239394": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239394",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239394"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691909+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239396": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239396",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239396"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.691971+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239399": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239399",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239399"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.692024+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239406": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239406",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239406"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.692075+00:00"
+  },
+  "https://www.animenewsnetwork.com/cms/discuss/239418": {
+    "url": "https://www.animenewsnetwork.com/cms/discuss/239418",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/cms/discuss/239418"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.692124+00:00"
+  },
+  "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/.238998": {
+    "url": "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/.238998",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/.238998"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.692295+00:00"
+  },
+  "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/kadokawa-editor-in-chief-spills-the-secrets-on-what-it-takes-to-create-a-successful-manga/.239390": {
+    "url": "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/kadokawa-editor-in-chief-spills-the-secrets-on-what-it-takes-to-create-a-successful-manga/.239390",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/kadokawa-editor-in-chief-spills-the-secrets-on-what-it-takes-to-create-a-successful-manga/.239390"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.692351+00:00"
+  },
+  "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/kagurabachi-anime-premiere-delivers-an-adaptation-with-clean-cuts/.239330": {
+    "url": "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/kagurabachi-anime-premiere-delivers-an-adaptation-with-clean-cuts/.239330",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/kagurabachi-anime-premiere-delivers-an-adaptation-with-clean-cuts/.239330"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.692404+00:00"
+  },
+  "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/new-director-of-black-clover-season-2-delivers-on-tabata-wish-for-extra-cool-battles/.239392": {
+    "url": "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/new-director-of-black-clover-season-2-delivers-on-tabata-wish-for-extra-cool-battles/.239392",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/new-director-of-black-clover-season-2-delivers-on-tabata-wish-for-extra-cool-battles/.239392"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.692457+00:00"
+  },
+  "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/sasaki-and-peeps-season-two-premiere/.239325": {
+    "url": "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/sasaki-and-peeps-season-two-premiere/.239325",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/sasaki-and-peeps-season-two-premiere/.239325"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.692511+00:00"
+  },
+  "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/the-5-best-new-video-games-we-saw-at-anime-expo/.239381": {
+    "url": "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/the-5-best-new-video-games-we-saw-at-anime-expo/.239381",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/the-5-best-new-video-games-we-saw-at-anime-expo/.239381"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.692574+00:00"
+  },
+  "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/with-sparks-of-tomorrow-kyoani-time-travels-to-kyoto-to-find-a-vision-for-the-future/.239314": {
+    "url": "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/with-sparks-of-tomorrow-kyoani-time-travels-to-kyoto-to-find-a-vision-for-the-future/.239314",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/convention/2026/all-the-news-and-reviews-from-anime-expo/with-sparks-of-tomorrow-kyoani-time-travels-to-kyoto-to-find-a-vision-for-the-future/.239314"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.692629+00:00"
+  },
+  "https://www.animenewsnetwork.com/encyclopedia/anime/episodes/2026-06-29": {
+    "url": "https://www.animenewsnetwork.com/encyclopedia/anime/episodes/2026-06-29",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/encyclopedia/anime/episodes/2026-06-29"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.692898+00:00"
+  },
+  "https://www.animenewsnetwork.com/encyclopedia/anime/episodes/2026-06-30": {
+    "url": "https://www.animenewsnetwork.com/encyclopedia/anime/episodes/2026-06-30",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/encyclopedia/anime/episodes/2026-06-30"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.692955+00:00"
+  },
+  "https://www.animenewsnetwork.com/encyclopedia/anime/episodes/2026-07-01": {
+    "url": "https://www.animenewsnetwork.com/encyclopedia/anime/episodes/2026-07-01",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/encyclopedia/anime/episodes/2026-07-01"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.693007+00:00"
+  },
+  "https://www.animenewsnetwork.com/encyclopedia/anime/episodes/2026-07-02": {
+    "url": "https://www.animenewsnetwork.com/encyclopedia/anime/episodes/2026-07-02",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/encyclopedia/anime/episodes/2026-07-02"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.693055+00:00"
+  },
+  "https://www.animenewsnetwork.com/feature/2026-06-30/splatoon-raiders-is-looking-to-be-a-great-single-player-experience/.238995": {
+    "url": "https://www.animenewsnetwork.com/feature/2026-06-30/splatoon-raiders-is-looking-to-be-a-great-single-player-experience/.238995",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/feature/2026-06-30/splatoon-raiders-is-looking-to-be-a-great-single-player-experience/.238995"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.693630+00:00"
+  },
+  "https://www.animenewsnetwork.com/interest/2026-07-04/director-hayato-date-shares-message-for-indian-fans-ahead-of-anime-india-convention/.239176": {
+    "url": "https://www.animenewsnetwork.com/interest/2026-07-04/director-hayato-date-shares-message-for-indian-fans-ahead-of-anime-india-convention/.239176",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/interest/2026-07-04/director-hayato-date-shares-message-for-indian-fans-ahead-of-anime-india-convention/.239176"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.693884+00:00"
+  },
+  "https://www.animenewsnetwork.com/interest/2026-07-06/exclusive-studio-ghibli-tribute-jazz-album-will-soothe-you-to-sleep/.238481": {
+    "url": "https://www.animenewsnetwork.com/interest/2026-07-06/exclusive-studio-ghibli-tribute-jazz-album-will-soothe-you-to-sleep/.238481",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/interest/2026-07-06/exclusive-studio-ghibli-tribute-jazz-album-will-soothe-you-to-sleep/.238481"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.693946+00:00"
+  },
+  "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-i/.239395": {
+    "url": "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-i/.239395",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-i/.239395"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.693998+00:00"
+  },
+  "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-ii/.239397": {
+    "url": "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-ii/.239397",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-ii/.239397"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.694054+00:00"
+  },
+  "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-iii/.239398": {
+    "url": "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-iii/.239398",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-iii/.239398"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.694108+00:00"
+  },
+  "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-iv/.239402": {
+    "url": "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-iv/.239402",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-iv/.239402"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.694225+00:00"
+  },
+  "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-v/.239403": {
+    "url": "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-v/.239403",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/interest/2026-07-07/happy-tanabata-2026-from-around-the-anime-world-part-v/.239403"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.694294+00:00"
+  },
+  "https://www.animenewsnetwork.com/interview/2026-07-03/kaiju-girl-caramelise-anime-team-discusses-how-love-makes-monsters-of-us-all/.238428": {
+    "url": "https://www.animenewsnetwork.com/interview/2026-07-03/kaiju-girl-caramelise-anime-team-discusses-how-love-makes-monsters-of-us-all/.238428",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/interview/2026-07-03/kaiju-girl-caramelise-anime-team-discusses-how-love-makes-monsters-of-us-all/.238428"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.694395+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/a-returner-magic-should-be-special-season-2-reveals-ending-theme-song-artist/.239296": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/a-returner-magic-should-be-special-season-2-reveals-ending-theme-song-artist/.239296",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/a-returner-magic-should-be-special-season-2-reveals-ending-theme-song-artist/.239296"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.694534+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/black-clover-anime-2nd-season-reveals-wanima-theme-song-in-video/.239318": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/black-clover-anime-2nd-season-reveals-wanima-theme-song-in-video/.239318",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/black-clover-anime-2nd-season-reveals-wanima-theme-song-in-video/.239318"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.694588+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/bleach-mirrors-high-mobile-game-trailer-previews-2-original-player-characters/.239304": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/bleach-mirrors-high-mobile-game-trailer-previews-2-original-player-characters/.239304",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/bleach-mirrors-high-mobile-game-trailer-previews-2-original-player-characters/.239304"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.694639+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/bleach-thousand-year-blood-war-the-calamity-anime-unveils-final-trailer-with-english-subtitles/.239309": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/bleach-thousand-year-blood-war-the-calamity-anime-unveils-final-trailer-with-english-subtitles/.239309",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/bleach-thousand-year-blood-war-the-calamity-anime-unveils-final-trailer-with-english-subtitles/.239309"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.694692+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/chillin-in-another-world-with-level-2-super-cheat-powers-anime-gets-2nd-season/.239287": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/chillin-in-another-world-with-level-2-super-cheat-powers-anime-gets-2nd-season/.239287",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/chillin-in-another-world-with-level-2-super-cheat-powers-anime-gets-2nd-season/.239287"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.694742+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/cloverworks-omnibus-anime-film-grotesqqque-reveals-trailer-visual-opening-theme-song-november-6-/.239302": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/cloverworks-omnibus-anime-film-grotesqqque-reveals-trailer-visual-opening-theme-song-november-6-/.239302",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/cloverworks-omnibus-anime-film-grotesqqque-reveals-trailer-visual-opening-theme-song-november-6-/.239302"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.694795+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/delicious-in-dungeon-anime-2nd-season-debuts-on-netflix-in-october-2027/.239298": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/delicious-in-dungeon-anime-2nd-season-debuts-on-netflix-in-october-2027/.239298",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/delicious-in-dungeon-anime-2nd-season-debuts-on-netflix-in-october-2027/.239298"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.694846+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/devils-crest-anime-reveals-1st-promo-video-theme-song-artist-november-6-streaming-debut-on-amazon-/.239194": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/devils-crest-anime-reveals-1st-promo-video-theme-song-artist-november-6-streaming-debut-on-amazon-/.239194",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/devils-crest-anime-reveals-1st-promo-video-theme-song-artist-november-6-streaming-debut-on-amazon-/.239194"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.694899+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/grow-up-show-sunflower-circus-anime-casts-yoshiyuki-yamaguchi/.239312": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/grow-up-show-sunflower-circus-anime-casts-yoshiyuki-yamaguchi/.239312",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/grow-up-show-sunflower-circus-anime-casts-yoshiyuki-yamaguchi/.239312"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.694952+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/hatsune-miku-nendoroid-starry-party-game-announced-for-switch-2-pc/.239313": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/hatsune-miku-nendoroid-starry-party-game-announced-for-switch-2-pc/.239313",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/hatsune-miku-nendoroid-starry-party-game-announced-for-switch-2-pc/.239313"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.695006+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/kuma-licenses-ogeretsu-tanaka-bl-manga-mermaid-prince/.239295": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/kuma-licenses-ogeretsu-tanaka-bl-manga-mermaid-prince/.239295",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/kuma-licenses-ogeretsu-tanaka-bl-manga-mermaid-prince/.239295"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.695060+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/loner-life-in-another-world-anime-gets-2nd-season/.239288": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/loner-life-in-another-world-anime-gets-2nd-season/.239288",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/loner-life-in-another-world-anime-gets-2nd-season/.239288"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.695112+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/mangagamer-releases-rose-guns-days-visual-novel-season-2-on-july-30/.239285": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/mangagamer-releases-rose-guns-days-visual-novel-season-2-on-july-30/.239285",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/mangagamer-releases-rose-guns-days-visual-novel-season-2-on-july-30/.239285"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.695162+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/mao-anime-english-dub-debuts-on-august-24/.239305": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/mao-anime-english-dub-debuts-on-august-24/.239305",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/mao-anime-english-dub-debuts-on-august-24/.239305"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.695213+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/murcielago-manga-gets-anime-adaptation-in-2027/.239286": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/murcielago-manga-gets-anime-adaptation-in-2027/.239286",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/murcielago-manga-gets-anime-adaptation-in-2027/.239286"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.695265+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/new-magic-knight-rayearth-anime-new-trailer-unveils-more-cast-october-7-debut/.239297": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/new-magic-knight-rayearth-anime-new-trailer-unveils-more-cast-october-7-debut/.239297",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/new-magic-knight-rayearth-anime-new-trailer-unveils-more-cast-october-7-debut/.239297"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.695318+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/omoi-announces-4-new-titles-partnerships-with-red-string-manga-square-enix-manga/.239265": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/omoi-announces-4-new-titles-partnerships-with-red-string-manga-square-enix-manga/.239265",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/omoi-announces-4-new-titles-partnerships-with-red-string-manga-square-enix-manga/.239265"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.695370+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/persona-4-revival-game-videos-highlight-protagonist-rise/.239307": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/persona-4-revival-game-videos-highlight-protagonist-rise/.239307",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/persona-4-revival-game-videos-highlight-protagonist-rise/.239307"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.695422+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/rwby-animated-series-greenlights-10th-volume/.239306": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/rwby-animated-series-greenlights-10th-volume/.239306",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/rwby-animated-series-greenlights-10th-volume/.239306"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.695473+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/s-rank-bokensha-dearu-ore-no-musume-tachi-wa-judo-no-fathercon-deshita-novels-get-tv-anime/.239289": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/s-rank-bokensha-dearu-ore-no-musume-tachi-wa-judo-no-fathercon-deshita-novels-get-tv-anime/.239289",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/s-rank-bokensha-dearu-ore-no-musume-tachi-wa-judo-no-fathercon-deshita-novels-get-tv-anime/.239289"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.695539+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/seven-seas-licenses-my-sword-saint-master-is-too-cute-to-live-with-hate-me-but-let-me-stay-manager-/.239317": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/seven-seas-licenses-my-sword-saint-master-is-too-cute-to-live-with-hate-me-but-let-me-stay-manager-/.239317",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/seven-seas-licenses-my-sword-saint-master-is-too-cute-to-live-with-hate-me-but-let-me-stay-manager-/.239317"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.695594+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/studio-trigger-reveals-4th-project-from-director-hiroyuki-imaishi-screenwriter-kazuki-nakashima/.239299": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/studio-trigger-reveals-4th-project-from-director-hiroyuki-imaishi-screenwriter-kazuki-nakashima/.239299",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/studio-trigger-reveals-4th-project-from-director-hiroyuki-imaishi-screenwriter-kazuki-nakashima/.239299"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.695894+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/the-apothecary-diaries-director-norihiro-naganuma-announces-new-jurassic-shadows-dinosaur-ninja-/.239293": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/the-apothecary-diaries-director-norihiro-naganuma-announces-new-jurassic-shadows-dinosaur-ninja-/.239293",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/the-apothecary-diaries-director-norihiro-naganuma-announces-new-jurassic-shadows-dinosaur-ninja-/.239293"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.695979+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/the-ghost-in-the-shell-anime-5th-promo-video-reveals-king-gnu-opening-theme/.239308": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/the-ghost-in-the-shell-anime-5th-promo-video-reveals-king-gnu-opening-theme/.239308",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/the-ghost-in-the-shell-anime-5th-promo-video-reveals-king-gnu-opening-theme/.239308"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696042+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-04/yuri-performs-opening-song-for-thunder-3-anime/.239310": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-04/yuri-performs-opening-song-for-thunder-3-anime/.239310",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-04/yuri-performs-opening-song-for-thunder-3-anime/.239310"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696097+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/100-girlfriends-who-really-really-really-really-really-love-you-season-3-reveals-more-cast/.239333": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/100-girlfriends-who-really-really-really-really-really-love-you-season-3-reveals-more-cast/.239333",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/100-girlfriends-who-really-really-really-really-really-love-you-season-3-reveals-more-cast/.239333"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696192+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/alien-stage-franchise-announces-anime-project-3d-live-performance-tour/.239311": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/alien-stage-franchise-announces-anime-project-3d-live-performance-tour/.239311",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/alien-stage-franchise-announces-anime-project-3d-live-performance-tour/.239311"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696276+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/digimon-beatbreak-anime-announces-new-arc-cast-member/.239328": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/digimon-beatbreak-anime-announces-new-arc-cast-member/.239328",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/digimon-beatbreak-anime-announces-new-arc-cast-member/.239328"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696337+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/emaqi-launches-monthly-subscription-service/.239332": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/emaqi-launches-monthly-subscription-service/.239332",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/emaqi-launches-monthly-subscription-service/.239332"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696395+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/ghost-of-tsushima-legends-anime-reveals-character-visuals/.239316": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/ghost-of-tsushima-legends-anime-reveals-character-visuals/.239316",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/ghost-of-tsushima-legends-anime-reveals-character-visuals/.239316"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696450+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/gkids-announces-home-video-releases-for-look-back-angel-egg-more-films/.239336": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/gkids-announces-home-video-releases-for-look-back-angel-egg-more-films/.239336",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/gkids-announces-home-video-releases-for-look-back-angel-egg-more-films/.239336"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696508+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/hbo-max-to-stream-live-action-strange-junji-ito-tales-for-sleepless-nights-series-internationally-/.239337": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/hbo-max-to-stream-live-action-strange-junji-ito-tales-for-sleepless-nights-series-internationally-/.239337",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/hbo-max-to-stream-live-action-strange-junji-ito-tales-for-sleepless-nights-series-internationally-/.239337"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696562+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/how-do-we-relationship-manga-gets-live-action-series-in-september/.239343": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/how-do-we-relationship-manga-gets-live-action-series-in-september/.239343",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/how-do-we-relationship-manga-gets-live-action-series-in-september/.239343"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696613+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/live-action-renai-rubi-no-tadashii-furikata-series-gets-2nd-season/.239345": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/live-action-renai-rubi-no-tadashii-furikata-series-gets-2nd-season/.239345",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/live-action-renai-rubi-no-tadashii-furikata-series-gets-2nd-season/.239345"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696667+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/mononoke-franchise-reveals-new-project-featuring-new-medicine-seller/.239324": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/mononoke-franchise-reveals-new-project-featuring-new-medicine-seller/.239324",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/mononoke-franchise-reveals-new-project-featuring-new-medicine-seller/.239324"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696720+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/oceanveil-reveals-english-dubs-for-secret-mission-kamui-he-behind-you-anime/.239322": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/oceanveil-reveals-english-dubs-for-secret-mission-kamui-he-behind-you-anime/.239322",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/oceanveil-reveals-english-dubs-for-secret-mission-kamui-he-behind-you-anime/.239322"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696771+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/re-bel-robotica-anime-unveils-teaser-trailer-tv-format-main-staff-members-2027-debut/.239321": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/re-bel-robotica-anime-unveils-teaser-trailer-tv-format-main-staff-members-2027-debut/.239321",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/re-bel-robotica-anime-unveils-teaser-trailer-tv-format-main-staff-members-2027-debut/.239321"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696827+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/reborn-as-a-space-mercenary-anime-reveals-theme-song-artists-new-promo-video/.239315": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/reborn-as-a-space-mercenary-anime-reveals-theme-song-artists-new-promo-video/.239315",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/reborn-as-a-space-mercenary-anime-reveals-theme-song-artists-new-promo-video/.239315"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696878+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/retrocrush-adds-hyakusho-kizoku-500000000-years-button-anime/.239255": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/retrocrush-adds-hyakusho-kizoku-500000000-years-button-anime/.239255",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/retrocrush-adds-hyakusho-kizoku-500000000-years-button-anime/.239255"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696930+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/school-days-remastered-game-reveals-english-voice-cast/.239153": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/school-days-remastered-game-reveals-english-voice-cast/.239153",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/school-days-remastered-game-reveals-english-voice-cast/.239153"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.696982+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/suikoden-anime-reveals-more-cast-opening-theme-in-2nd-promo-video/.239319": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/suikoden-anime-reveals-more-cast-opening-theme-in-2nd-promo-video/.239319",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/suikoden-anime-reveals-more-cast-opening-theme-in-2nd-promo-video/.239319"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.697032+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-05/tokyopop-licenses-how-i-attended-an-all-guy-mixer-the-reclusive-consort-of-the-rikan-empire-mr-/.239334": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-05/tokyopop-licenses-how-i-attended-an-all-guy-mixer-the-reclusive-consort-of-the-rikan-empire-mr-/.239334",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-05/tokyopop-licenses-how-i-attended-an-all-guy-mixer-the-reclusive-consort-of-the-rikan-empire-mr-/.239334"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.697084+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-06/attack-on-titan-finale-compilation-film-releases-in-indian-theaters-on-july-24/.239320": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-06/attack-on-titan-finale-compilation-film-releases-in-indian-theaters-on-july-24/.239320",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-06/attack-on-titan-finale-compilation-film-releases-in-indian-theaters-on-july-24/.239320"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.697142+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-06/crunchyroll-co-founder-former-ceo-kun-gao-launches-anibiz-platform-for-anime-licensing/.239248": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-06/crunchyroll-co-founder-former-ceo-kun-gao-launches-anibiz-platform-for-anime-licensing/.239248",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-06/crunchyroll-co-founder-former-ceo-kun-gao-launches-anibiz-platform-for-anime-licensing/.239248"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.697195+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-06/crunchyroll-streams-1st-demon-slayer-infinity-castle-film-with-hindi-tamil-telugu-dubs-on-july-28/.239284": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-06/crunchyroll-streams-1st-demon-slayer-infinity-castle-film-with-hindi-tamil-telugu-dubs-on-july-28/.239284",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-06/crunchyroll-streams-1st-demon-slayer-infinity-castle-film-with-hindi-tamil-telugu-dubs-on-july-28/.239284"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.697249+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-06/japan-video-game-rankings-june-22-28/.239346": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-06/japan-video-game-rankings-june-22-28/.239346",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-06/japan-video-game-rankings-june-22-28/.239346"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.697301+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-06/japanese-animation-tv-ranking-june-22-28/.239347": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-06/japanese-animation-tv-ranking-june-22-28/.239347",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-06/japanese-animation-tv-ranking-june-22-28/.239347"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.697351+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-06/my-girlfriend-friend-tv-anime-reveals-teaser-video-more-staff-members/.239359": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-06/my-girlfriend-friend-tv-anime-reveals-teaser-video-more-staff-members/.239359",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-06/my-girlfriend-friend-tv-anime-reveals-teaser-video-more-staff-members/.239359"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.697401+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-06/new-sword-art-online-film-reveals-title-cast-staff-2028-debut/.239360": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-06/new-sword-art-online-film-reveals-title-cast-staff-2028-debut/.239360",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-06/new-sword-art-online-film-reveals-title-cast-staff-2028-debut/.239360"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.697453+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-06/otakon-2026-hosts-voice-actress-ayaka-fukuhara-i.g-usa-president-maki-terashima-furuta/.239335": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-06/otakon-2026-hosts-voice-actress-ayaka-fukuhara-i.g-usa-president-maki-terashima-furuta/.239335",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-06/otakon-2026-hosts-voice-actress-ayaka-fukuhara-i.g-usa-president-maki-terashima-furuta/.239335"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.697505+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-06/shinya-komi-sora-o-matotte-manga-ends-on-july-15/.239348": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-06/shinya-komi-sora-o-matotte-manga-ends-on-july-15/.239348",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-06/shinya-komi-sora-o-matotte-manga-ends-on-july-15/.239348"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.697558+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-07/everyday-host-anime-sequel-series-to-premiere-in-january-2027/.239388": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-07/everyday-host-anime-sequel-series-to-premiere-in-january-2027/.239388",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-07/everyday-host-anime-sequel-series-to-premiere-in-january-2027/.239388"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.697608+00:00"
+  },
+  "https://www.animenewsnetwork.com/news/2026-07-07/fiok-lee-seven-sleeping-beauties-manga-gets-tv-anime-in-2027/.239386": {
+    "url": "https://www.animenewsnetwork.com/news/2026-07-07/fiok-lee-seven-sleeping-beauties-manga-gets-tv-anime-in-2027/.239386",
+    "root_url": "https://www.animenewsnetwork.com",
+    "parent_url": "https://www.animenewsnetwork.com",
+    "trace": [
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com",
+      "https://www.animenewsnetwork.com/news/2026-07-07/fiok-lee-seven-sleeping-beauties-manga-gets-tv-anime-in-2027/.239386"
+    ],
+    "first_seen_at": "2026-07-08T14:32:48.697660+00:00"
   }
 }
