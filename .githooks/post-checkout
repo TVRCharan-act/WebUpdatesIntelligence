@@ -1,0 +1,33 @@
+#!/bin/sh
+# Give each git branch its own docker compose project — isolated containers and,
+# crucially, its own Postgres volume — so switching branches never collides on
+# Alembic migration state. Writes COMPOSE_PROJECT_NAME into .env, which
+# `docker compose` reads automatically from the working directory.
+#
+# Enable once per clone:  git config core.hooksPath .githooks
+#
+# Args from git: $1 = prev HEAD, $2 = new HEAD, $3 = branch-checkout flag.
+# $3 is 1 for a branch switch, 0 for a file checkout — only act on the former.
+
+[ "$3" = "1" ] || exit 0
+
+branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+[ -n "$branch" ] || exit 0
+[ "$branch" = "HEAD" ] && exit 0   # detached HEAD — leave project name as-is
+
+# Sanitize to a valid compose project name: lowercase, only [a-z0-9-].
+slug=$(printf '%s' "$branch" | tr '[:upper:]' '[:lower:]' | tr -c 'a-z0-9' '-' | sed 's/^-*//; s/-*$//')
+[ -n "$slug" ] || slug="default"
+project="sentinel-$slug"
+
+envf=".env"
+[ -f "$envf" ] || : > "$envf"
+
+# Replace any existing COMPOSE_PROJECT_NAME line, then append the current one.
+if grep -q '^COMPOSE_PROJECT_NAME=' "$envf" 2>/dev/null; then
+  grep -v '^COMPOSE_PROJECT_NAME=' "$envf" > "$envf.tmp" && mv "$envf.tmp" "$envf"
+fi
+printf 'COMPOSE_PROJECT_NAME=%s\n' "$project" >> "$envf"
+
+echo "[post-checkout] docker compose project -> $project (branch: $branch)"
+echo "[post-checkout] next 'docker compose up -d' uses an isolated stack + DB for this branch."
