@@ -15,6 +15,7 @@ from mysignal.discovery.api_discovery import (
     normalize_api_url,
 )
 from mysignal.discovery.page_links import normalize_page_url
+from mysignal.summarizers.insight_format import parse_insight_output
 from mysignal.monitoring.inventory_store import (
     load_seen_url_records,
     load_tracked_recursive_targets,
@@ -52,6 +53,8 @@ class CapturedArticle:
     title: str | None = None
     summary: str | None = None
     model: str | None = None
+    severity: str = "medium"
+    confidence: str = "medium"
 
 
 def _utc_now() -> datetime:
@@ -169,6 +172,8 @@ def _log_summary(
             title=article.title,
             summary=article.summary,
             model=article.model,
+            severity=article.severity,
+            confidence=article.confidence,
             email_status=email_status,
             email_sent_at=_utc_now() if email_status == "sent" else None,
             email_error=email_error,
@@ -368,10 +373,25 @@ def _capture_article() -> Callable[[], CapturedArticle | None]:
     def summarize_and_capture(url: str):
         nonlocal captured_article
         article = original_summarize(url)
+
+        # Split the raw model output into a clean headline + paragraph and the
+        # severity/confidence signals. Rewrite the article in place with the
+        # clean prose so downstream consumers (email, logs) get the paragraph,
+        # not the labeled scaffolding.
+        parsed = parse_insight_output(article.summary)
+        body = str(parsed["body"]) or (article.summary or "")
+        headline = parsed["headline"] or article.title
+        if article.summary:
+            article.summary = body
+            if headline:
+                article.title = headline
+
         captured_article = CapturedArticle(
-            title=article.title,
-            summary=article.summary,
+            title=headline or article.title,
+            summary=body if article.summary else article.summary,
             model="gpt-5.4" if article.summary else None,
+            severity=str(parsed["severity"]),
+            confidence=str(parsed["confidence"]),
         )
         return article
 

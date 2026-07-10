@@ -21,7 +21,48 @@
     --border: 214 21% 86%;
     --input: 214 21% 86%;
     --ring: 199 89% 32%;
-    --radius: 0.5rem;
+    --radius: 0.7rem;
+
+    /* Signature "Signal" ink — waveform / pulse motif (ActivityPulse, ambient waveform). */
+    --signal: 199 89% 42%;
+    --signal-fill: 199 89% 42%;
+    /* Reserved for Tier 2 confidence UI — deliberately outside the severity palette. Unused today. */
+    --confidence: 243 70% 60%;
+    /* Briefing surface — the one area allowed to breathe (Dashboard header). */
+    --briefing-bg: 199 60% 97%;
+
+    /* Motion tokens (§17). */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --dur-fast: 120ms;
+    --dur-base: 220ms;
+    --dur-slow: 420ms;
+    --dur-ambient: 8s;
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 96%;
+    --card: 222 40% 11%;
+    --card-foreground: 210 40% 96%;
+    --primary: 199 89% 38%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 221 28% 16%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 221 28% 16%;
+    --muted-foreground: 215 18% 68%;
+    --accent: 174 38% 18%;
+    --accent-foreground: 168 70% 82%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 221 24% 22%;
+    --input: 221 24% 22%;
+    --ring: 199 89% 38%;
+
+    --signal: 199 89% 55%;
+    --signal-fill: 199 89% 55%;
+    --confidence: 243 74% 68%;
+    --briefing-bg: 205 44% 12%;
   }
 
   * {
@@ -30,5 +71,102 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    font-feature-settings: "tnum" 1;
+  }
+}
+
+@layer components {
+  /* ActivityPulse draw-in (§17.5): stroke draws once on mount. */
+  .signal-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: signal-draw var(--dur-slow) var(--ease-out) forwards;
+  }
+
+  @keyframes signal-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* Ambient briefing waveform (§17.1): slow seamless horizontal drift. */
+  .signal-drift {
+    animation: signal-drift var(--dur-ambient) linear infinite;
+  }
+
+  @keyframes signal-drift {
+    to {
+      transform: translateX(-50px);
+    }
+  }
+
+  /* Card / tile entrance (§17.2): fade + slight rise. Stagger via inline
+     animation-delay on the element. */
+  .animate-enter {
+    animation: pa-enter var(--dur-base) var(--ease-out) both;
+  }
+
+  /* New-item highlight (§17.3): entrance + a fading Signal outline. The outline
+     animation uses no fill mode so it reverts cleanly (no layout shift, no
+     clobbered shadow). */
+  .animate-highlight {
+    animation:
+      pa-enter var(--dur-base) var(--ease-out) 0s 1 normal both,
+      pa-highlight var(--dur-slow) var(--ease-out) 80ms 1 normal none;
+  }
+
+  @keyframes pa-enter {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pa-highlight {
+    0% {
+      outline: 2px solid hsl(var(--signal));
+      outline-offset: 2px;
+    }
+    100% {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+  }
+
+  /* ThinkingState (§17.6): a bright segment travels along the pulse path. */
+  .signal-sweep {
+    stroke-dasharray: 0.16 0.84;
+    animation: signal-sweep 1.6s linear infinite;
+  }
+
+  @keyframes signal-sweep {
+    to {
+      stroke-dashoffset: -1;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signal-draw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+
+  .signal-drift {
+    animation: none;
+  }
+
+  .signal-sweep {
+    animation: none;
+    stroke-dasharray: none;
+  }
+
+  .animate-enter,
+  .animate-highlight {
+    animation: none;
   }
 }

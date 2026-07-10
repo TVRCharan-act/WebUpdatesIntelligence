@@ -1,4 +1,7 @@
-from sqlalchemy import select
+from collections import Counter, defaultdict
+from datetime import datetime, timedelta, timezone
+
+from sqlalchemy import func, select
 from sqlalchemy.orm import Session, selectinload
 
 from backend.app import models, schemas
@@ -8,26 +11,44 @@ EMAIL_NOTIFICATION_MODE_KEY = "email_notification_mode"
 VALID_EMAIL_NOTIFICATION_MODES = {"manual", "automatic"}
 
 
-def get_company(db: Session, company_id: int) -> models.Company | None:
-    return db.get(models.Company, company_id)
+def get_company(
+    db: Session,
+    company_id: int,
+    owner_name: str | None = None,
+) -> models.Company | None:
+    query = select(models.Company).where(models.Company.id == company_id)
+    if owner_name is not None:
+        query = query.where(models.Company.owner_name == owner_name)
+    return db.scalar(query)
 
 
-def list_companies(db: Session) -> list[models.Company]:
-    return list(db.scalars(select(models.Company).order_by(models.Company.name)))
+def list_companies(db: Session, owner_name: str | None = None) -> list[models.Company]:
+    query = select(models.Company).order_by(models.Company.name)
+    if owner_name is not None:
+        query = query.where(models.Company.owner_name == owner_name)
+    return list(db.scalars(query))
 
 
-def list_companies_with_recipients(db: Session) -> list[models.Company]:
-    return list(
-        db.scalars(
-            select(models.Company)
-            .options(selectinload(models.Company.notification_recipients))
-            .order_by(models.Company.name)
-        )
+def list_companies_with_recipients(
+    db: Session,
+    owner_name: str | None = None,
+) -> list[models.Company]:
+    query = (
+        select(models.Company)
+        .options(selectinload(models.Company.notification_recipients))
+        .order_by(models.Company.name)
     )
+    if owner_name is not None:
+        query = query.where(models.Company.owner_name == owner_name)
+    return list(db.scalars(query))
 
 
-def create_company(db: Session, company: schemas.CompanyCreate) -> models.Company:
-    db_company = models.Company(name=company.name)
+def create_company(
+    db: Session,
+    company: schemas.CompanyCreate,
+    owner_name: str | None = None,
+) -> models.Company:
+    db_company = models.Company(name=company.name, owner_name=owner_name)
     db.add(db_company)
     db.commit()
     db.refresh(db_company)
@@ -124,12 +145,22 @@ def set_email_notification_mode(db: Session, mode: str) -> str:
     return mode
 
 
-def get_source(db: Session, source_id: int) -> models.Source | None:
-    return db.get(models.Source, source_id)
+def get_source(
+    db: Session,
+    source_id: int,
+    owner_name: str | None = None,
+) -> models.Source | None:
+    query = select(models.Source).where(models.Source.id == source_id)
+    if owner_name is not None:
+        query = query.join(models.Source.company).where(models.Company.owner_name == owner_name)
+    return db.scalar(query)
 
 
-def list_sources(db: Session) -> list[models.Source]:
-    return list(db.scalars(select(models.Source).order_by(models.Source.id)))
+def list_sources(db: Session, owner_name: str | None = None) -> list[models.Source]:
+    query = select(models.Source).order_by(models.Source.id)
+    if owner_name is not None:
+        query = query.join(models.Source.company).where(models.Company.owner_name == owner_name)
+    return list(db.scalars(query))
 
 
 def create_source(db: Session, source: schemas.SourceCreate) -> models.Source:
@@ -251,6 +282,9 @@ def list_source_summaries(
             title=summary.title,
             summary=summary.summary,
             model=summary.model,
+            severity=summary.severity,
+            confidence=summary.confidence,
+            reviewed_at=summary.reviewed_at,
             email_status=summary.email_status,
             email_sent_at=summary.email_sent_at,
             email_error=summary.email_error,
@@ -280,6 +314,7 @@ def list_email_summaries(
     db: Session,
     limit: int = 100,
     company_id: int | None = None,
+    owner_name: str | None = None,
 ) -> list[models.Summary]:
     query = (
         select(models.Summary)
@@ -298,6 +333,8 @@ def list_email_summaries(
 
     if company_id is not None:
         query = query.where(models.Source.company_id == company_id)
+    if owner_name is not None:
+        query = query.where(models.Company.owner_name == owner_name)
 
     return list(db.scalars(query))
 
@@ -305,22 +342,214 @@ def list_email_summaries(
 def list_monitor_runs(
     db: Session,
     limit: int = 50,
+    owner_name: str | None = None,
 ) -> list[models.MonitorRun]:
-    return list(
-        db.scalars(
-            select(models.MonitorRun)
-            .order_by(models.MonitorRun.started_at.desc(), models.MonitorRun.id.desc())
-            .limit(limit)
-        )
+    query = (
+        select(models.MonitorRun)
+        .order_by(models.MonitorRun.started_at.desc(), models.MonitorRun.id.desc())
+        .limit(limit)
     )
+    if owner_name is not None:
+        query = query.join(models.MonitorRun.source).join(models.Source.company).where(
+            models.Company.owner_name == owner_name
+        )
+    return list(db.scalars(query))
 
 
 def get_monitor_run_with_discovered_urls(
     db: Session,
     run_id: int,
+    owner_name: str | None = None,
 ) -> models.MonitorRun | None:
-    return db.scalar(
+    query = (
         select(models.MonitorRun)
         .options(selectinload(models.MonitorRun.discovered_urls))
         .where(models.MonitorRun.id == run_id)
     )
+    if owner_name is not None:
+        query = query.join(models.MonitorRun.source).join(models.Source.company).where(
+            models.Company.owner_name == owner_name
+        )
+    return db.scalar(query)
+
+
+def list_all_summaries(
+    db: Session,
+    limit: int = 100,
+    owner_name: str | None = None,
+) -> list[schemas.SummaryRead]:
+    query = (
+        select(models.Summary)
+        .join(models.Summary.discovered_url)
+        .join(models.DiscoveredUrl.source)
+        .join(models.Source.company)
+        .options(selectinload(models.Summary.discovered_url))
+        .order_by(models.Summary.created_at.desc(), models.Summary.id.desc())
+        .limit(limit)
+    )
+    if owner_name is not None:
+        query = query.where(models.Company.owner_name == owner_name)
+
+    summaries = list(db.scalars(query))
+    return [
+        schemas.SummaryRead(
+            id=summary.id,
+            discovered_url_id=summary.discovered_url_id,
+            discovered_url=summary.discovered_url.url,
+            title=summary.title,
+            summary=summary.summary,
+            model=summary.model,
+            severity=summary.severity,
+            confidence=summary.confidence,
+            reviewed_at=summary.reviewed_at,
+            email_status=summary.email_status,
+            email_sent_at=summary.email_sent_at,
+            email_error=summary.email_error,
+            created_at=summary.created_at,
+        )
+        for summary in summaries
+    ]
+
+
+def get_summary(
+    db: Session,
+    summary_id: int,
+    owner_name: str | None = None,
+) -> models.Summary | None:
+    query = (
+        select(models.Summary)
+        .join(models.Summary.discovered_url)
+        .join(models.DiscoveredUrl.source)
+        .join(models.Source.company)
+        .where(models.Summary.id == summary_id)
+    )
+    if owner_name is not None:
+        query = query.where(models.Company.owner_name == owner_name)
+    return db.scalar(query)
+
+
+def update_summary_reviewed(
+    db: Session,
+    summary: models.Summary,
+    reviewed: bool,
+) -> models.Summary:
+    summary.reviewed_at = datetime.now(timezone.utc) if reviewed else None
+    db.commit()
+    db.refresh(summary)
+    return summary
+
+
+def get_insight_stats(
+    db: Session,
+    owner_name: str | None = None,
+    days: int = 30,
+) -> schemas.InsightStatsRead:
+    since = datetime.now(timezone.utc) - timedelta(days=days - 1)
+    since = since.replace(hour=0, minute=0, second=0, microsecond=0)
+
+    query = (
+        select(
+            models.Summary.created_at,
+            models.DiscoveredUrl.discovered_at,
+            models.Source.id.label("source_id"),
+            models.Source.url.label("source_url"),
+            models.Company.id.label("company_id"),
+            models.Company.name.label("company_name"),
+        )
+        .join(models.Summary.discovered_url)
+        .join(models.DiscoveredUrl.source)
+        .join(models.Source.company)
+        .where(models.Summary.created_at >= since)
+    )
+    if owner_name is not None:
+        query = query.where(models.Company.owner_name == owner_name)
+
+    rows = db.execute(query).all()
+
+    date_range = [(since.date() + timedelta(days=i)).isoformat() for i in range(days)]
+
+    daily_counts: Counter[str] = Counter()
+    company_counts: Counter[int] = Counter()
+    company_names: dict[int, str] = {}
+    source_counts: Counter[int] = Counter()
+    source_urls: dict[int, str] = {}
+    source_daily: dict[int, Counter[str]] = defaultdict(Counter)
+    total_latency_seconds = 0.0
+    latency_samples = 0
+
+    for row in rows:
+        day = row.created_at.date().isoformat()
+        daily_counts[day] += 1
+        company_counts[row.company_id] += 1
+        company_names[row.company_id] = row.company_name
+        source_counts[row.source_id] += 1
+        source_urls[row.source_id] = row.source_url
+        source_daily[row.source_id][day] += 1
+
+        if row.discovered_at is not None:
+            latency = (row.created_at - row.discovered_at).total_seconds()
+            if latency >= 0:
+                total_latency_seconds += latency
+                latency_samples += 1
+
+    daily = [
+        schemas.DailyInsightCountRead(date=day, count=daily_counts.get(day, 0))
+        for day in date_range
+    ]
+    by_source_daily = {
+        source_id: [counts.get(day, 0) for day in date_range]
+        for source_id, counts in source_daily.items()
+    }
+    by_company = sorted(
+        (
+            schemas.CompanyInsightCountRead(
+                company_id=company_id,
+                company_name=company_names[company_id],
+                count=count,
+            )
+            for company_id, count in company_counts.items()
+        ),
+        key=lambda item: item.count,
+        reverse=True,
+    )
+    busiest_sources = sorted(
+        (
+            schemas.SourceInsightCountRead(
+                source_id=source_id,
+                url=source_urls[source_id],
+                count=count,
+            )
+            for source_id, count in source_counts.items()
+        ),
+        key=lambda item: item.count,
+        reverse=True,
+    )[:5]
+
+    return schemas.InsightStatsRead(
+        days=days,
+        daily=daily,
+        by_company=by_company,
+        busiest_sources=busiest_sources,
+        by_source_daily=by_source_daily,
+        avg_seconds_to_insight=(
+            total_latency_seconds / latency_samples if latency_samples else None
+        ),
+    )
+
+
+def account_usage_by_owner(db: Session) -> dict[str, tuple[int, int]]:
+    rows = db.execute(
+        select(
+            models.Company.owner_name,
+            func.count(func.distinct(models.Company.id)),
+            func.count(models.Source.id),
+        )
+        .outerjoin(models.Company.sources)
+        .where(models.Company.owner_name.isnot(None))
+        .group_by(models.Company.owner_name)
+    )
+    return {
+        str(owner): (int(company_count), int(source_count))
+        for owner, company_count, source_count in rows
+        if owner is not None
+    }

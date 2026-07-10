@@ -99,7 +99,7 @@ export default function SourceDetailsPage() {
     onSuccess: () => {
       toast.success("Source deleted.");
       queryClient.invalidateQueries({ queryKey: queryKeys.sources });
-      router.push("/sources");
+      router.push("/admin/sources");
     },
     onError: (error) => toast.error(getApiErrorMessage(error)),
   });
@@ -131,7 +131,7 @@ export default function SourceDetailsPage() {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-w-0">
           <Button asChild variant="ghost" className="mb-2 px-0">
-            <Link href="/sources">
+            <Link href="/admin/sources">
               <ArrowLeft />
               Back to sources
             </Link>

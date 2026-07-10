@@ -209,7 +209,7 @@ export default function SourcesPage() {
                     <TableCell>
                       <div className="flex flex-wrap gap-2">
                         <Button asChild size="icon" variant="outline" aria-label="View source">
-                          <Link href={`/sources/${source.id}`}>
+                          <Link href={`/admin/sources/${source.id}`}>
                             <Eye />
                           </Link>
                         </Button>

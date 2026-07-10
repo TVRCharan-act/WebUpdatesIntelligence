@@ -83,6 +83,9 @@ class SummaryRead(BaseModel):
     title: str | None = None
     summary: str
     model: str | None = None
+    severity: Literal["low", "medium", "high"] = "medium"
+    confidence: Literal["low", "medium", "high"] = "medium"
+    reviewed_at: datetime | None = None
     email_status: str = "pending"
     email_sent_at: datetime | None = None
     email_error: str | None = None
@@ -273,6 +276,7 @@ class CompanyRead(CompanyBase):
     model_config = ConfigDict(from_attributes=True)
 
     id: int
+    owner_name: str | None = None
     created_at: datetime
     updated_at: datetime
 
@@ -313,3 +317,46 @@ class SourceRead(SourceBase):
     last_checked_at: datetime | None = None
     created_at: datetime
     updated_at: datetime
+
+
+class SummaryReviewUpdate(BaseModel):
+    reviewed: bool = True
+
+
+class AccountOverviewRead(BaseModel):
+    name: str
+    role: Literal["customer"]
+    company_count: int = 0
+    monitor_count: int = 0
+    last_login_at: datetime | None = None
+
+
+class AccountCreate(BaseModel):
+    name: str
+    password: str
+
+
+class DailyInsightCountRead(BaseModel):
+    date: str
+    count: int
+
+
+class CompanyInsightCountRead(BaseModel):
+    company_id: int
+    company_name: str
+    count: int
+
+
+class SourceInsightCountRead(BaseModel):
+    source_id: int
+    url: str
+    count: int
+
+
+class InsightStatsRead(BaseModel):
+    days: int
+    daily: list[DailyInsightCountRead] = Field(default_factory=list)
+    by_company: list[CompanyInsightCountRead] = Field(default_factory=list)
+    busiest_sources: list[SourceInsightCountRead] = Field(default_factory=list)
+    by_source_daily: dict[int, list[int]] = Field(default_factory=dict)
+    avg_seconds_to_insight: float | None = None

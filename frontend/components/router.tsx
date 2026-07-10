@@ -78,9 +78,19 @@ export function useRouter() {
 export function useParams<T extends Record<string, string>>() {
   const pathname = usePathname();
   const sourceMatch = pathname.match(/^\/sources\/([^/]+)$/);
+  const adminSourceMatch = pathname.match(/^\/admin\/sources\/([^/]+)$/);
+  const monitorMatch = pathname.match(/^\/monitors\/([^/]+)$/);
 
   if (sourceMatch) {
     return { id: decodeURIComponent(sourceMatch[1]) } as unknown as T;
+  }
+
+  if (adminSourceMatch) {
+    return { id: decodeURIComponent(adminSourceMatch[1]) } as unknown as T;
+  }
+
+  if (monitorMatch) {
+    return { id: decodeURIComponent(monitorMatch[1]) } as unknown as T;
   }
 
   return {} as T;

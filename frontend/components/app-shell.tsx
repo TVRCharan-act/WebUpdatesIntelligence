@@ -1,34 +1,39 @@
 "use client";
 
 import {
-  Activity,
+  BarChart3,
   Building2,
   DatabaseZap,
   Gauge,
+  LogOut,
   Mail,
   Menu,
   PlayCircle,
   Rows3,
   Settings,
+  ShieldCheck,
   X,
 } from "lucide-react";
 import * as React from "react";
 
+import { useAuth } from "@/components/auth-provider";
 import { Link, usePathname } from "@/components/router";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { href: "/", label: "Dashboard", icon: Gauge },
-  { href: "/companies", label: "Companies", icon: Building2 },
-  { href: "/sources", label: "Sources", icon: DatabaseZap },
-  { href: "/storage", label: "Storage", icon: Rows3 },
-  { href: "/email", label: "Email", icon: Mail },
-  { href: "/runs", label: "Runs", icon: PlayCircle },
-  { href: "/settings", label: "Settings", icon: Settings },
+  { href: "/admin/dashboard", label: "Dashboard", icon: Gauge },
+  { href: "/admin/accounts", label: "Accounts", icon: BarChart3 },
+  { href: "/admin/companies", label: "Companies", icon: Building2 },
+  { href: "/admin/sources", label: "Sources", icon: DatabaseZap },
+  { href: "/admin/storage", label: "Storage", icon: Rows3 },
+  { href: "/admin/email", label: "Email", icon: Mail },
+  { href: "/admin/runs", label: "Runs", icon: PlayCircle },
+  { href: "/admin/settings", label: "Settings", icon: Settings },
 ];
 
 export function AppShell({ children }: { children: React.ReactNode }) {
+  const auth = useAuth();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -38,17 +43,17 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       .sort((a, b) => b.href.length - a.href.length)
       .find((item) =>
         item.href === "/" ? pathname === "/" : pathname.startsWith(item.href),
-      )?.label || "Website Monitor";
+      )?.label || "Sentinel Actalyst Ops";
 
   const sidebar = (
     <aside className="flex h-full flex-col border-r bg-card">
       <div className="flex h-16 items-center gap-2 border-b px-5">
         <div className="flex size-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
-          <Activity className="size-5" />
+          <ShieldCheck className="size-5" />
         </div>
         <div>
-          <div className="font-semibold">Website Monitor</div>
-          <div className="text-xs text-muted-foreground">Operations dashboard</div>
+          <div className="font-semibold">Sentinel Actalyst Ops</div>
+          <div className="text-xs text-muted-foreground">Command post</div>
         </div>
       </div>
       <nav className="grid gap-1 p-3">
@@ -75,6 +80,19 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           );
         })}
       </nav>
+      <div className="mt-auto border-t p-3">
+        <Button
+          variant="ghost"
+          className="w-full justify-start text-muted-foreground"
+          onClick={async () => {
+            await auth.logout();
+            window.location.assign("/admin/login");
+          }}
+        >
+          <LogOut className="size-4" />
+          Sign out
+        </Button>
+      </div>
     </aside>
   );
 
@@ -110,7 +128,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <div>
               <h1 className="text-lg font-semibold">{title}</h1>
               <p className="hidden text-sm text-muted-foreground sm:block">
-                Control monitor sources, baselines, and runs.
+                Control accounts, monitor sources, baselines, and runs.
               </p>
             </div>
           </div>

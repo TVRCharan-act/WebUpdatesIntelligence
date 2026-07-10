@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "sonner";
 
 import { RouteLogger } from "@/components/route-logger";
+import { AuthProvider } from "@/components/auth-provider";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = React.useState(
@@ -22,7 +23,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
       <RouteLogger />
-      {children}
+      <AuthProvider>{children}</AuthProvider>
       <Toaster richColors position="top-right" />
     </QueryClientProvider>
   );

@@ -5,6 +5,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from backend.app import crud, schemas
+from backend.app.auth import CurrentUser
 from backend.app.database import get_db
 from backend.app.workers.monitor_worker import baseline_source_task, monitor_source_task
 from mysignal.discovery.api_discovery import (
@@ -31,20 +32,24 @@ router = APIRouter(
 DbSession = Annotated[Session, Depends(get_db)]
 
 
+def _owner_filter(user: CurrentUser) -> str | None:
+    return None if user.role == "admin" else user.name
+
+
 @router.get(
     "",
     response_model=list[schemas.SourceRead],
 )
-def list_sources(db: DbSession) -> list[schemas.SourceRead]:
-    return crud.list_sources(db)
+def list_sources(db: DbSession, user: CurrentUser) -> list[schemas.SourceRead]:
+    return crud.list_sources(db, owner_name=_owner_filter(user))
 
 
 @router.get(
     "/{source_id}",
     response_model=schemas.SourceRead,
 )
-def get_source(source_id: int, db: DbSession) -> schemas.SourceRead:
-    source = crud.get_source(db, source_id)
+def get_source(source_id: int, db: DbSession, user: CurrentUser) -> schemas.SourceRead:
+    source = crud.get_source(db, source_id, owner_name=_owner_filter(user))
     if source is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -60,9 +65,10 @@ def get_source(source_id: int, db: DbSession) -> schemas.SourceRead:
 def list_source_monitor_runs(
     source_id: int,
     db: DbSession,
+    user: CurrentUser,
     limit: Annotated[int, Query(ge=1, le=500)] = 20,
 ) -> list[schemas.MonitorRunRead]:
-    if crud.get_source(db, source_id) is None:
+    if crud.get_source(db, source_id, owner_name=_owner_filter(user)) is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Source not found.",
@@ -77,9 +83,10 @@ def list_source_monitor_runs(
 def list_source_discovered_urls(
     source_id: int,
     db: DbSession,
+    user: CurrentUser,
     limit: Annotated[int, Query(ge=1, le=500)] = 50,
 ) -> list[schemas.DiscoveredUrlRead]:
-    if crud.get_source(db, source_id) is None:
+    if crud.get_source(db, source_id, owner_name=_owner_filter(user)) is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Source not found.",
@@ -94,9 +101,10 @@ def list_source_discovered_urls(
 def list_source_summaries(
     source_id: int,
     db: DbSession,
+    user: CurrentUser,
     limit: Annotated[int, Query(ge=1, le=500)] = 20,
 ) -> list[schemas.SummaryRead]:
-    if crud.get_source(db, source_id) is None:
+    if crud.get_source(db, source_id, owner_name=_owner_filter(user)) is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Source not found.",
@@ -111,8 +119,9 @@ def list_source_summaries(
 def preview_source_discovery(
     source_id: int,
     db: DbSession,
+    user: CurrentUser,
 ) -> schemas.SourceDiscoveryPreviewRead:
-    source = crud.get_source(db, source_id)
+    source = crud.get_source(db, source_id, owner_name=_owner_filter(user))
     if source is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -232,8 +241,9 @@ def preview_source_discovery(
 def create_source(
     source: schemas.SourceCreate,
     db: DbSession,
+    user: CurrentUser,
 ) -> schemas.SourceRead:
-    if crud.get_company(db, source.company_id) is None:
+    if crud.get_company(db, source.company_id, owner_name=_owner_filter(user)) is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Company not found.",
@@ -257,8 +267,9 @@ def update_source(
     source_id: int,
     source: schemas.SourceUpdate,
     db: DbSession,
+    user: CurrentUser,
 ) -> schemas.SourceRead:
-    db_source = crud.get_source(db, source_id)
+    db_source = crud.get_source(db, source_id, owner_name=_owner_filter(user))
     if db_source is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -279,8 +290,8 @@ def update_source(
     "/{source_id}",
     status_code=status.HTTP_204_NO_CONTENT,
 )
-def delete_source(source_id: int, db: DbSession) -> None:
-    db_source = crud.get_source(db, source_id)
+def delete_source(source_id: int, db: DbSession, user: CurrentUser) -> None:
+    db_source = crud.get_source(db, source_id, owner_name=_owner_filter(user))
     if db_source is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -294,8 +305,12 @@ def delete_source(source_id: int, db: DbSession) -> None:
     "/{source_id}/baseline",
     response_model=schemas.QueuedTaskResponse,
 )
-def run_source_baseline(source_id: int, db: DbSession) -> schemas.QueuedTaskResponse:
-    if crud.get_source(db, source_id) is None:
+def run_source_baseline(
+    source_id: int,
+    db: DbSession,
+    user: CurrentUser,
+) -> schemas.QueuedTaskResponse:
+    if crud.get_source(db, source_id, owner_name=_owner_filter(user)) is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Source not found.",
@@ -312,8 +327,12 @@ def run_source_baseline(source_id: int, db: DbSession) -> schemas.QueuedTaskResp
     "/{source_id}/run",
     response_model=schemas.QueuedTaskResponse,
 )
-def run_source_monitor(source_id: int, db: DbSession) -> schemas.QueuedTaskResponse:
-    if crud.get_source(db, source_id) is None:
+def run_source_monitor(
+    source_id: int,
+    db: DbSession,
+    user: CurrentUser,
+) -> schemas.QueuedTaskResponse:
+    if crud.get_source(db, source_id, owner_name=_owner_filter(user)) is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Source not found.",

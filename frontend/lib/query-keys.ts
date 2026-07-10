@@ -10,6 +10,10 @@ export const queryKeys = {
   sourceDiscoveryPreview: (id: number) =>
     ["sources", id, "discovery-preview"] as const,
   sourceSummaries: (id: number) => ["sources", id, "summaries"] as const,
+  insights: ["insights"] as const,
+  insightStats: (days: number) => ["insights", "stats", days] as const,
+  accounts: ["admin", "accounts"] as const,
+  session: ["auth", "session"] as const,
   smtpStatus: ["email", "smtp-status"] as const,
   emailSettings: ["email", "settings"] as const,
   companyRecipients: ["email", "recipients"] as const,

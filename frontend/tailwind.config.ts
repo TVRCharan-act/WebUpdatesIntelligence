@@ -41,6 +41,7 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        signal: "hsl(var(--signal))",
       },
       borderRadius: {
         lg: "var(--radius)",

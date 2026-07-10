@@ -5,6 +5,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from backend.app import crud, schemas
+from backend.app.auth import CurrentUser
 from backend.app.database import get_db
 
 
@@ -16,20 +17,24 @@ router = APIRouter(
 DbSession = Annotated[Session, Depends(get_db)]
 
 
+def _owner_filter(user: CurrentUser) -> str | None:
+    return None if user.role == "admin" else user.name
+
+
 @router.get(
     "",
     response_model=list[schemas.CompanyRead],
 )
-def list_companies(db: DbSession) -> list[schemas.CompanyRead]:
-    return crud.list_companies(db)
+def list_companies(db: DbSession, user: CurrentUser) -> list[schemas.CompanyRead]:
+    return crud.list_companies(db, owner_name=_owner_filter(user))
 
 
 @router.get(
     "/{company_id}",
     response_model=schemas.CompanyRead,
 )
-def get_company(company_id: int, db: DbSession) -> schemas.CompanyRead:
-    company = crud.get_company(db, company_id)
+def get_company(company_id: int, db: DbSession, user: CurrentUser) -> schemas.CompanyRead:
+    company = crud.get_company(db, company_id, owner_name=_owner_filter(user))
     if company is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -46,9 +51,14 @@ def get_company(company_id: int, db: DbSession) -> schemas.CompanyRead:
 def create_company(
     company: schemas.CompanyCreate,
     db: DbSession,
+    user: CurrentUser,
 ) -> schemas.CompanyRead:
     try:
-        return crud.create_company(db, company)
+        return crud.create_company(
+            db,
+            company,
+            owner_name=None if user.role == "admin" else user.name,
+        )
     except IntegrityError as exc:
         db.rollback()
         raise HTTPException(
@@ -65,8 +75,9 @@ def update_company(
     company_id: int,
     company: schemas.CompanyUpdate,
     db: DbSession,
+    user: CurrentUser,
 ) -> schemas.CompanyRead:
-    db_company = crud.get_company(db, company_id)
+    db_company = crud.get_company(db, company_id, owner_name=_owner_filter(user))
     if db_company is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -87,8 +98,8 @@ def update_company(
     "/{company_id}",
     status_code=status.HTTP_204_NO_CONTENT,
 )
-def delete_company(company_id: int, db: DbSession) -> None:
-    db_company = crud.get_company(db, company_id)
+def delete_company(company_id: int, db: DbSession, user: CurrentUser) -> None:
+    db_company = crud.get_company(db, company_id, owner_name=_owner_filter(user))
     if db_company is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,

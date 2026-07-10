@@ -26,6 +26,7 @@ class Company(TimestampMixin, Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
+    owner_name: Mapped[str | None] = mapped_column(String(255), index=True)
 
     sources: Mapped[list["Source"]] = relationship(
         back_populates="company",
@@ -138,6 +139,9 @@ class Summary(Base):
     title: Mapped[str | None] = mapped_column(String(500))
     summary: Mapped[str] = mapped_column(Text, nullable=False)
     model: Mapped[str | None] = mapped_column(String(100))
+    severity: Mapped[str] = mapped_column(String(50), default="medium", nullable=False)
+    confidence: Mapped[str] = mapped_column(String(50), default="medium", nullable=False)
+    reviewed_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     email_status: Mapped[str] = mapped_column(String(50), default="pending", nullable=False)
     email_sent_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
     email_error: Mapped[str | None] = mapped_column(Text)

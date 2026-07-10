@@ -7,6 +7,7 @@ export const API_BASE_URL =
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
+  withCredentials: true,
   headers: {
     "Content-Type": "application/json",
   },
@@ -143,6 +144,7 @@ export function taskHasFailedResult(task: TaskStatus) {
 export interface Company {
   id: number;
   name: string;
+  owner_name: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -215,7 +217,49 @@ export interface Summary {
   title: string | null;
   summary: string;
   model: string | null;
+  severity: "low" | "medium" | "high";
+  confidence: "low" | "medium" | "high";
+  reviewed_at: string | null;
   created_at: string;
+}
+
+export interface AuthSession {
+  name: string;
+  role: "admin" | "customer";
+}
+
+export interface AccountOverview {
+  name: string;
+  role: "customer";
+  company_count: number;
+  monitor_count: number;
+  last_login_at: string | null;
+}
+
+export interface DailyInsightCount {
+  date: string;
+  count: number;
+}
+
+export interface CompanyInsightCount {
+  company_id: number;
+  company_name: string;
+  count: number;
+}
+
+export interface SourceInsightCount {
+  source_id: number;
+  url: string;
+  count: number;
+}
+
+export interface InsightStats {
+  days: number;
+  daily: DailyInsightCount[];
+  by_company: CompanyInsightCount[];
+  busiest_sources: SourceInsightCount[];
+  by_source_daily: Record<number, number[]>;
+  avg_seconds_to_insight: number | null;
 }
 
 export interface NotificationRecipient {
@@ -360,6 +404,30 @@ export async function getDiscoveryHealth() {
   const response = await api.get<DiscoveryHealth>("/health/discovery");
   return response.data;
 }
+
+export async function login(input: { name: string; password: string }) {
+  const response = await api.post<AuthSession>("/auth/login", input);
+  return response.data;
+}
+
+export async function getCurrentSession() {
+  const response = await api.get<AuthSession>("/auth/me");
+  return response.data;
+}
+
+export async function logout() {
+  await api.post("/auth/logout");
+}
+
+export async function listAccounts() {
+  const response = await api.get<AccountOverview[]>("/admin/accounts");
+  return response.data;
+}
+
+export async function createAccount(input: { name: string; password: string }) {
+  const response = await api.post<AccountOverview>("/admin/accounts", input);
+  return response.data;
+}
 export async function getMonitorStatus() {
   const response = await api.get<MonitorStatus>("/monitor/status");
   return response.data;
@@ -437,6 +505,27 @@ export async function listSourceDiscoveredUrls(id: number) {
 
 export async function listSourceSummaries(id: number) {
   const response = await api.get<Summary[]>(`/sources/${id}/summaries`);
+  return response.data;
+}
+
+export async function listInsights(limit = 100) {
+  const response = await api.get<Summary[]>("/insights", {
+    params: { limit },
+  });
+  return response.data;
+}
+
+export async function updateInsightReview(id: number, reviewed: boolean) {
+  const response = await api.patch<Summary>(`/insights/${id}/review`, {
+    reviewed,
+  });
+  return response.data;
+}
+
+export async function getInsightStats(days = 30) {
+  const response = await api.get<InsightStats>("/insights/stats", {
+    params: { days },
+  });
   return response.data;
 }
 

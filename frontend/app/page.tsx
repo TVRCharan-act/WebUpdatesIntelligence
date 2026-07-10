@@ -217,7 +217,7 @@ export default function DashboardPage() {
               {(runsQuery.data || []).slice(0, 10).map((run) => (
                 <TableRow key={run.id}>
                   <TableCell>
-                    <Link className="font-medium text-primary" href="/runs">
+                    <Link className="font-medium text-primary" href="/admin/runs">
                       #{run.id}
                     </Link>
                   </TableCell>

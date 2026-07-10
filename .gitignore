@@ -1,6 +1,9 @@
 # Environment variables
 .env
 
+# Runtime-provisioned accounts (plaintext credentials — never commit)
+mysignal/data/accounts.json
+
 # Virtual environments
 venv/
 .venv/

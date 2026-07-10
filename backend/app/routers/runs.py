@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 
 from backend.app import crud, schemas
+from backend.app.auth import CurrentUser
 from backend.app.database import get_db
 
 
@@ -15,15 +16,20 @@ router = APIRouter(
 DbSession = Annotated[Session, Depends(get_db)]
 
 
+def _owner_filter(user: CurrentUser) -> str | None:
+    return None if user.role == "admin" else user.name
+
+
 @router.get(
     "",
     response_model=list[schemas.MonitorRunRead],
 )
 def list_monitor_runs(
     db: DbSession,
+    user: CurrentUser,
     limit: Annotated[int, Query(ge=1, le=500)] = 50,
 ) -> list[schemas.MonitorRunRead]:
-    return crud.list_monitor_runs(db, limit)
+    return crud.list_monitor_runs(db, limit, owner_name=_owner_filter(user))
 
 
 @router.get(
@@ -33,8 +39,13 @@ def list_monitor_runs(
 def get_monitor_run(
     run_id: int,
     db: DbSession,
+    user: CurrentUser,
 ) -> schemas.MonitorRunWithDiscoveredUrls:
-    monitor_run = crud.get_monitor_run_with_discovered_urls(db, run_id)
+    monitor_run = crud.get_monitor_run_with_discovered_urls(
+        db,
+        run_id,
+        owner_name=_owner_filter(user),
+    )
     if monitor_run is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,

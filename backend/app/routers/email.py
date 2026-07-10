@@ -7,6 +7,7 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
 from backend.app import crud, schemas
+from backend.app.auth import CurrentUser
 from backend.app.database import get_db
 from backend.app.observability import log_health_event
 from mysignal.models.article import Article
@@ -19,6 +20,10 @@ router = APIRouter(
 )
 
 DbSession = Annotated[Session, Depends(get_db)]
+
+
+def _owner_filter(user: CurrentUser) -> str | None:
+    return None if user.role == "admin" else user.name
 
 
 def _env_bool(name: str, default: bool) -> bool:
@@ -76,7 +81,7 @@ def _smtp_status() -> schemas.SmtpStatusRead:
     "/smtp-status",
     response_model=schemas.SmtpStatusRead,
 )
-def get_smtp_status() -> schemas.SmtpStatusRead:
+def get_smtp_status(user: CurrentUser) -> schemas.SmtpStatusRead:
     return _smtp_status()
 
 
@@ -84,7 +89,7 @@ def get_smtp_status() -> schemas.SmtpStatusRead:
     "/settings",
     response_model=schemas.EmailNotificationSettingsRead,
 )
-def get_email_settings(db: DbSession) -> schemas.EmailNotificationSettingsRead:
+def get_email_settings(db: DbSession, user: CurrentUser) -> schemas.EmailNotificationSettingsRead:
     return schemas.EmailNotificationSettingsRead(
         mode=crud.get_email_notification_mode(db),
     )
@@ -97,6 +102,7 @@ def get_email_settings(db: DbSession) -> schemas.EmailNotificationSettingsRead:
 def update_email_settings(
     settings: schemas.EmailNotificationSettingsUpdate,
     db: DbSession,
+    user: CurrentUser,
 ) -> schemas.EmailNotificationSettingsRead:
     mode = crud.set_email_notification_mode(db, settings.mode)
     return schemas.EmailNotificationSettingsRead(mode=mode)
@@ -108,8 +114,9 @@ def update_email_settings(
 )
 def list_company_recipients(
     db: DbSession,
+    user: CurrentUser,
 ) -> list[schemas.CompanyNotificationRecipientsRead]:
-    companies = crud.list_companies_with_recipients(db)
+    companies = crud.list_companies_with_recipients(db, owner_name=_owner_filter(user))
     return [
         schemas.CompanyNotificationRecipientsRead(
             id=company.id,
@@ -132,8 +139,9 @@ def create_company_recipient(
     company_id: int,
     recipient: schemas.NotificationRecipientCreate,
     db: DbSession,
+    user: CurrentUser,
 ) -> schemas.NotificationRecipientRead:
-    if crud.get_company(db, company_id) is None:
+    if crud.get_company(db, company_id, owner_name=_owner_filter(user)) is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Company not found.",
@@ -157,9 +165,14 @@ def update_recipient(
     recipient_id: int,
     recipient: schemas.NotificationRecipientUpdate,
     db: DbSession,
+    user: CurrentUser,
 ) -> schemas.NotificationRecipientRead:
     db_recipient = crud.get_notification_recipient(db, recipient_id)
-    if db_recipient is None:
+    if db_recipient is None or crud.get_company(
+        db,
+        db_recipient.company_id,
+        owner_name=_owner_filter(user),
+    ) is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Recipient not found.",
@@ -179,9 +192,13 @@ def update_recipient(
     "/recipients/{recipient_id}",
     status_code=status.HTTP_204_NO_CONTENT,
 )
-def delete_recipient(recipient_id: int, db: DbSession) -> None:
+def delete_recipient(recipient_id: int, db: DbSession, user: CurrentUser) -> None:
     db_recipient = crud.get_notification_recipient(db, recipient_id)
-    if db_recipient is None:
+    if db_recipient is None or crud.get_company(
+        db,
+        db_recipient.company_id,
+        owner_name=_owner_filter(user),
+    ) is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Recipient not found.",
@@ -196,12 +213,18 @@ def delete_recipient(recipient_id: int, db: DbSession) -> None:
 )
 def list_email_summaries(
     db: DbSession,
+    user: CurrentUser,
     limit: Annotated[int, Query(ge=1, le=500)] = 100,
     company_id: int | None = None,
 ) -> list[schemas.EmailSummaryRead]:
     smtp_configured = _smtp_status().configured
     notification_mode = crud.get_email_notification_mode(db)
-    summaries = crud.list_email_summaries(db, limit=limit, company_id=company_id)
+    summaries = crud.list_email_summaries(
+        db,
+        limit=limit,
+        company_id=company_id,
+        owner_name=_owner_filter(user),
+    )
 
     rows: list[schemas.EmailSummaryRead] = []
     for summary in summaries:
@@ -252,9 +275,13 @@ def list_email_summaries(
 def send_summary_email(
     summary_id: int,
     db: DbSession,
+    user: CurrentUser,
 ) -> schemas.EmailSendResult:
     summary = crud.get_summary_with_email_context(db, summary_id)
-    if summary is None:
+    if summary is None or (
+        user.role != "admin"
+        and summary.discovered_url.source.company.owner_name != user.name
+    ):
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Summary not found.",

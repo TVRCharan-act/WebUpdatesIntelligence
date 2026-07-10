@@ -5,6 +5,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session, selectinload
 
 from backend.app import models, schemas
+from backend.app.auth import CurrentUser
 from backend.app.database import get_db
 from mysignal.discovery.api_discovery import normalize_api_url
 from mysignal.discovery.page_links import normalize_page_url
@@ -18,6 +19,10 @@ router = APIRouter(
 )
 
 DbSession = Annotated[Session, Depends(get_db)]
+
+
+def _owner_filter(user: CurrentUser) -> str | None:
+    return None if user.role == "admin" else user.name
 
 
 def _source_storage_key(source: models.Source) -> tuple[str, str]:
@@ -107,7 +112,7 @@ def _merge_records(
     "/urls",
     response_model=schemas.StoredUrlsResponse,
 )
-def list_stored_urls(db: DbSession) -> schemas.StoredUrlsResponse:
+def list_stored_urls(db: DbSession, user: CurrentUser) -> schemas.StoredUrlsResponse:
     try:
         seen_records = load_seen_url_records()
         status = "ok"
@@ -117,17 +122,18 @@ def list_stored_urls(db: DbSession) -> schemas.StoredUrlsResponse:
         status = "warning"
         message = f"Could not read JSON stored URLs: {exc}"
 
-    companies = list(
-        db.scalars(
-            select(models.Company)
-            .options(
-                selectinload(models.Company.sources).selectinload(
-                    models.Source.discovered_urls
-                )
+    query = (
+        select(models.Company)
+        .options(
+            selectinload(models.Company.sources).selectinload(
+                models.Source.discovered_urls
             )
-            .order_by(models.Company.name)
         )
+        .order_by(models.Company.name)
     )
+    if _owner_filter(user) is not None:
+        query = query.where(models.Company.owner_name == user.name)
+    companies = list(db.scalars(query))
 
     response_companies = []
     for company in companies:
