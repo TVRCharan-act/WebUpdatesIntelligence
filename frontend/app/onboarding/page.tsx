@@ -11,28 +11,34 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { baselineSource, createCompany, createSource, getApiErrorMessage } from "@/lib/api";
+import {
+  baselineSource,
+  createCompany,
+  createSource,
+  getApiErrorMessage,
+  type WatchType,
+} from "@/lib/api";
 import { hostOf } from "@/lib/attribution";
 import { clampMinutes } from "@/lib/cadence";
 import { queryKeys } from "@/lib/query-keys";
 
-const templates = [
-  { label: "Track a competitor", icon: Trophy },
-  { label: "Watch an industry source", icon: Newspaper },
-  { label: "Monitor your own site", icon: Globe2 },
+const templates: { label: string; type: WatchType; icon: typeof Trophy }[] = [
+  { label: "Track a competitor", type: "competitor", icon: Trophy },
+  { label: "Watch an industry source", type: "industry", icon: Newspaper },
+  { label: "Monitor your own site", type: "own", icon: Globe2 },
 ];
 
 export default function OnboardingPage() {
   const router = useRouter();
   const queryClient = useQueryClient();
-  const [selected, setSelected] = React.useState(templates[0].label);
+  const [selected, setSelected] = React.useState<WatchType>(templates[0].type);
   const [company, setCompany] = React.useState("");
   const [url, setUrl] = React.useState("");
   const [scheduleMinutes, setScheduleMinutes] = React.useState("60");
 
   const createMutation = useMutation({
     mutationFn: async () => {
-      const createdCompany = await createCompany({ name: company.trim() });
+      const createdCompany = await createCompany({ name: company.trim(), watch_type: selected });
       const source = await createSource({
         company_id: createdCompany.id,
         url: url.trim(),
@@ -76,13 +82,13 @@ export default function OnboardingPage() {
           const Icon = template.icon;
           return (
             <button
-              key={template.label}
+              key={template.type}
               type="button"
               disabled={createMutation.isPending}
               className={`rounded-xl border p-5 text-left transition hover:-translate-y-px hover:shadow-sm ${
-                selected === template.label ? "border-primary bg-accent" : "bg-card"
+                selected === template.type ? "border-primary bg-accent" : "bg-card"
               }`}
-              onClick={() => setSelected(template.label)}
+              onClick={() => setSelected(template.type)}
             >
               <Icon className="mb-4 size-5 text-primary" />
               <div className="font-semibold">{template.label}</div>

@@ -15,6 +15,7 @@ from mysignal.discovery.api_discovery import (
     normalize_api_url,
 )
 from mysignal.discovery.page_links import normalize_page_url
+from mysignal.summarizers import openai_summarizer
 from mysignal.summarizers.insight_format import parse_insight_output
 from mysignal.monitoring.inventory_store import (
     load_seen_url_records,
@@ -366,7 +367,7 @@ def _recipients_for_source(source: models.Source) -> list[str]:
 
 
 @contextmanager
-def _capture_article() -> Callable[[], CapturedArticle | None]:
+def _capture_article(watch_type: str | None = None) -> Callable[[], CapturedArticle | None]:
     original_summarize = new_url_processor.summarize_new_url
     captured_article: CapturedArticle | None = None
 
@@ -396,11 +397,13 @@ def _capture_article() -> Callable[[], CapturedArticle | None]:
         return article
 
     with SUMMARY_CAPTURE_LOCK:
+        openai_summarizer.set_watch_lens(watch_type)
         new_url_processor.summarize_new_url = summarize_and_capture
         try:
             yield lambda: captured_article
         finally:
             new_url_processor.summarize_new_url = original_summarize
+            openai_summarizer.set_watch_lens(None)
 
 
 def run_baseline(source_id: int) -> schemas.MonitorResult:
@@ -519,7 +522,7 @@ def run_monitor(source_id: int) -> schemas.MonitorResult:
                     payload=new_records[url],
                 )
 
-                with _capture_article() as captured_article:
+                with _capture_article(source.company.watch_type) as captured_article:
                     email_result: dict = {}
                     processed = new_url_processor.process_new_url_record(
                         url=url,

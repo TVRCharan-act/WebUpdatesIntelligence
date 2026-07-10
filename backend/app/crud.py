@@ -48,7 +48,11 @@ def create_company(
     company: schemas.CompanyCreate,
     owner_name: str | None = None,
 ) -> models.Company:
-    db_company = models.Company(name=company.name, owner_name=owner_name)
+    db_company = models.Company(
+        name=company.name,
+        owner_name=owner_name,
+        watch_type=company.watch_type,
+    )
     db.add(db_company)
     db.commit()
     db.refresh(db_company)

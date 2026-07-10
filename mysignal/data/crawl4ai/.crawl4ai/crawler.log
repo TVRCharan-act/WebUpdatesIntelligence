@@ -244,3 +244,11 @@
 [2026-07-10 09:18:18.266] [FETCH]... ↓ https://www.bbc.com                                                                                  | ✓ | ⏱: 3.99s 
 [2026-07-10 09:18:18.742] [SCRAPE].. ◆ https://www.bbc.com                                                                                  | ✓ | ⏱: 0.46s 
 [2026-07-10 09:18:18.830] [COMPLETE] ● https://www.bbc.com                                                                                  | ✓ | ⏱: 4.56s 
+[2026-07-10 09:29:14.111] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-10 09:29:18.965] [FETCH]... ↓ https://www.bbc.com                                                                                  | ✓ | ⏱: 4.78s 
+[2026-07-10 09:29:19.509] [SCRAPE].. ◆ https://www.bbc.com                                                                                  | ✓ | ⏱: 0.52s 
+[2026-07-10 09:29:19.667] [COMPLETE] ● https://www.bbc.com                                                                                  | ✓ | ⏱: 5.48s 
+[2026-07-10 09:49:14.466] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-10 09:49:21.554] [FETCH]... ↓ https://www.bbc.com                                                                                  | ✓ | ⏱: 7.02s 
+[2026-07-10 09:49:22.084] [SCRAPE].. ◆ https://www.bbc.com                                                                                  | ✓ | ⏱: 0.51s 
+[2026-07-10 09:49:22.150] [COMPLETE] ● https://www.bbc.com                                                                                  | ✓ | ⏱: 7.61s 

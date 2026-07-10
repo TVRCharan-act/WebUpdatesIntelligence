@@ -9,6 +9,7 @@ import { ActivityPulse } from "@/components/intel/activity-pulse";
 import { CompanyFavicon } from "@/components/intel/company-favicon";
 import { ConfirmDialog } from "@/components/intel/confirm-dialog";
 import { InsightCard } from "@/components/intel/insight-card";
+import { WatchTypeBadge } from "@/components/intel/watch-type-badge";
 import { Link, useParams, useRouter } from "@/components/router";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -136,6 +137,7 @@ export default function MonitorDetailPage() {
                     {source.enabled ? "Active" : "Paused"}
                   </Badge>
                 ) : null}
+                {company ? <WatchTypeBadge type={company.watch_type} /> : null}
               </div>
               {source ? (
                 <a

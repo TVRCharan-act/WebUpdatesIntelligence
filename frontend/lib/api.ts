@@ -141,16 +141,20 @@ export function taskHasFailedResult(task: TaskStatus) {
   return false;
 }
 
+export type WatchType = "competitor" | "industry" | "own" | "general";
+
 export interface Company {
   id: number;
   name: string;
   owner_name: string | null;
+  watch_type: WatchType;
   created_at: string;
   updated_at: string;
 }
 
 export interface CompanyInput {
   name: string;
+  watch_type?: WatchType;
 }
 
 export interface Source {

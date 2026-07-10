@@ -27,6 +27,9 @@ class Company(TimestampMixin, Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
     owner_name: Mapped[str | None] = mapped_column(String(255), index=True)
+    # What this sentinel is posted to watch: competitor | industry | own | general.
+    # Drives the AI analyst's lens (see openai_summarizer) and UI grouping.
+    watch_type: Mapped[str] = mapped_column(String(50), default="general", nullable=False)
 
     sources: Mapped[list["Source"]] = relationship(
         back_populates="company",

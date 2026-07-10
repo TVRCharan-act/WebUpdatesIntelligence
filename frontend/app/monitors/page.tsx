@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { ActivityPulse } from "@/components/intel/activity-pulse";
 import { CompanyFavicon } from "@/components/intel/company-favicon";
 import { ConfirmDialog } from "@/components/intel/confirm-dialog";
+import { WatchTypeBadge, WATCH_TYPE_OPTIONS } from "@/components/intel/watch-type-badge";
 import { EmptyState } from "@/components/empty-state";
 import { Link } from "@/components/router";
 import { Badge } from "@/components/ui/badge";
@@ -15,6 +16,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   baselineSource,
   createCompany,
@@ -27,6 +35,7 @@ import {
   listSources,
   type Source,
   type Summary,
+  type WatchType,
 } from "@/lib/api";
 import { domainOf } from "@/lib/attribution";
 import { clampMinutes, formatCadence } from "@/lib/cadence";
@@ -42,6 +51,7 @@ export default function MonitorsPage() {
   const [companyName, setCompanyName] = React.useState("");
   const [url, setUrl] = React.useState("");
   const [scheduleMinutes, setScheduleMinutes] = React.useState("60");
+  const [watchType, setWatchType] = React.useState<WatchType>("competitor");
 
   const companiesQuery = useQuery({ queryKey: queryKeys.companies, queryFn: listCompanies });
   const sourcesQuery = useQuery({ queryKey: queryKeys.sources, queryFn: listSources });
@@ -50,6 +60,9 @@ export default function MonitorsPage() {
 
   const companyById = new Map(
     (companiesQuery.data || []).map((company) => [company.id, company.name]),
+  );
+  const watchTypeById = new Map(
+    (companiesQuery.data || []).map((company) => [company.id, company.watch_type]),
   );
 
   // Newest insight per domain → surfaces each monitor's last important event.
@@ -67,7 +80,7 @@ export default function MonitorsPage() {
 
   const addMutation = useMutation({
     mutationFn: async () => {
-      const company = await createCompany({ name: companyName.trim() });
+      const company = await createCompany({ name: companyName.trim(), watch_type: watchType });
       const source = await createSource({
         company_id: company.id,
         url: url.trim(),
@@ -81,10 +94,11 @@ export default function MonitorsPage() {
       return source;
     },
     onSuccess: () => {
-      toast.success("Monitor added. First look queued.");
+      toast.success("Sentinel posted. First look queued.");
       setCompanyName("");
       setUrl("");
       setScheduleMinutes("60");
+      setWatchType("competitor");
       queryClient.invalidateQueries({ queryKey: queryKeys.companies });
       queryClient.invalidateQueries({ queryKey: queryKeys.sources });
     },
@@ -130,7 +144,7 @@ export default function MonitorsPage() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <form className="grid gap-4 lg:grid-cols-[1fr_1.4fr_180px_auto] lg:items-end" onSubmit={handleAdd}>
+          <form className="grid gap-4 lg:grid-cols-[1.2fr_1.6fr_160px_130px_auto] lg:items-end" onSubmit={handleAdd}>
             <div className="grid gap-2">
               <Label htmlFor="company-name">Tracked company</Label>
               <Input
@@ -151,6 +165,21 @@ export default function MonitorsPage() {
                 placeholder="https://example.com/news"
                 required
               />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="monitor-watch-type">Watch type</Label>
+              <Select value={watchType} onValueChange={(value) => setWatchType(value as WatchType)}>
+                <SelectTrigger id="monitor-watch-type">
+                  <SelectValue placeholder="Watch type" />
+                </SelectTrigger>
+                <SelectContent>
+                  {WATCH_TYPE_OPTIONS.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
             <div className="grid gap-2">
               <Label htmlFor="monitor-cadence">Check every (min)</Label>
@@ -185,6 +214,7 @@ export default function MonitorsPage() {
               key={source.id}
               source={source}
               companyName={companyById.get(source.company_id) || "Tracked company"}
+              watchType={watchTypeById.get(source.company_id) || "general"}
               activity={statsQuery.data?.by_source_daily[source.id]}
               lastUpdate={latestByDomain.get(domainOf(source.url) || "")}
               index={i}
@@ -199,12 +229,14 @@ export default function MonitorsPage() {
 function MonitorCard({
   source,
   companyName,
+  watchType,
   activity,
   lastUpdate,
   index = 0,
 }: {
   source: Source;
   companyName: string;
+  watchType: WatchType;
   activity: number[] | undefined;
   lastUpdate: Summary | undefined;
   index?: number;
@@ -281,7 +313,8 @@ function MonitorCard({
           <div className="text-sm text-muted-foreground">No updates yet.</div>
         )}
 
-        <div className="flex items-center justify-between text-xs text-muted-foreground">
+        <div className="flex items-center justify-between gap-2 text-xs text-muted-foreground">
+          <WatchTypeBadge type={watchType} />
           <span>Checks {formatCadence(source.schedule_minutes).toLowerCase()}</span>
         </div>
 

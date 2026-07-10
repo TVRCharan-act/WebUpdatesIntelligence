@@ -256,8 +256,11 @@ class CompanyBase(BaseModel):
         return value
 
 
+WatchType = Literal["competitor", "industry", "own", "general"]
+
+
 class CompanyCreate(CompanyBase):
-    pass
+    watch_type: WatchType = "general"
 
 
 class CompanyUpdate(BaseModel):
@@ -277,6 +280,7 @@ class CompanyRead(CompanyBase):
 
     id: int
     owner_name: str | None = None
+    watch_type: WatchType = "general"
     created_at: datetime
     updated_at: datetime
 

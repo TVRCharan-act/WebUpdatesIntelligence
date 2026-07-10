@@ -1,9 +1,45 @@
+import contextvars
 import os
 
 from openai import OpenAI
 from dotenv import load_dotenv
 
 load_dotenv()
+
+# The analytical lens for the current summarization, set per source run based on
+# what the sentinel is posted to watch (company.watch_type). This shapes what the
+# analyst treats as significant. Set via set_watch_lens() by monitor_service.
+_watch_lens: contextvars.ContextVar[str | None] = contextvars.ContextVar(
+    "watch_lens", default=None
+)
+
+
+def set_watch_lens(value: str | None) -> None:
+    _watch_lens.set(value)
+
+
+LENS_BY_TYPE = {
+    "competitor": (
+        "CONTEXT: This page belongs to a COMPETITOR the reader tracks. Read it "
+        "through a competitive lens — give the most weight to pricing changes, "
+        "product launches, positioning or messaging shifts, partnerships, and "
+        "hiring or expansion signals, and make clear whether a change is a threat "
+        "or an opportunity. Raise severity for material competitive moves."
+    ),
+    "industry": (
+        "CONTEXT: This page is an INDUSTRY or MARKET source the reader follows for "
+        "awareness. Emphasize trends, regulatory or policy changes, and "
+        "market-moving developments relevant to someone tracking this space, "
+        "rather than routine site activity."
+    ),
+    "own": (
+        "CONTEXT: This page belongs to the reader's OWN organization. Read it "
+        "through an integrity lens — an unexpected, removed, or altered piece of "
+        "content is itself the story. Call out anything that looks unintended, "
+        "off-brand, or like a regression, and raise severity when a change appears "
+        "accidental or damaging."
+    ),
+}
 
 OPENAI_API_KEY = os.getenv(
     "OPENAI_API_KEY"
@@ -74,12 +110,15 @@ ARTICLE:
 {content}
 """
 
+    lens = LENS_BY_TYPE.get(_watch_lens.get() or "")
+    system_content = f"{SYSTEM_PROMPT}\n\n{lens}" if lens else SYSTEM_PROMPT
+
     response = client.chat.completions.create(
         model=OPENAI_MODEL,
         messages=[
             {
                 "role": "system",
-                "content": SYSTEM_PROMPT,
+                "content": system_content,
             },
             {
                 "role": "user",
