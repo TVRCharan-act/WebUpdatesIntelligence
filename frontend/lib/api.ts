@@ -141,16 +141,20 @@ export function taskHasFailedResult(task: TaskStatus) {
   return false;
 }
 
+export type Priority = "high" | "medium" | "low";
+
 export interface Company {
   id: number;
   name: string;
   owner_name: string | null;
+  priority: Priority;
   created_at: string;
   updated_at: string;
 }
 
 export interface CompanyInput {
   name: string;
+  priority?: Priority;
 }
 
 export interface Source {

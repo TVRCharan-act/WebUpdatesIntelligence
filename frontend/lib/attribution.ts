@@ -29,32 +29,36 @@ export function domainOf(url: string): string | null {
 export interface Attribution {
   companyName: string | null;
   domain: string | null;
+  company: Company | null;
 }
 
 /**
  * Build a resolver mapping a discovered URL to its company, using the domains of
- * the monitored sources. Returns `{ companyName, domain }`.
+ * the monitored sources. Returns `{ companyName, domain, company }` — the full
+ * company (for priority / added-date sorting) when a source domain matches.
  */
 export function makeAttributor(
   sources: Source[],
   companies: Company[],
 ): (discoveredUrl: string) => Attribution {
-  const companyById = new Map(companies.map((c) => [c.id, c.name]));
-  const companyByDomain = new Map<string, string>();
+  const companyById = new Map(companies.map((c) => [c.id, c]));
+  const companyByDomain = new Map<string, Company>();
 
   for (const source of sources) {
     const domain = domainOf(source.url);
-    const name = companyById.get(source.company_id);
-    if (domain && name && !companyByDomain.has(domain)) {
-      companyByDomain.set(domain, name);
+    const company = companyById.get(source.company_id);
+    if (domain && company && !companyByDomain.has(domain)) {
+      companyByDomain.set(domain, company);
     }
   }
 
   return (discoveredUrl: string): Attribution => {
     const domain = domainOf(discoveredUrl);
+    const company = domain ? companyByDomain.get(domain) ?? null : null;
     return {
-      companyName: domain ? companyByDomain.get(domain) ?? null : null,
+      companyName: company?.name ?? null,
       domain,
+      company,
     };
   };
 }

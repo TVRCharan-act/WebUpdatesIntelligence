@@ -6,8 +6,10 @@ import * as React from "react";
 import { toast } from "sonner";
 
 import { ActivityPulse } from "@/components/intel/activity-pulse";
+import { CadenceField } from "@/components/intel/cadence-field";
 import { CompanyFavicon } from "@/components/intel/company-favicon";
 import { ConfirmDialog } from "@/components/intel/confirm-dialog";
+import { PRIORITY_OPTIONS, PriorityBadge } from "@/components/intel/priority-badge";
 import { EmptyState } from "@/components/empty-state";
 import { Link } from "@/components/router";
 import { Badge } from "@/components/ui/badge";
@@ -15,6 +17,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   baselineSource,
   createCompany,
@@ -25,11 +34,12 @@ import {
   listCompanies,
   listInsights,
   listSources,
+  type Priority,
   type Source,
   type Summary,
 } from "@/lib/api";
 import { domainOf } from "@/lib/attribution";
-import { clampMinutes, formatCadence } from "@/lib/cadence";
+import { formatCadence, toMinutes, type CadenceUnit } from "@/lib/cadence";
 import { monitoringHealth } from "@/lib/monitor-health";
 import { parseInsight } from "@/lib/parse-insight";
 import { queryKeys } from "@/lib/query-keys";
@@ -41,7 +51,9 @@ export default function MonitorsPage() {
   const [query, setQuery] = React.useState("");
   const [companyName, setCompanyName] = React.useState("");
   const [url, setUrl] = React.useState("");
-  const [scheduleMinutes, setScheduleMinutes] = React.useState("60");
+  const [priority, setPriority] = React.useState<Priority>("medium");
+  const [cadenceValue, setCadenceValue] = React.useState("1");
+  const [cadenceUnit, setCadenceUnit] = React.useState<CadenceUnit>("hour");
 
   const companiesQuery = useQuery({ queryKey: queryKeys.companies, queryFn: listCompanies });
   const sourcesQuery = useQuery({ queryKey: queryKeys.sources, queryFn: listSources });
@@ -50,6 +62,9 @@ export default function MonitorsPage() {
 
   const companyById = new Map(
     (companiesQuery.data || []).map((company) => [company.id, company.name]),
+  );
+  const priorityById = new Map(
+    (companiesQuery.data || []).map((company) => [company.id, company.priority]),
   );
 
   // Newest insight per domain → surfaces each monitor's last important event.
@@ -67,7 +82,7 @@ export default function MonitorsPage() {
 
   const addMutation = useMutation({
     mutationFn: async () => {
-      const company = await createCompany({ name: companyName.trim() });
+      const company = await createCompany({ name: companyName.trim(), priority });
       const source = await createSource({
         company_id: company.id,
         url: url.trim(),
@@ -75,7 +90,7 @@ export default function MonitorsPage() {
         trace_js: false,
         js_bundle_sources: [],
         enabled: true,
-        schedule_minutes: clampMinutes(scheduleMinutes),
+        schedule_minutes: toMinutes(cadenceValue, cadenceUnit),
       });
       await baselineSource(source.id);
       return source;
@@ -84,7 +99,9 @@ export default function MonitorsPage() {
       toast.success("Monitor added. First look queued.");
       setCompanyName("");
       setUrl("");
-      setScheduleMinutes("60");
+      setPriority("medium");
+      setCadenceValue("1");
+      setCadenceUnit("hour");
       queryClient.invalidateQueries({ queryKey: queryKeys.companies });
       queryClient.invalidateQueries({ queryKey: queryKeys.sources });
     },
@@ -130,43 +147,58 @@ export default function MonitorsPage() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <form className="grid gap-4 lg:grid-cols-[1fr_1.4fr_180px_auto] lg:items-end" onSubmit={handleAdd}>
-            <div className="grid gap-2">
-              <Label htmlFor="company-name">Tracked company</Label>
-              <Input
-                id="company-name"
-                value={companyName}
-                onChange={(event) => setCompanyName(event.target.value)}
-                placeholder="Acme"
-                required
-              />
+          <form className="grid gap-4" onSubmit={handleAdd}>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="grid gap-2">
+                <Label htmlFor="company-name">Tracked company</Label>
+                <Input
+                  id="company-name"
+                  value={companyName}
+                  onChange={(event) => setCompanyName(event.target.value)}
+                  placeholder="Acme"
+                  required
+                />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="monitor-url">Website URL</Label>
+                <Input
+                  id="monitor-url"
+                  type="url"
+                  value={url}
+                  onChange={(event) => setUrl(event.target.value)}
+                  placeholder="https://example.com/news"
+                  required
+                />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="monitor-priority">Priority</Label>
+                <Select value={priority} onValueChange={(v) => setPriority(v as Priority)}>
+                  <SelectTrigger id="monitor-priority">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {PRIORITY_OPTIONS.map((option) => (
+                      <SelectItem key={option.value} value={option.value}>
+                        {option.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="monitor-cadence">Check every</Label>
+                <CadenceField
+                  id="monitor-cadence"
+                  value={cadenceValue}
+                  unit={cadenceUnit}
+                  onValueChange={setCadenceValue}
+                  onUnitChange={setCadenceUnit}
+                />
+              </div>
             </div>
-            <div className="grid gap-2">
-              <Label htmlFor="monitor-url">Website URL</Label>
-              <Input
-                id="monitor-url"
-                type="url"
-                value={url}
-                onChange={(event) => setUrl(event.target.value)}
-                placeholder="https://example.com/news"
-                required
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="monitor-cadence">Check every (min)</Label>
-              <Input
-                id="monitor-cadence"
-                type="number"
-                min={1}
-                step={1}
-                value={scheduleMinutes}
-                onChange={(event) => setScheduleMinutes(event.target.value)}
-                placeholder="60"
-              />
-            </div>
-            <Button disabled={addMutation.isPending}>
+            <Button className="justify-self-start" disabled={addMutation.isPending}>
               <Plus />
-              {addMutation.isPending ? "Adding" : "Add"}
+              {addMutation.isPending ? "Adding" : "Add monitor"}
             </Button>
           </form>
         </CardContent>
@@ -185,6 +217,7 @@ export default function MonitorsPage() {
               key={source.id}
               source={source}
               companyName={companyById.get(source.company_id) || "Tracked company"}
+              priority={priorityById.get(source.company_id) || "medium"}
               activity={statsQuery.data?.by_source_daily[source.id]}
               lastUpdate={latestByDomain.get(domainOf(source.url) || "")}
               index={i}
@@ -199,12 +232,14 @@ export default function MonitorsPage() {
 function MonitorCard({
   source,
   companyName,
+  priority,
   activity,
   lastUpdate,
   index = 0,
 }: {
   source: Source;
   companyName: string;
+  priority: Priority;
   activity: number[] | undefined;
   lastUpdate: Summary | undefined;
   index?: number;
@@ -281,7 +316,8 @@ function MonitorCard({
           <div className="text-sm text-muted-foreground">No updates yet.</div>
         )}
 
-        <div className="flex items-center justify-between text-xs text-muted-foreground">
+        <div className="flex items-center justify-between gap-2 text-xs text-muted-foreground">
+          <PriorityBadge priority={priority} />
           <span>Checks {formatCadence(source.schedule_minutes).toLowerCase()}</span>
         </div>
 

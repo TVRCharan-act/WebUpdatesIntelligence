@@ -244,3 +244,51 @@
 [2026-07-10 09:18:18.266] [FETCH]... ↓ https://www.bbc.com                                                                                  | ✓ | ⏱: 3.99s 
 [2026-07-10 09:18:18.742] [SCRAPE].. ◆ https://www.bbc.com                                                                                  | ✓ | ⏱: 0.46s 
 [2026-07-10 09:18:18.830] [COMPLETE] ● https://www.bbc.com                                                                                  | ✓ | ⏱: 4.56s 
+[2026-07-10 10:00:26.092] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-10 10:00:27.113] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-10 10:00:38.995] [FETCH]... ↓ https://www.bbc.com                                                                                  | ✓ | ⏱: 11.75s 
+[2026-07-10 10:00:39.195] [FETCH]... ↓ https://www.animenewsnetwork.com                                                                     | ✓ | ⏱: 12.97s 
+[2026-07-10 10:00:41.198] [SCRAPE].. ◆ https://www.bbc.com                                                                                  | ✓ | ⏱: 2.19s 
+[2026-07-10 10:00:41.683] [COMPLETE] ● https://www.bbc.com                                                                                  | ✓ | ⏱: 14.37s 
+[2026-07-10 10:00:42.385] [SCRAPE].. ◆ https://www.animenewsnetwork.com                                                                     | ✓ | ⏱: 3.17s 
+[2026-07-10 10:00:42.515] [COMPLETE] ● https://www.animenewsnetwork.com                                                                     | ✓ | ⏱: 16.30s 
+[2026-07-10 10:00:45.590] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-10 10:00:52.256] [FETCH]... ↓ https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 6.55s 
+[2026-07-10 10:00:57.934] [SCRAPE].. ◆ https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 5.67s 
+[2026-07-10 10:00:58.031] [COMPLETE] ● https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 12.32s 
+[2026-07-10 10:11:27.446] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-10 10:11:31.581] [FETCH]... ↓ https://www.bbc.com                                                                                  | ✓ | ⏱: 4.06s 
+[2026-07-10 10:11:31.986] [SCRAPE].. ◆ https://www.bbc.com                                                                                  | ✓ | ⏱: 0.39s 
+[2026-07-10 10:11:32.065] [COMPLETE] ● https://www.bbc.com                                                                                  | ✓ | ⏱: 4.54s 
+[2026-07-10 10:25:11.352] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-10 10:25:15.893] [FETCH]... ↓ https://www.bbc.com                                                                                  | ✓ | ⏱: 4.47s 
+[2026-07-10 10:25:16.499] [SCRAPE].. ◆ https://www.bbc.com                                                                                  | ✓ | ⏱: 0.59s 
+[2026-07-10 10:25:16.597] [COMPLETE] ● https://www.bbc.com                                                                                  | ✓ | ⏱: 5.17s 
+[2026-07-13 04:11:46.375] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-13 04:11:46.416] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-13 04:11:52.771] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 6.24s 
+[2026-07-13 04:11:53.250] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.46s 
+[2026-07-13 04:11:53.429] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 6.91s 
+[2026-07-13 04:11:57.141] [FETCH]... ↓ https://www.animenewsnetwork.com                                                                     | ✓ | ⏱: 10.65s 
+[2026-07-13 04:11:59.137] [SCRAPE].. ◆ https://www.animenewsnetwork.com                                                                     | ✓ | ⏱: 1.99s 
+[2026-07-13 04:11:59.319] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-13 04:11:59.434] [COMPLETE] ● https://www.animenewsnetwork.com                                                                     | ✓ | ⏱: 12.95s 
+[2026-07-13 04:12:08.181] [FETCH]... ↓ https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 8.64s 
+[2026-07-13 04:12:15.947] [SCRAPE].. ◆ https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 7.75s 
+[2026-07-13 04:12:16.131] [COMPLETE] ● https://www.tatasteel.com/newsroom/press-releases                                                    | ✓ | ⏱: 16.59s 
+[2026-07-13 04:14:56.114] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-13 04:14:59.300] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-13 04:15:02.347] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 6.10s 
+[2026-07-13 04:15:02.663] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.30s 
+[2026-07-13 04:15:02.747] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 6.51s 
+[2026-07-13 04:15:05.713] [FETCH]... ↓ https://www.bbc.com                                                                                  | ✓ | ⏱: 6.21s 
+[2026-07-13 04:15:06.436] [SCRAPE].. ◆ https://www.bbc.com                                                                                  | ✓ | ⏱: 0.71s 
+[2026-07-13 04:15:06.536] [COMPLETE] ● https://www.bbc.com                                                                                  | ✓ | ⏱: 7.04s 
+[2026-07-13 04:15:17.126] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-13 04:15:19.521] [FETCH]... ↓ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.27s 
+[2026-07-13 04:15:19.799] [SCRAPE].. ◆ https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 0.26s 
+[2026-07-13 04:15:19.841] [COMPLETE] ● https://www.apple.com/newsroom                                                                       | ✓ | ⏱: 2.59s 
+[2026-07-13 04:15:22.022] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-13 04:15:26.043] [FETCH]... ↓ https://www.bbc.com                                                                                  | ✓ | ⏱: 3.91s 
+[2026-07-13 04:15:27.424] [SCRAPE].. ◆ https://www.bbc.com                                                                                  | ✓ | ⏱: 1.31s 
+[2026-07-13 04:15:27.504] [COMPLETE] ● https://www.bbc.com                                                                                  | ✓ | ⏱: 5.37s 

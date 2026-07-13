@@ -6,14 +6,15 @@ import * as React from "react";
 import { toast } from "sonner";
 
 import { ActivityPulse } from "@/components/intel/activity-pulse";
+import { CadenceField } from "@/components/intel/cadence-field";
 import { CompanyFavicon } from "@/components/intel/company-favicon";
 import { ConfirmDialog } from "@/components/intel/confirm-dialog";
 import { InsightCard } from "@/components/intel/insight-card";
+import { PriorityBadge } from "@/components/intel/priority-badge";
 import { Link, useParams, useRouter } from "@/components/router";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import {
   deleteCompany,
   getApiErrorMessage,
@@ -25,7 +26,7 @@ import {
   updateSource,
 } from "@/lib/api";
 import { hostOf } from "@/lib/attribution";
-import { clampMinutes, formatCadence } from "@/lib/cadence";
+import { formatCadence, minutesToParts, toMinutes, type CadenceUnit } from "@/lib/cadence";
 import { monitoringHealth } from "@/lib/monitor-health";
 import { queryKeys } from "@/lib/query-keys";
 import { useSourceCheck } from "@/lib/use-source-check";
@@ -36,7 +37,8 @@ export default function MonitorDetailPage() {
   const router = useRouter();
   const sourceId = Number(params.id);
   const queryClient = useQueryClient();
-  const [cadenceInput, setCadenceInput] = React.useState("");
+  const [cadenceValue, setCadenceValue] = React.useState("1");
+  const [cadenceUnit, setCadenceUnit] = React.useState<CadenceUnit>("hour");
 
   const sourceQuery = useQuery({
     queryKey: queryKeys.source(sourceId),
@@ -93,8 +95,13 @@ export default function MonitorDetailPage() {
 
   const source = sourceQuery.data;
   React.useEffect(() => {
-    if (source) setCadenceInput(String(source.schedule_minutes));
+    if (source) {
+      const parts = minutesToParts(source.schedule_minutes);
+      setCadenceValue(String(parts.value));
+      setCadenceUnit(parts.unit);
+    }
   }, [source?.schedule_minutes]);
+  const editedMinutes = toMinutes(cadenceValue, cadenceUnit);
   const company = companiesQuery.data?.find((item) => item.id === source?.company_id);
   const companyName = company?.name || "Monitor";
   const summaries = React.useMemo(
@@ -136,6 +143,7 @@ export default function MonitorDetailPage() {
                     {source.enabled ? "Active" : "Paused"}
                   </Badge>
                 ) : null}
+                {company ? <PriorityBadge priority={company.priority} /> : null}
               </div>
               {source ? (
                 <a
@@ -256,25 +264,19 @@ export default function MonitorDetailPage() {
               <div className="grid gap-2">
                 <span className="text-muted-foreground">Check frequency</span>
                 <div className="flex items-center gap-2">
-                  <Input
-                    type="number"
-                    min={1}
-                    step={1}
-                    value={cadenceInput}
-                    onChange={(event) => setCadenceInput(event.target.value)}
-                    className="h-8 w-24"
-                    aria-label="Check every N minutes"
+                  <CadenceField
+                    value={cadenceValue}
+                    unit={cadenceUnit}
+                    onValueChange={setCadenceValue}
+                    onUnitChange={setCadenceUnit}
+                    compact
+                    className="flex-1"
                   />
-                  <span className="text-xs text-muted-foreground">min</span>
                   <Button
                     size="sm"
                     variant="outline"
-                    className="ml-auto"
-                    disabled={
-                      cadenceMutation.isPending ||
-                      clampMinutes(cadenceInput) === source?.schedule_minutes
-                    }
-                    onClick={() => cadenceMutation.mutate(clampMinutes(cadenceInput))}
+                    disabled={cadenceMutation.isPending || editedMinutes === source?.schedule_minutes}
+                    onClick={() => cadenceMutation.mutate(editedMinutes)}
                   >
                     Update
                   </Button>

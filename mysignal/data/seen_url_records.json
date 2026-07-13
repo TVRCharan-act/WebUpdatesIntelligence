@@ -43800,5 +43800,60 @@
       "https://www.bbc.com/sport/football/articles/c4gyvv9w9n9o"
     ],
     "first_seen_at": "2026-07-10T09:18:19.589627+00:00"
+  },
+  "https://www.bbc.com/audio/play/p0ny0bzw": {
+    "url": "https://www.bbc.com/audio/play/p0ny0bzw",
+    "root_url": "https://www.bbc.com",
+    "parent_url": "https://www.bbc.com",
+    "trace": [
+      "https://www.bbc.com",
+      "https://www.bbc.com",
+      "https://www.bbc.com/audio/play/p0ny0bzw"
+    ],
+    "first_seen_at": "2026-07-10T10:00:43.254784+00:00"
+  },
+  "https://www.bbc.com/audio/play/p0ny0prm": {
+    "url": "https://www.bbc.com/audio/play/p0ny0prm",
+    "root_url": "https://www.bbc.com",
+    "parent_url": "https://www.bbc.com",
+    "trace": [
+      "https://www.bbc.com",
+      "https://www.bbc.com",
+      "https://www.bbc.com/audio/play/p0ny0prm"
+    ],
+    "first_seen_at": "2026-07-10T10:00:43.254900+00:00"
+  },
+  "https://www.bbc.com/culture/article/20260709-the-1980s-doomsday-cult-that-ensnared-models": {
+    "url": "https://www.bbc.com/culture/article/20260709-the-1980s-doomsday-cult-that-ensnared-models",
+    "root_url": "https://www.bbc.com",
+    "parent_url": "https://www.bbc.com",
+    "trace": [
+      "https://www.bbc.com",
+      "https://www.bbc.com",
+      "https://www.bbc.com/culture/article/20260709-the-1980s-doomsday-cult-that-ensnared-models"
+    ],
+    "first_seen_at": "2026-07-10T10:00:43.255828+00:00"
+  },
+  "https://www.bbc.com/sport/cricket/live/c78r51kkk9xt": {
+    "url": "https://www.bbc.com/sport/cricket/live/c78r51kkk9xt",
+    "root_url": "https://www.bbc.com",
+    "parent_url": "https://www.bbc.com",
+    "trace": [
+      "https://www.bbc.com",
+      "https://www.bbc.com",
+      "https://www.bbc.com/sport/cricket/live/c78r51kkk9xt"
+    ],
+    "first_seen_at": "2026-07-10T10:00:43.258471+00:00"
+  },
+  "https://www.bbc.com/sport/tennis/live/cwyjnl7gew1t": {
+    "url": "https://www.bbc.com/sport/tennis/live/cwyjnl7gew1t",
+    "root_url": "https://www.bbc.com",
+    "parent_url": "https://www.bbc.com",
+    "trace": [
+      "https://www.bbc.com",
+      "https://www.bbc.com",
+      "https://www.bbc.com/sport/tennis/live/cwyjnl7gew1t"
+    ],
+    "first_seen_at": "2026-07-10T10:11:32.846745+00:00"
   }
 }

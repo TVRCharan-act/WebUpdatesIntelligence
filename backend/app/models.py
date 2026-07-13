@@ -27,6 +27,9 @@ class Company(TimestampMixin, Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     name: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
     owner_name: Mapped[str | None] = mapped_column(String(255), index=True)
+    # Customer-set importance for this tracked company: high | medium | low.
+    # Drives sorting in the Insights feed; never inferred by the AI.
+    priority: Mapped[str] = mapped_column(String(20), default="medium", nullable=False)
 
     sources: Mapped[list["Source"]] = relationship(
         back_populates="company",

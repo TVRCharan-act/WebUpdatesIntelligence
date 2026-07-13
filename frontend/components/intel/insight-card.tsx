@@ -4,9 +4,10 @@ import { CheckCircle2, ExternalLink } from "lucide-react";
 
 import { CompanyFavicon } from "@/components/intel/company-favicon";
 import { ConfidenceSignal } from "@/components/intel/confidence-signal";
+import { PriorityBadge } from "@/components/intel/priority-badge";
 import { SeverityBadge } from "@/components/intel/severity-badge";
 import { Button } from "@/components/ui/button";
-import type { Summary } from "@/lib/api";
+import type { Priority, Summary } from "@/lib/api";
 import { parseInsight } from "@/lib/parse-insight";
 import { cn, formatRelativeTime } from "@/lib/utils";
 
@@ -25,6 +26,8 @@ interface InsightCardProps {
   isReviewing?: boolean;
   index?: number;
   highlight?: boolean;
+  /** Owning company's priority, shown as a badge (customer-set). */
+  priority?: Priority;
 }
 
 export function InsightCard({
@@ -36,6 +39,7 @@ export function InsightCard({
   isReviewing,
   index = 0,
   highlight = false,
+  priority,
 }: InsightCardProps) {
   const parsed = parseInsight(insight.summary);
   const headline = parsed.headline || insight.title || "Website update";
@@ -102,6 +106,7 @@ export function InsightCard({
           {headline}
         </h3>
         <SeverityBadge severity={insight.severity} />
+        {priority ? <PriorityBadge priority={priority} /> : null}
       </div>
 
       {body ? (

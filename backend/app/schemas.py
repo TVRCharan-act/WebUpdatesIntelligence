@@ -244,8 +244,12 @@ class SourceDiscoveryPreviewRead(BaseModel):
     urls: list[DiscoveryPreviewUrl] = Field(default_factory=list)
 
 
+Priority = Literal["high", "medium", "low"]
+
+
 class CompanyBase(BaseModel):
     name: str = Field(min_length=1, max_length=255)
+    priority: Priority = "medium"
 
     @field_validator("name")
     @classmethod

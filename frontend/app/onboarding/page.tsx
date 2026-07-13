@@ -1,38 +1,48 @@
 "use client";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { ArrowRight, Globe2, Newspaper, Trophy } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import * as React from "react";
 import { toast } from "sonner";
 
+import { CadenceField } from "@/components/intel/cadence-field";
+import { PRIORITY_OPTIONS } from "@/components/intel/priority-badge";
 import { ThinkingState } from "@/components/intel/thinking-state";
 import { useRouter } from "@/components/router";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { baselineSource, createCompany, createSource, getApiErrorMessage } from "@/lib/api";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  baselineSource,
+  createCompany,
+  createSource,
+  getApiErrorMessage,
+  type Priority,
+} from "@/lib/api";
 import { hostOf } from "@/lib/attribution";
-import { clampMinutes } from "@/lib/cadence";
+import { toMinutes, type CadenceUnit } from "@/lib/cadence";
 import { queryKeys } from "@/lib/query-keys";
-
-const templates = [
-  { label: "Track a competitor", icon: Trophy },
-  { label: "Watch an industry source", icon: Newspaper },
-  { label: "Monitor your own site", icon: Globe2 },
-];
 
 export default function OnboardingPage() {
   const router = useRouter();
   const queryClient = useQueryClient();
-  const [selected, setSelected] = React.useState(templates[0].label);
   const [company, setCompany] = React.useState("");
   const [url, setUrl] = React.useState("");
-  const [scheduleMinutes, setScheduleMinutes] = React.useState("60");
+  const [priority, setPriority] = React.useState<Priority>("medium");
+  const [cadenceValue, setCadenceValue] = React.useState("1");
+  const [cadenceUnit, setCadenceUnit] = React.useState<CadenceUnit>("hour");
 
   const createMutation = useMutation({
     mutationFn: async () => {
-      const createdCompany = await createCompany({ name: company.trim() });
+      const createdCompany = await createCompany({ name: company.trim(), priority });
       const source = await createSource({
         company_id: createdCompany.id,
         url: url.trim(),
@@ -40,7 +50,7 @@ export default function OnboardingPage() {
         trace_js: false,
         js_bundle_sources: [],
         enabled: true,
-        schedule_minutes: clampMinutes(scheduleMinutes),
+        schedule_minutes: toMinutes(cadenceValue, cadenceUnit),
       });
       await baselineSource(source.id);
       return source;
@@ -62,33 +72,13 @@ export default function OnboardingPage() {
   ];
 
   return (
-    <div className="mx-auto grid max-w-4xl gap-6">
+    <div className="mx-auto grid max-w-2xl gap-6">
       <div>
-        <h2 className="text-3xl font-semibold">What should your sentinel watch?</h2>
+        <h2 className="text-3xl font-semibold">Post your first sentinel</h2>
         <p className="mt-2 text-muted-foreground">
-          Pick a starting point and add one URL. Your sentinel takes up watch and alerts you the
-          moment anything changes.
+          Name what you're tracking, add one URL, and set how important it is. Your sentinel takes up
+          watch and alerts you the moment anything changes.
         </p>
-      </div>
-
-      <div className="grid gap-3 md:grid-cols-3">
-        {templates.map((template) => {
-          const Icon = template.icon;
-          return (
-            <button
-              key={template.label}
-              type="button"
-              disabled={createMutation.isPending}
-              className={`rounded-xl border p-5 text-left transition hover:-translate-y-px hover:shadow-sm ${
-                selected === template.label ? "border-primary bg-accent" : "bg-card"
-              }`}
-              onClick={() => setSelected(template.label)}
-            >
-              <Icon className="mb-4 size-5 text-primary" />
-              <div className="font-semibold">{template.label}</div>
-            </button>
-          );
-        })}
       </div>
 
       <Card>
@@ -124,22 +114,36 @@ export default function OnboardingPage() {
                   required
                 />
               </div>
-              <div className="grid gap-2">
-                <Label htmlFor="cadence">Check every (minutes)</Label>
-                <Input
-                  id="cadence"
-                  type="number"
-                  min={1}
-                  step={1}
-                  value={scheduleMinutes}
-                  onChange={(event) => setScheduleMinutes(event.target.value)}
-                  placeholder="60"
-                  required
-                />
-                <p className="text-xs text-muted-foreground">
-                  How often your sentinel re-checks this site. e.g. 60 = hourly, 1440 = daily.
-                </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-2">
+                  <Label htmlFor="priority">Priority</Label>
+                  <Select value={priority} onValueChange={(v) => setPriority(v as Priority)}>
+                    <SelectTrigger id="priority">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {PRIORITY_OPTIONS.map((option) => (
+                        <SelectItem key={option.value} value={option.value}>
+                          {option.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="cadence">Check every</Label>
+                  <CadenceField
+                    id="cadence"
+                    value={cadenceValue}
+                    unit={cadenceUnit}
+                    onValueChange={setCadenceValue}
+                    onUnitChange={setCadenceUnit}
+                  />
+                </div>
               </div>
+              <p className="text-xs text-muted-foreground">
+                Priority helps you sort what matters most in your feed. You can change both later.
+              </p>
               <Button>
                 Start monitoring
                 <ArrowRight />
