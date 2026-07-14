@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, ExternalLink } from "lucide-react";
+import { CheckCircle2, ExternalLink, MailWarning } from "lucide-react";
 
 import { CompanyFavicon } from "@/components/intel/company-favicon";
 import { ConfidenceSignal } from "@/components/intel/confidence-signal";
@@ -22,7 +22,7 @@ interface InsightCardProps {
   companyName: string;
   sourceLabel?: string;
   density?: "feed" | "compact";
-  onReview?: (id: number) => void;
+  onReview?: (id: string) => void;
   isReviewing?: boolean;
   index?: number;
   highlight?: boolean;
@@ -60,6 +60,11 @@ export function InsightCard({
         <span className="min-w-0 flex-1 truncate text-sm font-medium text-muted-foreground">
           {headline}
         </span>
+        {insight.email_status === "failed" ? (
+          <span title={insight.email_error || "Alert email failed to send."} className="shrink-0">
+            <MailWarning className="size-4 text-destructive" aria-label="Alert not sent" />
+          </span>
+        ) : null}
         <CheckCircle2 className="size-4 shrink-0 text-emerald-600" aria-label="Reviewed" />
         <span className="shrink-0 text-xs text-muted-foreground">
           {formatRelativeTime(insight.created_at)}
@@ -107,6 +112,15 @@ export function InsightCard({
         </h3>
         <SeverityBadge severity={insight.severity} />
         {priority ? <PriorityBadge priority={priority} /> : null}
+        {insight.email_status === "failed" ? (
+          <span
+            title={insight.email_error || "Alert email failed to send."}
+            className="inline-flex items-center gap-1 rounded-full border border-destructive/40 bg-destructive/10 px-2 py-0.5 text-xs font-medium text-destructive"
+          >
+            <MailWarning className="size-3" />
+            Alert not sent
+          </span>
+        ) : null}
       </div>
 
       {body ? (

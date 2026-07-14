@@ -16,7 +16,7 @@ import {
 import { getTaskStatus, taskHasFailedResult, type TaskStatus } from "@/lib/api";
 import { queryKeys } from "@/lib/query-keys";
 
-const terminalStates = new Set(["SUCCESS", "FAILURE", "REVOKED"]);
+const terminalStates = new Set(["succeeded", "partially_succeeded", "failed", "cancelled"]);
 
 function taskLogMessages(result: unknown) {
   const items = Array.isArray(result) ? result : result ? [result] : [];
@@ -88,10 +88,15 @@ export function TaskProgressDialog({
     onFinished(data);
   }, [onFinished, query.data, reportedTaskId]);
 
-  const state = query.data?.state || "PENDING";
+  const state = query.data?.state || "queued";
   const isDone = terminalStates.has(state);
   const isFailure = query.data ? taskHasFailedResult(query.data) : false;
   const logMessages = taskLogMessages(query.data?.result);
+  const progress = query.data?.progress;
+  const progressPercent =
+    progress?.current !== null && progress?.current !== undefined && progress.total
+      ? Math.min(100, Math.round((progress.current / progress.total) * 100))
+      : null;
 
   return (
     <Dialog open={Boolean(task)} onOpenChange={(open) => !open && onClose()}>
@@ -120,6 +125,25 @@ export function TaskProgressDialog({
             </div>
           </div>
         </div>
+
+        {progress ? (
+          <div className="rounded-lg border bg-card p-4">
+            <div className="flex items-center justify-between gap-3 text-sm font-medium">
+              <span className="capitalize">{progress.stage}</span>
+              {progress.current !== null && progress.total !== null ? (
+                <span className="text-muted-foreground">
+                  {progress.current}/{progress.total}
+                </span>
+              ) : null}
+            </div>
+            <p className="mt-1 text-sm text-muted-foreground">{progress.message}</p>
+            {progressPercent !== null ? (
+              <div className="mt-3 h-2 overflow-hidden rounded-full bg-secondary">
+                <div className="h-full bg-primary transition-all" style={{ width: `${progressPercent}%` }} />
+              </div>
+            ) : null}
+          </div>
+        ) : null}
 
         {logMessages.length > 0 ? (
           <div className="rounded-lg border bg-card p-4">

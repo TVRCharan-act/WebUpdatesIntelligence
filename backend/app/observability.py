@@ -7,10 +7,13 @@ from pathlib import Path
 from threading import Lock
 from typing import Any
 
+import logging
+
 
 LOG_PATH = Path(os.getenv("APP_HEALTH_LOG_PATH", "logs/app-health.jsonl"))
 LOG_MAX_BYTES = int(os.getenv("APP_HEALTH_LOG_MAX_BYTES", "5242880"))
 _LOG_LOCK = Lock()
+_LOGGER = logging.getLogger("sentinel_actalyst")
 
 
 def _json_safe(value: Any) -> Any:
@@ -45,6 +48,7 @@ def log_health_event(
     action: str,
     status: str = "ok",
     duration_ms: float | None = None,
+    correlation_id: str | None = None,
     metadata: dict[str, Any] | None = None,
 ) -> None:
     record = {
@@ -54,8 +58,13 @@ def log_health_event(
         "action": action,
         "status": status,
         "duration_ms": round(duration_ms, 3) if duration_ms is not None else None,
+        "correlation_id": correlation_id,
         "metadata": _json_safe(metadata or {}),
     }
+
+    # ECS forwards stdout/stderr to CloudWatch Logs. JSON keeps the same useful
+    # fields available there without coupling the application to a log group.
+    _LOGGER.info(json.dumps(record, separators=(",", ":")))
 
     try:
         LOG_PATH.parent.mkdir(parents=True, exist_ok=True)

@@ -1,7 +1,16 @@
 "use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { ArrowRight, Radar, Sparkles, TrendingDown, TrendingUp } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpDown,
+  Clock3,
+  Radar,
+  Search,
+  Sparkles,
+  TrendingDown,
+  TrendingUp,
+} from "lucide-react";
 import * as React from "react";
 import { toast } from "sonner";
 
@@ -10,9 +19,18 @@ import { AmbientSignal } from "@/components/intel/ambient-signal";
 import { AnalystEmptyState } from "@/components/intel/analyst-empty-state";
 import { ActivityPulse } from "@/components/intel/activity-pulse";
 import { InsightCard } from "@/components/intel/insight-card";
+import { PRIORITY_RANK } from "@/components/intel/priority-badge";
 import { Link } from "@/components/router";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   getApiErrorMessage,
   getInsightStats,
@@ -20,11 +38,17 @@ import {
   listInsights,
   listSources,
   updateInsightReview,
+  type Summary,
 } from "@/lib/api";
-import { makeAttributor, hostOf } from "@/lib/attribution";
+import { type Attribution, hostOf, makeAttributor } from "@/lib/attribution";
 import { queryKeys } from "@/lib/query-keys";
 import { deriveTrend } from "@/lib/trend";
-import { formatDurationShort } from "@/lib/utils";
+import { formatDurationShort, truncate } from "@/lib/utils";
+
+// The Home page is the whole daily loop on one screen: a briefing hero that
+// says what needs you, the full update feed (search / sort / review filter),
+// and a Pulse rail that carries every Trends read-out. Monitors management
+// lives on the second page (/monitors).
 
 function greeting(): string {
   const hour = new Date().getHours();
@@ -35,17 +59,96 @@ function greeting(): string {
 
 const MINUTES_SAVED_PER_REVIEW = 4;
 
-export default function CustomerDashboardPage() {
+type SortKey =
+  | "recent"
+  | "oldest"
+  | "priority"
+  | "severity"
+  | "confidence"
+  | "company_new"
+  | "company_old"
+  | "company_az";
+
+const SORT_OPTIONS: { value: SortKey; label: string }[] = [
+  { value: "recent", label: "Newest update first" },
+  { value: "oldest", label: "Oldest update first" },
+  { value: "priority", label: "Company priority (high → low)" },
+  { value: "severity", label: "Severity (high → low)" },
+  { value: "confidence", label: "AI confidence (high → low)" },
+  { value: "company_new", label: "Company added (newest)" },
+  { value: "company_old", label: "Company added (earliest)" },
+  { value: "company_az", label: "Company name (A → Z)" },
+];
+
+const LEVEL_RANK: Record<"low" | "medium" | "high", number> = { high: 3, medium: 2, low: 1 };
+
+interface Enriched {
+  insight: Summary;
+  attr: Attribution;
+}
+
+function timeOf(iso: string | null | undefined): number {
+  return iso ? new Date(iso).getTime() : 0;
+}
+
+function dayLabel(iso: string): string {
+  const d = new Date(iso);
+  const now = new Date();
+  const startOf = (x: Date) => new Date(x.getFullYear(), x.getMonth(), x.getDate()).getTime();
+  const diffDays = Math.round((startOf(now) - startOf(d)) / 86400000);
+  if (diffDays <= 0) return "Today";
+  if (diffDays === 1) return "Yesterday";
+  return new Intl.DateTimeFormat(undefined, { month: "short", day: "numeric", year: "numeric" }).format(d);
+}
+
+function comparator(sort: SortKey): (a: Enriched, b: Enriched) => number {
+  const recent = (a: Enriched, b: Enriched) =>
+    timeOf(b.insight.created_at) - timeOf(a.insight.created_at);
+  switch (sort) {
+    case "oldest":
+      return (a, b) => timeOf(a.insight.created_at) - timeOf(b.insight.created_at);
+    case "priority":
+      return (a, b) =>
+        PRIORITY_RANK[b.attr.company?.priority ?? "medium"] -
+          PRIORITY_RANK[a.attr.company?.priority ?? "medium"] || recent(a, b);
+    case "severity":
+      return (a, b) =>
+        LEVEL_RANK[b.insight.severity] - LEVEL_RANK[a.insight.severity] || recent(a, b);
+    case "confidence":
+      return (a, b) =>
+        LEVEL_RANK[b.insight.confidence] - LEVEL_RANK[a.insight.confidence] || recent(a, b);
+    case "company_new":
+      return (a, b) =>
+        timeOf(b.attr.company?.created_at) - timeOf(a.attr.company?.created_at) || recent(a, b);
+    case "company_old":
+      return (a, b) =>
+        (timeOf(a.attr.company?.created_at) || Infinity) -
+          (timeOf(b.attr.company?.created_at) || Infinity) || recent(a, b);
+    case "company_az":
+      return (a, b) =>
+        (a.attr.companyName || a.attr.domain || "~").localeCompare(
+          b.attr.companyName || b.attr.domain || "~",
+        ) || recent(a, b);
+    default:
+      return recent;
+  }
+}
+
+export default function HomePage() {
   const auth = useAuth();
   const queryClient = useQueryClient();
+  const [search, setSearch] = React.useState("");
+  const [toReviewOnly, setToReviewOnly] = React.useState(false);
+  const [sortBy, setSortBy] = React.useState<SortKey>("recent");
+  const [companyFilter, setCompanyFilter] = React.useState<string>("all");
 
   const companiesQuery = useQuery({ queryKey: queryKeys.companies, queryFn: listCompanies });
   const sourcesQuery = useQuery({ queryKey: queryKeys.sources, queryFn: listSources });
-  const insightsQuery = useQuery({ queryKey: queryKeys.insights, queryFn: () => listInsights(100) });
+  const insightsQuery = useQuery({ queryKey: queryKeys.insights, queryFn: () => listInsights(200) });
   const statsQuery = useQuery({ queryKey: queryKeys.insightStats(30), queryFn: () => getInsightStats(30) });
 
   const reviewMutation = useMutation({
-    mutationFn: (id: number) => updateInsightReview(id, true),
+    mutationFn: (id: string) => updateInsightReview(id, true),
     onSuccess: () => {
       toast.success("Insight marked reviewed.");
       queryClient.invalidateQueries({ queryKey: queryKeys.insights });
@@ -55,11 +158,12 @@ export default function CustomerDashboardPage() {
 
   const sources = sourcesQuery.data || [];
   const companies = companiesQuery.data || [];
+  const stats = statsQuery.data;
   const insights = React.useMemo(
     () =>
       (insightsQuery.data || [])
         .slice()
-        .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()),
+        .sort((a, b) => timeOf(b.created_at) - timeOf(a.created_at)),
     [insightsQuery.data],
   );
 
@@ -70,14 +174,13 @@ export default function CustomerDashboardPage() {
   };
 
   const weekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
-  const newThisWeek = insights.filter((i) => new Date(i.created_at).getTime() >= weekAgo).length;
+  const newThisWeek = insights.filter((i) => timeOf(i.created_at) >= weekAgo).length;
   const unreviewed = insights.filter((i) => !i.reviewed_at);
   const reviewedCount = insights.filter((i) => i.reviewed_at).length;
-  const latest = unreviewed[0] || insights[0];
-  const trend = deriveTrend(statsQuery.data?.daily);
+  const trend = deriveTrend(stats?.daily);
 
   // "What's quiet" — monitors with no activity in the last 7 days of the window.
-  const bySourceDaily = statsQuery.data?.by_source_daily || {};
+  const bySourceDaily = stats?.by_source_daily || {};
   const quietCount = sources.filter((s) => {
     const series = bySourceDaily[s.id] || [];
     return series.slice(-7).reduce((sum, n) => sum + n, 0) === 0;
@@ -88,13 +191,13 @@ export default function CustomerDashboardPage() {
     if (unreviewed.length === 0) return `You're all caught up — ${reviewedCount} updates reviewed.`;
     const newest = unreviewed[0];
     const rel = new Intl.RelativeTimeFormat(undefined, { numeric: "auto" });
-    const hrs = Math.round((Date.now() - new Date(newest.created_at).getTime()) / 3600000);
+    const hrs = Math.round((Date.now() - timeOf(newest.created_at)) / 3600000);
     const when = hrs < 24 ? rel.format(-hrs, "hour") : rel.format(-Math.round(hrs / 24), "day");
     const n = unreviewed.length;
     return `${n} update${n === 1 ? "" : "s"} ${n === 1 ? "is" : "are"} waiting for you — the newest is from ${nameFor(newest.discovered_url)}, ${when}.`;
   })();
 
-  const metrics = [
+  const heroStats = [
     { label: "Websites watched", value: String(sources.filter((s) => s.enabled).length) },
     { label: "Updates this week", value: String(newThisWeek) },
     { label: "To review", value: String(unreviewed.length) },
@@ -106,30 +209,105 @@ export default function CustomerDashboardPage() {
     },
   ];
 
-  const trendDaily = (statsQuery.data?.daily || []).slice(-18).map((d) => d.count);
+  // ---- Feed: search / sort / review filter, day grouping, new-item highlight ----
+  const term = search.trim().toLowerCase();
+  const enriched: Enriched[] = React.useMemo(() => {
+    return insights
+      .filter((insight) => {
+        const text = `${insight.title || ""} ${insight.summary} ${insight.discovered_url}`.toLowerCase();
+        const matchesSearch = text.includes(term);
+        const matchesReview = !toReviewOnly || !insight.reviewed_at;
+        return matchesSearch && matchesReview;
+      })
+      .map((insight) => ({ insight, attr: attribute(insight.discovered_url) }))
+      .filter(({ attr }) => companyFilter === "all" || String(attr.company?.id ?? "") === companyFilter)
+      .sort(comparator(sortBy));
+  }, [insights, term, toReviewOnly, sortBy, attribute, companyFilter]);
+
+  // Highlight insights genuinely new since the last fetch (tracked on full set).
+  const allIds = React.useMemo(() => insights.map((i) => i.id), [insights]);
+  const prevIdsRef = React.useRef<Set<string> | null>(null);
+  const highlightIds = React.useMemo(() => {
+    const prev = prevIdsRef.current;
+    if (!prev) return new Set<string>();
+    return new Set(allIds.filter((id) => !prev.has(id)));
+  }, [allIds]);
+  React.useEffect(() => {
+    prevIdsRef.current = new Set(allIds);
+  }, [allIds]);
+
+  // Group by day only for the time-based sorts; otherwise a single flat list.
+  const grouped = sortBy === "recent" || sortBy === "oldest";
+  const sections = React.useMemo(() => {
+    if (!grouped) return [["", enriched]] as [string, Enriched[]][];
+    const map = new Map<string, Enriched[]>();
+    for (const item of enriched) {
+      const label = dayLabel(item.insight.created_at);
+      const bucket = map.get(label);
+      if (bucket) bucket.push(item);
+      else map.set(label, [item]);
+    }
+    return Array.from(map.entries());
+  }, [enriched, grouped]);
+
+  // ---- Pulse rail (all of the old Trends page) ----
+  const daily = stats?.daily || [];
+  const totalInsights30 = daily.reduce((sum, day) => sum + day.count, 0);
+  const byCompanyMax = Math.max(1, ...(stats?.by_company || []).map((row) => row.count));
+
   const noSources = sources.length === 0 && !sourcesQuery.isLoading;
+  const hasAnyInsights = insights.length > 0;
 
   return (
     <div className="grid gap-6">
-      <section className="relative overflow-hidden rounded-xl border bg-[hsl(var(--briefing-bg))] p-6 shadow-sm">
+      <section className="relative overflow-hidden rounded-2xl border bg-[hsl(var(--briefing-bg))] p-6 shadow-sm sm:p-8">
         <AmbientSignal amplitude={trend.level === "Busy" ? 1.4 : trend.level === "Quiet" ? 0.6 : 1} />
-        <div className="relative flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-2xl">
-            <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-card/70 px-3 py-1 text-xs font-medium text-primary">
-              <Sparkles className="size-3.5" />
-              On watch
+        <div className="relative grid gap-6">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-2xl">
+              <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-card/70 px-3 py-1 text-xs font-medium text-primary">
+                <Sparkles className="size-3.5" />
+                On watch
+              </div>
+              <h2 className="text-3xl font-semibold sm:text-4xl">
+                {greeting()}, {auth.session?.name || "there"}.
+              </h2>
+              <p className="mt-2 text-muted-foreground">{synthesis}</p>
             </div>
-            <h2 className="text-3xl font-semibold sm:text-4xl">
-              {greeting()}, {auth.session?.name || "there"}.
-            </h2>
-            <p className="mt-2 text-muted-foreground">{synthesis}</p>
+            <Button asChild className="shrink-0">
+              <Link href="/monitors">
+                Track a website
+                <ArrowRight />
+              </Link>
+            </Button>
           </div>
-          <Button asChild className="shrink-0">
-            <Link href="/monitors">
-              Track a website
-              <ArrowRight />
-            </Link>
-          </Button>
+
+          {!noSources ? (
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+              {heroStats.map((stat, i) => (
+                <div
+                  key={stat.label}
+                  className="animate-enter rounded-xl border bg-card/80 px-4 py-3 backdrop-blur transition hover:-translate-y-px hover:shadow-md"
+                  style={{ animationDelay: `${i * 40}ms` }}
+                >
+                  <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+                    {stat.label}
+                    {stat.estimated ? (
+                      <span
+                        title={stat.tooltip}
+                        className="cursor-help rounded bg-secondary px-1 text-[10px] uppercase tracking-wide"
+                      >
+                        est.
+                      </span>
+                    ) : null}
+                  </div>
+                  <div className="mt-1 font-mono text-2xl font-semibold tabular-nums sm:text-3xl">
+                    {stat.value}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -137,85 +315,107 @@ export default function CustomerDashboardPage() {
         <AnalystEmptyState
           title="Post your sentinel at its first website."
           body="Add one URL and your sentinel takes up watch — surfacing future changes as business-readable updates, usually within a minute."
-          action={{ label: "Start onboarding", href: "/onboarding" }}
+          action={{ label: "Track your first website", href: "/monitors" }}
         />
       ) : (
-        <>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {metrics.map((metric, i) => (
-              <Card
-                key={metric.label}
-                className="animate-enter transition hover:-translate-y-px hover:shadow-md"
-                style={{ animationDelay: `${i * 40}ms` }}
+        <div className="grid gap-6 xl:grid-cols-[1fr_360px]">
+          <section className="grid content-start gap-4">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+              <div className="relative flex-1">
+                <Search className="pointer-events-none absolute left-3 top-2.5 size-4 text-muted-foreground" />
+                <Input
+                  className="pl-9"
+                  value={search}
+                  onChange={(event) => setSearch(event.target.value)}
+                  placeholder="Search updates"
+                />
+              </div>
+              {companies.length > 1 ? (
+                <Select value={companyFilter} onValueChange={setCompanyFilter}>
+                  <SelectTrigger className="sm:w-48" aria-label="Filter by company">
+                    <SelectValue placeholder="All companies" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All companies</SelectItem>
+                    {companies.map((company) => (
+                      <SelectItem key={company.id} value={String(company.id)}>
+                        {company.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              ) : null}
+              <Select value={sortBy} onValueChange={(v) => setSortBy(v as SortKey)}>
+                <SelectTrigger className="sm:w-56" aria-label="Sort updates">
+                  <ArrowUpDown className="size-4 text-muted-foreground" />
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {SORT_OPTIONS.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Button
+                variant={toReviewOnly ? "default" : "outline"}
+                onClick={() => setToReviewOnly((value) => !value)}
               >
-                <CardHeader className="pb-2">
-                  <CardTitle className="flex items-center gap-1.5 text-sm font-medium text-muted-foreground">
-                    {metric.label}
-                    {metric.estimated ? (
-                      <span
-                        title={metric.tooltip}
-                        className="cursor-help rounded bg-secondary px-1 text-[10px] uppercase tracking-wide"
-                      >
-                        est.
-                      </span>
-                    ) : null}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="font-mono text-3xl font-semibold tabular-nums">{metric.value}</div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                To review
+                {unreviewed.length ? (
+                  <span className="ml-1 rounded-full bg-card/25 px-1.5 font-mono text-xs tabular-nums">
+                    {unreviewed.length}
+                  </span>
+                ) : null}
+              </Button>
+            </div>
 
-          <section className="grid gap-3">
-            <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-              The Latest
-            </h3>
-            {latest ? (
-              <InsightCard
-                insight={latest}
-                companyName={nameFor(latest.discovered_url)}
-                sourceLabel={hostOf(latest.discovered_url) || undefined}
-                onReview={latest.reviewed_at ? undefined : (id) => reviewMutation.mutate(id)}
-                isReviewing={reviewMutation.isPending}
-              />
-            ) : (
+            {insightsQuery.isLoading ? (
+              <div className="rounded-xl border border-dashed p-6 text-sm text-muted-foreground">
+                Loading updates…
+              </div>
+            ) : !hasAnyInsights ? (
               <AnalystEmptyState
                 title="Standing watch for your first update"
                 body="Your sentinel is reading the pages it guards. The moment one changes, the update appears here."
               />
+            ) : !enriched.length ? (
+              <div className="rounded-xl border border-dashed p-6 text-sm text-muted-foreground">
+                Nothing matches — try clearing your filters.
+              </div>
+            ) : (
+              <div className="grid gap-6">
+                {sections.map(([label, items]) => (
+                  <section key={label || "all"} className="grid gap-3">
+                    {label ? (
+                      <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                        {label}
+                      </h3>
+                    ) : null}
+                    {items.map(({ insight, attr }, i) => (
+                      <InsightCard
+                        key={insight.id}
+                        insight={insight}
+                        companyName={attr.companyName || attr.domain || "Website update"}
+                        sourceLabel={hostOf(insight.discovered_url) || undefined}
+                        priority={attr.company?.priority}
+                        onReview={(id) => reviewMutation.mutate(id)}
+                        isReviewing={reviewMutation.isPending}
+                        index={i}
+                        highlight={highlightIds.has(insight.id)}
+                      />
+                    ))}
+                  </section>
+                ))}
+              </div>
             )}
           </section>
 
-          <div className="grid gap-6 xl:grid-cols-[1fr_380px]">
-            <Card>
-              <CardHeader>
-                <CardTitle>Needs your review</CardTitle>
-              </CardHeader>
-              <CardContent className="grid gap-3">
-                {unreviewed.slice(0, 4).map((insight) => (
-                  <InsightCard
-                    key={insight.id}
-                    insight={insight}
-                    companyName={nameFor(insight.discovered_url)}
-                    sourceLabel={hostOf(insight.discovered_url) || undefined}
-                    density="compact"
-                    onReview={(id) => reviewMutation.mutate(id)}
-                    isReviewing={reviewMutation.isPending}
-                  />
-                ))}
-                {!unreviewed.length ? (
-                  <div className="rounded-xl border border-dashed p-4 text-sm text-muted-foreground">
-                    Nothing waiting — you've reviewed everything.
-                  </div>
-                ) : null}
-              </CardContent>
-            </Card>
-
+          <aside className="grid content-start gap-6">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0">
-                <CardTitle>Activity</CardTitle>
+                <CardTitle>Pulse</CardTitle>
                 <span className="flex items-center gap-1 text-xs text-muted-foreground">
                   {trend.direction === "up" ? (
                     <TrendingUp className="size-3.5 text-emerald-600" />
@@ -223,30 +423,95 @@ export default function CustomerDashboardPage() {
                     <TrendingDown className="size-3.5" />
                   ) : null}
                   {trend.level}
-                  {trend.deltaPct != null ? ` · ${trend.deltaPct > 0 ? "+" : ""}${trend.deltaPct}%` : ""}
+                  {trend.deltaPct != null
+                    ? ` · ${trend.deltaPct > 0 ? "+" : ""}${trend.deltaPct}% vs last week`
+                    : ""}
                 </span>
               </CardHeader>
-              <CardContent>
+              <CardContent className="grid gap-4">
                 <ActivityPulse
-                  data={trendDaily}
-                  height={96}
-                  ariaLabel="Insight activity over the last 18 days"
-                  emptyLabel="No activity yet"
+                  data={daily.map((day) => day.count)}
+                  height={120}
+                  ariaLabel="Update volume over the last 30 days"
+                  emptyLabel="No updates in the last 30 days."
                 />
-                <Button asChild variant="outline" className="mt-4 w-full">
-                  <Link href="/trends">Open trends</Link>
-                </Button>
+                <div className="grid grid-cols-2 gap-3 text-sm">
+                  <div className="rounded-lg bg-secondary px-3 py-2">
+                    <div className="text-xs text-muted-foreground">Updates (30 days)</div>
+                    <div className="font-mono text-lg font-semibold tabular-nums">{totalInsights30}</div>
+                  </div>
+                  <div className="rounded-lg bg-secondary px-3 py-2">
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <Clock3 className="size-3" />
+                      First insight in
+                    </div>
+                    <div className="font-mono text-lg font-semibold tabular-nums">
+                      {formatDurationShort(stats?.avg_seconds_to_insight)}
+                    </div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
-          </div>
 
-          {quietCount > 0 ? (
-            <div className="flex items-center gap-2 rounded-xl border border-dashed px-4 py-3 text-sm text-muted-foreground">
-              <Radar className="size-4 shrink-0" />
-              {quietCount} monitor{quietCount === 1 ? "" : "s"} had nothing worth flagging this week — quiet is good news too.
-            </div>
-          ) : null}
-        </>
+            <Card>
+              <CardHeader>
+                <CardTitle>Where it's happening</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-3">
+                {(stats?.by_company || []).map((row) => (
+                  <div key={row.company_id} className="grid gap-1.5">
+                    <div className="flex justify-between gap-3 text-sm">
+                      <span className="truncate font-medium">{row.company_name}</span>
+                      <span className="shrink-0 text-muted-foreground">
+                        {row.count} update{row.count === 1 ? "" : "s"}
+                      </span>
+                    </div>
+                    <div className="h-2 overflow-hidden rounded-full bg-secondary">
+                      <div
+                        className="h-full rounded-full bg-primary"
+                        style={{ width: `${Math.max(4, (row.count / byCompanyMax) * 100)}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+                {!statsQuery.isLoading && !(stats?.by_company || []).length ? (
+                  <div className="rounded-xl border border-dashed p-4 text-sm text-muted-foreground">
+                    Add monitors to see which companies are changing most.
+                  </div>
+                ) : null}
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Busiest monitors</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-3">
+                {(stats?.busiest_sources || []).map((row) => (
+                  <div key={row.source_id} className="flex items-center justify-between gap-3 text-sm">
+                    <span className="truncate text-foreground">{truncate(row.url, 48)}</span>
+                    <span className="shrink-0 text-muted-foreground">
+                      {row.count} update{row.count === 1 ? "" : "s"}
+                    </span>
+                  </div>
+                ))}
+                {!statsQuery.isLoading && !(stats?.busiest_sources || []).length ? (
+                  <div className="rounded-xl border border-dashed p-4 text-sm text-muted-foreground">
+                    No monitor activity in the last 30 days yet.
+                  </div>
+                ) : null}
+              </CardContent>
+            </Card>
+
+            {quietCount > 0 ? (
+              <div className="flex items-center gap-2 rounded-xl border border-dashed px-4 py-3 text-sm text-muted-foreground">
+                <Radar className="size-4 shrink-0" />
+                {quietCount} monitor{quietCount === 1 ? "" : "s"} had nothing worth flagging this week —
+                quiet is good news too.
+              </div>
+            ) : null}
+          </aside>
+        </div>
       )}
     </div>
   );

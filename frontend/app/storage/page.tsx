@@ -47,7 +47,7 @@ export default function StoragePage() {
       <div>
         <h2 className="text-2xl font-semibold">Stored URLs</h2>
         <p className="text-sm text-muted-foreground">
-          Review URLs saved from baselines, monitor runs, and local JSON storage.
+          Review authoritative S3 URL state from baselines and monitor runs.
         </p>
       </div>
 
@@ -132,8 +132,7 @@ export default function StoragePage() {
                       </div>
                     </div>
                     <div className="flex gap-2 text-xs text-muted-foreground">
-                      <span>JSON: {source.json_url_count}</span>
-                      <span>DB: {source.database_url_count}</span>
+                      <span>S3 records: {source.database_url_count}</span>
                     </div>
                   </div>
 
@@ -168,7 +167,7 @@ export default function StoragePage() {
                             <TableCell>
                               <Badge
                                 variant={
-                                  item.source === "json" ? "success" : "secondary"
+                                  item.source === "s3" ? "success" : "secondary"
                                 }
                               >
                                 {item.source}

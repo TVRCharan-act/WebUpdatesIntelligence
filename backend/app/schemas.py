@@ -10,8 +10,9 @@ class HealthCheck(BaseModel):
 
 class DiscoveryHealthRead(BaseModel):
     status: str
-    openai_configured: bool
-    openai_model: str
+    gemini_configured: bool
+    gemini_model: str
+    zenrows_configured: bool
     browser_tracing_available: bool
     adapter_cache_path: str
     adapter_cache_exists: bool
@@ -30,6 +31,7 @@ class MonitorResult(BaseModel):
     new_urls: list[str] = Field(default_factory=list)
     processed_urls: list[str] = Field(default_factory=list)
     failed_urls: list[str] = Field(default_factory=list)
+    deferred_urls: list[str] = Field(default_factory=list)
     duration_seconds: float
     errors: list[str] = Field(default_factory=list)
     log_messages: list[str] = Field(default_factory=list)
@@ -40,10 +42,18 @@ class QueuedTaskResponse(BaseModel):
     status: Literal["queued"]
 
 
+class TaskProgressRead(BaseModel):
+    stage: str
+    message: str
+    current: int | None = None
+    total: int | None = None
+
+
 class TaskStatusResponse(BaseModel):
     task_id: str
     state: str
     result: Any = None
+    progress: TaskProgressRead | None = None
 
 
 class MonitorStatusSummary(BaseModel):
@@ -77,7 +87,7 @@ class DiscoveredUrlRead(BaseModel):
 
 
 class SummaryRead(BaseModel):
-    id: int
+    id: str
     discovered_url_id: int
     discovered_url: str
     title: str | None = None
@@ -91,6 +101,12 @@ class SummaryRead(BaseModel):
     email_error: str | None = None
     created_at: datetime
 
+    @field_validator("id", mode="before")
+    @classmethod
+    def stringify_id(cls, value: Any) -> str:
+        """Keep hash-derived IDs exact when they cross the JavaScript boundary."""
+        return str(value)
+
 
 class EmailNotificationSettingsRead(BaseModel):
     mode: Literal["manual", "automatic"]
@@ -101,7 +117,7 @@ class EmailNotificationSettingsUpdate(BaseModel):
 
 
 class EmailSendResult(BaseModel):
-    summary_id: int
+    summary_id: str
     status: Literal["sent", "failed", "skipped"]
     message: str
 
@@ -153,20 +169,17 @@ class CompanyNotificationRecipientsRead(BaseModel):
     recipients: list[NotificationRecipientRead] = Field(default_factory=list)
 
 
-class SmtpStatusRead(BaseModel):
+class SesStatusRead(BaseModel):
     configured: bool
-    host: str | None = None
-    port: int | None = None
     sender: str | None = None
-    username: str | None = None
-    use_tls: bool = True
-    use_ssl: bool = False
-    global_recipient_count: int = 0
+    aws_region: str
+    ses_region: str
+    configuration_set: str | None = None
     missing: list[str] = Field(default_factory=list)
 
 
 class EmailSummaryRead(BaseModel):
-    id: int
+    id: str
     company_id: int
     company_name: str
     source_id: int
@@ -179,12 +192,17 @@ class EmailSummaryRead(BaseModel):
     created_at: datetime
     recipients: list[str] = Field(default_factory=list)
     recipient_count: int = 0
-    smtp_configured: bool = False
+    ses_configured: bool = False
     would_send: bool = False
     notification_mode: Literal["manual", "automatic"] = "manual"
     email_status: str = "pending"
     email_sent_at: datetime | None = None
     email_error: str | None = None
+
+    @field_validator("id", mode="before")
+    @classmethod
+    def stringify_id(cls, value: Any) -> str:
+        return str(value)
 
 
 class MonitorRunWithDiscoveredUrls(MonitorRunRead):
@@ -193,7 +211,7 @@ class MonitorRunWithDiscoveredUrls(MonitorRunRead):
 
 class StoredUrlRead(BaseModel):
     url: str
-    source: Literal["json", "database"]
+    source: Literal["s3"]
     first_seen_at: str | None = None
     discovered_at: datetime | None = None
     monitor_run_id: int | None = None
@@ -265,11 +283,14 @@ class CompanyCreate(CompanyBase):
 
 
 class CompanyUpdate(BaseModel):
-    name: str = Field(min_length=1, max_length=255)
+    name: str | None = Field(default=None, min_length=1, max_length=255)
+    priority: Priority | None = None
 
     @field_validator("name")
     @classmethod
-    def strip_name(cls, value: str) -> str:
+    def strip_name(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
         value = value.strip()
         if not value:
             raise ValueError("Company name cannot be blank.")
@@ -289,6 +310,8 @@ class SourceBase(BaseModel):
     company_id: int
     url: HttpUrl
     strategy: Literal["parent", "feed", "api"]
+    acquisition_provider: Literal["auto", "crawl4ai", "requests", "zenrows", "firecrawl"] = "auto"
+    processing_pipeline: Literal["auto", "current", "zenrows_gemini"] = "auto"
     trace_js: bool = False
     js_bundle_sources: list[str] = Field(default_factory=list)
     enabled: bool = True
@@ -308,6 +331,8 @@ class SourceCreate(SourceBase):
 class SourceUpdate(BaseModel):
     url: HttpUrl | None = None
     strategy: Literal["parent", "feed", "api"] | None = None
+    acquisition_provider: Literal["auto", "crawl4ai", "requests", "zenrows", "firecrawl"] | None = None
+    processing_pipeline: Literal["auto", "current", "zenrows_gemini"] | None = None
     trace_js: bool | None = None
     js_bundle_sources: list[str] | None = None
     enabled: bool | None = None

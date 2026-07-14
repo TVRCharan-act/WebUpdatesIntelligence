@@ -1,0 +1,22 @@
+# Optional local-development override for AWS IAM Identity Center (SSO).
+# Run it alongside docker-compose.yml after `aws sso login --profile ...`.
+# It deliberately mounts the host AWS configuration read-only and never places
+# access keys or SSO tokens in this repository or the application image.
+services:
+  backend:
+    environment:
+      AWS_PROFILE: ${AWS_PROFILE:?Set AWS_PROFILE in .env or your shell.}
+      AWS_SDK_LOAD_CONFIG: "1"
+      AWS_CONFIG_FILE: /root/.aws/config
+      AWS_SHARED_CREDENTIALS_FILE: /root/.aws/credentials
+    volumes:
+      - type: bind
+        source: ${AWS_CONFIG_DIR:?Set AWS_CONFIG_DIR to your host .aws directory.}
+        target: /root/.aws
+        read_only: true
+      # botocore refreshes short-lived IAM Identity Center tokens in this cache.
+      # Keep the wider AWS configuration mount read-only above.
+      - type: bind
+        source: ${AWS_SSO_CACHE_DIR:?Set AWS_SSO_CACHE_DIR to your host .aws/sso/cache directory.}
+        target: /root/.aws/sso/cache
+        read_only: false

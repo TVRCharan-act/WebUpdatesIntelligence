@@ -1,67 +1,53 @@
-from typing import Annotated
+from fastapi import APIRouter, HTTPException, status
 
-from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.orm import Session
-
-from backend.app import auth, crud, schemas
-from backend.app.auth import AdminUser, configured_accounts
-from backend.app.database import get_db
+from backend.app import auth, schemas
+from backend.app.auth import AdminUser, Repository
+from backend.app.repository import RecordNotFound
+from backend.app.storage import StorageError
 
 
-router = APIRouter(
-    prefix="/admin",
-    tags=["admin"],
-)
-
-DbSession = Annotated[Session, Depends(get_db)]
+router = APIRouter(prefix="/admin", tags=["admin"])
 
 
 @router.get("/accounts", response_model=list[schemas.AccountOverviewRead])
-def list_accounts(
-    db: DbSession,
-    user: AdminUser,
-) -> list[schemas.AccountOverviewRead]:
-    usage = crud.account_usage_by_owner(db)
+def list_accounts(repository: Repository, user: AdminUser) -> list[schemas.AccountOverviewRead]:
     rows: list[schemas.AccountOverviewRead] = []
-
-    for account in configured_accounts():
+    for account in auth.configured_accounts(repository):
         if account.role != "customer":
             continue
-        company_count, monitor_count = usage.get(account.name, (0, 0))
+        companies = repository.list_companies(account.name, limit=10000)
+        monitors = repository.list_sources(account.name, limit=10000)
         rows.append(
             schemas.AccountOverviewRead(
                 name=account.name,
                 role="customer",
-                company_count=company_count,
-                monitor_count=monitor_count,
+                company_count=len(companies),
+                monitor_count=len(monitors),
                 last_login_at=account.last_login_at,
             )
         )
-
     return rows
 
 
-@router.post(
-    "/accounts",
-    response_model=schemas.AccountOverviewRead,
-    status_code=status.HTTP_201_CREATED,
-)
-def create_account(
-    payload: schemas.AccountCreate,
-    user: AdminUser,
-) -> schemas.AccountOverviewRead:
+@router.post("/accounts", response_model=schemas.AccountOverviewRead, status_code=status.HTTP_201_CREATED)
+def create_account(payload: schemas.AccountCreate, repository: Repository, user: AdminUser) -> schemas.AccountOverviewRead:
     try:
-        account = auth.register_account(payload.name, payload.password)
+        account = auth.register_account(repository, payload.name, payload.password)
     except ValueError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_409_CONFLICT,
-            detail=str(exc),
-        ) from exc
+        raise HTTPException(status_code=409, detail=str(exc)) from exc
+    return schemas.AccountOverviewRead(name=account.name, role="customer", company_count=0, monitor_count=0)
 
-    return schemas.AccountOverviewRead(
-        name=account.name,
-        role="customer",
-        company_count=0,
-        monitor_count=0,
-        last_login_at=account.last_login_at,
-    )
+
+@router.delete("/accounts/{account_name}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_account(account_name: str, repository: Repository, user: AdminUser) -> None:
+    try:
+        repository.delete_account(account_name)
+    except RecordNotFound as exc:
+        raise HTTPException(status_code=404, detail="Customer account not found.") from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except StorageError as exc:
+        raise HTTPException(
+            status_code=503,
+            detail="Storage refused the deletion. Verify S3 DeleteObject permission for this application's prefix.",
+        ) from exc

@@ -1,1 +1,1 @@
-"""Celery worker package."""
+"""ECS/Fargate task entry points."""

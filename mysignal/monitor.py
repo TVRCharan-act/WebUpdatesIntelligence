@@ -12,7 +12,7 @@ from mysignal.filters.content_filter import (
     is_content_candidate,
 )
 
-from mysignal.notifications.smtp_email import (
+from mysignal.notifications.ses_email import (
     send_article_update_email,
 )
 

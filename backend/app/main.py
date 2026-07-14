@@ -1,15 +1,22 @@
 from contextlib import asynccontextmanager
 from time import perf_counter
+from uuid import uuid4
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.app.observability import log_health_event
+from backend.app.auth import bootstrap_accounts
+from backend.app.config import get_settings
 from backend.app.routers import admin, auth, companies, email, health, insights, monitor, runs, sources, storage, tasks
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    settings = get_settings()
+    settings.require_storage()
+    settings.require_auth()
+    bootstrap_accounts()
     log_health_event(
         event_type="lifecycle",
         service="backend",
@@ -34,10 +41,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-    ],
+    allow_origins=list(get_settings().cors_origins),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -48,6 +52,7 @@ app.add_middleware(
 async def log_request_timing(request, call_next):
     started_at = perf_counter()
     status_code = 500
+    correlation_id = request.headers.get("x-correlation-id") or str(uuid4())
 
     try:
         response = await call_next(request)
@@ -60,6 +65,7 @@ async def log_request_timing(request, call_next):
             service="backend",
             action=f"{request.method} {request.url.path}",
             status="error",
+            correlation_id=correlation_id,
             duration_ms=duration_ms,
             metadata={
                 "method": request.method,
@@ -76,6 +82,7 @@ async def log_request_timing(request, call_next):
             service="backend",
             action=f"{request.method} {request.url.path}",
             status="ok" if status_code < 500 else "error",
+            correlation_id=correlation_id,
             duration_ms=duration_ms,
             metadata={
                 "method": request.method,

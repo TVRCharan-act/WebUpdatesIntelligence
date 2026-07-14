@@ -8,7 +8,7 @@ from mysignal.workflows.discovery import HubDiscovery, discover_content_hubs
 from mysignal.workflows.inventory import InventoryBuild, build_inventory_for_hubs
 
 
-DEFAULT_WEBSITE = "https://openai.com"
+DEFAULT_WEBSITE = "https://example.com"
 
 
 def parse_args() -> argparse.Namespace:

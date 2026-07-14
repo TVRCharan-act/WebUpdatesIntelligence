@@ -42,7 +42,7 @@ import {
   deleteNotificationRecipient,
   getApiErrorMessage,
   getEmailNotificationSettings,
-  getSmtpStatus,
+  getSesStatus,
   listCompanyRecipients,
   listEmailSummaries,
   sendEmailSummary,
@@ -80,9 +80,9 @@ export default function EmailPage() {
   const selectedCompanyId =
     companyFilter === "all" ? undefined : Number(companyFilter);
 
-  const smtpQuery = useQuery({
-    queryKey: queryKeys.smtpStatus,
-    queryFn: getSmtpStatus,
+  const sesQuery = useQuery({
+    queryKey: queryKeys.sesStatus,
+    queryFn: getSesStatus,
   });
   const settingsQuery = useQuery({
     queryKey: queryKeys.emailSettings,
@@ -225,12 +225,12 @@ export default function EmailPage() {
         <Card>
           <CardHeader>
             <CardTitle className="text-sm text-muted-foreground">
-              SMTP Status
+              SES Status
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <Badge variant={smtpQuery.data?.configured ? "success" : "warning"}>
-              {smtpQuery.data?.configured ? "Configured" : "Needs setup"}
+            <Badge variant={sesQuery.data?.configured ? "success" : "warning"}>
+              {sesQuery.data?.configured ? "Configured" : "Needs setup"}
             </Badge>
           </CardContent>
         </Card>
@@ -311,47 +311,38 @@ export default function EmailPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            {smtpQuery.data?.configured ? (
+            {sesQuery.data?.configured ? (
               <MailCheck className="size-5" />
             ) : (
               <MailWarning className="size-5" />
             )}
-            SMTP app password setup
+            Amazon SES configuration
           </CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4">
           <div className="grid gap-3 md:grid-cols-3">
             <div>
-              <div className="text-xs font-medium uppercase text-muted-foreground">
-                Host
-              </div>
-              <div className="mt-1 text-sm">{smtpQuery.data?.host || "-"}</div>
+              <div className="text-xs font-medium uppercase text-muted-foreground">Region</div>
+              <div className="mt-1 text-sm">{sesQuery.data?.ses_region || "-"}</div>
             </div>
             <div>
               <div className="text-xs font-medium uppercase text-muted-foreground">
                 Sender
               </div>
-              <div className="mt-1 text-sm">{smtpQuery.data?.sender || "-"}</div>
+              <div className="mt-1 text-sm">{sesQuery.data?.sender || "-"}</div>
             </div>
             <div>
               <div className="text-xs font-medium uppercase text-muted-foreground">
-                Port
+                Configuration set
               </div>
-              <div className="mt-1 text-sm">
-                {smtpQuery.data?.port || "-"}{" "}
-                {smtpQuery.data?.use_ssl
-                  ? "SSL"
-                  : smtpQuery.data?.use_tls
-                    ? "TLS"
-                    : ""}
-              </div>
+              <div className="mt-1 text-sm">{sesQuery.data?.configuration_set || "Not configured"}</div>
             </div>
           </div>
 
-          {!smtpQuery.data?.configured ? (
+          {!sesQuery.data?.configured ? (
             <div className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
               Missing environment values:{" "}
-              {(smtpQuery.data?.missing || []).join(", ") || "SMTP settings"}
+              {(sesQuery.data?.missing || []).join(", ") || "SES settings"}
             </div>
           ) : null}
         </CardContent>

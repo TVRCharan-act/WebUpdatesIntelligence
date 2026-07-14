@@ -1,109 +1,55 @@
-from typing import Annotated
+from fastapi import APIRouter, HTTPException, status
 
-from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.exc import IntegrityError
-from sqlalchemy.orm import Session
-
-from backend.app import crud, schemas
-from backend.app.auth import CurrentUser
-from backend.app.database import get_db
+from backend.app import schemas
+from backend.app.auth import CurrentUser, Repository
+from backend.app.repository import DuplicateRecord, RecordNotFound
 
 
-router = APIRouter(
-    prefix="/companies",
-    tags=["companies"],
-)
-
-DbSession = Annotated[Session, Depends(get_db)]
+router = APIRouter(prefix="/companies", tags=["companies"])
 
 
 def _owner_filter(user: CurrentUser) -> str | None:
     return None if user.role == "admin" else user.name
 
 
-@router.get(
-    "",
-    response_model=list[schemas.CompanyRead],
-)
-def list_companies(db: DbSession, user: CurrentUser) -> list[schemas.CompanyRead]:
-    return crud.list_companies(db, owner_name=_owner_filter(user))
+@router.get("", response_model=list[schemas.CompanyRead])
+def list_companies(repository: Repository, user: CurrentUser) -> list[dict]:
+    return repository.list_companies(_owner_filter(user))
 
 
-@router.get(
-    "/{company_id}",
-    response_model=schemas.CompanyRead,
-)
-def get_company(company_id: int, db: DbSession, user: CurrentUser) -> schemas.CompanyRead:
-    company = crud.get_company(db, company_id, owner_name=_owner_filter(user))
-    if company is None:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Company not found.",
-        )
-    return company
-
-
-@router.post(
-    "",
-    response_model=schemas.CompanyRead,
-    status_code=status.HTTP_201_CREATED,
-)
-def create_company(
-    company: schemas.CompanyCreate,
-    db: DbSession,
-    user: CurrentUser,
-) -> schemas.CompanyRead:
+@router.get("/{company_id}", response_model=schemas.CompanyRead)
+def get_company(company_id: int, repository: Repository, user: CurrentUser) -> dict:
     try:
-        return crud.create_company(
-            db,
-            company,
-            owner_name=None if user.role == "admin" else user.name,
-        )
-    except IntegrityError as exc:
-        db.rollback()
-        raise HTTPException(
-            status_code=status.HTTP_409_CONFLICT,
-            detail="Company name already exists.",
-        ) from exc
+        return repository.get_company(company_id, _owner_filter(user))
+    except RecordNotFound as exc:
+        raise HTTPException(status_code=404, detail="Company not found.") from exc
 
 
-@router.patch(
-    "/{company_id}",
-    response_model=schemas.CompanyRead,
-)
-def update_company(
-    company_id: int,
-    company: schemas.CompanyUpdate,
-    db: DbSession,
-    user: CurrentUser,
-) -> schemas.CompanyRead:
-    db_company = crud.get_company(db, company_id, owner_name=_owner_filter(user))
-    if db_company is None:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Company not found.",
-        )
-
+@router.post("", response_model=schemas.CompanyRead, status_code=status.HTTP_201_CREATED)
+def create_company(company: schemas.CompanyCreate, repository: Repository, user: CurrentUser) -> dict:
+    owner = user.name
     try:
-        return crud.update_company(db, db_company, company)
-    except IntegrityError as exc:
-        db.rollback()
-        raise HTTPException(
-            status_code=status.HTTP_409_CONFLICT,
-            detail="Company name already exists.",
-        ) from exc
+        return repository.create_company(owner, company.name, company.priority)
+    except DuplicateRecord as exc:
+        raise HTTPException(status_code=409, detail="Company name already exists.") from exc
 
 
-@router.delete(
-    "/{company_id}",
-    status_code=status.HTTP_204_NO_CONTENT,
-)
-def delete_company(company_id: int, db: DbSession, user: CurrentUser) -> None:
-    db_company = crud.get_company(db, company_id, owner_name=_owner_filter(user))
-    if db_company is None:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Company not found.",
-        )
+@router.patch("/{company_id}", response_model=schemas.CompanyRead)
+def update_company(company_id: int, company: schemas.CompanyUpdate, repository: Repository, user: CurrentUser) -> dict:
+    values = company.model_dump(exclude_none=True)
+    if not values:
+        raise HTTPException(status_code=400, detail="No company changes were supplied.")
+    try:
+        return repository.update_company(company_id, _owner_filter(user), **values)
+    except RecordNotFound as exc:
+        raise HTTPException(status_code=404, detail="Company not found.") from exc
+    except DuplicateRecord as exc:
+        raise HTTPException(status_code=409, detail="Company name already exists.") from exc
 
-    crud.delete_company(db, db_company)
+
+@router.delete("/{company_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_company(company_id: int, repository: Repository, user: CurrentUser) -> None:
+    try:
+        repository.delete_company(company_id, _owner_filter(user))
+    except RecordNotFound as exc:
+        raise HTTPException(status_code=404, detail="Company not found.") from exc

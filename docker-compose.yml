@@ -1,69 +1,37 @@
+# Local API/UI smoke-test stack. Production uses ECS/Fargate and EventBridge;
+# this file intentionally has no database, Redis, Celery, or scheduler service.
 services:
-  postgres:
-    image: postgres:16
-    environment:
-      POSTGRES_DB: website_monitor
-      POSTGRES_USER: monitor
-      POSTGRES_PASSWORD: monitor
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U monitor -d website_monitor"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-  redis:
-    image: redis:7
-    ports:
-      - "6379:6379"
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
   backend:
     build:
       context: .
       dockerfile: backend/Dockerfile
-    command: ["sh", "-c", "alembic upgrade head && uvicorn backend.app.main:app --host 0.0.0.0 --port 8000"]
-    mem_limit: 1g
-    cpus: "1.0"
     environment:
-      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://monitor:monitor@postgres:5432/website_monitor}
-      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
-      APP_HEALTH_LOG_PATH: ${APP_HEALTH_LOG_PATH:-/app/logs/app-health.jsonl}
-      APP_HEALTH_LOG_MAX_BYTES: ${APP_HEALTH_LOG_MAX_BYTES:-5242880}
+      ENVIRONMENT: ${ENVIRONMENT:-dev}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      STORAGE_BACKEND: ${STORAGE_BACKEND:-s3}
+      S3_BUCKET: ${S3_BUCKET:-}
+      S3_PREFIX: ${S3_PREFIX:-sentinel-actalyst}
+      ECS_CLUSTER: ${ECS_CLUSTER:-}
+      ECS_TASK_DEFINITION: ${ECS_TASK_DEFINITION:-}
+      ECS_CONTAINER_NAME: ${ECS_CONTAINER_NAME:-worker}
+      ECS_NETWORK_CONFIGURATION: ${ECS_NETWORK_CONFIGURATION:-{}}
+      # The local compose stack has no worker service, so execute jobs in the
+      # backend process unless an explicit backend is supplied.
+      TASK_EXECUTION_BACKEND: ${TASK_EXECUTION_BACKEND:-local}
+      ZENROWS_API_KEY: ${ZENROWS_API_KEY:-}
+      CRAWL4AI_TIMEOUT_SECONDS: ${CRAWL4AI_TIMEOUT_SECONDS:-20}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+      GOOGLE_GEMINI_MODEL: ${GOOGLE_GEMINI_MODEL:-gemini-3.5-flash}
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-5.4}
+      # auto = prefer Gemini, fall back to OpenAI per URL; or force gemini/openai.
+      ANALYSIS_PROVIDER: ${ANALYSIS_PROVIDER:-auto}
       FIRECRAWL_API_KEY: ${FIRECRAWL_API_KEY:-}
-      fire_crawler_api: ${fire_crawler_api:-}
-      EMAIL_ADDRESS: ${EMAIL_ADDRESS:-}
-      EMAIL_APP_PASSWORD: ${EMAIL_APP_PASSWORD:-}
-      EMAIL_RECIPIENT: ${EMAIL_RECIPIENT:-}
-      SMTP_HOST: ${SMTP_HOST:-}
-      SMTP_PORT: ${SMTP_PORT:-587}
-      SMTP_USERNAME: ${SMTP_USERNAME:-}
-      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
-      SMTP_FROM: ${SMTP_FROM:-}
-      SMTP_TO: ${SMTP_TO:-}
-      SMTP_USE_TLS: ${SMTP_USE_TLS:-true}
-      SMTP_USE_SSL: ${SMTP_USE_SSL:-false}
-      DISCOVERY_ENABLE_BROWSER: ${DISCOVERY_ENABLE_BROWSER:-true}
-      DISCOVERY_ENABLE_LLM: ${DISCOVERY_ENABLE_LLM:-true}
-      DISCOVERY_BROWSER_MAX_RESPONSES: ${DISCOVERY_BROWSER_MAX_RESPONSES:-10}
-      DISCOVERY_BROWSER_RESPONSE_CHARS: ${DISCOVERY_BROWSER_RESPONSE_CHARS:-8000}
-      DISCOVERY_BROWSER_SCROLLS: ${DISCOVERY_BROWSER_SCROLLS:-2}
-      DISCOVERY_BROWSER_TIMEOUT_MS: ${DISCOVERY_BROWSER_TIMEOUT_MS:-20000}
-      DISCOVERY_BROWSER_SETTLE_MS: ${DISCOVERY_BROWSER_SETTLE_MS:-1000}
-      DISCOVERY_MAX_LLM_ENDPOINTS: ${DISCOVERY_MAX_LLM_ENDPOINTS:-12}
-      DISCOVERY_MAX_EXECUTED_ENDPOINTS: ${DISCOVERY_MAX_EXECUTED_ENDPOINTS:-20}
-      DISCOVERY_MAX_DISCOVERED_URLS: ${DISCOVERY_MAX_DISCOVERED_URLS:-300}
-      DISCOVERY_HEAVY_LOCK_TTL_SECONDS: ${DISCOVERY_HEAVY_LOCK_TTL_SECONDS:-900}
-      DISCOVERY_SKIP_HEAVY_WHEN_CACHED_SUCCESS: ${DISCOVERY_SKIP_HEAVY_WHEN_CACHED_SUCCESS:-true}
-      CELERY_WORKER_CONCURRENCY: ${CELERY_WORKER_CONCURRENCY:-2}
+      DEFAULT_PROCESSING_PIPELINE: ${DEFAULT_PROCESSING_PIPELINE:-auto}
+      SES_FROM_EMAIL: ${SES_FROM_EMAIL:-}
+      SES_REGION: ${SES_REGION:-}
+      SES_DEFAULT_RECIPIENTS: ${SES_DEFAULT_RECIPIENTS:-}
+      SES_CONFIGURATION_SET: ${SES_CONFIGURATION_SET:-}
       AUTH_SECRET: ${AUTH_SECRET:-}
       AUTH_COOKIE_SECURE: ${AUTH_COOKIE_SECURE:-false}
       ADMIN_NAME: ${ADMIN_NAME:-}
@@ -72,150 +40,17 @@ services:
       USER_1_PASSWORD: ${USER_1_PASSWORD:-}
       USER_2_NAME: ${USER_2_NAME:-}
       USER_2_PASSWORD: ${USER_2_PASSWORD:-}
+      USER_3_NAME: ${USER_3_NAME:-}
+      USER_3_PASSWORD: ${USER_3_PASSWORD:-}
     ports:
       - "8000:8000"
-    healthcheck:
-      test:
-        [
-          "CMD",
-          "python",
-          "-c",
-          "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=5).read()",
-        ]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 30s
-    volumes:
-      - ./logs:/app/logs
-      - ./mysignal/data:/app/mysignal/data
-    depends_on:
-      postgres:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-
-  celery-worker:
-    build:
-      context: .
-      dockerfile: backend/Dockerfile
-    command: ["sh", "-c", "alembic upgrade head && celery -A backend.app.workers.celery_app:celery_app worker --loglevel=info --concurrency=${CELERY_WORKER_CONCURRENCY:-2} --prefetch-multiplier=1 -Ofair"]
-    mem_limit: 3g
-    cpus: "2.0"
-    environment:
-      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://monitor:monitor@postgres:5432/website_monitor}
-      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
-      APP_HEALTH_LOG_PATH: ${APP_HEALTH_LOG_PATH:-/app/logs/app-health.jsonl}
-      APP_HEALTH_LOG_MAX_BYTES: ${APP_HEALTH_LOG_MAX_BYTES:-5242880}
-      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
-      FIRECRAWL_API_KEY: ${FIRECRAWL_API_KEY:-}
-      fire_crawler_api: ${fire_crawler_api:-}
-      EMAIL_ADDRESS: ${EMAIL_ADDRESS:-}
-      EMAIL_APP_PASSWORD: ${EMAIL_APP_PASSWORD:-}
-      EMAIL_RECIPIENT: ${EMAIL_RECIPIENT:-}
-      SMTP_HOST: ${SMTP_HOST:-}
-      SMTP_PORT: ${SMTP_PORT:-587}
-      SMTP_USERNAME: ${SMTP_USERNAME:-}
-      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
-      SMTP_FROM: ${SMTP_FROM:-}
-      SMTP_TO: ${SMTP_TO:-}
-      SMTP_USE_TLS: ${SMTP_USE_TLS:-true}
-      SMTP_USE_SSL: ${SMTP_USE_SSL:-false}
-      DISCOVERY_ENABLE_BROWSER: ${DISCOVERY_ENABLE_BROWSER:-true}
-      DISCOVERY_ENABLE_LLM: ${DISCOVERY_ENABLE_LLM:-true}
-      DISCOVERY_BROWSER_MAX_RESPONSES: ${DISCOVERY_BROWSER_MAX_RESPONSES:-10}
-      DISCOVERY_BROWSER_RESPONSE_CHARS: ${DISCOVERY_BROWSER_RESPONSE_CHARS:-8000}
-      DISCOVERY_BROWSER_SCROLLS: ${DISCOVERY_BROWSER_SCROLLS:-2}
-      DISCOVERY_BROWSER_TIMEOUT_MS: ${DISCOVERY_BROWSER_TIMEOUT_MS:-20000}
-      DISCOVERY_BROWSER_SETTLE_MS: ${DISCOVERY_BROWSER_SETTLE_MS:-1000}
-      DISCOVERY_MAX_LLM_ENDPOINTS: ${DISCOVERY_MAX_LLM_ENDPOINTS:-12}
-      DISCOVERY_MAX_EXECUTED_ENDPOINTS: ${DISCOVERY_MAX_EXECUTED_ENDPOINTS:-20}
-      DISCOVERY_MAX_DISCOVERED_URLS: ${DISCOVERY_MAX_DISCOVERED_URLS:-300}
-      DISCOVERY_HEAVY_LOCK_TTL_SECONDS: ${DISCOVERY_HEAVY_LOCK_TTL_SECONDS:-900}
-      DISCOVERY_SKIP_HEAVY_WHEN_CACHED_SUCCESS: ${DISCOVERY_SKIP_HEAVY_WHEN_CACHED_SUCCESS:-true}
-      CELERY_WORKER_CONCURRENCY: ${CELERY_WORKER_CONCURRENCY:-2}
-    volumes:
-      - ./logs:/app/logs
-      - ./mysignal/data:/app/mysignal/data
-    depends_on:
-      postgres:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
-
-  celery-beat:
-    build:
-      context: .
-      dockerfile: backend/Dockerfile
-    command: ["sh", "-c", "alembic upgrade head && celery -A backend.app.workers.celery_app:celery_app beat --loglevel=info"]
-    mem_limit: 512m
-    cpus: "0.5"
-    environment:
-      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://monitor:monitor@postgres:5432/website_monitor}
-      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
-      APP_HEALTH_LOG_PATH: ${APP_HEALTH_LOG_PATH:-/app/logs/app-health.jsonl}
-      APP_HEALTH_LOG_MAX_BYTES: ${APP_HEALTH_LOG_MAX_BYTES:-5242880}
-      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
-      FIRECRAWL_API_KEY: ${FIRECRAWL_API_KEY:-}
-      fire_crawler_api: ${fire_crawler_api:-}
-      EMAIL_ADDRESS: ${EMAIL_ADDRESS:-}
-      EMAIL_APP_PASSWORD: ${EMAIL_APP_PASSWORD:-}
-      EMAIL_RECIPIENT: ${EMAIL_RECIPIENT:-}
-      SMTP_HOST: ${SMTP_HOST:-}
-      SMTP_PORT: ${SMTP_PORT:-587}
-      SMTP_USERNAME: ${SMTP_USERNAME:-}
-      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
-      SMTP_FROM: ${SMTP_FROM:-}
-      SMTP_TO: ${SMTP_TO:-}
-      SMTP_USE_TLS: ${SMTP_USE_TLS:-true}
-      SMTP_USE_SSL: ${SMTP_USE_SSL:-false}
-      DISCOVERY_ENABLE_BROWSER: ${DISCOVERY_ENABLE_BROWSER:-true}
-      DISCOVERY_ENABLE_LLM: ${DISCOVERY_ENABLE_LLM:-true}
-      DISCOVERY_BROWSER_MAX_RESPONSES: ${DISCOVERY_BROWSER_MAX_RESPONSES:-10}
-      DISCOVERY_BROWSER_RESPONSE_CHARS: ${DISCOVERY_BROWSER_RESPONSE_CHARS:-8000}
-      DISCOVERY_BROWSER_SCROLLS: ${DISCOVERY_BROWSER_SCROLLS:-2}
-      DISCOVERY_BROWSER_TIMEOUT_MS: ${DISCOVERY_BROWSER_TIMEOUT_MS:-20000}
-      DISCOVERY_BROWSER_SETTLE_MS: ${DISCOVERY_BROWSER_SETTLE_MS:-1000}
-      DISCOVERY_MAX_LLM_ENDPOINTS: ${DISCOVERY_MAX_LLM_ENDPOINTS:-12}
-      DISCOVERY_MAX_EXECUTED_ENDPOINTS: ${DISCOVERY_MAX_EXECUTED_ENDPOINTS:-20}
-      DISCOVERY_MAX_DISCOVERED_URLS: ${DISCOVERY_MAX_DISCOVERED_URLS:-300}
-      DISCOVERY_HEAVY_LOCK_TTL_SECONDS: ${DISCOVERY_HEAVY_LOCK_TTL_SECONDS:-900}
-      DISCOVERY_SKIP_HEAVY_WHEN_CACHED_SUCCESS: ${DISCOVERY_SKIP_HEAVY_WHEN_CACHED_SUCCESS:-true}
-      CELERY_WORKER_CONCURRENCY: ${CELERY_WORKER_CONCURRENCY:-2}
-    volumes:
-      - ./logs:/app/logs
-      - ./mysignal/data:/app/mysignal/data
-    depends_on:
-      postgres:
-        condition: service_healthy
-      redis:
-        condition: service_healthy
 
   frontend:
     build:
       context: ./frontend
-    command: ["npm", "run", "dev"]
-    mem_limit: 768m
-    cpus: "1.0"
-    environment:
-      VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000}
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8000}
     ports:
-      - "3000:3000"
-    healthcheck:
-      test:
-        [
-          "CMD",
-          "node",
-          "-e",
-          "fetch('http://localhost:3000').then((r)=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))",
-        ]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 30s
+      - "3000:80"
     depends_on:
-      backend:
-        condition: service_healthy
-
-volumes:
-  postgres_data:
+      - backend

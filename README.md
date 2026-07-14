@@ -34,7 +34,7 @@ flowchart LR
     Worker --> Firecrawl["Firecrawl / Crawl4AI"]
     Worker --> OpenAI["OpenAI summaries"]
     Worker --> Postgres
-    Worker --> Email["SMTP email"]
+    Worker --> Email["Amazon SES email"]
     Backend --> Logs["logs/app-health.jsonl"]
     Frontend --> Logs
     Worker --> Logs
@@ -54,7 +54,7 @@ The frontend never crawls websites directly. It calls the backend API, and the b
 | Background jobs | Celery, Redis, Celery beat | Runs monitor jobs and scheduled checks outside the request/response path. |
 | Crawling and parsing | Firecrawl, Crawl4AI, BeautifulSoup, Feedparser, lxml | Discovers URLs and extracts content from web pages, feeds, and API-like sources. |
 | AI summaries | OpenAI API | Turns processed content into readable summaries. |
-| Email | SMTP | Sends summaries to configured recipients. |
+| Email | Amazon SES | Sends summaries to configured recipients. |
 | Runtime | Docker Compose | Runs the frontend, backend, database, queue, worker, and scheduler together. |
 | Observability | JSONL health logs | Records backend requests, frontend API calls, scheduler ticks, worker tasks, and email events. |
 
@@ -98,9 +98,9 @@ OPENAI_API_KEY
 FIRECRAWL_API_KEY
 fire_crawler_api
 EMAIL_ADDRESS
-EMAIL_APP_PASSWORD
-EMAIL_RECIPIENT
-SMTP_* values if using custom SMTP
+SES_FROM_EMAIL
+SES_DEFAULT_RECIPIENTS (legacy command-line monitor only)
+SES_CONFIGURATION_SET (optional)
 ```
 
 Then start the whole stack:

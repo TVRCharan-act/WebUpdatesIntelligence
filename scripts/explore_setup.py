@@ -252,7 +252,7 @@ def print_tracked_roots() -> None:
                 root.recipients,
             )
             if root.recipients
-            else "default SMTP recipients"
+            else "default SES recipients"
         )
         bundle_text = (
             f" [{len(root.js_bundle_sources)} JS bundle(s)]"
@@ -301,7 +301,7 @@ def track_root(
     if selected_url not in existing_urls:
         recipients = split_recipients(
             input(
-                "Alert recipients for this URL (comma separated, blank for default SMTP recipients): ",
+                "Alert recipients for this URL (comma separated, blank for default SES recipients): ",
             )
         )
         tracked_roots.append(
@@ -369,7 +369,7 @@ def track_feed_source(
 
     recipients = split_recipients(
         input(
-            "Alert recipients for this feed (comma separated, blank for default SMTP recipients): ",
+                "Alert recipients for this feed (comma separated, blank for default SES recipients): ",
         )
     )
     tracked_sources.append(
@@ -418,7 +418,7 @@ def track_api_source(
 
     recipients = split_recipients(
         input(
-            "Alert recipients for this API (comma separated, blank for default SMTP recipients): ",
+                "Alert recipients for this API (comma separated, blank for default SES recipients): ",
         )
     )
     tracked_sources.append(

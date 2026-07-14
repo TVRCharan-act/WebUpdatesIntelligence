@@ -142,12 +142,12 @@ export default function DashboardPage() {
           {discoveryHealthQuery.data ? (
             <div className="grid gap-3 text-sm sm:grid-cols-2 lg:grid-cols-6">
               <div>
-                <div className="text-xs text-muted-foreground">OpenAI planner</div>
+                <div className="text-xs text-muted-foreground">Gemini analyst</div>
                 <StatusBadge
-                  status={discoveryHealthQuery.data.openai_configured ? "configured" : "missing key"}
+                  status={discoveryHealthQuery.data.gemini_configured ? "configured" : "missing key"}
                 />
                 <div className="mt-1 text-xs text-muted-foreground">
-                  {discoveryHealthQuery.data.openai_model}
+                  {discoveryHealthQuery.data.gemini_model}
                 </div>
               </div>
               <div>

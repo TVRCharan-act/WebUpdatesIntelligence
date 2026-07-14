@@ -5,10 +5,10 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
+COPY requirements.txt /app/requirements.txt
 COPY backend/requirements.txt /app/backend/requirements.txt
 RUN pip install --no-cache-dir -r /app/backend/requirements.txt
-RUN python -m playwright install --with-deps chromium \
-    && python -m patchright install --with-deps chromium
+RUN python -m playwright install --with-deps chromium && python -m patchright install --with-deps chromium
 
 COPY . /app
 

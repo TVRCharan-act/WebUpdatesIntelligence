@@ -87,8 +87,9 @@ export type Strategy = "parent" | "feed" | "api";
 
 export interface DiscoveryHealth {
   status: string;
-  openai_configured: boolean;
-  openai_model: string;
+  gemini_configured: boolean;
+  gemini_model: string;
+  zenrows_configured: boolean;
   browser_tracing_available: boolean;
   adapter_cache_path: string;
   adapter_cache_exists: boolean;
@@ -115,10 +116,18 @@ export interface TaskStatus {
   task_id: string;
   state: string;
   result: unknown;
+  progress: TaskProgress | null;
+}
+
+export interface TaskProgress {
+  stage: string;
+  message: string;
+  current: number | null;
+  total: number | null;
 }
 
 export function taskHasFailedResult(task: TaskStatus) {
-  if (task.state === "FAILURE" || task.state === "REVOKED") {
+  if (task.state === "failed" || task.state === "cancelled") {
     return true;
   }
 
@@ -215,7 +224,7 @@ export interface DiscoveredUrl {
 }
 
 export interface Summary {
-  id: number;
+  id: string;
   discovered_url_id: number;
   discovered_url: string;
   title: string | null;
@@ -224,6 +233,9 @@ export interface Summary {
   severity: "low" | "medium" | "high";
   confidence: "low" | "medium" | "high";
   reviewed_at: string | null;
+  email_status: string;
+  email_sent_at: string | null;
+  email_error: string | null;
   created_at: string;
 }
 
@@ -289,20 +301,17 @@ export interface CompanyNotificationRecipients {
   recipients: NotificationRecipient[];
 }
 
-export interface SmtpStatus {
+export interface SesStatus {
   configured: boolean;
-  host: string | null;
-  port: number | null;
   sender: string | null;
-  username: string | null;
-  use_tls: boolean;
-  use_ssl: boolean;
-  global_recipient_count: number;
+  aws_region: string;
+  ses_region: string;
+  configuration_set: string | null;
   missing: string[];
 }
 
 export interface EmailSummary {
-  id: number;
+  id: string;
   company_id: number;
   company_name: string;
   source_id: number;
@@ -315,7 +324,7 @@ export interface EmailSummary {
   created_at: string;
   recipients: string[];
   recipient_count: number;
-  smtp_configured: boolean;
+  ses_configured: boolean;
   would_send: boolean;
   notification_mode: "manual" | "automatic";
   email_status: string;
@@ -328,7 +337,7 @@ export interface EmailNotificationSettings {
 }
 
 export interface EmailSendResult {
-  summary_id: number;
+  summary_id: string;
   status: "sent" | "failed" | "skipped";
   message: string;
 }
@@ -360,7 +369,7 @@ export interface SourceDiscoveryPreview {
 
 export interface StoredUrl {
   url: string;
-  source: "json" | "database";
+  source: "s3";
   first_seen_at: string | null;
   discovered_at: string | null;
   monitor_run_id: number | null;
@@ -431,6 +440,10 @@ export async function listAccounts() {
 export async function createAccount(input: { name: string; password: string }) {
   const response = await api.post<AccountOverview>("/admin/accounts", input);
   return response.data;
+}
+
+export async function deleteAccount(name: string) {
+  await api.delete(`/admin/accounts/${encodeURIComponent(name)}`);
 }
 export async function getMonitorStatus() {
   const response = await api.get<MonitorStatus>("/monitor/status");
@@ -519,7 +532,7 @@ export async function listInsights(limit = 100) {
   return response.data;
 }
 
-export async function updateInsightReview(id: number, reviewed: boolean) {
+export async function updateInsightReview(id: string, reviewed: boolean) {
   const response = await api.patch<Summary>(`/insights/${id}/review`, {
     reviewed,
   });
@@ -533,8 +546,8 @@ export async function getInsightStats(days = 30) {
   return response.data;
 }
 
-export async function getSmtpStatus() {
-  const response = await api.get<SmtpStatus>("/email/smtp-status");
+export async function getSesStatus() {
+  const response = await api.get<SesStatus>("/email/ses-status");
   return response.data;
 }
 
@@ -593,7 +606,7 @@ export async function listEmailSummaries(companyId?: number) {
   return response.data;
 }
 
-export async function sendEmailSummary(summaryId: number) {
+export async function sendEmailSummary(summaryId: string) {
   const response = await api.post<EmailSendResult>(
     `/email/summaries/${summaryId}/send`,
   );

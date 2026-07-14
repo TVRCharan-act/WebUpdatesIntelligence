@@ -21,6 +21,7 @@ import requests
 
 MARKDOWN_URL_PATTERN = r"https?://[^\s\)\]\"<]+"
 FALLBACK_USER_AGENT = "website-monitor/1.0 (+local-dashboard)"
+DEFAULT_CRAWL4AI_TIMEOUT_SECONDS = 20
 GLOBAL_REGIONS = {
     "nav",
     "footer",
@@ -520,15 +521,28 @@ async def extract_page_links_async(
     normalized_page_url = normalize_page_url(
         page_url,
     )
-
     try:
+        crawl_timeout_seconds = max(
+            1,
+            float(os.getenv("CRAWL4AI_TIMEOUT_SECONDS", str(DEFAULT_CRAWL4AI_TIMEOUT_SECONDS))),
+        )
+    except ValueError:
+        crawl_timeout_seconds = DEFAULT_CRAWL4AI_TIMEOUT_SECONDS
+
+    async def crawl_page():
         async with AsyncWebCrawler() as crawler:
-            result = await crawler.arun(
+            return await crawler.arun(
                 url=normalized_page_url,
                 config=CrawlerRunConfig(
                     cache_mode=CacheMode.DISABLED,
                 ),
             )
+
+    try:
+        result = await asyncio.wait_for(
+            crawl_page(),
+            timeout=crawl_timeout_seconds,
+        )
     except Exception:
         fallback_links = extract_links_with_requests(
             normalized_page_url,

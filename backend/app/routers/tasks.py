@@ -1,32 +1,26 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
 
 from backend.app import schemas
-from backend.app.workers.celery_app import celery_app
+from backend.app.auth import CurrentUser, Repository
+from backend.app.repository import RecordNotFound
 
 
-router = APIRouter(
-    prefix="/tasks",
-    tags=["tasks"],
-)
+router = APIRouter(prefix="/tasks", tags=["tasks"])
 
 
-@router.get(
-    "/{task_id}",
-    response_model=schemas.TaskStatusResponse,
-)
-def get_task_status(task_id: str) -> schemas.TaskStatusResponse:
-    task_result = celery_app.AsyncResult(task_id)
+def _owner_filter(user: CurrentUser) -> str | None:
+    return None if user.role == "admin" else user.name
 
-    result = None
-    if task_result.successful():
-        result = task_result.result
-    elif task_result.failed():
-        result = {
-            "error": str(task_result.result),
-        }
 
+@router.get("/{task_id}", response_model=schemas.TaskStatusResponse)
+def get_task_status(task_id: str, repository: Repository, user: CurrentUser) -> schemas.TaskStatusResponse:
+    try:
+        job = repository.get_job(task_id, _owner_filter(user))
+    except RecordNotFound as exc:
+        raise HTTPException(status_code=404, detail="Job not found.") from exc
     return schemas.TaskStatusResponse(
         task_id=task_id,
-        state=task_result.state,
-        result=result,
+        state=str(job["status"]),
+        result=job.get("result_summary") or job.get("error"),
+        progress=job.get("progress"),
     )

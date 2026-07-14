@@ -5,21 +5,15 @@ import "@/app/globals.css";
 import DashboardPage from "@/app/page";
 import AdminAccountsPage from "@/app/admin/accounts/page";
 import CompaniesPage from "@/app/companies/page";
-import CustomerDashboardPage from "@/app/dashboard/page";
+import HomePage from "@/app/dashboard/page";
 import EmailPage from "@/app/email/page";
-import InsightsPage from "@/app/insights/page";
 import LoginPage from "@/app/login/page";
-import MonitorDetailPage from "@/app/monitors/[id]/page";
-import MonitorsPage from "@/app/monitors/page";
-import NotificationsPage from "@/app/notifications/page";
-import OnboardingPage from "@/app/onboarding/page";
+import WatchtowerPage from "@/app/monitors/page";
 import RunsPage from "@/app/runs/page";
 import SettingsPage from "@/app/settings/page";
-import WorkspaceSettingsPage from "@/app/settings/workspace/page";
 import SourcesPage from "@/app/sources/page";
 import SourceDetailsPage from "@/app/sources/[id]/page";
 import StoragePage from "@/app/storage/page";
-import TrendsPage from "@/app/trends/page";
 import { useAuth } from "@/components/auth-provider";
 import { AppShell } from "@/components/app-shell";
 import { CustomerShell } from "@/components/customer-shell";
@@ -72,16 +66,20 @@ function Routes() {
     );
   }
 
+  // The customer app is two pages. Legacy routes still deep-link into them:
+  // /insights and /trends land on Home; /monitors/[id], /notifications,
+  // /settings and /onboarding land on the right Watchtower tab / dialog.
+  const isHome = ["/dashboard", "/insights", "/trends"].includes(pathname);
+  const isWatchtower =
+    pathname.startsWith("/monitors") ||
+    pathname === "/notifications" ||
+    pathname.startsWith("/settings") ||
+    pathname === "/onboarding";
+
   return (
     <CustomerShell>
-      {pathname === "/dashboard" ? <CustomerDashboardPage /> : null}
-      {pathname === "/onboarding" ? <OnboardingPage /> : null}
-      {pathname === "/monitors" ? <MonitorsPage /> : null}
-      {/^\/monitors\/[^/]+$/.test(pathname) ? <MonitorDetailPage /> : null}
-      {pathname === "/insights" ? <InsightsPage /> : null}
-      {pathname === "/trends" ? <TrendsPage /> : null}
-      {pathname === "/notifications" ? <NotificationsPage /> : null}
-      {pathname.startsWith("/settings") ? <WorkspaceSettingsPage /> : null}
+      {isHome ? <HomePage /> : null}
+      {isWatchtower ? <WatchtowerPage /> : null}
     </CustomerShell>
   );
 }

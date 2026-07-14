@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { DatabaseZap, Eye, Pencil, Play, Plus, RotateCcw, Trash2 } from "lucide-react";
+import { DatabaseZap, Eye, Pause, Pencil, Play, Plus, RotateCcw, Trash2 } from "lucide-react";
 import * as React from "react";
 import { toast } from "sonner";
 
@@ -98,6 +98,17 @@ export default function SourcesPage() {
     onError: (error) => toast.error(getApiErrorMessage(error)),
   });
 
+  const monitoringMutation = useMutation({
+    mutationFn: ({ id, enabled }: { id: number; enabled: boolean }) =>
+      updateSource(id, { enabled }),
+    onSuccess: (source) => {
+      toast.success(source.enabled ? "Monitoring enabled." : "Monitoring disabled.");
+      queryClient.invalidateQueries({ queryKey: queryKeys.sources });
+      queryClient.invalidateQueries({ queryKey: queryKeys.monitorStatus });
+    },
+    onError: (error) => toast.error(getApiErrorMessage(error)),
+  });
+
   const runMutation = useMutation({
     mutationFn: runSource,
     onSuccess: (task) => {
@@ -185,7 +196,7 @@ export default function SourcesPage() {
                   <TableHead>Schedule</TableHead>
                   <TableHead>Status</TableHead>
                   <TableHead>Last checked</TableHead>
-                  <TableHead className="w-56">Actions</TableHead>
+                  <TableHead className="w-72">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -226,8 +237,22 @@ export default function SourcesPage() {
                         </Button>
                         <Button
                           size="icon"
+                          variant={source.enabled ? "outline" : "secondary"}
+                          aria-label={source.enabled ? "Disable monitoring" : "Enable monitoring"}
+                          title={source.enabled ? "Disable monitoring" : "Enable monitoring"}
+                          disabled={monitoringMutation.isPending}
+                          onClick={() =>
+                            monitoringMutation.mutate({ id: source.id, enabled: !source.enabled })
+                          }
+                        >
+                          {source.enabled ? <Pause /> : <Play />}
+                        </Button>
+                        <Button
+                          size="icon"
                           variant="outline"
                           aria-label="Run source"
+                          title={source.enabled ? "Run source" : "Enable monitoring to run this source"}
+                          disabled={!source.enabled || runMutation.isPending}
                           onClick={() => runMutation.mutate(source.id)}
                         >
                           <Play />
@@ -236,6 +261,8 @@ export default function SourcesPage() {
                           size="icon"
                           variant="outline"
                           aria-label="Baseline source"
+                          title={source.enabled ? "Baseline source" : "Enable monitoring to run a baseline"}
+                          disabled={!source.enabled || baselineMutation.isPending}
                           onClick={() => baselineMutation.mutate(source.id)}
                         >
                           <RotateCcw />

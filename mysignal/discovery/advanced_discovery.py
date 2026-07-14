@@ -21,7 +21,7 @@ from mysignal.discovery.api_discovery import (
 )
 from mysignal.discovery.page_links import company_domain
 from mysignal.filters.content_filter import is_content_candidate
-from mysignal.summarizers.openai_summarizer import OPENAI_MODEL, client
+from backend.app.config import get_settings
 
 try:
     from backend.app.observability import LOG_PATH, log_health_event
@@ -521,13 +521,14 @@ def plan_adapter_with_llm(
     evidence: dict[str, Any],
     observed_domains: set[str],
 ) -> DiscoveryAdapter | None:
-    if not os.getenv("OPENAI_API_KEY"):
+    settings = get_settings()
+    if not settings.google_api_key:
         _log(
             action="llm_discovery_planner",
             status="skipped",
             metadata={
                 "page_url": page_url,
-                "reason": "missing_openai_api_key",
+                "reason": "missing_google_api_key",
             },
         )
         return None
@@ -554,20 +555,18 @@ Evidence:
 """
 
     try:
-        response = client.chat.completions.create(
-            model=OPENAI_MODEL,
-            messages=[
-                {
-                    "role": "system",
-                    "content": "Return strict JSON for a deterministic crawler adapter.",
-                },
-                {
-                    "role": "user",
-                    "content": prompt,
-                },
-            ],
+        from google import genai
+        from google.genai import types
+
+        response = genai.Client(api_key=settings.google_api_key).models.generate_content(
+            model=settings.google_gemini_model,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                system_instruction="Return strict JSON for a deterministic crawler adapter.",
+                response_mime_type="application/json",
+            ),
         )
-        content = response.choices[0].message.content or ""
+        content = response.text or ""
         data = _extract_json_object(content)
     except Exception as exc:
         _log(
@@ -576,7 +575,7 @@ Evidence:
             started_at=started_at,
             metadata={
                 "page_url": page_url,
-                "model": OPENAI_MODEL,
+                "model": settings.google_gemini_model,
                 "error": str(exc),
                 "error_type": type(exc).__name__,
             },
@@ -626,7 +625,7 @@ Evidence:
         started_at=started_at,
         metadata={
             "page_url": page_url,
-            "model": OPENAI_MODEL,
+            "model": settings.google_gemini_model,
             "planned_endpoint_count": len(adapter.endpoints),
         },
     )
@@ -925,8 +924,9 @@ def discovery_health_summary() -> dict[str, Any]:
 
     return {
         "status": "ok",
-        "openai_configured": bool(os.getenv("OPENAI_API_KEY")),
-        "openai_model": OPENAI_MODEL,
+        "gemini_configured": bool(get_settings().google_api_key),
+        "gemini_model": get_settings().google_gemini_model,
+        "zenrows_configured": bool(get_settings().zenrows_api_key),
         "browser_tracing_available": browser_available,
         "adapter_cache_path": str(ADAPTER_CACHE_PATH),
         "adapter_cache_exists": ADAPTER_CACHE_PATH.exists(),

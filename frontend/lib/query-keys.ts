@@ -14,7 +14,7 @@ export const queryKeys = {
   insightStats: (days: number) => ["insights", "stats", days] as const,
   accounts: ["admin", "accounts"] as const,
   session: ["auth", "session"] as const,
-  smtpStatus: ["email", "smtp-status"] as const,
+  sesStatus: ["email", "ses-status"] as const,
   emailSettings: ["email", "settings"] as const,
   companyRecipients: ["email", "recipients"] as const,
   emailSummaries: (companyId?: number) =>

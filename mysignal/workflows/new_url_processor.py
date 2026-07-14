@@ -2,7 +2,7 @@ from mysignal.monitoring.inventory_store import (
     load_seen_url_records,
     save_seen_url_records,
 )
-from mysignal.notifications.smtp_email import (
+from mysignal.notifications.ses_email import (
     send_article_update_email,
 )
 
@@ -70,7 +70,7 @@ def process_new_url_record(
 
                 if email_result is not None:
                     email_result["status"] = "sent" if email_sent else "skipped"
-                    email_result["error"] = None if email_sent else "SMTP not configured or no recipients."
+                    email_result["error"] = None if email_sent else "SES is not configured or no recipients are enabled."
 
                 if email_sent:
                     print(

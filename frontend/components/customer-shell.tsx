@@ -1,137 +1,96 @@
 "use client";
 
-import {
-  BarChart3,
-  Bell,
-  Gauge,
-  Lightbulb,
-  LogOut,
-  Menu,
-  Radar,
-  Settings,
-  ShieldCheck,
-  X,
-} from "lucide-react";
+import { LogOut, Radar, ShieldCheck, Sparkles } from "lucide-react";
 import * as React from "react";
 
 import { useAuth } from "@/components/auth-provider";
 import { Link, usePathname } from "@/components/router";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { cn, getInitials } from "@/lib/utils";
+
+// The customer app is exactly two pages, so the old sidebar gave way to a
+// light top bar: brand, a two-tab pill switch, and the account. Legacy routes
+// still resolve (see src/main.tsx) and simply light up the tab they belong to.
+
+const HOME_PATHS = ["/dashboard", "/insights", "/trends"];
 
 const navItems = [
-  { href: "/dashboard", label: "Command Center", icon: Gauge },
-  { href: "/monitors", label: "Monitors", icon: Radar },
-  { href: "/insights", label: "Insights", icon: Lightbulb },
-  { href: "/trends", label: "Trends", icon: BarChart3 },
-  { href: "/notifications", label: "Notifications", icon: Bell },
-  { href: "/settings/workspace", label: "Settings", icon: Settings },
+  { href: "/dashboard", label: "Home", icon: Sparkles, isActive: (path: string) => HOME_PATHS.some((p) => path.startsWith(p)) },
+  {
+    href: "/monitors",
+    label: "Watchtower",
+    icon: Radar,
+    isActive: (path: string) =>
+      path.startsWith("/monitors") ||
+      path.startsWith("/notifications") ||
+      path.startsWith("/settings") ||
+      path.startsWith("/onboarding"),
+  },
 ];
 
 export function CustomerShell({ children }: { children: React.ReactNode }) {
   const auth = useAuth();
   const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const activeItem = navItems
-    .slice()
-    .sort((a, b) => b.href.length - a.href.length)
-    .find((item) => pathname.startsWith(item.href));
-
-  const sidebar = (
-    <aside className="flex h-full flex-col bg-[hsl(222_47%_9%)] text-white">
-      <div className="flex h-16 items-center gap-3 border-b border-white/10 px-5">
-        <div className="flex size-10 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-          <ShieldCheck className="size-5" />
-        </div>
-        <div>
-          <div className="font-semibold">Sentinel Actalyst</div>
-          <div className="text-xs text-white/55">Always on watch</div>
-        </div>
-      </div>
-      <nav className="grid gap-1 p-3">
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          const active = pathname.startsWith(item.href);
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setMobileOpen(false)}
-              className={cn(
-                "flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-white/65 transition-colors hover:bg-white/10 hover:text-white",
-                active && "bg-white/10 text-white",
-              )}
-            >
-              <Icon className="size-4" />
-              {item.label}
-            </Link>
-          );
-        })}
-      </nav>
-      <div className="mt-auto border-t border-white/10 p-3">
-        <div className="mb-3 rounded-lg bg-white/10 px-3 py-2">
-          <div className="text-sm font-medium">{auth.session?.name}</div>
-          <div className="text-xs text-white/55">Customer workspace</div>
-        </div>
-        <Button
-          variant="ghost"
-          className="w-full justify-start text-white/65 hover:bg-white/10 hover:text-white"
-          onClick={async () => {
-            await auth.logout();
-            window.location.assign("/login");
-          }}
-        >
-          <LogOut className="size-4" />
-          Sign out
-        </Button>
-      </div>
-    </aside>
-  );
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="fixed inset-y-0 left-0 z-30 hidden w-64 lg:block">
-        {sidebar}
-      </div>
+      <header className="sticky top-0 z-30 border-b bg-background/85 backdrop-blur">
+        <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
+          <Link href="/dashboard" className="flex min-w-0 items-center gap-3">
+            <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+              <ShieldCheck className="size-5" />
+            </div>
+            <div className="hidden min-w-0 sm:block">
+              <div className="truncate font-semibold leading-tight">Sentinel Actalyst</div>
+              <div className="text-xs text-muted-foreground">Always on watch</div>
+            </div>
+          </Link>
 
-      {mobileOpen ? (
-        <div className="fixed inset-0 z-40 lg:hidden">
-          <button
-            aria-label="Close navigation"
-            className="absolute inset-0 bg-black/40"
-            onClick={() => setMobileOpen(false)}
-          />
-          <div className="relative h-full w-72">{sidebar}</div>
-        </div>
-      ) : null}
+          <nav className="flex items-center gap-1 rounded-full bg-secondary p-1">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const active = item.isActive(pathname);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={cn(
+                    "flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:px-4",
+                    active && "bg-card text-foreground shadow-sm",
+                  )}
+                >
+                  <Icon className="size-4" />
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
 
-      <div className="lg:pl-64">
-        <header className="sticky top-0 z-20 flex h-16 items-center justify-between border-b bg-background/90 px-4 backdrop-blur sm:px-6">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <div className="hidden items-center gap-2 sm:flex">
+              <div className="flex size-8 items-center justify-center rounded-full bg-accent text-xs font-semibold text-accent-foreground">
+                {getInitials(auth.session?.name || "")}
+              </div>
+              <span className="max-w-32 truncate text-sm font-medium">{auth.session?.name}</span>
+            </div>
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden"
-              onClick={() => setMobileOpen((open) => !open)}
-              aria-label="Toggle navigation"
+              aria-label="Sign out"
+              title="Sign out"
+              onClick={async () => {
+                await auth.logout();
+                window.location.assign("/login");
+              }}
             >
-              {mobileOpen ? <X /> : <Menu />}
+              <LogOut className="size-4" />
             </Button>
-            <div>
-              <h1 className="text-lg font-semibold">
-                {activeItem?.label || "Sentinel Actalyst"}
-              </h1>
-              <p className="hidden text-sm text-muted-foreground sm:block">
-                On watch — what changed, why it matters, and what needs you.
-              </p>
-            </div>
           </div>
-        </header>
-        <main className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6">
-          {children}
-        </main>
-      </div>
+        </div>
+      </header>
+
+      <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6">{children}</main>
     </div>
   );
 }

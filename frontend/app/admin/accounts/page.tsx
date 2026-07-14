@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { Plus, UsersRound } from "lucide-react";
+import { Plus, Trash2, UsersRound } from "lucide-react";
 import * as React from "react";
 import { toast } from "sonner";
 
@@ -17,7 +17,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { createAccount, getApiErrorMessage, listAccounts } from "@/lib/api";
+import { createAccount, deleteAccount, getApiErrorMessage, listAccounts } from "@/lib/api";
 import { queryKeys } from "@/lib/query-keys";
 import { formatDateTime } from "@/lib/utils";
 
@@ -38,6 +38,15 @@ export default function AdminAccountsPage() {
       toast.success(`Account "${account.name}" created. They can sign in now.`);
       setName("");
       setPassword("");
+      queryClient.invalidateQueries({ queryKey: queryKeys.accounts });
+    },
+    onError: (error) => toast.error(getApiErrorMessage(error)),
+  });
+
+  const deleteMutation = useMutation({
+    mutationFn: deleteAccount,
+    onSuccess: (_, accountName) => {
+      toast.success(`Account "${accountName}" and its data were deleted.`);
       queryClient.invalidateQueries({ queryKey: queryKeys.accounts });
     },
     onError: (error) => toast.error(getApiErrorMessage(error)),
@@ -126,6 +135,7 @@ export default function AdminAccountsPage() {
                   <TableHead>Companies</TableHead>
                   <TableHead>Monitors</TableHead>
                   <TableHead>Last login</TableHead>
+                  <TableHead className="w-24">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -135,6 +145,21 @@ export default function AdminAccountsPage() {
                     <TableCell>{account.company_count}</TableCell>
                     <TableCell>{account.monitor_count}</TableCell>
                     <TableCell>{formatDateTime(account.last_login_at)}</TableCell>
+                    <TableCell>
+                      <Button
+                        size="icon"
+                        variant="destructive"
+                        aria-label={`Delete ${account.name}`}
+                        disabled={deleteMutation.isPending}
+                        onClick={() => {
+                          if (confirm(`Delete account "${account.name}" and all of its companies, sources, runs, and insights? This cannot be undone.`)) {
+                            deleteMutation.mutate(account.name);
+                          }
+                        }}
+                      >
+                        <Trash2 />
+                      </Button>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>

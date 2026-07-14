@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { ArrowLeft, ExternalLink, Play, RotateCcw, Search, Trash2 } from "lucide-react";
+import { ArrowLeft, ExternalLink, Pause, Play, RotateCcw, Search, Trash2 } from "lucide-react";
 import * as React from "react";
 import { toast } from "sonner";
 
@@ -35,6 +35,7 @@ import {
   runSource,
   taskHasFailedResult,
   type TaskStatus,
+  updateSource,
 } from "@/lib/api";
 import { queryKeys } from "@/lib/query-keys";
 import { formatDateTime, truncate } from "@/lib/utils";
@@ -94,6 +95,17 @@ export default function SourceDetailsPage() {
     onError: (error) => toast.error(getApiErrorMessage(error)),
   });
 
+  const monitoringMutation = useMutation({
+    mutationFn: (enabled: boolean) => updateSource(sourceId, { enabled }),
+    onSuccess: (updatedSource) => {
+      toast.success(updatedSource.enabled ? "Monitoring enabled." : "Monitoring disabled.");
+      queryClient.invalidateQueries({ queryKey: queryKeys.source(sourceId) });
+      queryClient.invalidateQueries({ queryKey: queryKeys.sources });
+      queryClient.invalidateQueries({ queryKey: queryKeys.monitorStatus });
+    },
+    onError: (error) => toast.error(getApiErrorMessage(error)),
+  });
+
   const deleteMutation = useMutation({
     mutationFn: deleteSource,
     onSuccess: () => {
@@ -145,13 +157,30 @@ export default function SourceDetailsPage() {
         </div>
         {source ? (
           <div className="flex flex-wrap gap-2">
-            <Button onClick={() => runMutation.mutate(source.id)}>
+            <Button
+              onClick={() => runMutation.mutate(source.id)}
+              disabled={!source.enabled || runMutation.isPending}
+              title={source.enabled ? "Run source" : "Enable monitoring to run this source"}
+            >
               <Play />
               Run
             </Button>
-            <Button variant="outline" onClick={() => baselineMutation.mutate(source.id)}>
+            <Button
+              variant="outline"
+              onClick={() => baselineMutation.mutate(source.id)}
+              disabled={!source.enabled || baselineMutation.isPending}
+              title={source.enabled ? "Baseline source" : "Enable monitoring to run a baseline"}
+            >
               <RotateCcw />
               Baseline
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => monitoringMutation.mutate(!source.enabled)}
+              disabled={monitoringMutation.isPending}
+            >
+              {source.enabled ? <Pause /> : <Play />}
+              {source.enabled ? "Disable monitoring" : "Enable monitoring"}
             </Button>
             <Button
               variant="destructive"
@@ -230,7 +259,8 @@ export default function SourceDetailsPage() {
             <Button
               variant="outline"
               onClick={() => previewQuery.refetch()}
-              disabled={!source || previewQuery.isFetching}
+              disabled={!source?.enabled || previewQuery.isFetching}
+              title={source?.enabled ? "Run discovery check" : "Enable monitoring to run a discovery check"}
             >
               <Search />
               {previewQuery.isFetching ? "Checking" : "Run check"}
