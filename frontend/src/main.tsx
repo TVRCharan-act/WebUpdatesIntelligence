@@ -4,11 +4,11 @@ import { createRoot } from "react-dom/client";
 import "@/app/globals.css";
 import DashboardPage from "@/app/page";
 import AdminAccountsPage from "@/app/admin/accounts/page";
+import CrawlerLabPage from "@/app/admin/crawler-lab/page";
 import CompaniesPage from "@/app/companies/page";
 import HomePage from "@/app/dashboard/page";
 import EmailPage from "@/app/email/page";
 import LoginPage from "@/app/login/page";
-import WatchtowerPage from "@/app/monitors/page";
 import RunsPage from "@/app/runs/page";
 import SettingsPage from "@/app/settings/page";
 import SourcesPage from "@/app/sources/page";
@@ -55,6 +55,7 @@ function Routes() {
       <AppShell>
         {pathname === "/admin/dashboard" ? <DashboardPage /> : null}
         {pathname === "/admin/accounts" ? <AdminAccountsPage /> : null}
+        {pathname === "/admin/crawler-lab" ? <CrawlerLabPage /> : null}
         {pathname === "/admin/companies" ? <CompaniesPage /> : null}
         {pathname === "/admin/sources" ? <SourcesPage /> : null}
         {/^\/admin\/sources\/[^/]+$/.test(pathname) ? <SourceDetailsPage /> : null}
@@ -66,20 +67,13 @@ function Routes() {
     );
   }
 
-  // The customer app is two pages. Legacy routes still deep-link into them:
-  // /insights and /trends land on Home; /monitors/[id], /notifications,
-  // /settings and /onboarding land on the right Watchtower tab / dialog.
-  const isHome = ["/dashboard", "/insights", "/trends"].includes(pathname);
-  const isWatchtower =
-    pathname.startsWith("/monitors") ||
-    pathname === "/notifications" ||
-    pathname.startsWith("/settings") ||
-    pathname === "/onboarding";
-
+  // The customer app is one page (HomePage), composed of anchored sections.
+  // Legacy routes (/insights, /trends, /monitors, /monitors/[id],
+  // /notifications, /settings, /onboarding) still deep-link in — HomePage
+  // reads the pathname itself to jump to the right section / dialog.
   return (
     <CustomerShell>
-      {isHome ? <HomePage /> : null}
-      {isWatchtower ? <WatchtowerPage /> : null}
+      <HomePage />
     </CustomerShell>
   );
 }

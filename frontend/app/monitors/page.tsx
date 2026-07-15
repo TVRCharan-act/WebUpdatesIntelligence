@@ -35,7 +35,7 @@ import { InsightCard } from "@/components/intel/insight-card";
 import { PRIORITY_OPTIONS, PriorityBadge } from "@/components/intel/priority-badge";
 import { ThinkingState } from "@/components/intel/thinking-state";
 import { EmptyState } from "@/components/empty-state";
-import { Link, usePathname, useRouter } from "@/components/router";
+import { Link } from "@/components/router";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -94,95 +94,18 @@ import {
   truncate,
 } from "@/lib/utils";
 
-// The Watchtower page holds everything about *what* you watch and *how* you're
-// told: monitor cards (with an add dialog that doubles as onboarding), a
-// per-monitor dossier dialog (the old /monitors/[id] page), an Alerts tab (the
-// old /notifications page) and a Workspace tab (the old /settings page). Legacy
-// routes deep-link straight into the right tab / dialog.
-
-type Tab = "monitors" | "alerts" | "workspace";
-
-const TABS: { value: Tab; href: string; label: string; icon: React.ElementType }[] = [
-  { value: "monitors", href: "/monitors", label: "Monitors", icon: Radar },
-  { value: "alerts", href: "/notifications", label: "Alerts", icon: Bell },
-  { value: "workspace", href: "/settings", label: "Workspace", icon: Building2 },
-];
-
-export default function WatchtowerPage() {
-  const pathname = usePathname();
-  const router = useRouter();
-
-  const tab: Tab =
-    pathname === "/notifications"
-      ? "alerts"
-      : pathname.startsWith("/settings")
-        ? "workspace"
-        : "monitors";
-
-  const monitorMatch = pathname.match(/^\/monitors\/([^/]+)$/);
-  const selectedId = monitorMatch ? Number(monitorMatch[1]) : null;
-
-  // /onboarding lands here with the add dialog already open.
-  const [addOpen, setAddOpen] = React.useState(false);
-  const addDialogOpen = addOpen || pathname === "/onboarding";
-
-  function closeAddDialog() {
-    setAddOpen(false);
-    if (pathname === "/onboarding") router.replace("/monitors");
-  }
-
-  return (
-    <div className="grid gap-6">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <h2 className="text-2xl font-semibold">Watchtower</h2>
-          <p className="text-sm text-muted-foreground">
-            What your sentinel watches, who it alerts, and your workspace.
-          </p>
-        </div>
-        <div className="inline-flex w-fit items-center gap-1 rounded-full bg-secondary p-1">
-          {TABS.map((item) => {
-            const Icon = item.icon;
-            const active = tab === item.value;
-            return (
-              <Link
-                key={item.value}
-                href={item.href}
-                className={cn(
-                  "flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground",
-                  active && "bg-card text-foreground shadow-sm",
-                )}
-              >
-                <Icon className="size-3.5" />
-                {item.label}
-              </Link>
-            );
-          })}
-        </div>
-      </div>
-
-      {tab === "monitors" ? (
-        <MonitorsTab onAdd={() => setAddOpen(true)} />
-      ) : tab === "alerts" ? (
-        <AlertsTab />
-      ) : (
-        <WorkspaceTab />
-      )}
-
-      <AddMonitorDialog open={addDialogOpen} onClose={closeAddDialog} />
-
-      {selectedId != null && Number.isFinite(selectedId) ? (
-        <MonitorDetailDialog sourceId={selectedId} onClose={() => router.push("/monitors")} />
-      ) : null}
-    </div>
-  );
-}
+// This module holds every building block for what your sentinel watches and
+// how it alerts you: the Monitors grid (with an add dialog that doubles as
+// onboarding), a per-monitor dossier dialog, an Alerts section, and a
+// Workspace section. They're composed together on the single unified
+// dashboard page (app/dashboard/page.tsx) as stacked, anchored sections
+// instead of separate routed tabs.
 
 // ---------------------------------------------------------------------------
-// Monitors tab — the grid of watched sites.
+// Monitors section — the grid of watched sites.
 // ---------------------------------------------------------------------------
 
-function MonitorsTab({ onAdd }: { onAdd: () => void }) {
+export function MonitorsSection({ onAdd }: { onAdd: () => void }) {
   const [query, setQuery] = React.useState("");
 
   const companiesQuery = useQuery({ queryKey: queryKeys.companies, queryFn: listCompanies });
@@ -439,7 +362,7 @@ function MonitorCard({
 // Add-monitor dialog — also serves as onboarding (/onboarding opens it).
 // ---------------------------------------------------------------------------
 
-function AddMonitorDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
+export function AddMonitorDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
   const queryClient = useQueryClient();
   const [companyName, setCompanyName] = React.useState("");
   const [url, setUrl] = React.useState("");
@@ -589,7 +512,7 @@ function AddMonitorDialog({ open, onClose }: { open: boolean; onClose: () => voi
 // alert recipients inline.
 // ---------------------------------------------------------------------------
 
-function MonitorDetailDialog({ sourceId, onClose }: { sourceId: number; onClose: () => void }) {
+export function MonitorDetailDialog({ sourceId, onClose }: { sourceId: number; onClose: () => void }) {
   const queryClient = useQueryClient();
   const [cadenceValue, setCadenceValue] = React.useState("1");
   const [cadenceUnit, setCadenceUnit] = React.useState<CadenceUnit>("hour");
@@ -915,10 +838,10 @@ function CompanyRecipients({ companyId }: { companyId: number }) {
 }
 
 // ---------------------------------------------------------------------------
-// Alerts tab — the old /notifications page.
+// Alerts section — notification cadence, delivery health, recipients.
 // ---------------------------------------------------------------------------
 
-function AlertsTab() {
+export function AlertsSection() {
   const queryClient = useQueryClient();
   const [emailByCompany, setEmailByCompany] = React.useState<Record<number, string>>({});
   const recipientsQuery = useQuery({
@@ -1164,10 +1087,10 @@ function AlertsTab() {
 }
 
 // ---------------------------------------------------------------------------
-// Workspace tab — the old /settings page.
+// Workspace section — account, team, and billing snapshot.
 // ---------------------------------------------------------------------------
 
-function WorkspaceTab() {
+export function WorkspaceSection() {
   const auth = useAuth();
   const companiesQuery = useQuery({ queryKey: queryKeys.companies, queryFn: listCompanies });
   const sourcesQuery = useQuery({ queryKey: queryKeys.sources, queryFn: listSources });

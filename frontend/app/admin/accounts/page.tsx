@@ -10,6 +10,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Table,
   TableBody,
   TableCell,
@@ -17,9 +24,22 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { createAccount, deleteAccount, getApiErrorMessage, listAccounts } from "@/lib/api";
+import {
+  type AccountAcquisitionProvider,
+  createAccount,
+  deleteAccount,
+  getApiErrorMessage,
+  listAccounts,
+  updateAccount,
+} from "@/lib/api";
 import { queryKeys } from "@/lib/query-keys";
 import { formatDateTime } from "@/lib/utils";
+
+const CRAWLER_OPTIONS: { value: AccountAcquisitionProvider; label: string }[] = [
+  { value: "auto", label: "Auto (per-monitor default)" },
+  { value: "zenrows", label: "ZenRows" },
+  { value: "crawl4ai", label: "Crawl4AI" },
+];
 
 export default function AdminAccountsPage() {
   const queryClient = useQueryClient();
@@ -47,6 +67,16 @@ export default function AdminAccountsPage() {
     mutationFn: deleteAccount,
     onSuccess: (_, accountName) => {
       toast.success(`Account "${accountName}" and its data were deleted.`);
+      queryClient.invalidateQueries({ queryKey: queryKeys.accounts });
+    },
+    onError: (error) => toast.error(getApiErrorMessage(error)),
+  });
+
+  const crawlerMutation = useMutation({
+    mutationFn: ({ name, provider }: { name: string; provider: AccountAcquisitionProvider }) =>
+      updateAccount(name, { default_acquisition_provider: provider }),
+    onSuccess: (account) => {
+      toast.success(`${account.name}'s default crawler is now ${account.default_acquisition_provider}.`);
       queryClient.invalidateQueries({ queryKey: queryKeys.accounts });
     },
     onError: (error) => toast.error(getApiErrorMessage(error)),
@@ -135,6 +165,7 @@ export default function AdminAccountsPage() {
                   <TableHead>Companies</TableHead>
                   <TableHead>Monitors</TableHead>
                   <TableHead>Last login</TableHead>
+                  <TableHead className="w-48">Crawler</TableHead>
                   <TableHead className="w-24">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -145,6 +176,28 @@ export default function AdminAccountsPage() {
                     <TableCell>{account.company_count}</TableCell>
                     <TableCell>{account.monitor_count}</TableCell>
                     <TableCell>{formatDateTime(account.last_login_at)}</TableCell>
+                    <TableCell>
+                      <Select
+                        value={account.default_acquisition_provider}
+                        onValueChange={(value) =>
+                          crawlerMutation.mutate({
+                            name: account.name,
+                            provider: value as AccountAcquisitionProvider,
+                          })
+                        }
+                      >
+                        <SelectTrigger aria-label={`Default crawler for ${account.name}`}>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {CRAWLER_OPTIONS.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </TableCell>
                     <TableCell>
                       <Button
                         size="icon"

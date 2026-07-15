@@ -261,6 +261,12 @@ class S3Repository:
         except DuplicateRecord:
             return self.get_account(name) or (_ for _ in ()).throw(RecordNotFound(name))
 
+    def update_account_settings(self, name: str, *, default_acquisition_provider: str) -> dict[str, Any]:
+        return self._update(
+            self._account_key(name),
+            lambda record: {**record, "default_acquisition_provider": default_acquisition_provider},
+        )
+
     def bootstrap_customer_accounts_once(self, accounts: Iterable[tuple[str, str]]) -> None:
         """Seed configured customers only during the initial S3 bootstrap.
 

@@ -23,6 +23,7 @@ import {
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import {
+  type AcquisitionProvider,
   type Company,
   type Source,
   type SourceCreateInput,
@@ -30,10 +31,19 @@ import {
   type Strategy,
 } from "@/lib/api";
 
+const ACQUISITION_PROVIDER_OPTIONS: { value: AcquisitionProvider; label: string }[] = [
+  { value: "auto", label: "Auto (account default)" },
+  { value: "zenrows", label: "ZenRows" },
+  { value: "crawl4ai", label: "Crawl4AI" },
+  { value: "requests", label: "Plain requests" },
+  { value: "firecrawl", label: "Firecrawl" },
+];
+
 interface FormState {
   company_id: string;
   url: string;
   strategy: Strategy;
+  acquisition_provider: AcquisitionProvider;
   trace_js: boolean;
   js_bundle_sources: string;
   enabled: boolean;
@@ -45,6 +55,7 @@ function sourceToForm(source?: Source): FormState {
     company_id: source?.company_id ? String(source.company_id) : "",
     url: source?.url || "",
     strategy: source?.strategy || "parent",
+    acquisition_provider: source?.acquisition_provider || "auto",
     trace_js: source?.trace_js || false,
     js_bundle_sources: source?.js_bundle_sources?.join("\n") || "",
     enabled: source?.enabled ?? true,
@@ -102,6 +113,7 @@ export function SourceFormDialog({
     const base = {
       url: form.url.trim(),
       strategy: form.strategy,
+      acquisition_provider: form.acquisition_provider,
       trace_js: form.strategy === "parent" ? form.trace_js : false,
       js_bundle_sources: jsSources,
       enabled: form.enabled,
@@ -193,6 +205,28 @@ export function SourceFormDialog({
                 required
               />
             </div>
+          </div>
+
+          <div className="grid gap-2">
+            <Label htmlFor="acquisition-provider">Crawler</Label>
+            <Select
+              value={form.acquisition_provider}
+              onValueChange={(value) => update("acquisition_provider", value as AcquisitionProvider)}
+            >
+              <SelectTrigger id="acquisition-provider">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {ACQUISITION_PROVIDER_OPTIONS.map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <p className="text-xs text-muted-foreground">
+              Auto uses this customer&apos;s default crawler (set on the Accounts page), or ZenRows/Crawl4AI if none is set.
+            </p>
           </div>
 
           <div className="grid gap-2">

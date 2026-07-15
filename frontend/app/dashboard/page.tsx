@@ -4,6 +4,8 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   ArrowRight,
   ArrowUpDown,
+  Bell,
+  Building2,
   Clock3,
   Radar,
   Search,
@@ -20,7 +22,14 @@ import { AnalystEmptyState } from "@/components/intel/analyst-empty-state";
 import { ActivityPulse } from "@/components/intel/activity-pulse";
 import { InsightCard } from "@/components/intel/insight-card";
 import { PRIORITY_RANK } from "@/components/intel/priority-badge";
-import { Link } from "@/components/router";
+import {
+  AddMonitorDialog,
+  AlertsSection,
+  MonitorDetailDialog,
+  MonitorsSection,
+  WorkspaceSection,
+} from "@/app/monitors/page";
+import { useParams, usePathname, useRouter } from "@/components/router";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -45,10 +54,12 @@ import { queryKeys } from "@/lib/query-keys";
 import { deriveTrend } from "@/lib/trend";
 import { formatDurationShort, truncate } from "@/lib/utils";
 
-// The Home page is the whole daily loop on one screen: a briefing hero that
-// says what needs you, the full update feed (search / sort / review filter),
-// and a Pulse rail that carries every Trends read-out. Monitors management
-// lives on the second page (/monitors).
+// The whole app is one page. A briefing hero that says what needs you, the
+// full update feed (search / sort / review filter) with a Pulse rail, then
+// Monitors, Alerts, and Workspace stacked below as anchored sections — no
+// route changes, just scroll (or the header's jump nav). Legacy routes
+// (/monitors, /monitors/[id], /notifications, /settings, /onboarding,
+// /insights, /trends) still deep-link straight to the right section / dialog.
 
 function greeting(): string {
   const hour = new Date().getHours();
@@ -134,13 +145,59 @@ function comparator(sort: SortKey): (a: Enriched, b: Enriched) => number {
   }
 }
 
+const ANCHOR_FOR_LEGACY_PATH: Record<string, string> = {
+  "/insights": "overview",
+  "/trends": "overview",
+  "/monitors": "monitors",
+  "/onboarding": "monitors",
+  "/notifications": "alerts",
+};
+
+function anchorForPath(pathname: string): string | null {
+  if (pathname in ANCHOR_FOR_LEGACY_PATH) return ANCHOR_FOR_LEGACY_PATH[pathname];
+  if (pathname.startsWith("/monitors/")) return "monitors";
+  if (pathname.startsWith("/settings")) return "workspace";
+  return null;
+}
+
 export default function HomePage() {
   const auth = useAuth();
   const queryClient = useQueryClient();
+  const pathname = usePathname();
+  const router = useRouter();
   const [search, setSearch] = React.useState("");
   const [toReviewOnly, setToReviewOnly] = React.useState(false);
   const [sortBy, setSortBy] = React.useState<SortKey>("recent");
   const [companyFilter, setCompanyFilter] = React.useState<string>("all");
+
+  // Legacy deep links land on this same page; on first mount, jump straight
+  // to the section (and dialog) they used to open on their own route.
+  const initialPathname = React.useRef(pathname).current;
+  React.useEffect(() => {
+    const anchor = anchorForPath(initialPathname);
+    if (!anchor) return;
+    requestAnimationFrame(() => {
+      document.getElementById(anchor)?.scrollIntoView({ block: "start" });
+    });
+  }, [initialPathname]);
+
+  const { id: monitorIdParam } = useParams<{ id: string }>();
+  const selectedMonitorId = monitorIdParam ? Number(monitorIdParam) : null;
+
+  const [addOpen, setAddOpen] = React.useState(false);
+  const addDialogOpen = addOpen || pathname === "/onboarding";
+
+  function closeAddDialog() {
+    setAddOpen(false);
+    if (pathname === "/onboarding") router.replace("/dashboard");
+  }
+
+  function openTrackWebsite() {
+    setAddOpen(true);
+    requestAnimationFrame(() => {
+      document.getElementById("monitors")?.scrollIntoView({ block: "start" });
+    });
+  }
 
   const companiesQuery = useQuery({ queryKey: queryKeys.companies, queryFn: listCompanies });
   const sourcesQuery = useQuery({ queryKey: queryKeys.sources, queryFn: listSources });
@@ -259,7 +316,8 @@ export default function HomePage() {
   const hasAnyInsights = insights.length > 0;
 
   return (
-    <div className="grid gap-6">
+    <div className="grid gap-10 pb-10">
+      <section id="overview" className="grid scroll-mt-24 gap-6">
       <section className="relative overflow-hidden rounded-2xl border bg-[hsl(var(--briefing-bg))] p-6 shadow-sm sm:p-8">
         <AmbientSignal amplitude={trend.level === "Busy" ? 1.4 : trend.level === "Quiet" ? 0.6 : 1} />
         <div className="relative grid gap-6">
@@ -274,11 +332,9 @@ export default function HomePage() {
               </h2>
               <p className="mt-2 text-muted-foreground">{synthesis}</p>
             </div>
-            <Button asChild className="shrink-0">
-              <Link href="/monitors">
-                Track a website
-                <ArrowRight />
-              </Link>
+            <Button className="shrink-0" onClick={openTrackWebsite}>
+              Track a website
+              <ArrowRight />
             </Button>
           </div>
 
@@ -315,7 +371,7 @@ export default function HomePage() {
         <AnalystEmptyState
           title="Post your sentinel at its first website."
           body="Add one URL and your sentinel takes up watch — surfacing future changes as business-readable updates, usually within a minute."
-          action={{ label: "Track your first website", href: "/monitors" }}
+          action={{ label: "Track your first website", onClick: openTrackWebsite }}
         />
       ) : (
         <div className="grid gap-6 xl:grid-cols-[1fr_360px]">
@@ -513,6 +569,62 @@ export default function HomePage() {
           </aside>
         </div>
       )}
+      </section>
+
+      <section id="monitors" className="grid scroll-mt-24 gap-4 border-t pt-8">
+        <SectionHeading
+          icon={Radar}
+          title="Monitors"
+          description="Every website your sentinel is watching, at a glance."
+        />
+        <MonitorsSection onAdd={() => setAddOpen(true)} />
+      </section>
+
+      <section id="alerts" className="grid scroll-mt-24 gap-4 border-t pt-8">
+        <SectionHeading
+          icon={Bell}
+          title="Alerts"
+          description="When your sentinel tells you, and who it tells."
+        />
+        <AlertsSection />
+      </section>
+
+      <section id="workspace" className="grid scroll-mt-24 gap-4 border-t pt-8">
+        <SectionHeading
+          icon={Building2}
+          title="Workspace"
+          description="Your account, team, and plan."
+        />
+        <WorkspaceSection />
+      </section>
+
+      <AddMonitorDialog open={addDialogOpen} onClose={closeAddDialog} />
+
+      {selectedMonitorId != null && Number.isFinite(selectedMonitorId) ? (
+        <MonitorDetailDialog sourceId={selectedMonitorId} onClose={() => router.push("/dashboard")} />
+      ) : null}
+    </div>
+  );
+}
+
+function SectionHeading({
+  icon: Icon,
+  title,
+  description,
+}: {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex items-center gap-2">
+        <span className="flex size-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+          <Icon className="size-4" />
+        </span>
+        <h2 className="text-xl font-semibold">{title}</h2>
+      </div>
+      <p className="text-sm text-muted-foreground sm:text-right">{description}</p>
     </div>
   );
 }

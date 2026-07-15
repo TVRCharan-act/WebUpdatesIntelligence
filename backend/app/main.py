@@ -8,7 +8,20 @@ from fastapi.middleware.cors import CORSMiddleware
 from backend.app.observability import log_health_event
 from backend.app.auth import bootstrap_accounts
 from backend.app.config import get_settings
-from backend.app.routers import admin, auth, companies, email, health, insights, monitor, runs, sources, storage, tasks
+from backend.app.routers import (
+    admin,
+    auth,
+    companies,
+    crawler_lab,
+    email,
+    health,
+    insights,
+    monitor,
+    runs,
+    sources,
+    storage,
+    tasks,
+)
 
 
 @asynccontextmanager
@@ -96,6 +109,7 @@ async def log_request_timing(request, call_next):
 app.include_router(health.router)
 app.include_router(auth.router)
 app.include_router(admin.router)
+app.include_router(crawler_lab.router)
 app.include_router(companies.router)
 app.include_router(email.router)
 app.include_router(insights.router)

@@ -42,6 +42,7 @@ class ConfigAccount:
     name: str
     role: str
     last_login_at: datetime | None = None
+    default_acquisition_provider: str = "auto"
 
 
 def _normalize_name(value: str) -> str:
@@ -101,6 +102,7 @@ def configured_accounts(repository: S3Repository) -> list[ConfigAccount]:
                 name=str(account["name"]),
                 role=str(account["role"]),
                 last_login_at=last_login,
+                default_acquisition_provider=str(account.get("default_acquisition_provider") or "auto"),
             )
         )
     return rows

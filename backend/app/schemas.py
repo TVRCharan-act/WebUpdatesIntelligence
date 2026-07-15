@@ -358,11 +358,54 @@ class AccountOverviewRead(BaseModel):
     company_count: int = 0
     monitor_count: int = 0
     last_login_at: datetime | None = None
+    default_acquisition_provider: Literal["auto", "zenrows", "crawl4ai"] = "auto"
 
 
 class AccountCreate(BaseModel):
     name: str
     password: str
+
+
+class AccountSettingsUpdate(BaseModel):
+    default_acquisition_provider: Literal["auto", "zenrows", "crawl4ai"]
+
+
+class CrawlerLabCompareRequest(BaseModel):
+    url: HttpUrl
+
+
+class CrawlerLabProviderResult(BaseModel):
+    provider: Literal["zenrows", "crawl4ai"]
+    success: bool
+    error: str | None = None
+    total_latency_seconds: float
+    discovery_success: bool
+    discovery_latency_seconds: float
+    discovery_link_count: int
+    discovery_error: str | None = None
+    discovery_sample_links: list[str] = Field(default_factory=list)
+    content_success: bool
+    content_latency_seconds: float
+    content_title: str | None = None
+    content_length: int = 0
+    content_snippet: str | None = None
+    content_error: str | None = None
+
+
+class CrawlerLabJudgeVerdict(BaseModel):
+    available: bool
+    model: str | None = None
+    winner: Literal["zenrows", "crawl4ai", "tie"] | None = None
+    reasoning: str | None = None
+    zenrows_notes: str | None = None
+    crawl4ai_notes: str | None = None
+    error: str | None = None
+
+
+class CrawlerLabCompareResult(BaseModel):
+    url: str
+    results: list[CrawlerLabProviderResult]
+    judge: CrawlerLabJudgeVerdict
 
 
 class DailyInsightCountRead(BaseModel):

@@ -10,7 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 interface AnalystEmptyStateProps {
   title: string;
   body: string;
-  action?: { label: string; href: string };
+  action?: { label: string; href: string } | { label: string; onClick: () => void };
   /** Renders the ambient Signal pulse; respects prefers-reduced-motion. */
   animated?: boolean;
 }
@@ -27,9 +27,13 @@ export function AnalystEmptyState({
         {animated ? <AmbientPulse /> : null}
         <div className="text-lg font-semibold">{title}</div>
         <p className="max-w-md text-sm text-muted-foreground">{body}</p>
-        {action ? (
+        {action && "href" in action ? (
           <Button asChild className="mt-2">
             <Link href={action.href}>{action.label}</Link>
+          </Button>
+        ) : action ? (
+          <Button className="mt-2" onClick={action.onClick}>
+            {action.label}
           </Button>
         ) : null}
       </CardContent>

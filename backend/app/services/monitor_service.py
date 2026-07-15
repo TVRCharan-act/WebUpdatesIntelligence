@@ -50,9 +50,28 @@ class MonitorResult:
         }
 
 
-def _providers_for(source: dict[str, Any]) -> tuple[str, str]:
+def _effective_acquisition_provider(repository: S3Repository, source: dict[str, Any]) -> str:
+    """Resolve 'auto' against the owning customer's designated crawler.
+
+    A source's own explicit choice always wins; an account-level default (set
+    by an admin per customer) is the next fallback; otherwise callers keep
+    picking their own default (zenrows/firecrawl/requests) for a bare 'auto'.
+    """
+    explicit = str(source.get("acquisition_provider") or "auto")
+    if explicit != "auto":
+        return explicit
+    account = repository.get_account(str(source["owner_name"]))
+    default = str((account or {}).get("default_acquisition_provider") or "auto")
+    return default
+
+
+def _with_effective_provider(repository: S3Repository, source: dict[str, Any]) -> dict[str, Any]:
+    return {**source, "acquisition_provider": _effective_acquisition_provider(repository, source)}
+
+
+def _providers_for(repository: S3Repository, source: dict[str, Any]) -> tuple[str, str]:
     pipeline = str(source.get("processing_pipeline") or "auto")
-    provider = str(source.get("acquisition_provider") or "auto")
+    provider = _effective_acquisition_provider(repository, source)
     if pipeline == "zenrows_gemini":
         return "zenrows", "gemini"
     if pipeline in {"current", "auto"}:
@@ -122,7 +141,7 @@ def _baseline(
     owner = str(source["owner_name"])
     if report_progress:
         report_progress("discovering", "Crawling the source to establish its baseline.", None, None)
-    candidates = discover_candidates(source)
+    candidates = discover_candidates(_with_effective_provider(repository, source))
     stored: list[str] = []
     if report_progress:
         report_progress("baselining", f"Recording {len(candidates)} discovered URLs as seen.", 0, len(candidates))
@@ -208,7 +227,7 @@ def _monitor(
     settings = get_settings()
     if report_progress:
         report_progress("discovering", "Crawling the source for newly published URLs.", None, None)
-    candidates = discover_candidates(source)
+    candidates = discover_candidates(_with_effective_provider(repository, source))
     new_candidates = [
         candidate
         for candidate in candidates
@@ -220,7 +239,7 @@ def _monitor(
     processed: list[str] = []
     failed: list[str] = []
     errors: list[str] = []
-    provider, _analysis_provider = _providers_for(source)
+    provider, _analysis_provider = _providers_for(repository, source)
     analyzer = _build_analyzer(correlation_id)
 
     if report_progress:

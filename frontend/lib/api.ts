@@ -171,6 +171,7 @@ export interface Source {
   company_id: number;
   url: string;
   strategy: Strategy;
+  acquisition_provider: AcquisitionProvider;
   trace_js: boolean;
   js_bundle_sources: string[];
   enabled: boolean;
@@ -184,6 +185,7 @@ export interface SourceCreateInput {
   company_id: number;
   url: string;
   strategy: Strategy;
+  acquisition_provider?: AcquisitionProvider;
   trace_js: boolean;
   js_bundle_sources: string[];
   enabled: boolean;
@@ -244,12 +246,16 @@ export interface AuthSession {
   role: "admin" | "customer";
 }
 
+export type AcquisitionProvider = "auto" | "crawl4ai" | "requests" | "zenrows" | "firecrawl";
+export type AccountAcquisitionProvider = "auto" | "zenrows" | "crawl4ai";
+
 export interface AccountOverview {
   name: string;
   role: "customer";
   company_count: number;
   monitor_count: number;
   last_login_at: string | null;
+  default_acquisition_provider: AccountAcquisitionProvider;
 }
 
 export interface DailyInsightCount {
@@ -445,6 +451,17 @@ export async function createAccount(input: { name: string; password: string }) {
 export async function deleteAccount(name: string) {
   await api.delete(`/admin/accounts/${encodeURIComponent(name)}`);
 }
+
+export async function updateAccount(
+  name: string,
+  input: { default_acquisition_provider: AccountAcquisitionProvider },
+) {
+  const response = await api.patch<AccountOverview>(
+    `/admin/accounts/${encodeURIComponent(name)}`,
+    input,
+  );
+  return response.data;
+}
 export async function getMonitorStatus() {
   const response = await api.get<MonitorStatus>("/monitor/status");
   return response.data;
@@ -632,6 +649,50 @@ export async function getRun(id: number) {
 
 export async function getTaskStatus(taskId: string) {
   const response = await api.get<TaskStatus>(`/tasks/${taskId}`);
+  return response.data;
+}
+
+export type CrawlerLabProvider = "zenrows" | "crawl4ai";
+
+export interface CrawlerLabProviderResult {
+  provider: CrawlerLabProvider;
+  success: boolean;
+  error: string | null;
+  total_latency_seconds: number;
+  discovery_success: boolean;
+  discovery_latency_seconds: number;
+  discovery_link_count: number;
+  discovery_error: string | null;
+  discovery_sample_links: string[];
+  content_success: boolean;
+  content_latency_seconds: number;
+  content_title: string | null;
+  content_length: number;
+  content_snippet: string | null;
+  content_error: string | null;
+}
+
+export interface CrawlerLabJudgeVerdict {
+  available: boolean;
+  model: string | null;
+  winner: CrawlerLabProvider | "tie" | null;
+  reasoning: string | null;
+  zenrows_notes: string | null;
+  crawl4ai_notes: string | null;
+  error: string | null;
+}
+
+export interface CrawlerLabCompareResult {
+  url: string;
+  results: CrawlerLabProviderResult[];
+  judge: CrawlerLabJudgeVerdict;
+}
+
+export async function compareCrawlers(url: string) {
+  const response = await api.post<CrawlerLabCompareResult>(
+    "/admin/crawler-lab/compare",
+    { url },
+  );
   return response.data;
 }
 

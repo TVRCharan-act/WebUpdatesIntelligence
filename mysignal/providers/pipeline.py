@@ -100,6 +100,40 @@ def _content_from_html(url: str, html: str, provider: str) -> Content:
     return Content(url=url, title=title[:500], text=text[:50_000], provider=provider)
 
 
+DEFAULT_CRAWL4AI_TIMEOUT_SECONDS = 20
+
+
+async def _crawl4ai_fetch_content_async(url: str, timeout_seconds: float) -> Content:
+    from crawl4ai import AsyncWebCrawler, CacheMode, CrawlerRunConfig
+
+    async def crawl_page():
+        async with AsyncWebCrawler() as crawler:
+            return await crawler.arun(url=url, config=CrawlerRunConfig(cache_mode=CacheMode.DISABLED))
+
+    result = await asyncio.wait_for(crawl_page(), timeout=timeout_seconds)
+    if getattr(result, "success", True) is False:
+        raise PipelineError(getattr(result, "error_message", None) or "Crawl4AI failed to fetch the page.")
+    html = getattr(result, "html", None) or getattr(result, "cleaned_html", None) or ""
+    markdown = str(getattr(result, "markdown", None) or "").strip()
+    soup = BeautifulSoup(html, "html.parser")
+    for node in soup(["script", "style", "noscript"]):
+        node.decompose()
+    title = soup.title.get_text(" ", strip=True) if soup.title else url
+    text = markdown or soup.get_text(" ", strip=True)
+    if not text:
+        raise PipelineError("Crawl4AI returned no readable content.")
+    return Content(url=url, title=title[:500], text=text[:50_000], provider="crawl4ai")
+
+
+def _crawl4ai_fetch_content(url: str, timeout_seconds: float = DEFAULT_CRAWL4AI_TIMEOUT_SECONDS) -> Content:
+    try:
+        return _run(_crawl4ai_fetch_content_async(url, timeout_seconds))
+    except PipelineError:
+        raise
+    except Exception as exc:
+        raise PipelineError(f"Crawl4AI could not acquire the requested page: {exc}") from exc
+
+
 def acquire_content(url: str, provider: str, settings: Settings | None = None) -> Content:
     settings = settings or get_settings()
     selected = provider
@@ -108,6 +142,8 @@ def acquire_content(url: str, provider: str, settings: Settings | None = None) -
     if selected == "zenrows":
         page = _run(ZenRowsClient(settings).fetch(url, js_render=True))
         return _content_from_html(url, page.content, "zenrows")
+    if selected == "crawl4ai":
+        return _crawl4ai_fetch_content(url)
     if selected == "firecrawl":
         if not settings.firecrawl_api_key:
             raise PipelineError("FIRECRAWL_API_KEY is required when the Firecrawl provider is selected.")
@@ -122,7 +158,7 @@ def acquire_content(url: str, provider: str, settings: Settings | None = None) -
         if not markdown:
             raise PipelineError("Firecrawl returned no markdown.")
         return Content(url=url, title=str(title)[:500], text=str(markdown)[:50_000], provider="firecrawl")
-    if selected not in {"requests", "crawl4ai"}:
+    if selected != "requests":
         raise PipelineError(f"Unsupported acquisition provider: {selected}")
     response = requests.get(url, timeout=30, headers={"User-Agent": "SentinelActalyst/1.0"})
     response.raise_for_status()

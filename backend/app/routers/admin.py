@@ -24,6 +24,7 @@ def list_accounts(repository: Repository, user: AdminUser) -> list[schemas.Accou
                 company_count=len(companies),
                 monitor_count=len(monitors),
                 last_login_at=account.last_login_at,
+                default_acquisition_provider=account.default_acquisition_provider,
             )
         )
     return rows
@@ -36,6 +37,28 @@ def create_account(payload: schemas.AccountCreate, repository: Repository, user:
     except ValueError as exc:
         raise HTTPException(status_code=409, detail=str(exc)) from exc
     return schemas.AccountOverviewRead(name=account.name, role="customer", company_count=0, monitor_count=0)
+
+
+@router.patch("/accounts/{account_name}", response_model=schemas.AccountOverviewRead)
+def update_account(
+    account_name: str, payload: schemas.AccountSettingsUpdate, repository: Repository, user: AdminUser
+) -> schemas.AccountOverviewRead:
+    try:
+        record = repository.update_account_settings(
+            account_name, default_acquisition_provider=payload.default_acquisition_provider
+        )
+    except RecordNotFound as exc:
+        raise HTTPException(status_code=404, detail="Customer account not found.") from exc
+    companies = repository.list_companies(account_name, limit=10000)
+    monitors = repository.list_sources(account_name, limit=10000)
+    return schemas.AccountOverviewRead(
+        name=str(record["name"]),
+        role="customer",
+        company_count=len(companies),
+        monitor_count=len(monitors),
+        last_login_at=record.get("last_login_at"),
+        default_acquisition_provider=str(record.get("default_acquisition_provider") or "auto"),
+    )
 
 
 @router.delete("/accounts/{account_name}", status_code=status.HTTP_204_NO_CONTENT)

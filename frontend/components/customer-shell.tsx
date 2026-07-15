@@ -1,42 +1,76 @@
 "use client";
 
-import { LogOut, Radar, ShieldCheck, Sparkles } from "lucide-react";
+import { Bell, Building2, LogOut, Radar, ShieldCheck, Sparkles } from "lucide-react";
 import * as React from "react";
 
 import { useAuth } from "@/components/auth-provider";
-import { Link, usePathname } from "@/components/router";
 import { Button } from "@/components/ui/button";
 import { cn, getInitials } from "@/lib/utils";
 
-// The customer app is exactly two pages, so the old sidebar gave way to a
-// light top bar: brand, a two-tab pill switch, and the account. Legacy routes
-// still resolve (see src/main.tsx) and simply light up the tab they belong to.
+// The whole customer app is one scrolling page (app/dashboard/page.tsx),
+// composed of anchored sections: #overview, #monitors, #alerts, #workspace.
+// This header is a jump nav — it never routes, it just scrolls the section
+// into view and tracks which one is on screen via IntersectionObserver.
 
-const HOME_PATHS = ["/dashboard", "/insights", "/trends"];
-
-const navItems = [
-  { href: "/dashboard", label: "Home", icon: Sparkles, isActive: (path: string) => HOME_PATHS.some((p) => path.startsWith(p)) },
-  {
-    href: "/monitors",
-    label: "Watchtower",
-    icon: Radar,
-    isActive: (path: string) =>
-      path.startsWith("/monitors") ||
-      path.startsWith("/notifications") ||
-      path.startsWith("/settings") ||
-      path.startsWith("/onboarding"),
-  },
+const SECTIONS = [
+  { id: "overview", label: "Overview", icon: Sparkles },
+  { id: "monitors", label: "Monitors", icon: Radar },
+  { id: "alerts", label: "Alerts", icon: Bell },
+  { id: "workspace", label: "Workspace", icon: Building2 },
 ];
+
+/** Header height (h-16) the sticky bar reserves — sections use scroll-mt-24 to match. */
+const SCROLL_OFFSET_PX = 80;
+
+function useActiveSection(ids: string[]) {
+  const [activeId, setActiveId] = React.useState(ids[0]);
+
+  React.useEffect(() => {
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => Boolean(el));
+
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setActiveId(visible[0].target.id);
+      },
+      { rootMargin: `-${SCROLL_OFFSET_PX}px 0px -70% 0px`, threshold: 0 },
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [ids]);
+
+  return activeId;
+}
 
 export function CustomerShell({ children }: { children: React.ReactNode }) {
   const auth = useAuth();
-  const pathname = usePathname();
+  const sectionIds = React.useMemo(() => SECTIONS.map((s) => s.id), []);
+  const activeId = useActiveSection(sectionIds);
+
+  function jumpTo(id: string) {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", `/dashboard#${id}`);
+  }
 
   return (
     <div className="min-h-screen bg-background">
       <header className="sticky top-0 z-30 border-b bg-background/85 backdrop-blur">
         <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
-          <Link href="/dashboard" className="flex min-w-0 items-center gap-3">
+          <a
+            href="/dashboard#overview"
+            onClick={(event) => {
+              event.preventDefault();
+              jumpTo("overview");
+            }}
+            className="flex min-w-0 items-center gap-3"
+          >
             <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
               <ShieldCheck className="size-5" />
             </div>
@@ -44,25 +78,29 @@ export function CustomerShell({ children }: { children: React.ReactNode }) {
               <div className="truncate font-semibold leading-tight">Sentinel Actalyst</div>
               <div className="text-xs text-muted-foreground">Always on watch</div>
             </div>
-          </Link>
+          </a>
 
           <nav className="flex items-center gap-1 rounded-full bg-secondary p-1">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const active = item.isActive(pathname);
+            {SECTIONS.map((section) => {
+              const Icon = section.icon;
+              const active = activeId === section.id;
               return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  aria-current={active ? "page" : undefined}
+                <a
+                  key={section.id}
+                  href={`/dashboard#${section.id}`}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    jumpTo(section.id);
+                  }}
+                  aria-current={active ? "true" : undefined}
                   className={cn(
-                    "flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:px-4",
+                    "flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:px-4",
                     active && "bg-card text-foreground shadow-sm",
                   )}
                 >
                   <Icon className="size-4" />
-                  {item.label}
-                </Link>
+                  <span className="hidden sm:inline">{section.label}</span>
+                </a>
               );
             })}
           </nav>

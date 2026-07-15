@@ -148,6 +148,96 @@
       stroke-dashoffset: -1;
     }
   }
+
+  /* Login hero scene: slow breathing aurora glow behind the sigil. */
+  .aurora-breathe {
+    animation: aurora-breathe 7s var(--ease-in-out) infinite;
+  }
+
+  @keyframes aurora-breathe {
+    0%,
+    100% {
+      opacity: 0.55;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.9;
+      transform: scale(1.08);
+    }
+  }
+
+  /* Login hero scene: distant stars twinkling at slightly different rates. */
+  .twinkle {
+    animation: twinkle 3.6s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 0.15;
+    }
+    50% {
+      opacity: 0.9;
+    }
+  }
+
+  /* Login hero scene: the ring of light orbiting the sigil. */
+  .sigil-spin {
+    animation: sigil-spin 14s linear infinite;
+  }
+
+  @keyframes sigil-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .sigil-spin-reverse {
+    animation: sigil-spin-reverse 20s linear infinite;
+  }
+
+  @keyframes sigil-spin-reverse {
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  /* Login hero scene: the sigil's core glow, pulsing like it's alive. */
+  .sigil-pulse {
+    animation: sigil-pulse 3.2s var(--ease-in-out) infinite;
+  }
+
+  @keyframes sigil-pulse {
+    0%,
+    100% {
+      opacity: 0.75;
+      filter: drop-shadow(0 0 12px currentColor);
+    }
+    50% {
+      opacity: 1;
+      filter: drop-shadow(0 0 26px currentColor);
+    }
+  }
+
+  /* Login hero scene: floating glass stat chips. Enter once, then bob forever.
+     Per-chip stagger comes from CSS custom properties (set inline), not the
+     animation shorthand itself, so the reduced-motion override below still
+     wins outright instead of losing to inline-style specificity. */
+  .stat-chip {
+    animation:
+      pa-enter var(--dur-base) var(--ease-out) var(--stat-enter-delay, 0ms) both,
+      stat-float var(--stat-float-duration, 5s) var(--ease-in-out) var(--stat-float-delay, 500ms) infinite;
+  }
+
+  @keyframes stat-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -167,6 +257,15 @@
 
   .animate-enter,
   .animate-highlight {
+    animation: none;
+  }
+
+  .aurora-breathe,
+  .twinkle,
+  .sigil-spin,
+  .sigil-spin-reverse,
+  .sigil-pulse,
+  .stat-chip {
     animation: none;
   }
 }
