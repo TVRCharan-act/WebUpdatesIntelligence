@@ -20,3 +20,19 @@ services:
         source: ${AWS_SSO_CACHE_DIR:?Set AWS_SSO_CACHE_DIR to your host .aws/sso/cache directory.}
         target: /root/.aws/sso/cache
         read_only: false
+
+  scheduler:
+    environment:
+      AWS_PROFILE: ${AWS_PROFILE:?Set AWS_PROFILE in .env or your shell.}
+      AWS_SDK_LOAD_CONFIG: "1"
+      AWS_CONFIG_FILE: /root/.aws/config
+      AWS_SHARED_CREDENTIALS_FILE: /root/.aws/credentials
+    volumes:
+      - type: bind
+        source: ${AWS_CONFIG_DIR:?Set AWS_CONFIG_DIR to your host .aws directory.}
+        target: /root/.aws
+        read_only: true
+      - type: bind
+        source: ${AWS_SSO_CACHE_DIR:?Set AWS_SSO_CACHE_DIR to your host .aws/sso/cache directory.}
+        target: /root/.aws/sso/cache
+        read_only: false

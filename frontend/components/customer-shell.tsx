@@ -1,14 +1,15 @@
 "use client";
 
-import { Bell, Building2, LogOut, Radar, ShieldCheck, Sparkles } from "lucide-react";
+import { Bell, LogOut, Radar, Sparkles } from "lucide-react";
 import * as React from "react";
 
 import { useAuth } from "@/components/auth-provider";
+import { SentinelMark } from "@/components/intel/sentinel-mark";
 import { Button } from "@/components/ui/button";
 import { cn, getInitials } from "@/lib/utils";
 
 // The whole customer app is one scrolling page (app/dashboard/page.tsx),
-// composed of anchored sections: #overview, #monitors, #alerts, #workspace.
+// composed of anchored sections: #overview, #monitors, #alerts.
 // This header is a jump nav — it never routes, it just scrolls the section
 // into view and tracks which one is on screen via IntersectionObserver.
 
@@ -16,7 +17,6 @@ const SECTIONS = [
   { id: "overview", label: "Overview", icon: Sparkles },
   { id: "monitors", label: "Monitors", icon: Radar },
   { id: "alerts", label: "Alerts", icon: Bell },
-  { id: "workspace", label: "Workspace", icon: Building2 },
 ];
 
 /** Header height (h-16) the sticky bar reserves — sections use scroll-mt-24 to match. */
@@ -71,12 +71,13 @@ export function CustomerShell({ children }: { children: React.ReactNode }) {
             }}
             className="flex min-w-0 items-center gap-3"
           >
-            <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-              <ShieldCheck className="size-5" />
-            </div>
+            <SentinelMark />
             <div className="hidden min-w-0 sm:block">
               <div className="truncate font-semibold leading-tight">Sentinel Actalyst</div>
-              <div className="text-xs text-muted-foreground">Always on watch</div>
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                <span className="live-dot size-1.5" />
+                Always on watch
+              </div>
             </div>
           </a>
 

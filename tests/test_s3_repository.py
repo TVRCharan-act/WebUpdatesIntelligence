@@ -8,6 +8,7 @@ from backend.app.repository import RecordNotFound, S3Repository, SourceDisabled,
 from backend.app.schemas import SummaryRead
 from backend.app.services.jobs import start_source_job
 from backend.app.services.monitor_service import send_insight_email
+from backend.app.services.scheduling import dispatch_due_monitors
 from backend.app.storage import InMemoryJsonStorage
 
 
@@ -113,6 +114,22 @@ class S3RepositoryTests(unittest.TestCase):
         self.assertEqual(self.repository.due_sources(), [])
         self.repository.update_source(int(source["id"]), "alice", last_checked_at=(utc_now() - timedelta(minutes=61)).isoformat())
         self.assertEqual([item["id"] for item in self.repository.due_sources()], [source["id"]])
+
+    def test_scheduled_dispatch_does_not_delay_a_retry_before_a_check_finishes(self):
+        company = self.repository.create_company("alice", "Acme")
+        source = self.repository.create_source(
+            "alice",
+            {"company_id": company["id"], "url": "https://example.com/news", "strategy": "parent"},
+        )
+
+        class RecordingDispatcher:
+            def dispatch(self, job):
+                return job
+
+        result = dispatch_due_monitors(self.repository, RecordingDispatcher())
+
+        self.assertEqual(result["queued_source_ids"], [source["id"]])
+        self.assertIsNone(self.repository.get_source(int(source["id"]), "alice")["last_checked_at"])
 
     def test_insight_review_accepts_an_exact_string_id(self):
         insight_id = 2**53 + 1

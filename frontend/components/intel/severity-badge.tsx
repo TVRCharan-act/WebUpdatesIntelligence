@@ -1,15 +1,15 @@
 import { Badge } from "@/components/ui/badge";
 import type { Summary } from "@/lib/api";
 
-// Thin wrapper over the existing Badge. The severity field is real but uniform
-// today (nothing in the pipeline sets it, so every insight is "medium") — so
-// "medium" renders as calm, neutral metadata rather than a loud amber alarm,
-// and only "high" carries visual weight. When Tier 2 starts classifying
-// severity, high/low begin to stand out without any layout change (Build Spec
+// Thin wrapper over the existing Badge. In the monochrome system severity is
+// conveyed by *weight*, not colour: "high" is a solid black fill, "medium" a
+// calm gray fill, "low" a bare outline. Red is reserved for genuine errors, so
+// a high-severity insight is emphatic without masquerading as a failure. When
+// Tier 2 starts classifying severity, the hierarchy already reads (Build Spec
 // §12, §14.3).
 
-const CONFIG: Record<Summary["severity"], { variant: "destructive" | "secondary" | "outline"; label: string }> = {
-  high: { variant: "destructive", label: "High priority" },
+const CONFIG: Record<Summary["severity"], { variant: "default" | "secondary" | "outline"; label: string }> = {
+  high: { variant: "default", label: "High priority" },
   medium: { variant: "secondary", label: "Medium" },
   low: { variant: "outline", label: "Low" },
 };

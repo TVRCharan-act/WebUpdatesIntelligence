@@ -103,6 +103,21 @@ def _content_from_html(url: str, html: str, provider: str) -> Content:
 DEFAULT_CRAWL4AI_TIMEOUT_SECONDS = 20
 
 
+def _crawl4ai_timeout_seconds() -> float:
+    """Honor CRAWL4AI_TIMEOUT_SECONDS for content fetches too.
+
+    Discovery (mysignal.discovery.page_links) already reads this env var; the
+    content path hardcoded 20s and silently ignored it, so a configured value
+    only half-applied. Falls back to the historical 20s default when unset.
+    """
+    import os
+
+    try:
+        return max(1.0, float(os.getenv("CRAWL4AI_TIMEOUT_SECONDS", str(DEFAULT_CRAWL4AI_TIMEOUT_SECONDS))))
+    except ValueError:
+        return float(DEFAULT_CRAWL4AI_TIMEOUT_SECONDS)
+
+
 async def _crawl4ai_fetch_content_async(url: str, timeout_seconds: float) -> Content:
     from crawl4ai import AsyncWebCrawler, CacheMode, CrawlerRunConfig
 
@@ -125,7 +140,9 @@ async def _crawl4ai_fetch_content_async(url: str, timeout_seconds: float) -> Con
     return Content(url=url, title=title[:500], text=text[:50_000], provider="crawl4ai")
 
 
-def _crawl4ai_fetch_content(url: str, timeout_seconds: float = DEFAULT_CRAWL4AI_TIMEOUT_SECONDS) -> Content:
+def _crawl4ai_fetch_content(url: str, timeout_seconds: float | None = None) -> Content:
+    if timeout_seconds is None:
+        timeout_seconds = _crawl4ai_timeout_seconds()
     try:
         return _run(_crawl4ai_fetch_content_async(url, timeout_seconds))
     except PipelineError:

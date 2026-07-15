@@ -1,5 +1,5 @@
 # Local API/UI smoke-test stack. Production uses ECS/Fargate and EventBridge;
-# this file intentionally has no database, Redis, Celery, or scheduler service.
+# the scheduler service supplies the equivalent due-monitor tick locally.
 services:
   backend:
     build:
@@ -54,3 +54,43 @@ services:
       - "3000:80"
     depends_on:
       - backend
+
+  scheduler:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    command: ["python", "-m", "backend.app.workers.local_scheduler"]
+    environment:
+      ENVIRONMENT: ${ENVIRONMENT:-dev}
+      AWS_REGION: ${AWS_REGION:-us-east-1}
+      STORAGE_BACKEND: ${STORAGE_BACKEND:-s3}
+      S3_BUCKET: ${S3_BUCKET:-}
+      S3_PREFIX: ${S3_PREFIX:-sentinel-actalyst}
+      ECS_CLUSTER: ${ECS_CLUSTER:-}
+      ECS_TASK_DEFINITION: ${ECS_TASK_DEFINITION:-}
+      ECS_CONTAINER_NAME: ${ECS_CONTAINER_NAME:-worker}
+      ECS_NETWORK_CONFIGURATION: ${ECS_NETWORK_CONFIGURATION:-{}}
+      TASK_EXECUTION_BACKEND: ${TASK_EXECUTION_BACKEND:-local}
+      ZENROWS_API_KEY: ${ZENROWS_API_KEY:-}
+      CRAWL4AI_TIMEOUT_SECONDS: ${CRAWL4AI_TIMEOUT_SECONDS:-20}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+      GOOGLE_GEMINI_MODEL: ${GOOGLE_GEMINI_MODEL:-gemini-3.5-flash}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-5.4}
+      ANALYSIS_PROVIDER: ${ANALYSIS_PROVIDER:-auto}
+      FIRECRAWL_API_KEY: ${FIRECRAWL_API_KEY:-}
+      DEFAULT_PROCESSING_PIPELINE: ${DEFAULT_PROCESSING_PIPELINE:-auto}
+      SES_FROM_EMAIL: ${SES_FROM_EMAIL:-}
+      SES_REGION: ${SES_REGION:-}
+      SES_DEFAULT_RECIPIENTS: ${SES_DEFAULT_RECIPIENTS:-}
+      SES_CONFIGURATION_SET: ${SES_CONFIGURATION_SET:-}
+      AUTH_SECRET: ${AUTH_SECRET:-}
+      AUTH_COOKIE_SECURE: ${AUTH_COOKIE_SECURE:-false}
+      ADMIN_NAME: ${ADMIN_NAME:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      USER_1_NAME: ${USER_1_NAME:-}
+      USER_1_PASSWORD: ${USER_1_PASSWORD:-}
+      USER_2_NAME: ${USER_2_NAME:-}
+      USER_2_PASSWORD: ${USER_2_PASSWORD:-}
+      USER_3_NAME: ${USER_3_NAME:-}
+      USER_3_PASSWORD: ${USER_3_PASSWORD:-}

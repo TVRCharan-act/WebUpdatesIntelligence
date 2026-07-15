@@ -4,10 +4,8 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   AlertTriangle,
   Bell,
-  Building2,
   CheckCircle2,
   ClipboardCheck,
-  CreditCard,
   ExternalLink,
   Loader2,
   Mail,
@@ -19,14 +17,11 @@ import {
   RefreshCw,
   Search,
   Trash2,
-  UserRound,
-  UsersRound,
   Zap,
 } from "lucide-react";
 import * as React from "react";
 import { toast } from "sonner";
 
-import { useAuth } from "@/components/auth-provider";
 import { ActivityPulse } from "@/components/intel/activity-pulse";
 import { CadenceField } from "@/components/intel/cadence-field";
 import { CompanyFavicon } from "@/components/intel/company-favicon";
@@ -67,12 +62,14 @@ import {
   getInsightStats,
   getSesStatus,
   getSource,
+  getTaskStatus,
   listCompanies,
   listCompanyRecipients,
   listInsights,
   listSources,
   listSourceSummaries,
   sendEmailSummary,
+  taskHasFailedResult,
   updateEmailNotificationSettings,
   updateInsightReview,
   updateSource,
@@ -96,10 +93,10 @@ import {
 
 // This module holds every building block for what your sentinel watches and
 // how it alerts you: the Monitors grid (with an add dialog that doubles as
-// onboarding), a per-monitor dossier dialog, an Alerts section, and a
-// Workspace section. They're composed together on the single unified
-// dashboard page (app/dashboard/page.tsx) as stacked, anchored sections
-// instead of separate routed tabs.
+// onboarding), a per-monitor dossier dialog, and an Alerts section. They're
+// composed together on the single unified dashboard page
+// (app/dashboard/page.tsx) as stacked, anchored sections instead of separate
+// routed tabs.
 
 // ---------------------------------------------------------------------------
 // Monitors section — the grid of watched sites.
@@ -244,7 +241,7 @@ function MonitorCard({
 
   return (
     <Card
-      className="animate-enter transition hover:-translate-y-px hover:shadow-md"
+      className="animate-enter"
       style={{ animationDelay: `${Math.min(index, 7) * 40}ms` }}
     >
       <CardContent className="grid gap-4 p-5 [&>*]:min-w-0">
@@ -261,7 +258,8 @@ function MonitorCard({
               <div className="truncate text-sm text-muted-foreground">{prettyUrl(source.url)}</div>
             </div>
           </div>
-          <Badge className="shrink-0" variant={source.enabled ? "success" : "secondary"}>
+          <Badge className="shrink-0 gap-1.5" variant={source.enabled ? "success" : "secondary"}>
+            {source.enabled ? <span className="live-dot size-1.5" /> : null}
             {source.enabled ? "Active" : "Paused"}
           </Badge>
         </div>
@@ -269,7 +267,7 @@ function MonitorCard({
         <div
           className={
             health.tone === "warn"
-              ? "text-sm text-amber-700 dark:text-amber-500"
+              ? "text-sm font-medium text-foreground"
               : "text-sm text-muted-foreground"
           }
         >
@@ -370,6 +368,19 @@ export function AddMonitorDialog({ open, onClose }: { open: boolean; onClose: ()
   const [cadenceValue, setCadenceValue] = React.useState("1");
   const [cadenceUnit, setCadenceUnit] = React.useState<CadenceUnit>("hour");
   const [showAdvanced, setShowAdvanced] = React.useState(false);
+  const [baselineTaskId, setBaselineTaskId] = React.useState<string | null>(null);
+
+  const baselineTaskQuery = useQuery({
+    queryKey: baselineTaskId ? queryKeys.task(baselineTaskId) : queryKeys.task("idle"),
+    queryFn: () => getTaskStatus(baselineTaskId as string),
+    enabled: Boolean(baselineTaskId),
+    refetchInterval: (query) => {
+      const state = query.state.data?.state;
+      return state && ["succeeded", "partially_succeeded", "failed", "cancelled"].includes(state)
+        ? false
+        : 1000;
+    },
+  });
 
   const addMutation = useMutation({
     mutationFn: async () => {
@@ -383,25 +394,43 @@ export function AddMonitorDialog({ open, onClose }: { open: boolean; onClose: ()
         enabled: true,
         schedule_minutes: toMinutes(cadenceValue, cadenceUnit),
       });
-      await baselineSource(source.id);
-      return source;
+      const task = await baselineSource(source.id);
+      return { source, task };
     },
-    onSuccess: () => {
-      toast.success("Your sentinel is on watch. First look queued.");
+    onSuccess: ({ task }) => {
+      setBaselineTaskId(task.task_id);
       setCompanyName("");
-      setUrl("");
       setPriority("medium");
       setCadenceValue("1");
       setCadenceUnit("hour");
       setShowAdvanced(false);
       queryClient.invalidateQueries({ queryKey: queryKeys.companies });
       queryClient.invalidateQueries({ queryKey: queryKeys.sources });
-      onClose();
     },
     onError: (error) => toast.error(getApiErrorMessage(error)),
   });
 
+  React.useEffect(() => {
+    const task = baselineTaskQuery.data;
+    const state = task?.state;
+    if (!baselineTaskId || !task || !state || !["succeeded", "partially_succeeded", "failed", "cancelled"].includes(state)) {
+      return;
+    }
+
+    const failed = taskHasFailedResult(task);
+    toast[failed ? "error" : "success"](
+      failed ? "Your first check failed. You can try again from the monitor card." : "Your monitor is live and on watch.",
+    );
+    setBaselineTaskId(null);
+    setUrl("");
+    queryClient.invalidateQueries({ queryKey: queryKeys.companies });
+    queryClient.invalidateQueries({ queryKey: queryKeys.sources });
+    queryClient.invalidateQueries({ queryKey: queryKeys.insights });
+    onClose();
+  }, [baselineTaskId, baselineTaskQuery.data, onClose, queryClient]);
+
   const domain = hostOf(url) || "the page";
+  const isSettingUp = addMutation.isPending || Boolean(baselineTaskId);
   const scanLines = [
     `Taking up watch over ${domain}…`,
     "Learning what to look out for…",
@@ -412,7 +441,7 @@ export function AddMonitorDialog({ open, onClose }: { open: boolean; onClose: ()
     <Dialog
       open={open}
       onOpenChange={(next) => {
-        if (!next && !addMutation.isPending) onClose();
+        if (!next && !isSettingUp) onClose();
       }}
     >
       <DialogContent className="max-w-xl">
@@ -423,8 +452,13 @@ export function AddMonitorDialog({ open, onClose }: { open: boolean; onClose: ()
             takes up watch and alerts you the moment anything changes.
           </DialogDescription>
         </DialogHeader>
-        {addMutation.isPending ? (
-          <ThinkingState lines={scanLines} ariaLabel="Setting up your monitor" />
+        {isSettingUp ? (
+          <div className="grid gap-2">
+            <ThinkingState lines={scanLines} ariaLabel="Setting up your monitor" />
+            <p className="text-center text-xs text-muted-foreground">
+              {baselineTaskQuery.data?.progress?.message || "Starting your first check…"}
+            </p>
+          </div>
         ) : (
           <form
             className="grid gap-4"
@@ -630,7 +664,7 @@ export function MonitorDetailDialog({ sourceId, onClose }: { sourceId: number; o
                 <DialogDescription
                   className={cn(
                     "mt-1",
-                    health.tone === "warn" && "text-amber-700 dark:text-amber-500",
+                    health.tone === "warn" && "font-medium text-foreground",
                   )}
                 >
                   {health.label}
@@ -922,11 +956,11 @@ export function AlertsSection() {
   return (
     <div className="grid gap-6">
       {sesQuery.data && !sesConfigured ? (
-        <div className="flex items-start gap-3 rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-900 dark:bg-amber-950 dark:text-amber-200">
+        <div className="flex items-start gap-3 rounded-xl border border-border bg-secondary p-4 text-sm text-foreground">
           <AlertTriangle className="mt-0.5 size-4 shrink-0" />
           <div>
             <div className="font-medium">Email alerts aren't connected yet.</div>
-            <p className="mt-0.5 text-amber-800/90 dark:text-amber-200/80">
+            <p className="mt-0.5 text-muted-foreground">
               {sesQuery.data.missing.includes("SES_FROM_EMAIL")
                 ? "No sender address is configured, so neither automatic nor manually-approved alerts can be delivered."
                 : "Alert delivery isn't fully configured."}{" "}
@@ -992,8 +1026,8 @@ export function AlertsSection() {
             return (
               <button
                 key={option.value}
-                className={`relative rounded-xl border p-4 text-left transition hover:-translate-y-px hover:shadow-sm ${
-                  selected ? "border-primary bg-accent" : "bg-card"
+                className={`relative rounded-xl border p-4 text-left transition-colors hover:bg-accent ${
+                  selected ? "border-foreground bg-accent" : "bg-card"
                 }`}
                 onClick={() => settingsMutation.mutate({ mode: option.value })}
               >
@@ -1080,112 +1114,6 @@ export function AlertsSection() {
               Add a monitor before configuring recipients.
             </div>
           ) : null}
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Workspace section — account, team, and billing snapshot.
-// ---------------------------------------------------------------------------
-
-export function WorkspaceSection() {
-  const auth = useAuth();
-  const companiesQuery = useQuery({ queryKey: queryKeys.companies, queryFn: listCompanies });
-  const sourcesQuery = useQuery({ queryKey: queryKeys.sources, queryFn: listSources });
-  const companies = companiesQuery.data || [];
-  const sources = sourcesQuery.data || [];
-
-  return (
-    <div className="grid gap-4 xl:grid-cols-2">
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Building2 className="size-4" />
-            Workspace
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="grid gap-3 text-sm">
-          <div className="flex justify-between gap-3">
-            <span className="text-muted-foreground">Display name</span>
-            <span>{auth.session?.name}</span>
-          </div>
-          <div className="flex justify-between gap-3">
-            <span className="text-muted-foreground">Tracked companies</span>
-            <span>{companies.length}</span>
-          </div>
-          <div className="flex justify-between gap-3">
-            <span className="text-muted-foreground">Active monitors</span>
-            <span>{sources.filter((source) => source.enabled).length}</span>
-          </div>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <UsersRound className="size-4" />
-            Team
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="grid gap-3 text-sm">
-          <div className="flex items-center gap-3 rounded-xl border p-3">
-            <div className="flex size-9 items-center justify-center rounded-full bg-accent font-semibold text-accent-foreground">
-              {auth.session?.name?.[0]?.toUpperCase() || "P"}
-            </div>
-            <div>
-              <div className="font-medium">{auth.session?.name}</div>
-              <div className="text-muted-foreground">Provisioned account</div>
-            </div>
-          </div>
-          <p className="text-muted-foreground">
-            Need to add a teammate? Contact your Sentinel Actalyst admin.
-          </p>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <CreditCard className="size-4" />
-            Billing
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="grid gap-3 text-sm">
-          <div className="flex justify-between gap-3">
-            <span className="text-muted-foreground">Plan</span>
-            <Badge variant="secondary">Pilot</Badge>
-          </div>
-          <div className="flex justify-between gap-3">
-            <span className="text-muted-foreground">Monitor usage</span>
-            <span>{sources.length} active</span>
-          </div>
-          <p className="text-muted-foreground">
-            Plan changes are handled directly by your Sentinel Actalyst admin.
-          </p>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <UserRound className="size-4" />
-            Account
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="grid gap-3 text-sm">
-          <div className="flex justify-between gap-3">
-            <span className="text-muted-foreground">Name</span>
-            <span>{auth.session?.name}</span>
-          </div>
-          <div className="flex justify-between gap-3">
-            <span className="text-muted-foreground">Role</span>
-            <span>{auth.session?.role}</span>
-          </div>
-          <p className="text-muted-foreground">
-            Password changes are handled in the backend environment configuration.
-          </p>
         </CardContent>
       </Card>
     </div>

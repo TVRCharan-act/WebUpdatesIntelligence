@@ -328,3 +328,22 @@
 [2026-07-14 09:57:21.027] [FETCH]... ↓ http://127.0.0.1:8765                                                                                | ✓ | ⏱: 0.59s 
 [2026-07-14 09:57:21.034] [SCRAPE].. ◆ http://127.0.0.1:8765                                                                                | ✓ | ⏱: 0.00s 
 [2026-07-14 09:57:21.038] [COMPLETE] ● http://127.0.0.1:8765                                                                                | ✓ | ⏱: 0.61s 
+[2026-07-15 12:24:06.011] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-15 12:24:06.700] [FETCH]... ↓ https://example.com                                                                                  | ✓ | ⏱: 0.63s 
+[2026-07-15 12:24:06.728] [SCRAPE].. ◆ https://example.com                                                                                  | ✓ | ⏱: 0.02s 
+[2026-07-15 12:24:06.744] [COMPLETE] ● https://example.com                                                                                  | ✓ | ⏱: 0.67s 
+[2026-07-15 12:34:53.848] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-15 12:34:54.729] [FETCH]... ↓ http://127.0.0.1:8765                                                                                | ✓ | ⏱: 0.84s 
+[2026-07-15 12:34:54.750] [SCRAPE].. ◆ http://127.0.0.1:8765                                                                                | ✓ | ⏱: 0.02s 
+[2026-07-15 12:34:54.759] [ERROR]... × http://127.0.0.1:8765                              | Error: Blocked by anti-bot protection: Structural: minimal_text on small page (207 bytes, 32 chars visible) 
+[2026-07-15 12:34:54.761] [COMPLETE] ● http://127.0.0.1:8765                                                                                | ✗ | ⏱: 0.87s 
+[2026-07-15 12:34:58.186] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-15 12:34:58.817] [FETCH]... ↓ http://127.0.0.1:8765                                                                                | ✓ | ⏱: 0.59s 
+[2026-07-15 12:34:58.823] [SCRAPE].. ◆ http://127.0.0.1:8765                                                                                | ✓ | ⏱: 0.00s 
+[2026-07-15 12:34:58.827] [ERROR]... × http://127.0.0.1:8765                              | Error: Blocked by anti-bot protection: Structural: minimal_text on small page (207 bytes, 32 chars visible) 
+[2026-07-15 12:34:58.829] [COMPLETE] ● http://127.0.0.1:8765                                                                                | ✗ | ⏱: 0.60s 
+[2026-07-15 12:35:58.941] [INIT].... → Crawl4AI 0.9.0 
+[2026-07-15 12:35:59.581] [FETCH]... ↓ http://127.0.0.1:8765                                                                                | ✓ | ⏱: 0.58s 
+[2026-07-15 12:35:59.587] [SCRAPE].. ◆ http://127.0.0.1:8765                                                                                | ✓ | ⏱: 0.00s 
+[2026-07-15 12:35:59.590] [ERROR]... × http://127.0.0.1:8765                              | Error: Blocked by anti-bot protection: Structural: minimal_text on small page (259 bytes, 39 chars visible) 
+[2026-07-15 12:35:59.593] [COMPLETE] ● http://127.0.0.1:8765                                                                                | ✗ | ⏱: 0.60s 

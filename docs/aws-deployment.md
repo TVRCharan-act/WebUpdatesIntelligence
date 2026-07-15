@@ -73,9 +73,11 @@ The override mounts the host `.aws` directory into the backend container as
 read-only, but mounts the `sso/cache` subdirectory as writable so the AWS SDK
 can refresh its short-lived token. It is for local Docker development only.
 With `TASK_EXECUTION_BACKEND=local`, manual baseline and monitor runs execute
-in a background thread in the API container. Jobs do not survive an API restart
-and EventBridge scheduling is not available in this mode. ECS/Fargate must
-continue to use task roles, not an SSO profile or mounted credentials.
+in a background thread. The Compose stack also starts a local scheduler that
+checks for due monitors every 15 seconds, so customer monitoring behaves like
+the production EventBridge cadence. Jobs do not survive a container restart.
+ECS/Fargate must continue to use task roles, not an SSO profile or mounted
+credentials.
 
 ## S3 layout
 

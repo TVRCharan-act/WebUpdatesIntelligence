@@ -5,11 +5,9 @@ import {
   ArrowRight,
   ArrowUpDown,
   Bell,
-  Building2,
   Clock3,
   Radar,
   Search,
-  Sparkles,
   TrendingDown,
   TrendingUp,
 } from "lucide-react";
@@ -17,7 +15,6 @@ import * as React from "react";
 import { toast } from "sonner";
 
 import { useAuth } from "@/components/auth-provider";
-import { AmbientSignal } from "@/components/intel/ambient-signal";
 import { AnalystEmptyState } from "@/components/intel/analyst-empty-state";
 import { ActivityPulse } from "@/components/intel/activity-pulse";
 import { InsightCard } from "@/components/intel/insight-card";
@@ -27,7 +24,6 @@ import {
   AlertsSection,
   MonitorDetailDialog,
   MonitorsSection,
-  WorkspaceSection,
 } from "@/app/monitors/page";
 import { useParams, usePathname, useRouter } from "@/components/router";
 import { Button } from "@/components/ui/button";
@@ -56,10 +52,10 @@ import { formatDurationShort, truncate } from "@/lib/utils";
 
 // The whole app is one page. A briefing hero that says what needs you, the
 // full update feed (search / sort / review filter) with a Pulse rail, then
-// Monitors, Alerts, and Workspace stacked below as anchored sections — no
-// route changes, just scroll (or the header's jump nav). Legacy routes
-// (/monitors, /monitors/[id], /notifications, /settings, /onboarding,
-// /insights, /trends) still deep-link straight to the right section / dialog.
+// Monitors and Alerts stacked below as anchored sections — no route changes,
+// just scroll (or the header's jump nav). Legacy routes (/monitors,
+// /monitors/[id], /notifications, /settings, /onboarding, /insights, /trends)
+// still deep-link straight to the right section / dialog.
 
 function greeting(): string {
   const hour = new Date().getHours();
@@ -156,7 +152,6 @@ const ANCHOR_FOR_LEGACY_PATH: Record<string, string> = {
 function anchorForPath(pathname: string): string | null {
   if (pathname in ANCHOR_FOR_LEGACY_PATH) return ANCHOR_FOR_LEGACY_PATH[pathname];
   if (pathname.startsWith("/monitors/")) return "monitors";
-  if (pathname.startsWith("/settings")) return "workspace";
   return null;
 }
 
@@ -316,18 +311,17 @@ export default function HomePage() {
   const hasAnyInsights = insights.length > 0;
 
   return (
-    <div className="grid gap-10 pb-10">
-      <section id="overview" className="grid scroll-mt-24 gap-6">
-      <section className="relative overflow-hidden rounded-2xl border bg-[hsl(var(--briefing-bg))] p-6 shadow-sm sm:p-8">
-        <AmbientSignal amplitude={trend.level === "Busy" ? 1.4 : trend.level === "Quiet" ? 0.6 : 1} />
-        <div className="relative grid gap-6">
+    <div className="grid gap-8 pb-10">
+      <section id="overview" className="grid scroll-mt-24 gap-5">
+      <section className="rounded-2xl border bg-[hsl(var(--briefing-bg))] p-5 shadow-sm sm:p-6">
+        <div className="grid gap-5">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-card/70 px-3 py-1 text-xs font-medium text-primary">
-                <Sparkles className="size-3.5" />
+              <div className="mb-2 inline-flex items-center gap-2 rounded-full border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
+                <span className="live-dot size-1.5" />
                 On watch
               </div>
-              <h2 className="text-3xl font-semibold sm:text-4xl">
+              <h2 className="text-2xl font-semibold sm:text-3xl">
                 {greeting()}, {auth.session?.name || "there"}.
               </h2>
               <p className="mt-2 text-muted-foreground">{synthesis}</p>
@@ -340,11 +334,10 @@ export default function HomePage() {
 
           {!noSources ? (
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {heroStats.map((stat, i) => (
+              {heroStats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="animate-enter rounded-xl border bg-card/80 px-4 py-3 backdrop-blur transition hover:-translate-y-px hover:shadow-md"
-                  style={{ animationDelay: `${i * 40}ms` }}
+                  className="rounded-xl border bg-card px-4 py-3"
                 >
                   <div className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
                     {stat.label}
@@ -357,7 +350,7 @@ export default function HomePage() {
                       </span>
                     ) : null}
                   </div>
-                  <div className="mt-1 font-mono text-2xl font-semibold tabular-nums sm:text-3xl">
+                  <div className="mt-1 text-2xl font-semibold tabular-nums sm:text-3xl">
                     {stat.value}
                   </div>
                 </div>
@@ -374,9 +367,9 @@ export default function HomePage() {
           action={{ label: "Track your first website", onClick: openTrackWebsite }}
         />
       ) : (
-        <div className="grid gap-6 xl:grid-cols-[1fr_360px]">
-          <section className="grid content-start gap-4">
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_300px] xl:grid-cols-[minmax(0,1fr)_340px]">
+          <section className="flex min-w-0 flex-col gap-4">
+            <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
               <div className="relative flex-1">
                 <Search className="pointer-events-none absolute left-3 top-2.5 size-4 text-muted-foreground" />
                 <Input
@@ -420,7 +413,7 @@ export default function HomePage() {
               >
                 To review
                 {unreviewed.length ? (
-                  <span className="ml-1 rounded-full bg-card/25 px-1.5 font-mono text-xs tabular-nums">
+                  <span className="ml-1 rounded-full bg-card/25 px-1.5 text-xs tabular-nums">
                     {unreviewed.length}
                   </span>
                 ) : null}
@@ -441,9 +434,9 @@ export default function HomePage() {
                 Nothing matches — try clearing your filters.
               </div>
             ) : (
-              <div className="grid gap-6">
+              <div className="flex flex-col gap-6">
                 {sections.map(([label, items]) => (
-                  <section key={label || "all"} className="grid gap-3">
+                  <section key={label || "all"} className="flex flex-col gap-3">
                     {label ? (
                       <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                         {label}
@@ -468,13 +461,16 @@ export default function HomePage() {
             )}
           </section>
 
-          <aside className="grid content-start gap-6">
+          <aside className="flex min-w-0 flex-col gap-5">
             <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0">
-                <CardTitle>Pulse</CardTitle>
+                <CardTitle className="flex items-center gap-2">
+                  <span className="live-dot size-1.5" />
+                  Pulse
+                </CardTitle>
                 <span className="flex items-center gap-1 text-xs text-muted-foreground">
                   {trend.direction === "up" ? (
-                    <TrendingUp className="size-3.5 text-emerald-600" />
+                    <TrendingUp className="size-3.5 text-foreground" />
                   ) : trend.direction === "down" ? (
                     <TrendingDown className="size-3.5" />
                   ) : null}
@@ -494,14 +490,14 @@ export default function HomePage() {
                 <div className="grid grid-cols-2 gap-3 text-sm">
                   <div className="rounded-lg bg-secondary px-3 py-2">
                     <div className="text-xs text-muted-foreground">Updates (30 days)</div>
-                    <div className="font-mono text-lg font-semibold tabular-nums">{totalInsights30}</div>
+                    <div className="text-lg font-semibold tabular-nums">{totalInsights30}</div>
                   </div>
                   <div className="rounded-lg bg-secondary px-3 py-2">
                     <div className="flex items-center gap-1 text-xs text-muted-foreground">
                       <Clock3 className="size-3" />
                       First insight in
                     </div>
-                    <div className="font-mono text-lg font-semibold tabular-nums">
+                    <div className="text-lg font-semibold tabular-nums">
                       {formatDurationShort(stats?.avg_seconds_to_insight)}
                     </div>
                   </div>
@@ -571,7 +567,7 @@ export default function HomePage() {
       )}
       </section>
 
-      <section id="monitors" className="grid scroll-mt-24 gap-4 border-t pt-8">
+      <section id="monitors" className="grid scroll-mt-24 gap-4 border-t pt-6">
         <SectionHeading
           icon={Radar}
           title="Monitors"
@@ -580,22 +576,13 @@ export default function HomePage() {
         <MonitorsSection onAdd={() => setAddOpen(true)} />
       </section>
 
-      <section id="alerts" className="grid scroll-mt-24 gap-4 border-t pt-8">
+      <section id="alerts" className="grid scroll-mt-24 gap-4 border-t pt-6">
         <SectionHeading
           icon={Bell}
           title="Alerts"
           description="When your sentinel tells you, and who it tells."
         />
         <AlertsSection />
-      </section>
-
-      <section id="workspace" className="grid scroll-mt-24 gap-4 border-t pt-8">
-        <SectionHeading
-          icon={Building2}
-          title="Workspace"
-          description="Your account, team, and plan."
-        />
-        <WorkspaceSection />
       </section>
 
       <AddMonitorDialog open={addDialogOpen} onClose={closeAddDialog} />

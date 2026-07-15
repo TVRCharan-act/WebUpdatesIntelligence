@@ -277,7 +277,7 @@ export default function SourceDetailsPage() {
           {previewQuery.data ? (
             <>
               {previewQuery.data.message ? (
-                <div className="rounded-lg border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
+                <div className="rounded-lg border border-border bg-secondary p-3 text-sm text-foreground">
                   {previewQuery.data.message}
                 </div>
               ) : null}

@@ -29,7 +29,6 @@ def dispatch_due_monitors(repository: S3Repository, dispatcher: JobDispatcher) -
         repository.update_job(str(job["job_id"]), owner, run_id=int(run["id"]))
         try:
             dispatcher.dispatch(repository.get_job(str(job["job_id"]), owner))
-            repository.update_source(int(source["id"]), owner, last_checked_at=iso_now())
             queued.append(int(source["id"]))
         except TaskLaunchError as exc:
             failures.append({"source_id": int(source["id"]), "error": str(exc)})

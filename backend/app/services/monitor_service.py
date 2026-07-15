@@ -9,7 +9,7 @@ from typing import Any, Callable
 
 from backend.app.config import get_settings
 from backend.app.observability import log_health_event
-from backend.app.repository import RecordNotFound, S3Repository, SourceDisabled, iso_now
+from backend.app.repository import RecordNotFound, S3Repository, SourceDisabled, iso_now, url_fingerprint
 from mysignal.notifications.ses_email import EmailDeliveryError, SesEmailSender
 from mysignal.providers.gemini import GeminiAnalyzer
 from mysignal.providers.openai_analyzer import OpenAIAnalyzer
@@ -228,10 +228,14 @@ def _monitor(
     if report_progress:
         report_progress("discovering", "Crawling the source for newly published URLs.", None, None)
     candidates = discover_candidates(_with_effective_provider(repository, source))
+    # Filter against "seen" state with a single listing rather than one GET per
+    # candidate: a listing page can yield dozens of links, and a per-URL GET
+    # fan-out against S3 dominated the pre-processing latency.
+    seen_fingerprints = repository.seen_url_fingerprints(owner, int(source["id"]))
     new_candidates = [
         candidate
         for candidate in candidates
-        if not repository.seen_record(owner, int(source["id"]), candidate.url)
+        if url_fingerprint(candidate.url) not in seen_fingerprints
     ]
     new_urls = [candidate.url for candidate in new_candidates]
     candidates_to_process = new_candidates[: settings.monitor_max_new_urls]
@@ -278,7 +282,18 @@ def _monitor(
             return candidate.url, str(exc)
 
     if candidates_to_process:
-        max_workers = min(settings.monitor_url_concurrency, len(candidates_to_process))
+        # crawl4ai fetches spin up a local headless browser per worker, so keep
+        # their concurrency at the configured floor to bound memory. Hosted /
+        # lightweight content providers (firecrawl, zenrows, requests) have no
+        # local browser cost, so let every new URL of a batch process in a
+        # single wave instead of serializing into ceil(n / floor) waves.
+        browser_bound = provider == "crawl4ai"
+        effective_concurrency = (
+            settings.monitor_url_concurrency
+            if browser_bound
+            else max(settings.monitor_url_concurrency, min(settings.monitor_max_new_urls, 8))
+        )
+        max_workers = min(effective_concurrency, len(candidates_to_process))
         with ThreadPoolExecutor(max_workers=max_workers, thread_name_prefix="sentinel-url") as executor:
             futures = [executor.submit(process_candidate, candidate) for candidate in candidates_to_process]
             for completed_count, future in enumerate(as_completed(futures), start=1):

@@ -52,8 +52,8 @@ export default function StoragePage() {
       </div>
 
       {data?.message ? (
-        <Card className="border-amber-300 bg-amber-50">
-          <CardContent className="flex gap-3 py-4 text-sm text-amber-900">
+        <Card className="border-border bg-secondary">
+          <CardContent className="flex gap-3 py-4 text-sm text-foreground">
             <AlertTriangle className="size-5 shrink-0" />
             <span>{data.message}</span>
           </CardContent>

@@ -65,7 +65,7 @@ export function InsightCard({
             <MailWarning className="size-4 text-destructive" aria-label="Alert not sent" />
           </span>
         ) : null}
-        <CheckCircle2 className="size-4 shrink-0 text-emerald-600" aria-label="Reviewed" />
+        <CheckCircle2 className="size-4 shrink-0 text-foreground" aria-label="Reviewed" />
         <span className="shrink-0 text-xs text-muted-foreground">
           {formatRelativeTime(insight.created_at)}
         </span>
@@ -84,7 +84,7 @@ export function InsightCard({
 
   return (
     <article
-      className={cn("rounded-xl border bg-card p-4 shadow-sm transition hover:shadow-md", motionClass)}
+      className={cn("rounded-xl border bg-card p-4 shadow-sm", motionClass)}
       style={motionStyle}
     >
       <div className="flex items-center gap-3">
@@ -107,7 +107,7 @@ export function InsightCard({
       </div>
 
       <div className="mt-3 flex flex-wrap items-start gap-2">
-        <h3 className={cn("font-semibold", density === "feed" ? "text-base" : "text-sm")}>
+        <h3 className={cn("min-w-0 break-words font-semibold", density === "feed" ? "text-base" : "text-sm")}>
           {headline}
         </h3>
         <SeverityBadge severity={insight.severity} />
@@ -124,7 +124,7 @@ export function InsightCard({
       </div>
 
       {body ? (
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+        <p className="mt-2 break-words text-sm leading-relaxed text-muted-foreground">{body}</p>
       ) : null}
 
       <div className="mt-4 flex items-center justify-between gap-3">

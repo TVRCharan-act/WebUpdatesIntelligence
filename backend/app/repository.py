@@ -610,6 +610,28 @@ class S3Repository:
         except RecordNotFound:
             return None
 
+    def seen_url_fingerprints(self, owner: str, source_id: int) -> set[str]:
+        """Return the URL fingerprints already seen for a source in one listing.
+
+        Callers that need to filter many candidates against "seen" state should
+        use this instead of a ``seen_record`` per URL: it turns an N-object GET
+        fan-out into O(objects / 1000) cheap key listings, which matters when a
+        listing page yields dozens of links against an S3 backend.
+        """
+        prefix = f"{self._account_prefix(owner)}/seen/{source_id}/"
+        fingerprints: set[str] = set()
+        cursor: str | None = None
+        while True:
+            page = self.storage.list_objects(prefix, cursor=cursor, limit=1000)
+            for key in page.keys:
+                name = key.rsplit("/", 1)[-1]
+                if name.endswith(".json"):
+                    fingerprints.add(name[: -len(".json")])
+            cursor = page.next_cursor
+            if not cursor:
+                break
+        return fingerprints
+
     def mark_seen(
         self, owner: str, source_id: int, url: str, *, insight_id: int | None = None, baseline: bool = False
     ) -> bool:

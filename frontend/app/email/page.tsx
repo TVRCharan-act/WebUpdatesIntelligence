@@ -340,7 +340,7 @@ export default function EmailPage() {
           </div>
 
           {!sesQuery.data?.configured ? (
-            <div className="rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
+            <div className="rounded-md border border-border bg-secondary p-3 text-sm text-foreground">
               Missing environment values:{" "}
               {(sesQuery.data?.missing || []).join(", ") || "SES settings"}
             </div>
@@ -611,7 +611,7 @@ export default function EmailPage() {
                 </div>
               </div>
               {summary.email_error ? (
-                <div className="mt-3 rounded-md border border-amber-300 bg-amber-50 p-3 text-sm text-amber-900">
+                <div className="mt-3 rounded-md border border-border bg-secondary p-3 text-sm text-foreground">
                   {summary.email_error}
                 </div>
               ) : null}

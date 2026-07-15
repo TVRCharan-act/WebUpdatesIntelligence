@@ -115,7 +115,7 @@ export function TaskProgressDialog({
             ) : isFailure ? (
               <XCircle className="size-5 text-destructive" />
             ) : (
-              <CheckCircle2 className="size-5 text-emerald-600" />
+              <CheckCircle2 className="size-5 text-foreground" />
             )}
           </div>
           <div className="min-w-0">
@@ -155,9 +155,9 @@ export function TaskProgressDialog({
                   className="flex gap-2 text-sm text-muted-foreground"
                 >
                   {/(failed|rejected|error)/i.test(message) ? (
-                    <AlertTriangle className="mt-0.5 size-4 shrink-0 text-amber-600" />
+                    <AlertTriangle className="mt-0.5 size-4 shrink-0 text-destructive" />
                   ) : (
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-emerald-600" />
+                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-foreground" />
                   )}
                   <span>{message}</span>
                 </div>
@@ -167,7 +167,7 @@ export function TaskProgressDialog({
         ) : null}
 
         {query.data?.result ? (
-          <pre className="max-h-56 overflow-auto rounded-md bg-slate-950 p-3 text-xs text-slate-50">
+          <pre className="max-h-56 overflow-auto rounded-md bg-neutral-900 p-3 text-xs text-neutral-100">
             {JSON.stringify(query.data.result, null, 2)}
           </pre>
         ) : null}

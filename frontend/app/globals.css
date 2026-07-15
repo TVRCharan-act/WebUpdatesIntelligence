@@ -4,32 +4,41 @@
 
 @layer base {
   :root {
-    --background: 210 33% 98%;
-    --foreground: 222 47% 11%;
+    /* Monochrome system: white surfaces, near-black ink for action items,
+       gray for secondary. Red is reserved exclusively for destructive/error
+       states. Hue is held at 0 and saturation at 0% so every neutral is a
+       true gray — no cool/warm cast. */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-    --primary: 199 89% 32%;
+    --card-foreground: 0 0% 9%;
+    /* Action items — solid black. */
+    --primary: 0 0% 9%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 24% 94%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 210 24% 94%;
-    --muted-foreground: 215 16% 43%;
-    --accent: 158 46% 88%;
-    --accent-foreground: 165 70% 18%;
+    /* Secondary — light gray fills. */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 0 0% 94%;
+    --accent-foreground: 0 0% 9%;
+    /* The one non-neutral: danger. */
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
-    --border: 214 21% 86%;
-    --input: 214 21% 86%;
-    --ring: 199 89% 32%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 9%;
     --radius: 0.7rem;
 
-    /* Signature "Signal" ink — waveform / pulse motif (ActivityPulse, ambient waveform). */
-    --signal: 199 89% 42%;
-    --signal-fill: 199 89% 42%;
-    /* Reserved for Tier 2 confidence UI — deliberately outside the severity palette. Unused today. */
-    --confidence: 243 70% 60%;
-    /* Briefing surface — the one area allowed to breathe (Dashboard header). */
-    --briefing-bg: 199 60% 97%;
+    /* Signal ink (waveform / pulse motif) is now monochrome — the pulse reads
+       as black ink on white rather than a brand hue. */
+    --signal: 0 0% 9%;
+    --signal-fill: 0 0% 9%;
+    /* Confidence bars — filled bars are black, empty are the muted gray set on
+       the element. */
+    --confidence: 0 0% 9%;
+    /* Briefing surface — a whisper of gray so the hero still separates. */
+    --briefing-bg: 0 0% 98%;
 
     /* Motion tokens (§17). */
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -41,41 +50,97 @@
   }
 
   .dark {
-    --background: 222 47% 8%;
-    --foreground: 210 40% 96%;
-    --card: 222 40% 11%;
-    --card-foreground: 210 40% 96%;
-    --primary: 199 89% 38%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 221 28% 16%;
-    --secondary-foreground: 210 40% 96%;
-    --muted: 221 28% 16%;
-    --muted-foreground: 215 18% 68%;
-    --accent: 174 38% 18%;
-    --accent-foreground: 168 70% 82%;
+    /* Dark mode is the inverse of the same monochrome scale: near-black
+       surfaces, white ink, white action items. */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 96%;
+    /* Action items invert to white on dark. */
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 14%;
+    --muted-foreground: 0 0% 64%;
+    --accent: 0 0% 16%;
+    --accent-foreground: 0 0% 96%;
     --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
-    --border: 221 24% 22%;
-    --input: 221 24% 22%;
-    --ring: 199 89% 38%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 83%;
 
-    --signal: 199 89% 55%;
-    --signal-fill: 199 89% 55%;
-    --confidence: 243 74% 68%;
-    --briefing-bg: 205 44% 12%;
+    --signal: 0 0% 96%;
+    --signal-fill: 0 0% 96%;
+    --confidence: 0 0% 96%;
+    --briefing-bg: 0 0% 8%;
   }
 
   * {
     @apply border-border;
   }
 
+  html {
+    /* Reserve the vertical scrollbar's width on BOTH edges so a tall,
+       data-filled page stays dead-centered. Without this, the scrollbar only
+       eats space on one side, and every mx-auto container (briefing hero,
+       feed, cards) drifts ~half a scrollbar off true window center. */
+    scrollbar-gutter: stable both-edges;
+  }
+
+  /* The login scene is a full-bleed edge-to-edge backdrop, not a centered
+     content page — the reserved gutter above would otherwise leave slivers
+     of the page background exposed down both sides of it. */
+  html:has(.login-scene) {
+    scrollbar-gutter: auto;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
-    font-feature-settings: "tnum" 1;
+    font-family:
+      "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-feature-settings: "tnum" 1, "cv02" 1, "cv03" 1, "cv04" 1;
+  }
+
+  /* Interactive surfaces feel alive: colour, border, background and shadow
+     ease together on every hover/focus without each component re-declaring it. */
+  a,
+  button,
+  [role="button"],
+  input,
+  select,
+  textarea,
+  summary {
+    transition:
+      color var(--dur-fast) var(--ease-out),
+      background-color var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out),
+      box-shadow var(--dur-base) var(--ease-out),
+      transform var(--dur-fast) var(--ease-out);
   }
 }
 
 @layer components {
+  /* Gradient text styling — the one sanctioned use of colour, reserved for the
+     occasional wordmark or headline word that deserves emphasis. The rest of
+     the product stays strictly monochrome (white / black / gray). */
+  .gradient-text {
+    background-image: linear-gradient(
+      90deg,
+      #4e7dfa,
+      #6d6cf8 30%,
+      #a455e2 50%,
+      #e6547c 80%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+  }
+
   /* ActivityPulse draw-in (§17.5): stroke draws once on mount. */
   .signal-draw {
     stroke-dasharray: 1;
@@ -86,17 +151,6 @@
   @keyframes signal-draw {
     to {
       stroke-dashoffset: 0;
-    }
-  }
-
-  /* Ambient briefing waveform (§17.1): slow seamless horizontal drift. */
-  .signal-drift {
-    animation: signal-drift var(--dur-ambient) linear infinite;
-  }
-
-  @keyframes signal-drift {
-    to {
-      transform: translateX(-50px);
     }
   }
 
@@ -149,94 +203,13 @@
     }
   }
 
-  /* Login hero scene: slow breathing aurora glow behind the sigil. */
-  .aurora-breathe {
-    animation: aurora-breathe 7s var(--ease-in-out) infinite;
-  }
-
-  @keyframes aurora-breathe {
-    0%,
-    100% {
-      opacity: 0.55;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.9;
-      transform: scale(1.08);
-    }
-  }
-
-  /* Login hero scene: distant stars twinkling at slightly different rates. */
-  .twinkle {
-    animation: twinkle 3.6s ease-in-out infinite;
-  }
-
-  @keyframes twinkle {
-    0%,
-    100% {
-      opacity: 0.15;
-    }
-    50% {
-      opacity: 0.9;
-    }
-  }
-
-  /* Login hero scene: the ring of light orbiting the sigil. */
-  .sigil-spin {
-    animation: sigil-spin 14s linear infinite;
-  }
-
-  @keyframes sigil-spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  .sigil-spin-reverse {
-    animation: sigil-spin-reverse 20s linear infinite;
-  }
-
-  @keyframes sigil-spin-reverse {
-    to {
-      transform: rotate(-360deg);
-    }
-  }
-
-  /* Login hero scene: the sigil's core glow, pulsing like it's alive. */
-  .sigil-pulse {
-    animation: sigil-pulse 3.2s var(--ease-in-out) infinite;
-  }
-
-  @keyframes sigil-pulse {
-    0%,
-    100% {
-      opacity: 0.75;
-      filter: drop-shadow(0 0 12px currentColor);
-    }
-    50% {
-      opacity: 1;
-      filter: drop-shadow(0 0 26px currentColor);
-    }
-  }
-
-  /* Login hero scene: floating glass stat chips. Enter once, then bob forever.
-     Per-chip stagger comes from CSS custom properties (set inline), not the
-     animation shorthand itself, so the reduced-motion override below still
-     wins outright instead of losing to inline-style specificity. */
-  .stat-chip {
-    animation:
-      pa-enter var(--dur-base) var(--ease-out) var(--stat-enter-delay, 0ms) both,
-      stat-float var(--stat-float-duration, 5s) var(--ease-in-out) var(--stat-float-delay, 500ms) infinite;
-  }
-
-  @keyframes stat-float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-8px);
-    }
+  /* Status dot: a small, static indicator (monitor "Active", header tagline,
+     Pulse card). Monochrome — inherits currentColor from its container; no
+     pinging ring, no colour. */
+  .live-dot {
+    display: inline-flex;
+    border-radius: 9999px;
+    background-color: currentColor;
   }
 }
 
@@ -246,10 +219,6 @@
     stroke-dashoffset: 0;
   }
 
-  .signal-drift {
-    animation: none;
-  }
-
   .signal-sweep {
     animation: none;
     stroke-dasharray: none;
@@ -257,15 +226,6 @@
 
   .animate-enter,
   .animate-highlight {
-    animation: none;
-  }
-
-  .aurora-breathe,
-  .twinkle,
-  .sigil-spin,
-  .sigil-spin-reverse,
-  .sigil-pulse,
-  .stat-chip {
     animation: none;
   }
 }

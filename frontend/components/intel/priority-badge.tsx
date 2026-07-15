@@ -5,11 +5,12 @@ import type { Priority } from "@/lib/api";
 import { cn } from "@/lib/utils";
 
 // Customer-set priority for a tracked company. Deliberately distinct from the
-// AI-set SeverityBadge (a flag icon + priority-specific color), so "how much I
-// care" is never confused with "how significant the AI thinks this change is".
+// AI-set SeverityBadge (a flag icon + outline treatment, weighted by priority),
+// so "how much I care" is never confused with "how significant the AI thinks
+// this change is".
 
 const CONFIG: Record<Priority, { label: string; className: string }> = {
-  high: { label: "High priority", className: "text-rose-600 dark:text-rose-400" },
+  high: { label: "High priority", className: "border-foreground/25 font-semibold text-foreground" },
   medium: { label: "Medium priority", className: "text-muted-foreground" },
   low: { label: "Low priority", className: "text-muted-foreground/70" },
 };
