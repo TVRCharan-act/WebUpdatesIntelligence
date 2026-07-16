@@ -61,8 +61,23 @@ def list_company_recipients(repository: Repository, user: CurrentUser) -> list[d
     rows = []
     for company in repository.list_companies(_owner_filter(user)):
         owner = str(company["owner_name"])
-        rows.append({"id": company["id"], "name": company["name"], "recipients": repository.list_recipients(owner, company_id=int(company["id"]))})
+        rows.append({
+            "id": company["id"],
+            "name": company["name"],
+            "alert_mode": company.get("alert_mode") or "default",
+            "recipients": repository.list_recipients(owner, company_id=int(company["id"])),
+        })
     return rows
+
+
+@router.patch("/companies/{company_id}/alert-mode", response_model=schemas.CompanyAlertModeRead)
+def update_company_alert_mode(company_id: int, payload: schemas.CompanyAlertModeUpdate, repository: Repository, user: CurrentUser) -> dict:
+    try:
+        company = repository.get_company(company_id, _owner_filter(user))
+        updated = repository.update_company(company_id, str(company["owner_name"]), alert_mode=payload.mode)
+    except RecordNotFound as exc:
+        raise HTTPException(status_code=404, detail="Company not found.") from exc
+    return {"id": int(updated["id"]), "alert_mode": str(updated.get("alert_mode") or "default")}
 
 
 @router.post("/companies/{company_id}/recipients", response_model=schemas.NotificationRecipientRead, status_code=status.HTTP_201_CREATED)
@@ -118,7 +133,7 @@ def list_email_summaries(
             "recipient_count": len(recipients),
             "ses_configured": ses.configured,
             "would_send": ses.configured and bool(recipients) and insight.get("email_status") != "sent",
-            "notification_mode": repository.get_notification_mode(str(insight["owner_name"])),
+            "notification_mode": repository.resolve_notification_mode(str(insight["owner_name"]), int(company["id"])),
         })
     return rows
 

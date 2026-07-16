@@ -166,7 +166,18 @@ class NotificationRecipientRead(NotificationRecipientBase):
 class CompanyNotificationRecipientsRead(BaseModel):
     id: int
     name: str
+    # "default" defers to the account-wide notification mode; the others override it.
+    alert_mode: Literal["default", "manual", "automatic"] = "default"
     recipients: list[NotificationRecipientRead] = Field(default_factory=list)
+
+
+class CompanyAlertModeUpdate(BaseModel):
+    mode: Literal["default", "manual", "automatic"]
+
+
+class CompanyAlertModeRead(BaseModel):
+    id: int
+    alert_mode: Literal["default", "manual", "automatic"]
 
 
 class SesStatusRead(BaseModel):

@@ -4,7 +4,6 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   AlertTriangle,
   Bell,
-  CheckCircle2,
   ClipboardCheck,
   ExternalLink,
   Loader2,
@@ -70,9 +69,11 @@ import {
   listSourceSummaries,
   sendEmailSummary,
   taskHasFailedResult,
+  updateCompanyAlertMode,
   updateEmailNotificationSettings,
   updateInsightReview,
   updateSource,
+  type CompanyAlertMode,
   type Priority,
   type Source,
   type Summary,
@@ -258,8 +259,7 @@ function MonitorCard({
               <div className="truncate text-sm text-muted-foreground">{prettyUrl(source.url)}</div>
             </div>
           </div>
-          <Badge className="shrink-0 gap-1.5" variant={source.enabled ? "success" : "secondary"}>
-            {source.enabled ? <span className="live-dot size-1.5" /> : null}
+          <Badge className="shrink-0" variant={source.enabled ? "success" : "secondary"}>
             {source.enabled ? "Active" : "Paused"}
           </Badge>
         </div>
@@ -924,6 +924,15 @@ export function AlertsSection() {
     },
     onError: (error) => toast.error(getApiErrorMessage(error)),
   });
+  const alertModeMutation = useMutation({
+    mutationFn: ({ companyId, alertMode }: { companyId: number; alertMode: CompanyAlertMode }) =>
+      updateCompanyAlertMode(companyId, alertMode),
+    onSuccess: () => {
+      toast.success("Company alert setting updated.");
+      queryClient.invalidateQueries({ queryKey: queryKeys.companyRecipients });
+    },
+    onError: (error) => toast.error(getApiErrorMessage(error)),
+  });
 
   const mode = settingsQuery.data?.mode || "manual";
   const insights = insightsQuery.data || [];
@@ -952,6 +961,7 @@ export function AlertsSection() {
           : "Nothing waiting for review right now.",
     },
   ];
+  const selectedMode = MODE_OPTIONS.find((option) => option.value === mode) ?? MODE_OPTIONS[0];
 
   return (
     <div className="grid gap-6">
@@ -1019,30 +1029,42 @@ export function AlertsSection() {
             When to send alerts
           </CardTitle>
         </CardHeader>
-        <CardContent className="grid gap-3 sm:grid-cols-2">
-          {MODE_OPTIONS.map((option) => {
-            const Icon = option.icon;
-            const selected = mode === option.value;
-            return (
-              <button
-                key={option.value}
-                className={`relative rounded-xl border p-4 text-left transition-colors hover:bg-accent ${
-                  selected ? "border-foreground bg-accent" : "bg-card"
-                }`}
-                onClick={() => settingsMutation.mutate({ mode: option.value })}
-              >
-                {selected ? (
-                  <CheckCircle2 className="absolute right-3 top-3 size-4 text-primary" aria-label="Selected" />
-                ) : null}
-                <div className="flex items-center gap-2 font-semibold">
+        <CardContent className="grid gap-3">
+          <div
+            role="tablist"
+            aria-label="When to send alerts"
+            className="grid grid-cols-2 gap-1 rounded-lg bg-secondary p-1"
+          >
+            {MODE_OPTIONS.map((option) => {
+              const Icon = option.icon;
+              const selected = mode === option.value;
+              return (
+                <button
+                  key={option.value}
+                  role="tab"
+                  aria-selected={selected}
+                  className={cn(
+                    "flex items-center justify-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                    selected
+                      ? "bg-card text-foreground shadow-sm"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
+                  onClick={() => settingsMutation.mutate({ mode: option.value })}
+                >
                   <Icon className="size-4" />
                   {option.label}
-                </div>
-                <p className="mt-1 text-sm text-muted-foreground">{option.detail}</p>
-                <p className="mt-2 text-xs font-medium text-muted-foreground/80">{option.context}</p>
-              </button>
-            );
-          })}
+                </button>
+              );
+            })}
+          </div>
+          <div>
+            <p className="text-sm text-muted-foreground">{selectedMode.detail}</p>
+            <p className="mt-1 text-xs font-medium text-muted-foreground/80">{selectedMode.context}</p>
+          </div>
+          <p className="text-xs text-muted-foreground">
+            This is your account default. Set a different cadence for individual
+            companies under <span className="font-medium text-foreground">Alert recipients</span> below.
+          </p>
         </CardContent>
       </Card>
 
@@ -1057,8 +1079,34 @@ export function AlertsSection() {
           {(recipientsQuery.data || []).map((company) => (
             <section key={company.id} className="rounded-xl border p-4">
               <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-                <h3 className="font-semibold">{company.name}</h3>
-                <Badge variant="secondary">{company.recipients.length} recipients</Badge>
+                <div className="flex items-center gap-2">
+                  <h3 className="font-semibold">{company.name}</h3>
+                  <Badge variant="secondary">{company.recipients.length} recipients</Badge>
+                </div>
+                <Select
+                  value={company.alert_mode}
+                  onValueChange={(value) =>
+                    alertModeMutation.mutate({
+                      companyId: company.id,
+                      alertMode: value as CompanyAlertMode,
+                    })
+                  }
+                >
+                  <SelectTrigger
+                    className="h-8 w-[184px] text-xs"
+                    aria-label={`Alert cadence for ${company.name}`}
+                  >
+                    <Bell className="size-3.5 text-muted-foreground" />
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="default">
+                      Default ({mode === "automatic" ? "Automatic" : "Manual"})
+                    </SelectItem>
+                    <SelectItem value="automatic">Automatic</SelectItem>
+                    <SelectItem value="manual">Manual</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
               <div className="flex flex-wrap gap-2">
                 {company.recipients.map((recipient) => (

@@ -301,9 +301,12 @@ export interface NotificationRecipientInput {
 export type NotificationRecipientUpdateInput =
   Partial<NotificationRecipientInput>;
 
+export type CompanyAlertMode = "default" | "manual" | "automatic";
+
 export interface CompanyNotificationRecipients {
   id: number;
   name: string;
+  alert_mode: CompanyAlertMode;
   recipients: NotificationRecipient[];
 }
 
@@ -587,6 +590,17 @@ export async function updateEmailNotificationSettings(
 export async function listCompanyRecipients() {
   const response =
     await api.get<CompanyNotificationRecipients[]>("/email/recipients");
+  return response.data;
+}
+
+export async function updateCompanyAlertMode(
+  companyId: number,
+  mode: CompanyAlertMode,
+) {
+  const response = await api.patch<{ id: number; alert_mode: CompanyAlertMode }>(
+    `/email/companies/${companyId}/alert-mode`,
+    { mode },
+  );
   return response.data;
 }
 

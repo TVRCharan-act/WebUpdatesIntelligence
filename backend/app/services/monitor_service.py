@@ -175,7 +175,7 @@ def _baseline(
 
 
 def _send_insight_if_automatic(repository: S3Repository, owner: str, insight: dict[str, Any]) -> None:
-    if repository.get_notification_mode(owner) != "automatic":
+    if repository.resolve_notification_mode(owner, int(insight["company_id"])) != "automatic":
         return
     claimed = repository.claim_email_delivery(int(insight["id"]), owner)
     if claimed is None:
@@ -189,8 +189,33 @@ def _send_insight_if_automatic(repository: S3Repository, owner: str, insight: di
         SesEmailSender().send(claimed, recipients)
         repository.complete_email_delivery(int(insight["id"]), owner, sent=True)
     except EmailDeliveryError as exc:
+        # The insight is already persisted and the failure is recorded on it
+        # (email_status="failed"), and it can be retried later from the manual
+        # send path. Automatic notification is therefore best-effort: swallowing
+        # the error here lets the caller still mark the URL as seen, instead of
+        # re-discovering and re-processing it into a duplicate insight on every
+        # run whenever delivery keeps failing (e.g. an unverified SES recipient).
+        # The insight is already persisted and the failure is recorded on it
+        # (email_status="failed"), and it can be retried later from the manual
+        # send path. Automatic notification is therefore best-effort: swallowing
+        # the error here lets the caller still mark the URL as seen, instead of
+        # re-discovering and re-processing it into a duplicate insight on every
+        # run whenever delivery keeps failing (e.g. an unverified SES recipient).
+        # The insight is already persisted and the failure is recorded on it
+        # (email_status="failed"), and it can be retried later from the manual
+        # send path. Automatic notification is therefore best-effort: swallowing
+        # the error here lets the caller still mark the URL as seen, instead of
+        # re-discovering and re-processing it into a duplicate insight on every
+        # run whenever delivery keeps failing (e.g. an unverified SES recipient).
         repository.complete_email_delivery(int(insight["id"]), owner, sent=False, error=str(exc))
-        raise
+        log_health_event(
+            event_type="insight_email",
+            service="ecs-worker",
+            action="send_automatic",
+            status="error",
+            correlation_id=None,
+            metadata={"insight_id": int(insight["id"]), "error_type": type(exc).__name__},
+        )
 
 
 def send_insight_email(repository: S3Repository, insight_id: int | str, owner: str | None) -> tuple[str, str]:

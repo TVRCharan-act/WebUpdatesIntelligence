@@ -5,7 +5,6 @@ import {
   ArrowRight,
   ArrowUpDown,
   Bell,
-  Clock3,
   Radar,
   Search,
   TrendingDown,
@@ -27,7 +26,7 @@ import {
 } from "@/app/monitors/page";
 import { useParams, usePathname, useRouter } from "@/components/router";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -36,6 +35,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Skeleton } from "@/components/ui/skeleton";
 import {
   getApiErrorMessage,
   getInsightStats,
@@ -48,7 +48,7 @@ import {
 import { type Attribution, hostOf, makeAttributor } from "@/lib/attribution";
 import { queryKeys } from "@/lib/query-keys";
 import { deriveTrend } from "@/lib/trend";
-import { formatDurationShort, truncate } from "@/lib/utils";
+import { formatDurationShort } from "@/lib/utils";
 
 // The whole app is one page. A briefing hero that says what needs you, the
 // full update feed (search / sort / review filter) with a Pulse rail, then
@@ -65,6 +65,10 @@ function greeting(): string {
 }
 
 const MINUTES_SAVED_PER_REVIEW = 4;
+
+// The feed shows this many updates at first; each "Show more" reveals one more
+// batch of the same size rather than the whole backlog at once.
+const FEED_BATCH = 8;
 
 type SortKey =
   | "recent"
@@ -155,6 +159,77 @@ function anchorForPath(pathname: string): string | null {
   return null;
 }
 
+// Keeps a loading flag "on" for at least `minMs` after it first turns on, even
+// if the underlying data resolves sooner. Without this, a fast (cached / local)
+// load flips the skeleton off within a frame and reads as an empty → data jump
+// instead of a visible loading state.
+function useMinimumVisible(active: boolean, minMs: number): boolean {
+  const [visible, setVisible] = React.useState(active);
+  const startRef = React.useRef<number | null>(active ? Date.now() : null);
+
+  React.useEffect(() => {
+    if (active) {
+      if (startRef.current === null) startRef.current = Date.now();
+      setVisible(true);
+      return;
+    }
+    if (startRef.current === null) {
+      setVisible(false);
+      return;
+    }
+    const remaining = Math.max(0, minMs - (Date.now() - startRef.current));
+    const timer = setTimeout(() => {
+      setVisible(false);
+      startRef.current = null;
+    }, remaining);
+    return () => clearTimeout(timer);
+  }, [active, minMs]);
+
+  return visible;
+}
+
+// Placeholder that mirrors the Pulse card's two-column layout so the real card
+// fades in without shifting anything. `animate-pulse` on each bar reads as a
+// gentle breathing state while the feed and stats load.
+function PulseSkeleton() {
+  return (
+    <Card aria-hidden>
+      <CardContent className="grid gap-6 p-5 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+        <div className="flex flex-col gap-3 md:border-r md:pr-6">
+          <div className="flex items-start justify-between gap-2">
+            <div className="space-y-1.5">
+              <Skeleton className="h-4 w-14" />
+              <Skeleton className="h-3 w-32" />
+            </div>
+            <Skeleton className="h-3 w-24" />
+          </div>
+          <Skeleton className="h-16 w-full" />
+          <div className="flex items-center justify-between border-t pt-1">
+            <Skeleton className="h-2 w-16" />
+            <Skeleton className="h-2 w-10" />
+          </div>
+          <div className="flex gap-5">
+            <Skeleton className="h-3 w-24" />
+            <Skeleton className="h-3 w-20" />
+          </div>
+        </div>
+        <div className="flex flex-col gap-3">
+          <Skeleton className="h-4 w-20" />
+          {[0, 1, 2].map((i) => (
+            <div key={i} className="grid gap-1.5">
+              <div className="flex justify-between gap-3">
+                <Skeleton className="h-3 w-28" />
+                <Skeleton className="h-3 w-14" />
+              </div>
+              <Skeleton className="h-1.5 w-full rounded-full" />
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function HomePage() {
   const auth = useAuth();
   const queryClient = useQueryClient();
@@ -164,6 +239,7 @@ export default function HomePage() {
   const [toReviewOnly, setToReviewOnly] = React.useState(false);
   const [sortBy, setSortBy] = React.useState<SortKey>("recent");
   const [companyFilter, setCompanyFilter] = React.useState<string>("all");
+  const [visibleCount, setVisibleCount] = React.useState(FEED_BATCH);
 
   // Legacy deep links land on this same page; on first mount, jump straight
   // to the section (and dialog) they used to open on their own route.
@@ -276,6 +352,21 @@ export default function HomePage() {
       .sort(comparator(sortBy));
   }, [insights, term, toReviewOnly, sortBy, attribute, companyFilter]);
 
+  // Collapse back to the first batch whenever the query changes, so a new
+  // search / sort / filter doesn't start halfway down an old expanded list.
+  React.useEffect(() => {
+    setVisibleCount(FEED_BATCH);
+  }, [term, toReviewOnly, sortBy, companyFilter]);
+
+  // Only the first `visibleCount` updates render; "Show more" grows this by one
+  // batch at a time. Slicing happens before day-grouping so the cutoff follows
+  // the active sort order (newest first by default).
+  const visibleEnriched = React.useMemo(
+    () => enriched.slice(0, visibleCount),
+    [enriched, visibleCount],
+  );
+  const remaining = enriched.length - visibleEnriched.length;
+
   // Highlight insights genuinely new since the last fetch (tracked on full set).
   const allIds = React.useMemo(() => insights.map((i) => i.id), [insights]);
   const prevIdsRef = React.useRef<Set<string> | null>(null);
@@ -291,24 +382,31 @@ export default function HomePage() {
   // Group by day only for the time-based sorts; otherwise a single flat list.
   const grouped = sortBy === "recent" || sortBy === "oldest";
   const sections = React.useMemo(() => {
-    if (!grouped) return [["", enriched]] as [string, Enriched[]][];
+    if (!grouped) return [["", visibleEnriched]] as [string, Enriched[]][];
     const map = new Map<string, Enriched[]>();
-    for (const item of enriched) {
+    for (const item of visibleEnriched) {
       const label = dayLabel(item.insight.created_at);
       const bucket = map.get(label);
       if (bucket) bucket.push(item);
       else map.set(label, [item]);
     }
     return Array.from(map.entries());
-  }, [enriched, grouped]);
+  }, [visibleEnriched, grouped]);
 
   // ---- Pulse rail (all of the old Trends page) ----
   const daily = stats?.daily || [];
   const totalInsights30 = daily.reduce((sum, day) => sum + day.count, 0);
+  const busiestDay = daily.reduce((max, day) => Math.max(max, day.count), 0);
   const byCompanyMax = Math.max(1, ...(stats?.by_company || []).map((row) => row.count));
 
   const noSources = sources.length === 0 && !sourcesQuery.isLoading;
   const hasAnyInsights = insights.length > 0;
+  // Show the Pulse skeleton while the feed/stats are still loading, so the card
+  // fades in with its data instead of popping in from an empty gap. Held on for a
+  // short minimum so even an instant load shows the loading state, not a flash.
+  const pulseLoading =
+    !hasAnyInsights && (insightsQuery.isLoading || statsQuery.isLoading);
+  const showPulseSkeleton = useMinimumVisible(pulseLoading, 650);
 
   return (
     <div className="grid gap-8 pb-10">
@@ -317,10 +415,6 @@ export default function HomePage() {
         <div className="grid gap-5">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-2xl">
-              <div className="mb-2 inline-flex items-center gap-2 rounded-full border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
-                <span className="live-dot size-1.5" />
-                On watch
-              </div>
               <h2 className="text-2xl font-semibold sm:text-3xl">
                 {greeting()}, {auth.session?.name || "there"}.
               </h2>
@@ -367,8 +461,94 @@ export default function HomePage() {
           action={{ label: "Track your first website", onClick: openTrackWebsite }}
         />
       ) : (
-        <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_300px] xl:grid-cols-[minmax(0,1fr)_340px]">
-          <section className="flex min-w-0 flex-col gap-4">
+        <>
+          {showPulseSkeleton ? (
+            <PulseSkeleton />
+          ) : hasAnyInsights ? (
+            <Card>
+              <CardContent className="grid gap-6 p-5 md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
+                <div className="flex flex-col gap-2 md:border-r md:pr-6">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <span className="text-sm font-semibold">Pulse</span>
+                      <p className="mt-0.5 text-xs text-muted-foreground">
+                        Updates detected per day
+                      </p>
+                    </div>
+                    <span className="flex shrink-0 items-center gap-1 text-xs text-muted-foreground">
+                      {trend.direction === "up" ? (
+                        <TrendingUp className="size-3.5 text-foreground" />
+                      ) : trend.direction === "down" ? (
+                        <TrendingDown className="size-3.5" />
+                      ) : null}
+                      {trend.level}
+                      {trend.deltaPct != null
+                        ? ` · ${trend.deltaPct > 0 ? "+" : ""}${trend.deltaPct}% vs last week`
+                        : ""}
+                    </span>
+                  </div>
+                  <div>
+                    <ActivityPulse
+                      data={daily.map((day) => day.count)}
+                      height={64}
+                      ariaLabel={`${totalInsights30} updates over the last 30 days, up to ${busiestDay} in a single day`}
+                      emptyLabel="No updates in the last 30 days."
+                    />
+                    <div className="mt-1 flex items-center justify-between border-t pt-1 text-[10px] uppercase tracking-wide text-muted-foreground">
+                      <span>30 days ago</span>
+                      <span>Today</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-muted-foreground">
+                    <span>
+                      <span className="font-semibold tabular-nums text-foreground">{totalInsights30}</span> updates total
+                    </span>
+                    <span>
+                      Up to{" "}
+                      <span className="font-semibold tabular-nums text-foreground">{busiestDay}</span>{" "}
+                      in a day
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <div className="text-sm font-semibold">Most active</div>
+                  {(stats?.by_company || []).length ? (
+                    <div className="grid gap-2">
+                      {(stats?.by_company || []).slice(0, 3).map((row) => (
+                        <div key={row.company_id} className="grid gap-1">
+                          <div className="flex justify-between gap-3 text-sm">
+                            <span className="truncate font-medium">{row.company_name}</span>
+                            <span className="shrink-0 text-xs text-muted-foreground">
+                              {row.count} update{row.count === 1 ? "" : "s"}
+                            </span>
+                          </div>
+                          <div className="h-1.5 overflow-hidden rounded-full bg-secondary">
+                            <div
+                              className="h-full rounded-full bg-primary"
+                              style={{ width: `${Math.max(4, (row.count / byCompanyMax) * 100)}%` }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="text-sm text-muted-foreground">
+                      Once updates arrive, you'll see which companies are moving most.
+                    </p>
+                  )}
+                  {quietCount > 0 ? (
+                    <p className="mt-1 text-xs text-muted-foreground">
+                      {quietCount} monitor{quietCount === 1 ? "" : "s"} had nothing worth flagging this
+                      week — quiet is good news too.
+                    </p>
+                  ) : null}
+                </div>
+              </CardContent>
+            </Card>
+          ) : null}
+
+          <section className="flex flex-col gap-4">
             <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center">
               <div className="relative flex-1">
                 <Search className="pointer-events-none absolute left-3 top-2.5 size-4 text-muted-foreground" />
@@ -434,136 +614,49 @@ export default function HomePage() {
                 Nothing matches — try clearing your filters.
               </div>
             ) : (
-              <div className="flex flex-col gap-6">
-                {sections.map(([label, items]) => (
-                  <section key={label || "all"} className="flex flex-col gap-3">
-                    {label ? (
-                      <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                        {label}
-                      </h3>
-                    ) : null}
-                    {items.map(({ insight, attr }, i) => (
-                      <InsightCard
-                        key={insight.id}
-                        insight={insight}
-                        companyName={attr.companyName || attr.domain || "Website update"}
-                        sourceLabel={hostOf(insight.discovered_url) || undefined}
-                        priority={attr.company?.priority}
-                        onReview={(id) => reviewMutation.mutate(id)}
-                        isReviewing={reviewMutation.isPending}
-                        index={i}
-                        highlight={highlightIds.has(insight.id)}
-                      />
-                    ))}
-                  </section>
-                ))}
-              </div>
-            )}
-          </section>
-
-          <aside className="flex min-w-0 flex-col gap-5">
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0">
-                <CardTitle className="flex items-center gap-2">
-                  <span className="live-dot size-1.5" />
-                  Pulse
-                </CardTitle>
-                <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                  {trend.direction === "up" ? (
-                    <TrendingUp className="size-3.5 text-foreground" />
-                  ) : trend.direction === "down" ? (
-                    <TrendingDown className="size-3.5" />
-                  ) : null}
-                  {trend.level}
-                  {trend.deltaPct != null
-                    ? ` · ${trend.deltaPct > 0 ? "+" : ""}${trend.deltaPct}% vs last week`
-                    : ""}
-                </span>
-              </CardHeader>
-              <CardContent className="grid gap-4">
-                <ActivityPulse
-                  data={daily.map((day) => day.count)}
-                  height={120}
-                  ariaLabel="Update volume over the last 30 days"
-                  emptyLabel="No updates in the last 30 days."
-                />
-                <div className="grid grid-cols-2 gap-3 text-sm">
-                  <div className="rounded-lg bg-secondary px-3 py-2">
-                    <div className="text-xs text-muted-foreground">Updates (30 days)</div>
-                    <div className="text-lg font-semibold tabular-nums">{totalInsights30}</div>
-                  </div>
-                  <div className="rounded-lg bg-secondary px-3 py-2">
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <Clock3 className="size-3" />
-                      First insight in
-                    </div>
-                    <div className="text-lg font-semibold tabular-nums">
-                      {formatDurationShort(stats?.avg_seconds_to_insight)}
-                    </div>
-                  </div>
+              <>
+                <div className="flex flex-col gap-6">
+                  {sections.map(([label, items]) => (
+                    <section key={label || "all"} className="flex flex-col gap-3">
+                      {label ? (
+                        <h3 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                          {label}
+                        </h3>
+                      ) : null}
+                      {items.map(({ insight, attr }, i) => (
+                        <InsightCard
+                          key={insight.id}
+                          insight={insight}
+                          companyName={attr.companyName || attr.domain || "Website update"}
+                          sourceLabel={hostOf(insight.discovered_url) || undefined}
+                          priority={attr.company?.priority}
+                          onReview={(id) => reviewMutation.mutate(id)}
+                          isReviewing={reviewMutation.isPending}
+                          index={i}
+                          highlight={highlightIds.has(insight.id)}
+                        />
+                      ))}
+                    </section>
+                  ))}
                 </div>
-              </CardContent>
-            </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>Where it's happening</CardTitle>
-              </CardHeader>
-              <CardContent className="grid gap-3">
-                {(stats?.by_company || []).map((row) => (
-                  <div key={row.company_id} className="grid gap-1.5">
-                    <div className="flex justify-between gap-3 text-sm">
-                      <span className="truncate font-medium">{row.company_name}</span>
-                      <span className="shrink-0 text-muted-foreground">
-                        {row.count} update{row.count === 1 ? "" : "s"}
-                      </span>
-                    </div>
-                    <div className="h-2 overflow-hidden rounded-full bg-secondary">
-                      <div
-                        className="h-full rounded-full bg-primary"
-                        style={{ width: `${Math.max(4, (row.count / byCompanyMax) * 100)}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-                {!statsQuery.isLoading && !(stats?.by_company || []).length ? (
-                  <div className="rounded-xl border border-dashed p-4 text-sm text-muted-foreground">
-                    Add monitors to see which companies are changing most.
-                  </div>
-                ) : null}
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Busiest monitors</CardTitle>
-              </CardHeader>
-              <CardContent className="grid gap-3">
-                {(stats?.busiest_sources || []).map((row) => (
-                  <div key={row.source_id} className="flex items-center justify-between gap-3 text-sm">
-                    <span className="truncate text-foreground">{truncate(row.url, 48)}</span>
-                    <span className="shrink-0 text-muted-foreground">
-                      {row.count} update{row.count === 1 ? "" : "s"}
+                {remaining > 0 ? (
+                  <div className="flex flex-col items-center gap-1.5 pt-1">
+                    <Button
+                      variant="outline"
+                      onClick={() => setVisibleCount((count) => count + FEED_BATCH)}
+                    >
+                      Show {Math.min(FEED_BATCH, remaining)} more
+                    </Button>
+                    <span className="text-xs text-muted-foreground tabular-nums">
+                      Showing {visibleEnriched.length} of {enriched.length}
                     </span>
                   </div>
-                ))}
-                {!statsQuery.isLoading && !(stats?.busiest_sources || []).length ? (
-                  <div className="rounded-xl border border-dashed p-4 text-sm text-muted-foreground">
-                    No monitor activity in the last 30 days yet.
-                  </div>
                 ) : null}
-              </CardContent>
-            </Card>
-
-            {quietCount > 0 ? (
-              <div className="flex items-center gap-2 rounded-xl border border-dashed px-4 py-3 text-sm text-muted-foreground">
-                <Radar className="size-4 shrink-0" />
-                {quietCount} monitor{quietCount === 1 ? "" : "s"} had nothing worth flagging this week —
-                quiet is good news too.
-              </div>
-            ) : null}
-          </aside>
-        </div>
+              </>
+            )}
+          </section>
+        </>
       )}
       </section>
 

@@ -227,6 +227,23 @@ class S3Repository:
             cursor = page.next_cursor
         return records
 
+    def _delete_prefix(self, prefix: str) -> None:
+        """Delete every stored object under a prefix.
+
+        Deleting the keys S3 actually returns—rather than reconstructing each key
+        from a record field and re-hashing it—guarantees nothing is orphaned in
+        the bucket even if a record is missing the field its key was derived from.
+        Each pass lists from the start, so the loop drains the prefix and stops
+        once the listing is empty (``delete`` is idempotent, so it terminates).
+        """
+        while True:
+            page = self.storage.list_objects(prefix, limit=1000)
+            if not page.keys:
+                break
+            workers = min(self._LIST_RECORDS_MAX_WORKERS, len(page.keys))
+            with ThreadPoolExecutor(max_workers=workers) as pool:
+                list(pool.map(self.storage.delete, page.keys))
+
     # Accounts -----------------------------------------------------------------
     def get_account(self, name: str) -> dict[str, Any] | None:
         try:
@@ -355,6 +372,9 @@ class S3Repository:
             "name": name,
             "owner_name": owner,
             "priority": priority,
+            # Per-company alert cadence. "default" defers to the account-wide
+            # notification mode; "manual"/"automatic" override it for this company.
+            "alert_mode": "default",
             "created_at": now,
             "updated_at": now,
         }
@@ -404,7 +424,7 @@ class S3Repository:
             except ObjectConflict as exc:
                 raise DuplicateRecord("Company name already exists.") from exc
             self.storage.delete(self._company_name_key(actual_owner, str(current["name"])))
-        allowed = {"name", "priority"}
+        allowed = {"name", "priority", "alert_mode"}
         return self._update(
             self._company_key(actual_owner, company_id),
             lambda value: {**value, **{key: item for key, item in changes.items() if key in allowed}},
@@ -417,7 +437,9 @@ class S3Repository:
             self.delete_source(int(source["id"]), actual_owner)
         for recipient in self.list_recipients(actual_owner, company_id=company_id):
             self.delete_recipient(int(recipient["id"]), actual_owner)
-        self.storage.delete(self._company_key(actual_owner, company_id))
+        # Drop the whole company directory so any object stored under it (today
+        # company.json, plus anything added later) is removed from the bucket.
+        self._delete_prefix(f"{self._account_prefix(actual_owner)}/companies/{company_id}/")
         self.storage.delete(self._company_name_key(actual_owner, str(company["name"])))
         self.storage.delete(self._index_key("company", company_id))
 
@@ -495,18 +517,10 @@ class S3Repository:
             if job.get("source_id") == source_id:
                 self.storage.delete(self._job_key(actual_owner, str(job["job_id"])))
                 self.storage.delete(self._index_key("job", str(job["job_id"])))
-        for prefix in (
-            f"{self._account_prefix(actual_owner)}/seen/{source_id}/",
-            f"{self._account_prefix(actual_owner)}/discovered/{source_id}/",
-        ):
-            for record in self._list_records(prefix, limit=10000):
-                url = record.get("url")
-                if isinstance(url, str):
-                    self.storage.delete(
-                        self._seen_key(actual_owner, source_id, url)
-                        if "/seen/" in prefix
-                        else self._discovered_key(actual_owner, source_id, url)
-                    )
+        # Delete seen/discovered state by the keys S3 lists, not by re-hashing a
+        # url read back from each record, so nothing is left behind in the bucket.
+        self._delete_prefix(f"{self._account_prefix(actual_owner)}/seen/{source_id}/")
+        self._delete_prefix(f"{self._account_prefix(actual_owner)}/discovered/{source_id}/")
         for run in self.list_runs(actual_owner, source_id=source_id, limit=10000):
             self.storage.delete(self._run_key(actual_owner, int(run["id"])))
             self.storage.delete(self._index_key("run", int(run["id"])))
@@ -772,6 +786,18 @@ class S3Repository:
             },
         ).value
 
+    def resolve_notification_mode(self, owner: str, company_id: int) -> str:
+        """Effective alert cadence for one company: its own override when set,
+        otherwise the account-wide notification mode."""
+        try:
+            company = self.get_company(company_id, owner)
+        except RecordNotFound:
+            return self.get_notification_mode(owner)
+        company_mode = str(company.get("alert_mode") or "default")
+        if company_mode in {"manual", "automatic"}:
+            return company_mode
+        return self.get_notification_mode(owner)
+
     def create_recipient(self, owner: str, company_id: int, email: str, enabled: bool = True) -> dict[str, Any]:
         self.get_company(company_id, owner)
         existing = [
@@ -940,6 +966,12 @@ class S3Repository:
         by_source_daily: dict[int, Counter[str]] = defaultdict(Counter)
         latency_total = 0.0
         latency_samples = 0
+        # (created_at, discovered_key) per insight; the discovered record carries
+        # the discovered_at we need for latency. Reconstruct the key from the
+        # insight's own discovered_url — the same key record_discovered_url wrote
+        # under — so we can fetch each referenced record directly instead of
+        # listing (and re-fetching) every discovered row per source per insight.
+        latency_refs: list[tuple[datetime, str]] = []
         for insight in insights:
             created = parse_time(str(insight["created_at"]))
             if not created:
@@ -951,8 +983,22 @@ class S3Repository:
             company_counts[company_id] += 1
             source_counts[source_id] += 1
             by_source_daily[source_id][day] += 1
-            discovered = self._get_discovered_by_id(str(insight["owner_name"]), source_id, int(insight["discovered_url_id"]))
-            discovered_at = parse_time(discovered.get("discovered_at")) if discovered else None
+            discovered_url = insight.get("discovered_url")
+            if discovered_url:
+                key = self._discovered_key(str(insight["owner_name"]), source_id, str(discovered_url))
+                latency_refs.append((created, key))
+
+        # Fetch each distinct discovered record once, concurrently: O(insights)
+        # targeted reads instead of O(insights × discovered-per-source).
+        unique_keys = list({key for _, key in latency_refs})
+        discovered_at_by_key: dict[str, datetime | None] = {}
+        if unique_keys:
+            workers = min(self._LIST_RECORDS_MAX_WORKERS, len(unique_keys))
+            with ThreadPoolExecutor(max_workers=workers) as pool:
+                for key, record in zip(unique_keys, pool.map(self._get_or_none, unique_keys)):
+                    discovered_at_by_key[key] = parse_time(record.get("discovered_at")) if record else None
+        for created, key in latency_refs:
+            discovered_at = discovered_at_by_key.get(key)
             if discovered_at:
                 latency = (created - discovered_at).total_seconds()
                 if latency >= 0:
@@ -976,12 +1022,6 @@ class S3Repository:
             "by_source_daily": {source_id: [counts[date] for date in dates] for source_id, counts in by_source_daily.items()},
             "avg_seconds_to_insight": latency_total / latency_samples if latency_samples else None,
         }
-
-    def _get_discovered_by_id(self, owner: str, source_id: int, discovered_id: int) -> dict[str, Any] | None:
-        for record in self._list_records(f"{self._account_prefix(owner)}/discovered/{source_id}/", limit=10000):
-            if int(record.get("id", 0)) == discovered_id:
-                return record
-        return None
 
     def due_sources(self, now: datetime | None = None) -> list[dict[str, Any]]:
         now = now or utc_now()

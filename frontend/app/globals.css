@@ -202,15 +202,6 @@
       stroke-dashoffset: -1;
     }
   }
-
-  /* Status dot: a small, static indicator (monitor "Active", header tagline,
-     Pulse card). Monochrome — inherits currentColor from its container; no
-     pinging ring, no colour. */
-  .live-dot {
-    display: inline-flex;
-    border-radius: 9999px;
-    background-color: currentColor;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
